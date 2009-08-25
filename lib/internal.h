@@ -1,4 +1,4 @@
-/* @(#) $Id: internal.h,v 1.21 2004/05/11 16:14:02 yeti Exp $ */
+/* @(#) $Id: internal.h,v 1.22 2004/06/01 18:38:47 yeti Exp $ */
 #ifndef LIBENCA_H
 #define LIBENCA_H
 /***************************************************************************
@@ -141,6 +141,7 @@ struct _EncaLanguageInfo {
   long int weight_sum;
   EncaHookFunc hook;
   EncaHookFunc eolhook;
+  EncaHookFunc lcuchook;
 };
 
 /**
@@ -201,6 +202,10 @@ struct _EncaAnalyserOptions {
  * @bitcounts: Counts for each possible bit combinations in @pair2bits
  *             [0x1 << ncharsets].
  * @pairratings: Counts of `good' pairs per charset [@ncharsets].
+ * @lcbits: If a character is lowercase in some charset, correspinding bit
+ *          is set [0x100].
+ * @ucbits: If a character is uppercase in some charset, correspinding bit
+ *          is set [0x100].
  * @options: Analyser options.
  *
  * The internal analyser state.
@@ -231,6 +236,9 @@ struct _EncaAnalyserState {
   unsigned char *pair2bits;
   size_t *bitcounts;
   size_t *pairratings;
+  /* LCUC data */
+  size_t *lcbits;
+  size_t *ucbits;
   /* Options. */
   EncaAnalyserOptions options;
 };
@@ -363,7 +371,8 @@ void*  enca_realloc (void *ptr,
  *
  * @ptr MUST be l-value.
  **/
-#define enca_free(ptr) ENCA_STMT_START{ free(ptr); ptr=NULL; }ENCA_STMT_END
+#define enca_free(ptr) \
+  ENCA_STMT_START{ if (ptr) free(ptr); ptr=NULL; }ENCA_STMT_END
 
 /**
  * NEW:

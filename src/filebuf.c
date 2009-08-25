@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: filebuf.c,v 1.19 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: filebuf.c,v 1.20 2004/07/20 19:30:01 yeti Exp $
   buffers, input/output operations with magic buffering and small utils
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -72,6 +72,16 @@ long int time(void *);  /* Wrong, but we pass NULL. */
 #else /* HAVE_FCNTL_H */
 int open(const char *pathname, int flags, mode_t mode);
 #endif /* HAVE_FCNTL_H */
+
+/* MS simply cannot use the same function names as everyone else... */
+#ifndef HAVE_FTRUNCATE
+#  ifdef WIN32
+#     include <io.h>
+#     define ftruncate _chsize
+#  else
+     /* XXX: We are in trouble. */
+#  endif
+#endif
 
 /* stdin and stdout names */
 static const char *stdin_fname = "STDIN";

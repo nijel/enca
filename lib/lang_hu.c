@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_hu.c,v 1.10 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_hu.c,v 1.12 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; hungarian
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -39,7 +39,7 @@ static int hook_isocork(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_HU = {
   "hu",
-  "Hungarian",
+  "hungarian",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -48,6 +48,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_HU = {
   CHARSET_PAIRS,
   WEIGHT_SUM,
   &hook,
+  NULL,
   NULL,
 };
 

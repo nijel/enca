@@ -2,6 +2,49 @@
  # See ChangeLog.prelib for changes before that.
  # Unfortunately, there's no ChangeLog for the transition.
 
+v1.6
+2004-07-22 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/Makefile.am: add $(EXEEXT) to binary names before trying to symlink
+      enca -> enconv
+
+2004-07-22 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/Makefile.am: concatenate $(DESTDIR) and $(bindir) w/o / between,
+      // has some silly interpretation on Win32
+    * Makefile.am: ditto for $(man1dir)
+
+2004-07-22 David Necas (Yeti) <yeti@physics.muni.cz>
+    * THANKS, INSTALL: updated
+
+2004-07-20 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/lang_be.c, lib/lang_bg.c, lib/lang_cs.c, lib/lang_et.c,
+      lib/lang_hr.c, lib/lang_hu.c, lib/lang_lt.c, lib/lang_lv.c,
+      lib/lang_pl.c, lib/lang_ru.c, lib/lang_sk.c, lib/lang_sl.c,
+      lib/lang_uk.c: changed English language names to lowercase to match
+      locale names
+
+2004-07-20 David Necas (Yeti) <yeti@physics.muni.cz>
+    * configure.ac, NEWS, deb/changelog: bumped version
+
+2004-07-20 David Necas (Yeti) <yeti@physics.muni.cz>
+    * configure.ac, src/locale_detect.c: check whether LC_MESSAGES is defined,
+      and don't use it if it doesn't
+
+2004-07-20 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/filebuf.c: first attempt to emulate ftruncate() with _chsize() on
+      Win32
+
+2004-07-20 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/convert.c: fixed a compiler warning
+
+2004-06-01 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/internal.h: addef if (ptr) to enca_free() definition
+    * lib/internal.h, lib/enca.c, lib/lang.c, lib/lang_be.c, lib/lang_bg.c,
+      lib/lang_cs.c, lib/lang_et.c, lib/lang_hr.c, lib/lang_hu.c,
+      lib/lang_lt.c, lib/lang_lv.c, lib/lang_pl.c, lib/lang_ru.c,
+      lib/lang_sk.c, lib/lang_sl.c, lib/lang_uk.c: added lcbits, ucbits fields
+      to analyser, lcuchook to language info, and initializing and finalizing
+      them, otherwise they are unused
+
 v1.5
 2004-05-30 David Necas (Yeti) <yeti@physics.muni.cz>
     * deb/changelog, configure.ac, NEWS: updated and bumped version to 1.5

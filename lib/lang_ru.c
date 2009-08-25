@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_ru.c,v 1.8 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_ru.c,v 1.10 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; russian
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -40,7 +40,7 @@ static int hook_macwin(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_RU = {
   "ru",
-  "Russian",
+  "russian",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -50,6 +50,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_RU = {
   WEIGHT_SUM,
   &hook,
   &eol_hook,
+  NULL,
 };
 
 /**

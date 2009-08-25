@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_et.c,v 1.8 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_et.c,v 1.10 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; estonian
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -41,7 +41,7 @@ static int hook_allinone(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_ET = {
   "et",
-  "Estonian",
+  "estonian",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -51,6 +51,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_ET = {
   WEIGHT_SUM,
   &hook,
   &eol_hook,
+  NULL,
 };
 
 /**

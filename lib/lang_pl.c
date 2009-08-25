@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_pl.c,v 1.8 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_pl.c,v 1.10 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; polish
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -41,7 +41,7 @@ static int hook_isowin(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_PL = {
   "pl",
-  "Polish",
+  "polish",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -51,6 +51,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_PL = {
   WEIGHT_SUM,
   &hook,
   &eol_hook,
+  NULL,
 };
 
 /**

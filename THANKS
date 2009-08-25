@@ -28,6 +28,9 @@ Nick Rezmerski <nick@bpsi.net>
 Jindřich Makovička <makovick@kmlinux.fjfi.cvut.cz>
   for MPlayer integration
 
+Jan Bílek <bilek@centrum.cz>
+  for Win32 (MinGW and Cygwin) testing
+
 François Pinard <pinard@iro.umontreal.ca>
   for his infinitely powerful, though incredibly buggy, recode
 

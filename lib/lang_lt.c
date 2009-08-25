@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_lt.c,v 1.9 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_lt.c,v 1.11 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; lithuanian
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -40,7 +40,7 @@ static int hook_lat4balt(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_LT = {
   "lt",
-  "Lithuanian",
+  "lithuanian",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -49,6 +49,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_LT = {
   CHARSET_PAIRS,
   WEIGHT_SUM,
   &hook,
+  NULL,
   NULL,
 };
 

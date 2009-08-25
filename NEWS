@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.5 (2004-05-30)  guess and convert encoding of text files
+# Enca v1.6 (2004-09-01)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -8,6 +8,11 @@ List of user-visible changes in Enca
 Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
+
+enca-1.6 2004-09-01
+  * English language names (--list=languages, enca_language_english_name())
+    were changed to lowercase to match common locale aliases
+  - Win32, i.e. MinGW and Cygwin, build problems were fixed
 
 enca-1.5 2004-05-30
   - crash on impossible recovery after iconv failure in pipe was fixed

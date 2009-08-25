@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_sl.c,v 1.6 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang_sl.c,v 1.8 2004/07/21 10:52:02 yeti Exp $
   encoding data and routines dependent on language; slovene
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -38,7 +38,7 @@ static int hook_isowin(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_SL = {
   "sl",
-  "Slovene",
+  "slovene",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
@@ -48,6 +48,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_SL = {
   WEIGHT_SUM,
   NULL,
   &eol_hook,
+  NULL,
 };
 
 /**

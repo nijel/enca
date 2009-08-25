@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: convert.c,v 1.25 2003/11/17 13:50:54 yeti Exp $
+  @(#) $Id: convert.c,v 1.26 2004/07/20 18:40:00 yeti Exp $
   conversion to other encodings
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -332,7 +332,7 @@ add_convertor(const char *cname)
   static const char *CONVERTOR_NAME_NONE = "none";
 
   const Abbreviation *data;
-  Convertor *conv, *conv1;
+  Convertor *conv = NULL, *conv1;
 
   /* remove everything when we got `none' */
   if (strcmp(CONVERTOR_NAME_NONE, cname) == 0) {

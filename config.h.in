@@ -15,6 +15,10 @@
 /* Define to 1 if you have the `canonicalize_file_name' function. */
 #undef HAVE_CANONICALIZE_FILE_NAME
 
+/* Define to 1 if you have the declaration of `LC_MESSAGES', and to 0 if you
+   don't. */
+#undef HAVE_DECL_LC_MESSAGES
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #undef HAVE_DLFCN_H
 

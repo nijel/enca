@@ -1,9 +1,9 @@
 dnl configure.in by David Necas (Yeti) <yeti@physics.muni.cz>
-dnl @(#) $Id: configure.ac,v 1.29 2004/05/30 08:18:18 yeti Exp $
+dnl @(#) $Id: configure.ac,v 1.31 2004/07/21 08:23:08 yeti Exp $
 dnl This file is in public domain.
 dnl Process this file with autoconf to produce a configure script.
 dnl Shake before use.
-AC_INIT(Enca, 1.5, [David Necas (Yeti) <yeti@physics.muni.cz>])
+AC_INIT(Enca, 1.6, [David Necas (Yeti) <yeti@physics.muni.cz>])
 AC_PREREQ(2.52)
 AC_CONFIG_SRCDIR(src/enca.c)
 AC_CONFIG_FILES( \
@@ -139,6 +139,8 @@ AC_TYPE_OFF_T
 AC_TYPE_PID_T
 AC_TYPE_UID_T
 AC_CHECK_TYPE(ssize_t, int)
+# FIXME: This is crude.  It seems to work on Linux, though.
+AC_CHECK_DECLS(LC_MESSAGES,,,[#include <locale.h>])
 
 ye_CHECK_VAR_PROGRAM_INVOCATION_SHORT_NAME
 

@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: locale_detect.c,v 1.23 2003/11/26 19:53:26 yeti Exp $
+  @(#) $Id: locale_detect.c,v 1.24 2004/07/20 20:15:09 yeti Exp $
   try to guess user's native language from locale
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -130,7 +130,8 @@ detect_target_charset(const char *locname)
  * Detect user's locale by querying several LC categories.
  *
  * NB: this is conceptually wrong, the string returned by setlocale should
- * be taken as opaque -- but then we would be in deep shit^Wtrouble.
+ * be taken as opaque -- but then we would be in deep shit^Wtrouble.  This
+ * seems to actually happen on Win32.
  *
  * Returns: A string (to be freed) with locale name or NULL on failure.
  **/
@@ -138,7 +139,10 @@ static char*
 detect_user_language(void)
 {
   static const int test_categories[] = {
-    LC_CTYPE, LC_COLLATE, LC_MESSAGES
+    LC_CTYPE, LC_COLLATE,
+#if HAVE_LC_MESSAGES
+    LC_MESSAGES,
+#endif
   };
   char *s = NULL;
   size_t i;

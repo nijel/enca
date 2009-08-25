@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang.c,v 1.15 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: lang.c,v 1.16 2004/06/01 18:38:47 yeti Exp $
   uniform interface to particular languages
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -42,6 +42,7 @@ static const EncaLanguageInfo ENCA_LANGUAGE___ = {
   0,    /* sum of weights */
   NULL, /* hook function */
   NULL, /* eolhook function */
+  NULL, /* lcuchook function */
 };
 
 /* All languages. */
@@ -91,6 +92,8 @@ enca_language_init(EncaAnalyserState *analyser,
   analyser->lang = NULL;
   analyser->ncharsets = 0;
   analyser->charsets = NULL;
+  analyser->lcbits = NULL;
+  analyser->ucbits = NULL;
 
   lang = find_language(langname);
   if (lang == NULL)
@@ -116,6 +119,8 @@ void
 enca_language_destroy(EncaAnalyserState *analyser)
 {
   enca_free(analyser->charsets);
+  enca_free(analyser->lcbits);
+  enca_free(analyser->ucbits);
   analyser->ncharsets = 0;
   analyser->lang = NULL;
 }

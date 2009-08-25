@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.20 2003/12/22 15:32:37 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.22 2004/07/22 16:18:42 yeti Exp $
 bin_PROGRAMS = enca
 noinst_SCRIPTS = text2c.sh
 
@@ -42,14 +42,14 @@ HELP.c: HELP $(srcdir)/text2c.sh
 	$(srcdir)/text2c.sh HELP >HELP.c
 
 install-exec-hook:
-	cd $(DESTDIR)/$(bindir); \
+	cd $(DESTDIR)$(bindir); \
 	inst1=`echo enca | sed '$(transform)'`; \
 	inst2=`echo enconv | sed '$(transform)'`; \
-	$(LN_S) $$inst1 $$inst2
+	$(LN_S) $$inst1$(EXEEXT) $$inst2$(EXEEXT)
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`; \
-	rm -f $(DESTDIR)/$(bindir)/$$inst
+	rm -f $(DESTDIR)$(bindir)/$$inst$(EXEEXT)
 
 clean-local:
 	rm -f core.* *~ HELP.c COPYING.c

@@ -797,14 +797,14 @@ HELP.c: HELP $(srcdir)/text2c.sh
 	$(srcdir)/text2c.sh HELP >HELP.c
 
 install-exec-hook:
-	cd $(DESTDIR)/$(bindir); \
+	cd $(DESTDIR)$(bindir); \
 	inst1=`echo enca | sed '$(transform)'`; \
 	inst2=`echo enconv | sed '$(transform)'`; \
-	$(LN_S) $$inst1 $$inst2
+	$(LN_S) $$inst1$(EXEEXT) $$inst2$(EXEEXT)
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`; \
-	rm -f $(DESTDIR)/$(bindir)/$$inst
+	rm -f $(DESTDIR)$(bindir)/$$inst$(EXEEXT)
 
 clean-local:
 	rm -f core.* *~ HELP.c COPYING.c

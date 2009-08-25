@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.32 2004/05/24 19:32:31 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.33 2004/07/22 14:39:36 yeti Exp $
 if MAINTAINER_MODE
 SUBDIRS = tools data script lib src devel-docs test
 else
@@ -67,14 +67,14 @@ pkgconfig_DATA = enca.pc
 $(pkgconfig_DATA): config.status
 
 install-data-hook:
-	cd $(DESTDIR)/$(man1dir); \
+	cd $(DESTDIR)$(man1dir); \
 	inst1=`echo enca | sed '$(transform)'`.1; \
 	inst2=`echo enconv | sed '$(transform)'`.1; \
 	$(LN_S) $$inst1 $$inst2
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`.1; \
-	rm -f $(DESTDIR)/$(man1dir)/$$inst
+	rm -f $(DESTDIR)$(man1dir)/$$inst
 
 clean-local:
 	rm -f iconvcap iconvcap.o *~ core.* debian/*~
