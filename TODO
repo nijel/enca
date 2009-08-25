@@ -1,12 +1,10 @@
 #============================================================================
-# Enca v1.8 (2005-11-24)  guess and convert encoding of text files
+# Enca v1.9 (2005-12-18)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
 TO THE NEXT RELEASE:
 (this list must be empty at the time of release)
-
-* fix /usr/share/doc file permissions in rpm
 
 IN FUTURE:
 (should be done, but maybe not right now)

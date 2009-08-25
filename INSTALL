@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.8 (2005-11-24)  guess and convert encoding of text files
+# Enca v1.9 (2005-12-18)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -41,7 +41,7 @@ POSIX features:
 
 Enca is known to compile and work on following systems:
   Version    OS                       Compiler             Tester
-  1.8        Fedora Core 3            gcc 3.4              (1)
+  1.9        Fedora Core 3            gcc 3.4              (1)
   0.99.4     RedHat Linux 9           gcc 3.2              (1)
   1.6        Debian GNU/Linux 3.0     gcc 2.95.4           (1)
   1.2        Mandrake Linux 9.0       gcc 3.2              (1)

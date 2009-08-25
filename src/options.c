@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: options.c,v 1.30 2005/05/02 20:52:06 yeti Exp $
+  @(#) $Id: options.c,v 1.31 2005/12/18 12:07:46 yeti Exp $
   command line option processing
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -120,7 +120,8 @@ static const char *VERSION_TEXT = /* {{{ */
 "ENCAOPT "
 
 "\n\n"
-"Copyright (C) 2000-2004 David Necas (Yeti) <yeti@physics.muni.cz>.\n"
+"Copyright (C) 2000-2005 David Necas (Yeti) (<yeti@physics.muni.cz>),\n"
+"              2005 Zuxy Meng (<zuxy.meng@gmail.com>).\n"
 "\n"
 PACKAGE_NAME
 " is free software; it can be copied and/or modified under the terms of\n"

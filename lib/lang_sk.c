@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_sk.c,v 1.9 2004/07/21 10:52:02 yeti Exp $
+  @(#) $Id: lang_sk.c,v 1.10 2005/12/01 10:08:53 yeti Exp $
   encoding data and routines dependent on language; slovak
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -52,6 +52,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_SK = {
   &hook,
   &eol_hook,
   NULL,
+  NULL
 };
 
 /**

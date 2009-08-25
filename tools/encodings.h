@@ -2,181 +2,181 @@
 /* THIS IS A GENERATED TABLE, see tools/make_hash.c. */
 static const EncaCharsetInfo CHARSET_INFO[] = {
   {
-     18, 16, 19, 18, 186,
+     18, 16, 19, 18, 191,
      "7bit ASCII characters",
      ENCA_CHARSET_7BIT | ENCA_CHARSET_FIXED,
      ENCA_SURFACE_EOL_LF
   },
   {
-     100, 101, 85, 100, 100,
+     104, 105, 89, 104, 104,
      "ISO 8859-2 standard; ISO Latin 2",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     102, 103, -1, 102, 102,
+     106, 107, -1, 106, 106,
      "ISO 8859-4 standard; Latin 4",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     104, 105, -1, 104, 104,
+     108, 109, -1, 108, 108,
      "ISO 8859-5 standard; ISO Cyrillic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     93, 96, -1, 93, 93,
+     97, 100, -1, 97, 97,
      "ISO 8859-13 standard; ISO Baltic; Latin 7",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     97, 99, -1, 97, 97,
+     101, 103, -1, 101, 101,
      "ISO 8859-16 standard",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     30, 30, -1, -1, 198,
+     31, 31, -1, -1, 203,
      "MS-Windows code page 1125",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     31, 31, 2, 31, 200,
+     32, 32, 2, 32, 205,
      "MS-Windows code page 1250",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     32, 32, -1, 32, 202,
+     33, 33, -1, 33, 207,
      "MS-Windows code page 1251",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     33, 33, -1, 33, 204,
+     34, 34, -1, 34, 209,
      "MS-Windows code page 1257; WinBaltRim",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     81, 81, 160, 81, 81,
+     85, 85, 165, 85, 85,
      "IBM/MS code page 852; PC (DOS) Latin 2",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     82, 82, -1, 82, 82,
+     86, 86, -1, 86, 86,
      "IBM/MS code page 855",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     80, 80, -1, 80, 80,
+     84, 84, -1, 84, 84,
      "IBM/MS code page 775",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     83, 83, -1, 83, 83,
+     87, 87, -1, 87, 87,
      "IBM/MS code page 866",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     21, 112, -1, 20, -1,
+     21, 116, -1, 20, -1,
      "ISO-IR-179; Baltic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     121, 121, 119, -1, -1,
+     126, 126, 124, -1, -1,
      "Kamenicky encoding; KEYBCS2",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     142, 148, 142, -1, -1,
+     147, 153, 147, -1, -1,
      "Macintosh Central European",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CR
   },
   {
-     143, 145, -1, 144, -1,
+     148, 150, -1, 149, -1,
      "Macintosh Cyrillic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CR
   },
   {
-     70, 71, -1, 72, 72,
+     71, 72, -1, 73, 73,
      "ECMA Cyrillic; ECMA-113",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_LF
   },
   {
-     125, 125, 122, -1, 126,
+     130, 130, 127, -1, 131,
      "KOI8-CS2 code (`T602')",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     128, 128, -1, 128, 128,
+     133, 133, -1, 133, 133,
      "KOI8-R Cyrillic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     129, 129, -1, 129, 129,
+     134, 134, -1, 134, 134,
      "KOI8-U Cyrillic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     130, 130, -1, -1, -1,
+     135, 135, -1, -1, -1,
      "KOI8-Unified Cyrillic",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     172, 135, 173, -1, -1,
+     177, 140, 178, -1, -1,
      "(La)TeX control sequences",
      ENCA_CHARSET_7BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
      ENCA_SURFACE_EOL_LF
   },
   {
-     181, 87, -1, 181, 87,
+     186, 91, -1, 186, 91,
      "Universal character set 2 bytes; UCS-2; BMP",
      ENCA_CHARSET_16BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_BINARY | ENCA_CHARSET_MULTIBYTE,
      0
   },
   {
-     182, 88, -1, 182, 88,
+     187, 92, -1, 187, 92,
      "Universal character set 4 bytes; UCS-4; ISO-10646",
      ENCA_CHARSET_32BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_BINARY | ENCA_CHARSET_MULTIBYTE,
      0
   },
   {
-     188, 184, -1, 188, 184,
+     193, 189, -1, 193, 189,
      "Universal transformation format 7 bits; UTF-7",
      ENCA_CHARSET_7BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
      ENCA_SURFACE_EOL_CRLF
   },
   {
-     189, 189, 190, 189, 189,
+     194, 194, 195, 194, 194,
      "Universal transformation format 8 bits; UTF-8",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
      ENCA_SURFACE_EOL_LF
   },
   {
-     28, 28, -1, -1, -1,
+     29, 29, -1, -1, -1,
      "Cork encoding; T1",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR,
      0
   },
   {
-     78, 77, -1, 78, 76,
+     80, 79, -1, 80, 77,
      "Simplified Chinese National Standard; GB2312",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
      ENCA_SURFACE_EOL_LF
@@ -185,6 +185,12 @@ static const EncaCharsetInfo CHARSET_INFO[] = {
      23, 24, -1, 23, 23,
      "Traditional Chinese Industrial Standard; Big5",
      ENCA_CHARSET_8BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
+     ENCA_SURFACE_EOL_LF
+  },
+  {
+     81, 81, -1, -1, 82,
+     "HZ encoded GB2312",
+     ENCA_CHARSET_7BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE,
      ENCA_SURFACE_EOL_LF
   },
 };
@@ -219,6 +225,7 @@ static const char *ALIAS_LIST[] = {
   "BIG-FIVE",
   "BIGFIVE",
   "BMP",
+  "CN-BIG5",
   "CORK",
   "Cork",
   "CP1125",
@@ -268,8 +275,11 @@ static const char *ALIAS_LIST[] = {
   "FSS_UTF",
   "GB18030",
   "GB2312",
+  "GB2312.1980-0",
   "GB_2312-80",
   "GBK",
+  "HZ",
+  "HZ-GB-2312",
   "IBM367",
   "IBM775",
   "IBM852",
@@ -306,6 +316,7 @@ static const char *ALIAS_LIST[] = {
   "iso-ir-179",
   "iso-ir-179a",
   "ISO-IR-226",
+  "ISO-IR-58",
   "iso-ir-6",
   "ISOLatin2",
   "ISOLatin4",
@@ -401,17 +412,18 @@ static const char *ALIAS_LIST[] = {
 /* THIS IS A GENERATED TABLE, see tools/make_hash.c. */
 static const int INDEX_LIST[] = {
   25,  6,  7,  8,  9,  0, 12,  0, 10, 11, 13,  1,  2,  3, 15,  1, 
-   0,  0,  0,  0, 14, 14, 30, 30, 30, 30, 30, 24, 28, 28,  6,  7, 
-   8,  9,  0, 12, 10, 11, 13, 15,  1, 29, 30,  0, 12, 10, 11, 13, 
-   1,  3, 20,  5,  1,  2,  3,  4,  0, 12, 10, 11, 13, 15, 24, 25, 
-  24, 24, 26, 26, 27,  3, 18, 18, 18, 18, 27, 29, 29, 29, 29,  0, 
-  12, 10, 11, 13,  1,  1, 25, 24, 25, 26, 27,  0,  0,  4,  4,  4, 
-   4,  5,  5,  5,  1,  1,  2,  2,  3,  3,  4,  1,  2, 18,  3, 14, 
-  14,  4,  5,  0,  1,  2,  3, 15, 15, 15, 19, 19, 19, 19, 19, 19, 
-  20, 21, 22,  5,  1,  2,  4, 23, 23,  5,  1,  2,  4, 23, 16, 17, 
-  17, 17, 17, 16, 16, 16, 17, 17, 16,  6,  7,  8,  9,  9,  8,  7, 
-  10, 12, 10, 11, 13, 15, 10, 10, 10, 24, 28, 19, 23, 23, 26, 27, 
-  24, 25, 26, 27, 25, 24, 25, 24, 26,  0,  0, 27, 26, 27, 27, 27, 
-   6,  7,  8,  9,  9,  6,  6,  7,  7,  8,  8,  9,  9, 
+   0,  0,  0,  0, 14, 14, 30, 30, 30, 30, 30, 24, 30, 28, 28,  6, 
+   7,  8,  9,  0, 12, 10, 11, 13, 15,  1, 29, 30,  0, 12, 10, 11, 
+  13,  1,  3, 20,  5,  1,  2,  3,  4,  0, 12, 10, 11, 13, 15, 24, 
+  25, 24, 24, 26, 26, 27,  3, 18, 18, 18, 18, 27, 29, 29, 29, 29, 
+  29, 31, 31,  0, 12, 10, 11, 13,  1,  1, 25, 24, 25, 26, 27,  0, 
+   0,  4,  4,  4,  4,  5,  5,  5,  1,  1,  2,  2,  3,  3,  4,  1, 
+   2, 18,  3, 14, 14,  4,  5, 29,  0,  1,  2,  3, 15, 15, 15, 19, 
+  19, 19, 19, 19, 19, 20, 21, 22,  5,  1,  2,  4, 23, 23,  5,  1, 
+   2,  4, 23, 16, 17, 17, 17, 17, 16, 16, 16, 17, 17, 16,  6,  7, 
+   8,  9,  9,  8,  7, 10, 12, 10, 11, 13, 15, 10, 10, 10, 24, 28, 
+  19, 23, 23, 26, 27, 24, 25, 26, 27, 25, 24, 25, 24, 26,  0,  0, 
+  27, 26, 27, 27, 27,  6,  7,  8,  9,  9,  6,  6,  7,  7,  8,  8, 
+   9,  9, 
 };
 

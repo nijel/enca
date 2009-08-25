@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang_hr.c,v 1.6 2004/07/21 10:52:02 yeti Exp $
+  @(#) $Id: lang_hr.c,v 1.7 2005/12/01 10:08:53 yeti Exp $
   encoding data and routines dependent on language; croatian
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -51,6 +51,7 @@ const EncaLanguageInfo ENCA_LANGUAGE_HR = {
   &hook,
   &eol_hook,
   NULL,
+  NULL
 };
 
 /**

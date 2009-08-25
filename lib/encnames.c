@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: encnames.c,v 1.10 2005/11/24 20:07:14 yeti Exp $
+  @(#) $Id: encnames.c,v 1.11 2005/12/01 10:08:53 yeti Exp $
   convert charset and surface names to internal representation and back
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -625,6 +625,7 @@ check_encoding_name(const char *name)
  * @ENCA_SURFACE_PERM_MIX: Chunks with both endianess, concatenated.
  * @ENCA_SURFACE_MASK_PERM: Mask for permutation surfaces.
  * @ENCA_SURFACE_QP: Quoted printables.
+ * @ENCA_SURFACE_HZ: HZ encoded.
  * @ENCA_SURFACE_REMOVE: Recode `remove' surface.
  * @ENCA_SURFACE_UNKNOWN: Unknown surface.
  * @ENCA_SURFACE_MASK_ALL: Mask for all bits, withnout #ENCA_SURFACE_UNKNOWN.

@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.25 2005/11/24 11:42:47 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.26 2005/12/01 10:12:10 yeti Exp $
 TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@
 
 TESTS = \
@@ -196,6 +196,7 @@ TEST_SAMPLES =  \
   uk-utf8.cp1251 \
   zh-s.big5 \
   zh-s.gbk \
+  zh-s.hz \
   zh-s.utf8
 
 # alias test=check

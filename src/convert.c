@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: convert.c,v 1.27 2005/05/02 20:52:06 yeti Exp $
+  @(#) $Id: convert.c,v 1.28 2005/12/01 10:08:53 yeti Exp $
   conversion to other encodings
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -151,7 +151,7 @@ convert(File *file,
   }
 
   /* no convertor able/allowed to perform given conversion, that's bad */
-  fprintf(stderr, "%s: no convertor is able/allowed to perfrom "
+  fprintf(stderr, "%s: no convertor is able/allowed to perform "
                   "conversion %s on file `%s'\n",
                   program_name,
                   format_request_string(from_enc, options.target_enc, 0),

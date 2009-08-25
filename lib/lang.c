@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang.c,v 1.17 2005/11/24 10:09:03 yeti Exp $
+  @(#) $Id: lang.c,v 1.18 2005/12/01 10:08:53 yeti Exp $
   uniform interface to particular languages
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -43,6 +43,7 @@ static const EncaLanguageInfo ENCA_LANGUAGE___ = {
   NULL, /* hook function */
   NULL, /* eolhook function */
   NULL, /* lcuchook function */
+  NULL, /* ratinghook function */
 };
 
 /* All languages. */

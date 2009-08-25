@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.19 2003/11/17 12:27:39 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.22 2005/12/01 10:13:50 yeti Exp $
 noinst_PROGRAMS = \
   basetoc \
   countall \
@@ -11,6 +11,9 @@ noinst_DATA = $(BASES) $(RAWCOUNTS) $(PAIRCOUNTS) $(MAPS) Letters
 noinst_HEADERS = \
   belarussian/belarussian.h \
   bulgarian/bulgarian.h \
+  chinese/chinese.h \
+  chinese/zh_weight_big5.h \
+  chinese/zh_weight_gbk.h \
   croatian/croatian.h \
   czech/czech.h \
   estonian/estonian.h \
@@ -117,7 +120,11 @@ MAPS = \
   maps/macce.map \
   maps/maccyr.map
 
-EXTRA_DIST = README $(BASES) $(RAWCOUNTS) $(PAIRCOUNTS) $(MAPS)\
+OTHERDATA = \
+  chinese/zh_weight_big5.txt \
+  chinese/zh_weight_gb.txt
+
+EXTRA_DIST = README $(BASES) $(RAWCOUNTS) $(PAIRCOUNTS) $(MAPS) $(OTHERDATA) \
              $(noinst_SCRPITS) Letters
 
 # We don't want to recreate the headers over and over, namely we don't want

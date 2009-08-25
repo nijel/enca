@@ -2,6 +2,37 @@
  # See ChangeLog.prelib for changes before that.
  # Unfortunately, there's no ChangeLog for the transition.
 
+v1.9
+2005-12-18 David Necas (Yeti) <yeti@physics.muni.cz>
+    * NEWS: fixed version number
+
+2005-12-18 David Necas (Yeti) <yeti@physics.muni.cz>
+    * configure.ac, src/options.c, AUTHORS: updated version info
+
+2005-12-18 David Necas (Yeti) <yeti@physics.muni.cz>
+    * man/enca.1, NEWS, INSTALL: updated docs
+
+2005-12-01 David Necas (Yeti) <yeti@physics.muni.cz>
+    * data/Makefile.am, test/Makefile.am: added new files to distribution
+
+2005-12-01 David Necas (Yeti) <yeti@physics.muni.cz>
+    * iconvcap.c, data/chinese/chinese.h,
+      data/chinese/zh_weight_big5.h, data/chinese/zh_weight_big5.txt,
+      data/chinese/zh_weight_gb.txt, data/chinese/zh_weight_gbk.h,
+      lib/encnames.c, lib/guess.c, lib/internal.h, lib/lang.c, lib/lang_be.c,
+      lib/lang_bg.c, lib/lang_cs.c, lib/lang_et.c, lib/lang_hr.c,
+      lib/lang_hu.c, lib/lang_lt.c, lib/lang_lv.c, lib/lang_pl.c,
+      lib/lang_ru.c, lib/lang_sk.c, lib/lang_sl.c, lib/lang_uk.c,
+      lib/lang_zh.c, lib/multibyte.c, src/convert.c,
+      test/test-guess-short.expected, test/zh-s.hz, tools/encodings.dat,
+      tools/iconvenc.null: incorporated Zuxy's patches that add HZ encoding
+      and improve existing detection, with some code fixes; hz test added to
+      tests
+
+2005-12-01 David Necas (Yeti) <yeti@physics.muni.cz>
+    * gendoc.pl: some updates to new gtk-doc
+
+v1.8
 2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
     * lib/encnames.c: documeneted ENCA_NAME_STYLE_MIME
 

@@ -1,4 +1,4 @@
-/* @(#) $Id: internal.h,v 1.24 2005/11/24 10:09:03 yeti Exp $ */
+/* @(#) $Id: internal.h,v 1.25 2005/12/01 10:08:53 yeti Exp $ */
 #ifndef LIBENCA_H
 #define LIBENCA_H
 /***************************************************************************
@@ -128,6 +128,7 @@ typedef int (* EncaGuessFunc)(EncaAnalyserState *analyser);
  * @weight_sum: Sum of all @weights (is the same for all charsets).
  * @hook: Hook function (deciding hard cases).
  * @eolhook: EOL hook function (deciding ambiguous cases based on EOL type).
+ * @ratinghook: Helper to calculate ratings for weightingless languages.
  *
  * Language specific data.
  **/
@@ -144,6 +145,7 @@ struct _EncaLanguageInfo {
   EncaHookFunc hook;
   EncaHookFunc eolhook;
   EncaHookFunc lcuchook;
+  EncaHookFunc ratinghook;
 };
 
 /**

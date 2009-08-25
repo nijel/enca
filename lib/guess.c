@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: guess.c,v 1.18 2005/11/24 10:09:03 yeti Exp $
+  @(#) $Id: guess.c,v 1.19 2005/12/01 10:08:53 yeti Exp $
   encoding-guesing engine
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -281,14 +281,15 @@ make_guess(EncaAnalyserState *analyser)
     return ENCA_EGARBAGE;
 
   /* Multibyte 8bit sample (utf-8), this has to be tested before
-   * filtering too -- no multibyte encoding can be assumed to survive it. */
+   * filtering too -- no language independent multibyte encoding can be
+   * assumed to survive it. */
   if (!analyser->bin && analyser->up && options->multibyte_enabled) {
     if (try_test_list(analyser, ENCA_MULTIBYTE_TESTS_8BIT))
       return 0;
   }
 
-  /* Now it can still be a regular 8bit charset (w/ or w/o noise), ascii w/
-     noise or just garbage. */
+  /* Now it can still be a regular 8bit charset (w/ or w/o noise), language
+   * dependent MBCS (w/ or w/o noise), ascii w/ noise or just garbage. */
 
   /* When the buffer must be treated as const and filters are enabled
    * (and we didn't created a copy earlier), create a copy and store
@@ -340,9 +341,8 @@ make_guess(EncaAnalyserState *analyser)
   }
 
   /* When no regular charsets are present (i.e. language is `none')
-   * or the language supports multibyte charsets only,
    * nothing of the following procedure has sense so just quit. */
-  if (analyser->ncharsets == 0 || analyser->lang->weights == 0)
+  if (analyser->ncharsets == 0)
     return ENCA_ENOCS8;
 
   /* How many significant characters we caught? */
@@ -367,11 +367,16 @@ make_guess(EncaAnalyserState *analyser)
    *          /___  rs
    *            r
    */
-  for (cs = 0; cs < analyser->ncharsets; cs++) {
-    ratings[cs] = 0.0;
-    for (i = 0; i < 0x100; i++) {
-      ratings[cs] += weights[cs][i]/(significant[i] + EPSILON)*counts[i];
+  if (weights) {
+    for (cs = 0; cs < analyser->ncharsets; cs++) {
+      ratings[cs] = 0.0;
+      for (i = 0; i < 0x100; i++) {
+        ratings[cs] += weights[cs][i]/(significant[i] + EPSILON)*counts[i];
+      }
     }
+  } else {
+    assert(analyser->lang->ratinghook);
+    analyser->lang->ratinghook(analyser);
   }
 
   /* Find winner and second best. */
@@ -383,7 +388,7 @@ make_guess(EncaAnalyserState *analyser)
 
   /* Now we have found charset with the best relative ratings
      but we need an absolute test to detect total garbage. */
-  if (options->test_garbageness
+  if (options->test_garbageness && weights
       && test_garbage(analyser))
       return ENCA_EGARBAGE;
 
@@ -396,7 +401,7 @@ make_guess(EncaAnalyserState *analyser)
   if (ratings[order[0]]/(ratings[order[1]] + EPSILON)
       < options->threshold + EPSILON) {
     /* Unfortunately no, but in ambiguous mode have the last chance. */
-    if (options->ambiguous_mode)
+    if (options->ambiguous_mode && weights)
       return ambiguous_hook(analyser);
 
     return ENCA_EWINNER;
@@ -774,6 +779,7 @@ count_characters(EncaAnalyserState *analyser)
  * @analyser: An analyser.
  *
  * Counts significant characters in sample.
+ * Currenly disabled for language depedent multibyte charsets.
  *
  * Returns: Nonzero when there are at least options.min_chars significant
  *          characters, zero otherwise.
@@ -785,6 +791,9 @@ check_significant(EncaAnalyserState *analyser)
   size_t *const counts = analyser->counts;
   size_t i;
   size_t sgnf = 0;
+
+  if (!significant)
+    return 1;
 
   for (i = 0; i < 0x100; i++) {
     if (significant[i])

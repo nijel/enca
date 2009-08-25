@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.8 (2005-11-24)  guess and convert encoding of text files
+# Enca v1.9 (2005-12-18)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -8,6 +8,11 @@ List of user-visible changes in Enca
 Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
+
+enca-1.9 2005-12-18
+  + support for HZ encoding
+  * Big5 and GBK detection improved
+  - enca.spec no longer installs docs to world-unreadable directory
 
 enca-1.8 2005-11-24
   + Chinese (Big5 and GBK) support (thanks to Zuxy)

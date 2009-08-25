@@ -1,12 +1,12 @@
-# @(#) $Id: enca.spec.in,v 1.27 2005/11/24 19:57:45 yeti Exp $
+# @(#) $Id: enca.spec.in,v 1.28 2005/12/18 12:05:30 yeti Exp $
 Summary: A program detecting encoding of text files.
 Name: enca
-Version: 1.8
+Version: 1.9
 Release: 1
 License: GNU GPL v2
 Group: Applications/Text
 Requires: sed
-Source: http://trific.ath.cx/Ftp/enca/enca-1.8.tar.bz2
+Source: http://trific.ath.cx/Ftp/enca/enca-1.9.tar.bz2
 URL: http://trific.ath.cx/software/enca/
 Packager: David Necas (Yeti) <yeti@physics.muni.cz>
 Vendor: Trific soft.
@@ -66,6 +66,7 @@ library.
 %defattr(644,root,root)
 %doc %{_mandir}/man1/enca.1*
 %doc %{_mandir}/man1/enconv.1*
+%defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog ChangeLog.prelib FAQ INSTALL NEWS README README.devel THANKS TODO
 
 %files devel
@@ -85,6 +86,8 @@ library.
 %postun -p /sbin/ldconfig
 
 %changelog
+* Sun Dec 18 2005 David Necas (Yeti) <yeti@physics.muni.cz>
+- fixed 0644 permissions on doc directory
 * Mon May 17 2004 David Necas (Yeti) <yeti@physics.muni.cz>
 - doubled percents in changelog
 * Mon Dec 22 2003 David Necas (Yeti) <yeti@physics.muni.cz>

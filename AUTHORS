@@ -1,6 +1,6 @@
 David Necas (Yeti) <yeti@physics.muni.cz>
 
-Zuxy <zuxy.meng@gmail.com> (Chinese encodings support)
+Zuxy Meng <zuxy.meng@gmail.com> (Chinese encodings support)
 
 Unicode data in src/unicodemap.c comes from various free on-line resources.
 
