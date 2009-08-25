@@ -21,8 +21,9 @@ for fnm in $files; do
   { echo "#============================================================================"
     echo "# Enca v$ver ($date)  guess and convert encoding of text files"
     echo "# Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>"
+    echo "# Copyright (C) 2009 Michal Cihar <michal@cihar.com>"
     echo "#============================================================================"
-    sed -e '1,4 d' "$fnm"
+    sed -e '1,5 d' "$fnm"
   } > tmp$$
   mv -f tmp$$ $fnm
 done
