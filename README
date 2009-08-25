@@ -49,9 +49,8 @@ tarballs from http/dl.cihar.com/enca/.
 
 5. Bugs
 
-Report problems to <michal@cihar.com>.  Please include `enca'
-in subject.  (Some known bugs have been collected in BUGS section
-of enca manual page.)
+Report problems at <http://bugs.cihar.com/>. Some known bugs have been
+collected in BUGS section of enca manual page.
 
 
 6. Hacking (with) Enca
