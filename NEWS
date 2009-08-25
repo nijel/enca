@@ -9,6 +9,9 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
+enca-1.10 2009-??-??
+  - Add missing charset koi8u to belarussian language.
+
 enca-1.9 2005-12-18
   + support for HZ encoding
   * Big5 and GBK detection improved

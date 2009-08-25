@@ -757,6 +757,132 @@ static const unsigned char *PAIR_IBM855[] = {
 };
 
 
+/* THIS IS A GENERATED TABLE, see data/basetoc.c. */
+static const unsigned short int RAW_KOI8U[] = {
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x00 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x08 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x10 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x18 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x20 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x28 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x30 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x38 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x40 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x48 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x50 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x58 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x60 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x68 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x70 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x78 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x80 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x88 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x90 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0x98 */
+     0,    0,  939,  187,    0,    0, 1491,    0,  /* 0xa0 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xa8 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xb0 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xb8 */
+   227, 5987,  651,  896, 1220, 1497,    0,  728,  /* 0xc0 */
+   424,    0,  380, 1400, 1540, 1111, 2360, 1390,  /* 0xc8 */
+  1015, 1394, 1623, 1555, 1345, 1172,  282, 1083,  /* 0xd0 */
+   602, 1673, 1029,  445,  381,    0,  556,    0,  /* 0xd8 */
+     0,  137,    0,    0,    0,    0,    0,    0,  /* 0xe0 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xe8 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xf0 */
+     0,    0,    0,    0,    0,    0,    0,    0,  /* 0xf8 */
+};
+
+/* THIS IS A GENERATED TABLE, see data/pairtoc.c. */
+static const unsigned char LETTER_KOI8U[] = {
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x00 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x08 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x10 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x18 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x20 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x28 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x30 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x38 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x40 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x48 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x50 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x58 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x60 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x68 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x70 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x78 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x80 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x88 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x90 */
+    0,   0,   0,   0,   0,   0,   0,   0,  /* 0x98 */
+    0,   0,   1,   5, 255,   0,   4, 255,  /* 0xa0 */
+    0,   0,   0,   0,   0, 255,   0,   0,  /* 0xa8 */
+    0,   0,   0,   2, 255,   0,   3, 255,  /* 0xb0 */
+    0,   0,   0,   0,   0, 255,   0,   0,  /* 0xb8 */
+   46,  19,  20,  40,  23,  24,  38,  22,  /* 0xc0 */
+   39, 255,  27,  28,  29,  30,  31,  32,  /* 0xc8 */
+   33,  47,  34,  35,  36,  37,  25,  21,  /* 0xd0 */
+   44,  43,  26,  42,  45, 255,  41, 255,  /* 0xd8 */
+  255,   6,   7, 255, 255, 255, 255,   9,  /* 0xe0 */
+  255, 255, 255,  11, 255,  12,  13, 255,  /* 0xe8 */
+   14,  18,  15, 255,  16,  17, 255,   8,  /* 0xf0 */
+  255, 255,  10, 255, 255, 255, 255, 255,  /* 0xf8 */
+};
+
+/* THIS IS A GENERATED TABLE, see data/pairtoc.c. */
+static const unsigned char *PAIR_KOI8U[] = {
+
+  (unsigned char*)"\xd0\xce\xd3\xda\xc1\xc4\xd1\xd7\xd4\xc2\xcb\xcd\xa6\xc7\xa2\xd2\xd5\xdb\xcc\xe1\xde\xc3\xc8\xd6\xf0\xee\xf3\xe2\xa3\xed\xf7\xeb\xf1\xf5\xe4\xfa\xf4\xe7\xb6\xf2\xe8\xec\xc6\xfb\xc5\xfe\xb3",  /* FILLCHAR */
+  (unsigned char*)".\xd3\xce\xcc\xc4\xdb\xd6\xd7\xda\xcb",  /* 0xa2 */
+  (unsigned char*)"\xce",  /* 0xb3 */
+  (unsigned char*)".",  /* 0xb6 */
+  (unsigned char*)".\xce\xcb\xcc\xc3\xd3\xcd\xc8\xa2\xd2\xde\xd1\xd7\xd4\xc4\xda\xdb",  /* 0xa6 */
+  (unsigned char*)"\xce.\xca",  /* 0xa3 */
+  (unsigned char*)".\xcc",  /* 0xe1 */
+  (unsigned char*)"\xc5\xc1",  /* 0xe2 */
+  (unsigned char*)"\xcf",  /* 0xf7 */
+  (unsigned char*)"\xdc",  /* 0xe7 */
+  (unsigned char*)"\xc1",  /* 0xfa */
+  (unsigned char*)"\xc1",  /* 0xeb */
+  (unsigned char*)"\xc1",  /* 0xed */
+  (unsigned char*)"\xc1\xc5",  /* 0xee */
+  (unsigned char*)"\xc1\xd2",  /* 0xf0 */
+  (unsigned char*)"\xc1",  /* 0xf2 */
+  (unsigned char*)"\xc1",  /* 0xf4 */
+  (unsigned char*)".",  /* 0xf5 */
+  (unsigned char*)".",  /* 0xf1 */
+  (unsigned char*)".\xcc\xc4\xd2\xd3\xa2\xce\xcd\xd7\xcb\xc7\xc3\xca\xc2\xda\xd4\xd0\xde\xc5\xd1\xc8\xc0\xdb\xd6\xa3\xc6\xa6",  /* 0xc1 */
+  (unsigned char*)"\xd9\xc1\xc5\xcf.\xd2\xd5\xa6\xcc\xd1\xce",  /* 0xc2 */
+  (unsigned char*)"\xc1\xd9\xc5\xcf\xa6\xd1\xd5.",  /* 0xd7 */
+  (unsigned char*)"\xc1\xcf\xdc.\xcc\xd5\xd2\xa6\xce\xc5",  /* 0xc7 */
+  (unsigned char*)"\xc1\xda.\xd9\xce\xd5\xcf\xd2\xcb\xd7\xcc\xd6\xd3\xdc\xde",  /* 0xc4 */
+  (unsigned char*)".\xd2\xce\xcc\xc4\xd3\xc3\xca\xa2\xcd\xcb\xd4\xda\xdb\xde\xd7\xd0\xc5\xd6\xc2",  /* 0xc5 */
+  (unsigned char*)"\xc1\xd9.\xce\xcf",  /* 0xd6 */
+  (unsigned char*)"\xc1.\xc5\xa6\xce\xd1\xd7\xd8\xd5\xc4\xd2\xcd\xc2\xc7\xcc\xd9",  /* 0xda */
+  (unsigned char*)".\xce\xdb\xd3",  /* 0xca */
+  (unsigned char*)"\xc1.\xa6\xd5\xcf\xd2\xcc\xd4\xd3\xce",  /* 0xcb */
+  (unsigned char*)"\xc1\xa6\xd8\xc5\xd1\xcf.\xc0\xd9\xd5\xa3",  /* 0xcc */
+  (unsigned char*)".\xc1\xa6\xc5\xcf\xd5\xd1\xd9\xce\xcc",  /* 0xcd */
+  (unsigned char*)"\xc1\xc5\xd9\xa6.\xd1\xd5\xce\xcf\xd8\xd4\xd3\xcb\xc3\xc4\xdb\xde",  /* 0xce */
+  (unsigned char*)".\xa2\xcc\xc4\xd2\xd7\xce\xd3\xca\xc7\xcd\xd6\xc2\xd4\xcb\xde\xc5\xda\xd0\xdb\xc3\xc8",  /* 0xcf */
+  (unsigned char*)"\xc1\xd2\xc5\xcf\xcc\xa6\xd9\xd5.\xd1",  /* 0xd0 */
+  (unsigned char*)"\xc1\xd9\xcf\xd5\xdc.\xce\xcb\xd4\xdb\xcd\xc7\xd7\xd3",  /* 0xd2 */
+  (unsigned char*)"\xd4\xd1\xcb\xc1\xc3\xd0\xd8.\xd5\xcc\xd7\xa6\xc5\xce\xa3\xcf\xd9\xcd",  /* 0xd3 */
+  (unsigned char*)"\xc1\xcf\xd9\xd2\xd5.\xd7\xcb\xdc\xce",  /* 0xd4 */
+  (unsigned char*)".\xd3\xc4\xcc\xcd\xd4\xd2\xc0\xcb\xd0\xa2\xc3\xde\xd6\xdb\xce\xc8\xc2\xc7\xda\xd7",  /* 0xd5 */
+  (unsigned char*)"\xc1",  /* 0xc6 */
+  (unsigned char*)".\xc1\xcf\xd4\xa6\xd5\xce",  /* 0xc8 */
+  (unsigned char*)"\xd8\xc1\xd9\xa6\xc3\xc5\xd1.\xcb\xdc",  /* 0xc3 */
+  (unsigned char*)"\xc1\xd9\xce\xdc\xd5.\xcf\xcb",  /* 0xde */
+  (unsigned char*)"\xd4\xd9\xde\xc1.\xcb\xcc\xdc\xce",  /* 0xdb */
+  (unsigned char*)".\xcd\xd1\xcc\xc8\xce\xcb\xc3\xa2\xd3\xd7\xd4\xde\xd2\xca\xd0\xa6\xc2\xc7\xdb\xc4\xda",  /* 0xd9 */
+  (unsigned char*)".\xce\xcb\xc3\xcd\xdb\xd7\xd3",  /* 0xd8 */
+  (unsigned char*)"\xd4\xce\xd2.\xcc\xca\xc2\xd3",  /* 0xdc */
+  (unsigned char*)".\xde\xc3\xc4",  /* 0xc0 */
+  (unsigned char*)".\xcb\xce\xc7\xd2\xcc\xc4\xa2\xcd\xc3\xc5\xdb\xd3\xd7\xd4\xc2\xda\xde\xd0\xc8",  /* 0xd1 */
+};
+
+
 /* THIS IS A GENERATED TABLE, see data/totals.pl. */
 static const unsigned short int SIGNIFICANT[] = {
       0,     0,     0,     0,     0,     0,     0,     0,  /* 0x00 */
@@ -779,15 +905,15 @@ static const unsigned short int SIGNIFICANT[] = {
       0,     0,  1491,     0,     0,     0,     0,     0,  /* 0x88 */
       0,     0,     0,     0,     0,     0,     0,     0,  /* 0x90 */
     939,     0,     0,     0,   227,     0,     0,     0,  /* 0x98 */
-  12228,   816,  2718,   946,  2168,  1561,  3004,  1073,  /* 0xa0 */
+  12228,   816,  3657,  1133,  2168,  1561,  4495,  1073,  /* 0xa0 */
    1497,   397,  1460,  1606,  1887,  2459,  2387,  1057,  /* 0xa8 */
     137,     0,     0,  1491,  1491,   424,     0,     0,  /* 0xb0 */
     187,     0,     0,     0,     0,   380,     0,     0,  /* 0xb8 */
-    364,  5987,   651,   896,  1220,  1497,  1400,   728,  /* 0xc0 */
-    424,     0,   380,  1400,  1540,  1111,  2360,  1390,  /* 0xc8 */
-   8542,  2045,  3817,  2283,  4925,  2669,  1954,  2112,  /* 0xd0 */
-   1617,  2992,  2429,  1985,  1492,  2360,  3527,  2409,  /* 0xd8 */
-  15289,  6238,  4912,  5405,  2440,  5204,  2393,  4366,  /* 0xe0 */
+    591, 11974,  1302,  1792,  2440,  2994,  1400,  1456,  /* 0xc0 */
+    848,     0,   760,  2800,  3080,  2222,  4720,  2780,  /* 0xc8 */
+   9557,  3439,  5440,  3838,  6270,  3841,  2236,  3195,  /* 0xd0 */
+   2219,  4665,  3458,  2430,  1873,  2360,  4083,  2409,  /* 0xd8 */
+  15289,  6375,  4912,  5405,  2440,  5204,  2393,  4366,  /* 0xe0 */
     908,  1042,  2800,  7580,  3452,  6101,  3244,  4876,  /* 0xe8 */
    3246,  5164,  2690,  3373,     0,  1293,  3283,  2472,  /* 0xf0 */
     890,     0,     0,  3902,  1204,   762,  1393,  1394,  /* 0xf8 */
@@ -804,6 +930,7 @@ static const char *const CHARSET_NAMES[] = {
   "koi8uni",
   "maccyr",
   "ibm855",
+  "koi8u",
 };
 
 /* THIS IS A GENERATED TABLE, see data/totals.pl */
@@ -814,6 +941,7 @@ static const unsigned short int *const CHARSET_WEIGHTS[] = {
   RAW_KOI8UNI,
   RAW_MACCYR,
   RAW_IBM855,
+  RAW_KOI8U,
 };
 
 /* THIS IS A GENERATED TABLE, see data/totals.pl */
@@ -824,6 +952,7 @@ static const unsigned char *const CHARSET_LETTERS[] = {
   LETTER_KOI8UNI,
   LETTER_MACCYR,
   LETTER_IBM855,
+  LETTER_KOI8U,
 };
 
 /* THIS IS A GENERATED TABLE, see data/totals.pl */
@@ -834,7 +963,8 @@ static const unsigned char **const CHARSET_PAIRS[] = {
   PAIR_KOI8UNI,
   PAIR_MACCYR,
   PAIR_IBM855,
+  PAIR_KOI8U,
 };
 
 /* THIS IS A GENERATED VALUE, see data/totals.pl */
-#define NCHARSETS 6
+#define NCHARSETS 7
