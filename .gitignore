@@ -5,3 +5,4 @@ config.status
 enca.pc
 libtool
 stamp-h1
+iconvenc.h
