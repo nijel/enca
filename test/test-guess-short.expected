@@ -97,6 +97,9 @@ uk-s.iso88595: ISO-8859-5
 uk-s.koi8u: KOI8-U
 uk-s.maccyr: maccyr
 uk-s.utf8: UTF-8/CRLF
+zh-s.big5: BIG5
+zh-s.gbk: GBK
+zh-s.utf8: UTF-8
 none-s.ucs2: UCS-2/LF
 none-s.ucs2le: UCS-2/LF/21
 none-s.ucs2le.qp: UCS-2/LF/21/qp

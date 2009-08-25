@@ -192,7 +192,7 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 
-# @(#) $Id: Makefile.am,v 1.24 2003/11/17 12:27:39 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.25 2005/11/24 11:42:47 yeti Exp $
 TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@
 TESTS = \
   ./test-lists.sh \
@@ -381,7 +381,10 @@ TEST_SAMPLES = \
   uk-s.maccyr \
   uk-s.utf8 \
   uk-utf8.bin \
-  uk-utf8.cp1251
+  uk-utf8.cp1251 \
+  zh-s.big5 \
+  zh-s.gbk \
+  zh-s.utf8
 
 all: all-am
 

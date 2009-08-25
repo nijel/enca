@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: convert.c,v 1.26 2004/07/20 18:40:00 yeti Exp $
+  @(#) $Id: convert.c,v 1.27 2005/05/02 20:52:06 yeti Exp $
   conversion to other encodings
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -75,9 +75,9 @@ static const ConvertorData cdata_builtin = { 0, &convert_builtin };
 #ifdef HAVE_LIBRECODE
 static const ConvertorData cdata_librecode = { 0, &convert_recode };
 #endif /* HAVE_LIBRECODE */
-#ifdef HAVE_ICONV
+#ifdef HAVE_GOOD_ICONV
 static const ConvertorData cdata_iconv = { 0, &convert_iconv };
-#endif /* HAVE_ICONV */
+#endif /* HAVE_GOOD_ICONV */
 #ifdef ENABLE_EXTERNAL
 static const ConvertorData cdata_extern = { CONV_EXTERN, &convert_external };
 #endif /* ENABLE_EXTERNAL */
@@ -87,9 +87,9 @@ static const Abbreviation CONVERTORS[] = {
 #ifdef HAVE_LIBRECODE
   { "librecode", &cdata_librecode },
 #endif /* HAVE_LIBRECODE */
-#ifdef HAVE_ICONV
+#ifdef HAVE_GOOD_ICONV
   { "iconv", &cdata_iconv },
-#endif /* HAVE_ICONV */
+#endif /* HAVE_GOOD_ICONV */
 #ifdef ENABLE_EXTERNAL
   { "extern", &cdata_extern }
 #endif /* ENABLE_EXTERNAL */

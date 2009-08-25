@@ -25,12 +25,12 @@
 <ANCHOR id="enca-get-threshold" href="libenca/libenca-Analyser.html#enca-get-threshold">
 <ANCHOR id="libenca-Typedefs-and-Constants" href="libenca/libenca-Typedefs-and-Constants.html">
 <ANCHOR id="EncaEncoding" href="libenca/libenca-Typedefs-and-Constants.html#EncaEncoding">
-<ANCHOR id="ENCA-CS-UNKNOWN-CAPS" href="libenca/libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN-CAPS">
+<ANCHOR id="ENCA-CS-UNKNOWN:CAPS" href="libenca/libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS">
 <ANCHOR id="EncaSurface" href="libenca/libenca-Typedefs-and-Constants.html#EncaSurface">
 <ANCHOR id="EncaCharsetFlags" href="libenca/libenca-Typedefs-and-Constants.html#EncaCharsetFlags">
 <ANCHOR id="EncaNameStyle" href="libenca/libenca-Typedefs-and-Constants.html#EncaNameStyle">
 <ANCHOR id="EncaErrno" href="libenca/libenca-Typedefs-and-Constants.html#EncaErrno">
-<ANCHOR id="ENCA-NOT-A-CHAR-CAPS" href="libenca/libenca-Typedefs-and-Constants.html#ENCA-NOT-A-CHAR-CAPS">
+<ANCHOR id="ENCA-NOT-A-CHAR:CAPS" href="libenca/libenca-Typedefs-and-Constants.html#ENCA-NOT-A-CHAR:CAPS">
 <ANCHOR id="libenca-Charsets-and-Surfaces" href="libenca/libenca-Charsets-and-Surfaces.html">
 <ANCHOR id="enca-charset-name" href="libenca/libenca-Charsets-and-Surfaces.html#enca-charset-name">
 <ANCHOR id="enca-get-charset-aliases" href="libenca/libenca-Charsets-and-Surfaces.html#enca-get-charset-aliases">

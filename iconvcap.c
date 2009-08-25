@@ -1,5 +1,5 @@
 /*
- * @(#) $Id: iconvcap.c,v 1.8 2005/02/27 12:08:55 yeti Exp $
+ * @(#) $Id: iconvcap.c,v 1.9 2005/11/24 10:09:03 yeti Exp $
  * iconv capability checker by David Necas (Yeti).
  * This program is in the public domain.
  *
@@ -199,6 +199,15 @@ char* VARIANT_CORK[] = {
   "CORK", "T1", NULL
 };
 
+char* VARIANT_GBK[] = {
+	"GBK", "GB2312", "CP936", NULL
+};
+
+char* VARIANT_BIG5[] = {
+	"BIG5", "CP950", NULL
+};
+
+
 typedef struct S_EncList {
   char *enc;
   struct S_EncList *next;
@@ -267,7 +276,9 @@ main(int argc, char *argv[])
   TEST_ENC_TO_UNICODE(UTF7);
   TEST_ENC_TO_UNICODE(UTF8);
   TEST_ENC_TO_UNICODE(CORK);
-
+  TEST_ENC_TO_UNICODE(GBK);
+  TEST_ENC_TO_UNICODE(BIG5);
+  
   if (ok >= 2) exit(0);
   else exit(1);
 }

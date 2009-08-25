@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: encnames.c,v 1.9 2005/02/27 12:08:56 yeti Exp $
+  @(#) $Id: encnames.c,v 1.10 2005/11/24 20:07:14 yeti Exp $
   convert charset and surface names to internal representation and back
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -635,10 +635,11 @@ check_encoding_name(const char *name)
 /**
  * EncaNameStyle:
  * @ENCA_NAME_STYLE_ENCA: Default, implicit charset name in Enca.
- * @ENCA_NAME_STYLE_RFC1345: RFC 1345 charset name.
- * @ENCA_NAME_STYLE_CSTOCS: Cstocs charset name.
- * @ENCA_NAME_STYLE_ICONV: Iconv charset name.
+ * @ENCA_NAME_STYLE_RFC1345: RFC 1345 or otherwise canonical charset name.
+ * @ENCA_NAME_STYLE_CSTOCS: Cstocs charset name (may not exist).
+ * @ENCA_NAME_STYLE_ICONV: Iconv charset name (may not exist).
  * @ENCA_NAME_STYLE_HUMAN: Human comprehensible description.
+ * @ENCA_NAME_STYLE_MIME: Preferred MIME name (may not exist).
  *
  * Charset naming styles and conventions.
  **/

@@ -27,4 +27,3 @@ for fnm in $files; do
   mv -f tmp$$ $fnm
 done
 rm -f tmp$$
-echo "Don't forget to update deb/!"

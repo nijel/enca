@@ -209,7 +209,7 @@ sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 @MAINTAINER_MODE_FALSE@SUBDIRS = tools script lib src devel-docs test
 
-# @(#) $Id: Makefile.am,v 1.34 2004/11/17 18:11:49 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
 @MAINTAINER_MODE_TRUE@SUBDIRS = tools data script lib src devel-docs test
 man_MANS = man/enca.1
 DISTCHECK_CONFIGURE_FLAGS = --enable-maintainer-mode
@@ -239,23 +239,6 @@ EXTRA_DIST = \
   iconvcap.c \
   topline.sh \
   man/enca.1 \
-  deb/changelog \
-  deb/control \
-  deb/copyright \
-  deb/docs \
-  deb/enca.dirs \
-  deb/enca.files \
-  deb/libenca-dev.dirs \
-  deb/libenca-dev.doc-base \
-  deb/libenca-dev.files \
-  deb/libenca0.dirs \
-  deb/libenca0.files \
-  deb/postinst \
-  deb/postrm \
-  deb/preinst \
-  deb/prerm \
-  deb/rules \
-  deb/watch \
   $(M4TESTS)
 
 pkgconfigdir = $(libdir)/pkgconfig
@@ -520,7 +503,7 @@ distdir: $(DISTFILES)
 	esac
 	$(am__remove_distdir)
 	mkdir $(distdir)
-	$(mkdir_p) $(distdir)/. $(distdir)/deb $(distdir)/m4 $(distdir)/man $(distdir)/script $(distdir)/src
+	$(mkdir_p) $(distdir)/. $(distdir)/m4 $(distdir)/man $(distdir)/script $(distdir)/src
 	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
 	topsrcdirstrip=`echo "$(top_srcdir)" | sed 's|.|.|g'`; \
 	list='$(DISTFILES)'; for file in $$list; do \
@@ -793,7 +776,7 @@ uninstall-hook:
 	rm -f $(DESTDIR)$(man1dir)/$$inst
 
 clean-local:
-	rm -f iconvcap iconvcap.o *~ core.* debian/*~
+	rm -f iconvcap iconvcap.o *~ core.*
 
 distclean-local:
 	rm -f iconvenc.h

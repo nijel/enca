@@ -18,15 +18,17 @@
 
 
 
-struct      <link linkend="EncaEncoding">EncaEncoding</link>;
-#define     <link linkend="ENCA-CS-UNKNOWN-CAPS">ENCA_CS_UNKNOWN</link>
+            <link linkend="EncaEncoding">EncaEncoding</link>;
+#define     <link linkend="ENCA-CS-UNKNOWN:CAPS">ENCA_CS_UNKNOWN</link>
 enum        <link linkend="EncaSurface">EncaSurface</link>;
 enum        <link linkend="EncaCharsetFlags">EncaCharsetFlags</link>;
 enum        <link linkend="EncaNameStyle">EncaNameStyle</link>;
 enum        <link linkend="EncaErrno">EncaErrno</link>;
-#define     <link linkend="ENCA-NOT-A-CHAR-CAPS">ENCA_NOT_A_CHAR</link>
+#define     <link linkend="ENCA-NOT-A-CHAR:CAPS">ENCA_NOT_A_CHAR</link>
 </synopsis>
 </refsynopsisdiv>
+
+
 
 
 
@@ -44,58 +46,59 @@ enum        <link linkend="EncaErrno">EncaErrno</link>;
 <refsect1>
 <title>Details</title>
 <refsect2>
-<title><anchor id="EncaEncoding"/>struct EncaEncoding</title>
-<programlisting>struct EncaEncoding {
- int charset; EncaSurface surface; };
+<title><anchor id="EncaEncoding"/>EncaEncoding</title>
+<indexterm><primary>EncaEncoding</primary></indexterm><programlisting>typedef struct {
+ int charset; EncaSurface surface; 
+} EncaEncoding;
 </programlisting>
 <para>
 Encoding, i.e. charset and surface.
 </para>
 <para>
-This is what <link linkend="enca-analyse">enca_analyse</link>() and <link linkend="enca-analyse-const">enca_analyse_const</link>() return.
+This is what <link linkend="enca-analyse"><function>enca_analyse()</function></link> and <link linkend="enca-analyse-const"><function>enca_analyse_const()</function></link> return.
 </para>
 <para>
 The <parameter>charset</parameter> field is an opaque numerical charset identifier, which has no
 meaning outside Enca library.
-You will probably want to use it only as <link linkend="enca-charset-name">enca_charset_name</link>() argument.
+You will probably want to use it only as <link linkend="enca-charset-name"><function>enca_charset_name()</function></link> argument.
 It is only guaranteed not to change meaning
 during program execution time; change of its interpretation (e.g. due to
 addition of new charsets) is not considered API change.
 </para>
 <para>
-The <parameter>surface</parameter> field is a combination of <link linkend="EncaSurface">EncaSurface</link> flags.  You may want
-to ignore it completely; you should use <link linkend="enca-set-interpreted-surfaces">enca_set_interpreted_surfaces</link>()
+The <parameter>surface</parameter> field is a combination of <link linkend="EncaSurface"><type>EncaSurface</type></link> flags.  You may want
+to ignore it completely; you should use <link linkend="enca-set-interpreted-surfaces"><function>enca_set_interpreted_surfaces()</function></link>
 to disable weird surfaces then.</para>
 <para>
 
 </para><variablelist role="struct">
 <varlistentry>
-<term>int <structfield>charset</structfield></term>
+<term><link linkend="int">int</link>&nbsp;<structfield>charset</structfield>;</term>
 <listitem><simpara> Numeric charset identifier.
 </simpara></listitem>
 </varlistentry>
 <varlistentry>
-<term><link linkend="EncaSurface">EncaSurface</link> <structfield>surface</structfield></term>
+<term><link linkend="EncaSurface">EncaSurface</link>&nbsp;<structfield>surface</structfield>;</term>
 <listitem><simpara> Surface flags.
 </simpara></listitem>
 </varlistentry>
 </variablelist></refsect2>
 <refsect2>
-<title><anchor id="ENCA-CS-UNKNOWN-CAPS"/>ENCA_CS_UNKNOWN</title>
-<programlisting>#define ENCA_CS_UNKNOWN (-1)
+<title><anchor id="ENCA-CS-UNKNOWN:CAPS"/>ENCA_CS_UNKNOWN</title>
+<indexterm><primary>ENCA_CS_UNKNOWN</primary></indexterm><programlisting>#define ENCA_CS_UNKNOWN (-1)
 </programlisting>
 <para>
 Unknown character set id.
 </para>
 <para>
-Use <link linkend="enca-charset-is-known">enca_charset_is_known</link>() to check for unknown charset instead of direct
+Use <link linkend="enca-charset-is-known"><function>enca_charset_is_known()</function></link> to check for unknown charset instead of direct
 comparsion.</para>
 <para>
 
 </para></refsect2>
 <refsect2>
 <title><anchor id="EncaSurface"/>enum EncaSurface</title>
-<programlisting>typedef enum { /*&lt; flags &gt;*/
+<indexterm><primary>EncaSurface</primary></indexterm><programlisting>typedef enum { /*&lt; flags &gt;*/
   ENCA_SURFACE_EOL_CR    = 1 &lt;&lt; 0,
   ENCA_SURFACE_EOL_LF    = 1 &lt;&lt; 1,
   ENCA_SURFACE_EOL_CRLF  = 1 &lt;&lt; 2,
@@ -193,13 +196,13 @@ Surface flags.</para>
 </varlistentry>
 <varlistentry>
 <term><literal>ENCA_SURFACE_MASK_ALL</literal></term>
-<listitem><simpara> Mask for all bits, withnout <link linkend="ENCA-SURFACE-UNKNOWN-CAPS">ENCA_SURFACE_UNKNOWN</link>.
+<listitem><simpara> Mask for all bits, withnout <link linkend="ENCA-SURFACE-UNKNOWN:CAPS"><type>ENCA_SURFACE_UNKNOWN</type></link>.
 </simpara></listitem>
 </varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="EncaCharsetFlags"/>enum EncaCharsetFlags</title>
-<programlisting>typedef enum { /*&lt; flags &gt;*/
+<indexterm><primary>EncaCharsetFlags</primary></indexterm><programlisting>typedef enum { /*&lt; flags &gt;*/
   ENCA_CHARSET_7BIT      = 1 &lt;&lt; 0,
   ENCA_CHARSET_8BIT      = 1 &lt;&lt; 1,
   ENCA_CHARSET_16BIT     = 1 &lt;&lt; 2,
@@ -271,12 +274,13 @@ fundamental pieces.
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="EncaNameStyle"/>enum EncaNameStyle</title>
-<programlisting>typedef enum {
+<indexterm><primary>EncaNameStyle</primary></indexterm><programlisting>typedef enum {
   ENCA_NAME_STYLE_ENCA,
   ENCA_NAME_STYLE_RFC1345,
   ENCA_NAME_STYLE_CSTOCS,
   ENCA_NAME_STYLE_ICONV,
-  ENCA_NAME_STYLE_HUMAN
+  ENCA_NAME_STYLE_HUMAN,
+  ENCA_NAME_STYLE_MIME
 } EncaNameStyle;
 </programlisting>
 <para>
@@ -291,17 +295,17 @@ Charset naming styles and conventions.</para>
 </varlistentry>
 <varlistentry>
 <term><literal>ENCA_NAME_STYLE_RFC1345</literal></term>
-<listitem><simpara> RFC 1345 charset name.
+<listitem><simpara> RFC 1345 or otherwise canonical charset name.
 </simpara></listitem>
 </varlistentry>
 <varlistentry>
 <term><literal>ENCA_NAME_STYLE_CSTOCS</literal></term>
-<listitem><simpara> Cstocs charset name.
+<listitem><simpara> Cstocs charset name (may not exist).
 </simpara></listitem>
 </varlistentry>
 <varlistentry>
 <term><literal>ENCA_NAME_STYLE_ICONV</literal></term>
-<listitem><simpara> Iconv charset name.
+<listitem><simpara> Iconv charset name (may not exist).
 </simpara></listitem>
 </varlistentry>
 <varlistentry>
@@ -309,10 +313,15 @@ Charset naming styles and conventions.</para>
 <listitem><simpara> Human comprehensible description.
 </simpara></listitem>
 </varlistentry>
+<varlistentry>
+<term><literal>ENCA_NAME_STYLE_MIME</literal></term>
+<listitem><simpara> Preferred MIME name (may not exist).
+</simpara></listitem>
+</varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="EncaErrno"/>enum EncaErrno</title>
-<programlisting>typedef enum {
+<indexterm><primary>EncaErrno</primary></indexterm><programlisting>typedef enum {
   ENCA_EOK = 0,
   ENCA_EINVALUE,
   ENCA_EEMPTY,
@@ -370,8 +379,8 @@ Error codes.</para>
 </varlistentry>
 </variablelist></refsect2>
 <refsect2>
-<title><anchor id="ENCA-NOT-A-CHAR-CAPS"/>ENCA_NOT_A_CHAR</title>
-<programlisting>#define ENCA_NOT_A_CHAR 0xffff
+<title><anchor id="ENCA-NOT-A-CHAR:CAPS"/>ENCA_NOT_A_CHAR</title>
+<indexterm><primary>ENCA_NOT_A_CHAR</primary></indexterm><programlisting>#define ENCA_NOT_A_CHAR 0xffff
 </programlisting>
 <para>
 Not-a-character in unicode tables.</para>

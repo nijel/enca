@@ -5,7 +5,7 @@
 .RE
 .PP
 ..
-.TH "enca" "1" "Jan 2005" "enca 1.7" " "
+.TH "enca" "1" "Nov 2005" "enca 1.8" " "
 .SH "NAME"
 .PP
 enca \-\- detect and convert encoding of text files
@@ -31,7 +31,7 @@ and \fBENCODINGS\fR for details).
 .PP
 Both work with multiple files and standard input (output) too.
 E.g.
-.XA "enca -x latin2 <sometext | lpr"
+.XA "enca \-x latin2 <sometext | lpr"
 assures file `sometext' is in ISO Latin\~2 when it's sent to printer.
 .PP
 The main reason why these command will fail and turn your files into
@@ -43,7 +43,7 @@ You can (or have to) use \fB\-L\fR option to tell it the right language.
 Suppose, you downloaded some Russian HTML file,
 `file.htm', it claims it's windows-1251 but it isn't.
 So you run
-.XA "enca -L ru file.htm"
+.XA "enca \-L ru file.htm"
 and find out it's KOI8\-R (for example).
 Be warned, currently there are not many supported languages (see section
 \fBLANGUAGES\fR).
@@ -51,10 +51,10 @@ Be warned, currently there are not many supported languages (see section
 Another warning concerns the fact several Enca's features, namely its
 charset conversion capabilities, strongly depend on what other tools
 are installed on your system (see section \fBCONVERSION)\fR\-\-run
-.XA "enca --version"
+.XA "enca \-\-version"
 to get list of features (see section \fBFEATURES\fR).
 Also try
-.XA "enca --help"
+.XA "enca \-\-help"
 to get description of all other Enca options (and to find the rest of this
 manual page redundant).
 .
@@ -226,7 +226,7 @@ You can also specify `none' as language name, only multibyte encodings are
 recognised then.
 Run
 .sp
-enca --list languages
+enca \-\-list languages
 .sp
 to get list of supported languages.
 When you don't specify any language Enca tries to guess your language from
@@ -246,14 +246,14 @@ be tried when you ask for conversion.
 Their names can be abbreviated as long as they are unambiguous.
 Run
 .sp
-enca --list convertors
+enca \-\-list convertors
 .sp
 to get list of all valid convertor names (and see section \fBCONVERSION\fR
 for their description).
 .sp
 The default list depends on how Enca has been compiled, run
 .sp
-enca --help
+enca \-\-help
 .sp
 to find out default convertor list.
 .sp
@@ -268,7 +268,7 @@ Default external convertor depends on how enca has been complied, and the
 possibility to use external convertors may not be available at all.
 Run
 .sp
-enca --help
+enca \-\-help
 .sp
 to find out default convertor program in your enca build.
 .PP
@@ -313,12 +313,12 @@ Prints list specified by \fIWORD\fR (can be abbreviated as long as it is
 unambiguous).
 Available lists include:
 .sp
-\fBbuilt-in-charsets\fR.
+\fBbuilt\-in\-charsets\fR.
 All encodings convertible by built\-in convertor, by group
 (both input and output encoding must be from this list and belong to the same
 group for internal conversion).
 .sp
-\fBbuilt-in-encodings\fR.
+\fBbuilt\-in\-encodings\fR.
 Equivalent to \fBbuilt\-in\-charsets\fR, but considered obsolete; will
 be accepted with a warning, for a while.
 .sp
@@ -384,7 +384,7 @@ is the simplest and far the fastest of all, can perform only
 a few byte-to-byte conversions and modifies files directly in place (may
 be considered dangerous, but is pretty efficient).  You can get list of
 all encodings it can convert with
-.XA "enca --list built-in"
+.XA "enca \-\-list built\-in"
 Beside speed, its main advantage (and also disadvantage) is that it doesn't
 care: it simply converts characters having a representation in target
 encoding, doesn't touch anything else and never prints any error message.
@@ -396,7 +396,7 @@ This convertor can be specified as \fBbuilt\-in\fR with \fB\-C\fR.
 .PP
 is an interface to GNU recode library, that does the actual recoding job.
 It may or may not be compiled in; run
-.XA "enca --version"
+.XA "enca \-\-version"
 to find out its availability in your enca build
 (feature +librecode\-interface).
 .sp
@@ -417,7 +417,7 @@ This convertor can be specified as \fBlibrecode\fR with \fB\-C\fR.
 is an interface to the UNIX98 \fIiconv\fR(3)
 conversion functions, that do the actual recoding job.
 It may or may not be compiled in; run
-.XA "enca --version"
+.XA "enca \-\-version"
 to find out its availability in your enca build
 (feature +iconv\-interface).
 .sp
@@ -528,11 +528,11 @@ all the forking and moving stuff around is incredibily slow.
 .SH "ENCODINGS"
 .PP
 You can get list of recognised character sets with
-.XA "enca --list charsets"
+.XA "enca \-\-list charsets"
 and using \fB\-\-name\fR parameter you can select any name you want to be
 used in the listing.
 You can also list all surfaces with
-.XA "enca --list surfaces"
+.XA "enca \-\-list surfaces"
 Encoding and surface names are case insensitive and non-alphanumeric
 characters are not taken into account.
 However, non-alphanumeric characters are mostly
@@ -578,6 +578,8 @@ UCS-4@Universal character set 4 bytes; UCS-4; ISO-10646
 UTF-7@Universal transformation format 7 bits; UTF-7
 UTF-8@Universal transformation format 8 bits; UTF-8
 CORK@Cork encoding; T1
+GBK@Simplified Chinese National Standard; GB2312
+BIG5@Traditional Chinese Industrial Standard; Big5
 unknown@Unrecognized encoding
 .TE
 .PP
@@ -610,7 +612,7 @@ This is intentional because they only inform you why the file cannot be
 considered surface-consistent instead of representing a real surface.
 .PP
 Each charset has its natural surface (called `implied' in recode) which is not
-reported--e.g. for IBM 852 charset it's `CRLF line terminators'.
+reported, e.g., for IBM 852 charset it's `CRLF line terminators'.
 For UCS encodings, big endian is considered as natural surface;
 unusual byte orders are constructed from 21 and 4321 permutations:
 2143 is reported simply as 21,
@@ -665,19 +667,20 @@ with supported 8bit encodings).
 .TS
 tab (@);
 l l.
-Belarussian@CP1251 IBM866 ISO-8859-5 KOI8-UNI maccyr IBM855
-Bulgarian  @CP1251 ISO-8859-5 IBM855 maccyr ECMA-113
-Czech      @ISO-8859-2 CP1250 IBM852 KEYBCS2 macce KOI-8_CS_2 CORK
-Estonian   @ISO-8859-4 CP1257 IBM775 ISO-8859-13 macce baltic
-Croatian   @CP1250 ISO-8859-2 IBM852 macce CORK
-Hungarian  @ISO-8859-2 CP1250 IBM852 macce CORK
-Lithuanian @CP1257 ISO-8859-4 IBM775 ISO-8859-13 macce baltic
-Latvian    @CP1257 ISO-8859-4 IBM775 ISO-8859-13 macce baltic
-Polish     @ISO-8859-2 CP1250 IBM852 macce ISO-8859-13 ISO-8859-16 baltic CORK
-Russian    @KOI8-R CP1251 ISO-8859-5 IBM866 maccyr
-Slovak     @CP1250 ISO-8859-2 IBM852 KEYBCS2 macce KOI-8_CS_2 CORK
-Slovene    @ISO-8859-2 CP1250 IBM852 macce CORK
-Ukrainian  @CP1251 IBM855 ISO-8859-5 CP1125 KOI8-U maccyr
+Belarussian@CP1251 IBM866 ISO\-8859\-5 KOI8\-UNI maccyr IBM855
+Bulgarian  @CP1251 ISO\-8859\-5 IBM855 maccyr ECMA\-113
+Czech      @ISO\-8859\-2 CP1250 IBM852 KEYBCS2 macce KOI\-8_CS_2 CORK
+Estonian   @ISO\-8859\-4 CP1257 IBM775 ISO\-8859\-13 macce baltic
+Croatian   @CP1250 ISO\-8859\-2 IBM852 macce CORK
+Hungarian  @ISO\-8859\-2 CP1250 IBM852 macce CORK
+Lithuanian @CP1257 ISO\-8859\-4 IBM775 ISO\-8859\-13 macce baltic
+Latvian    @CP1257 ISO\-8859\-4 IBM775 ISO\-8859\-13 macce baltic
+Polish     @ISO\-8859\-2 CP1250 IBM852 macce ISO\-8859\-13 ISO\-8859\-16 baltic CORK
+Russian    @KOI8\-R CP1251 ISO\-8859\-5 IBM866 maccyr
+Slovak     @CP1250 ISO\-8859\-2 IBM852 KEYBCS2 macce KOI\-8_CS_2 CORK
+Slovene    @ISO\-8859\-2 CP1250 IBM852 macce CORK
+Ukrainian  @CP1251 IBM855 ISO\-8859\-5 CP1125 KOI8\-U maccyr
+Chinese    @GBK BIG5
 none       @
 .TE
 .PP
@@ -691,28 +694,28 @@ contains no 8bit encodings, so only multibyte encodings are detected.
 Several Enca's features depend on what is available on your system and how
 it was compiled.
 You can get their list with
-.XA "enca --version"
+.XA "enca \-\-version"
 Plus sign before a feature name means it's available, minus sign means
 this build lacks the particular feature.
 .PP
-\fBlibrecode-interface\fR.
+\fBlibrecode\-interface\fR.
 Enca has interface to GNU recode library charset conversion functions.
 .sp
-\fBiconv-interface\fR.
+\fBiconv\-interface\fR.
 Enca has interface to UNIX98 iconv charset conversion functions.
 .sp
-\fBexternal-convertor\fR.
+\fBexternal\-convertor\fR.
 Enca can use external conversion programs (if you have some suitable
 installed).
 .sp
-\fBlanguage-detection\fR.
+\fBlanguage\-detection\fR.
 Enca tries to guess language (\fB\-L\fR) from locales.  You don't need the
 \fB\-\-language\fR option, at least in principle.
 .sp
-\fBlocale-alias\fR.
+\fBlocale\-alias\fR.
 Enca is able to decrypt locale aliases used for language names.
 .sp
-\fBtarget-charset-auto\fR.
+\fBtarget\-charset\-auto\fR.
 Enca tries to detect your preferred charset from locales.
 Option \fB\-\-auto\-convert\fR and calling Enca as \fBenconv\fR works, at
 least in principle.

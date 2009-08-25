@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: multibyte.c,v 1.10 2004/05/11 16:14:02 yeti Exp $
+  @(#) $Id: multibyte.c,v 1.12 2005/11/24 10:49:40 yeti Exp $
   multibyte character set checks
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -22,6 +22,9 @@
 #endif /* HAVE_CONFIG_H */
 
 #include <math.h>
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 #include "enca.h"
 #include "internal.h"
@@ -42,6 +45,8 @@ static int    is_valid_utf7       (EncaAnalyserState *analyser);
 static int    looks_like_ucs2     (EncaAnalyserState *analyser);
 static int    looks_like_ucs4     (EncaAnalyserState *analyser);
 static int    looks_like_utf8     (EncaAnalyserState *analyser);
+static int    is_valid_big5       (EncaAnalyserState *analyser);
+static int    is_valid_gbk        (EncaAnalyserState *analyser);
 static size_t what_if_it_was_ucs4 (const unsigned char *buffer,
                                    size_t size,
                                    size_t min_chars,
@@ -60,6 +65,8 @@ EncaGuessFunc ENCA_MULTIBYTE_TESTS_ASCII[] = {
 
 EncaGuessFunc ENCA_MULTIBYTE_TESTS_8BIT[] = {
   &is_valid_utf8,
+  &is_valid_big5,
+  &is_valid_gbk,
   NULL
 };
 
@@ -828,4 +835,223 @@ looks_like_utf8(EncaAnalyserState *analyser)
     analyser->result.surface |= ENCA_SURFACE_EOL_BIN;
   return 1;
 }
+
+#define FREQRATIO (sqrt(analyser->options.threshold - 1))
+
+/**
+ * is_valid_gbk:
+ * @analyser: Analyser whose buffer is to be checked.
+ *
+ * Checks whether @analyser->buffer contains valid GBK.
+ *
+ * Directly modifies @analyser->result on success.
+ *
+ * Returns: Nonzero when @analyser->result was set, zero othewrise.
+ **/
+static int
+is_valid_gbk(EncaAnalyserState *analyser)
+{
+  static int gbk = ENCA_CS_UNKNOWN; /* GBK charset */
+  size_t size = analyser->size;
+  const unsigned char *buffer = analyser->buffer;
+  const size_t *const counts = analyser->counts;
+
+  int ascii = 0, freq = 0, rare = 0, sum;
+  int islowbyte = 0;
+  size_t i;
+  unsigned char b, a;
+
+  /* Initialize when we are called the first time. */
+  if (gbk == ENCA_CS_UNKNOWN) {
+    gbk = enca_name_to_charset("gbk");
+    assert(gbk != ENCA_CS_UNKNOWN);
+  }
+
+  /* Ignore languages that do not contain this charset */
+  for (i = 0; i < analyser->ncharsets; i++) {
+    if (analyser->charsets[i] == gbk)
+      break;
+  }
+  if (i == analyser->ncharsets)
+    return 0;
+
+  for (i = 0; i < ' '; i++)
+  {
+    if (i == '\t' || i == '\r' || i == '\n')
+      continue;
+
+    if (counts[i] != 0)
+      return 0;
+  }
+
+  if (counts[0xff])
+    return 0;
+
+  /* Parse. */
+  for (i = 0; i < size; i++) {
+    b = buffer[i];
+
+    /* gbk: highbyte range 0x81~0xfe, lowbyte range 0x40~0xfe
+       frequently used characters reside in 0xb0a1 ~ 0xf7fe */
+    /* low byte */
+    if (islowbyte)
+    {
+      assert(i);
+
+      if (b < 0x40)
+        return 0;
+
+      a = buffer[i - 1];
+
+      if (b >= 0xa1 && ((a >= 0xb0 && a <= 0xf7) || (a >= 0xa1 && a <= 0xa3)))
+        freq++;
+      else
+        rare++;
+
+      islowbyte = 0;
+      continue;
+    }
+
+    /* high byte or standalone ASCII */
+    if (b <= 0x7e)
+    {
+      assert(!islowbyte);
+      ascii++;
+      continue;
+    }
+    else if (b >= 0x81)
+      islowbyte = 1;
+    else
+      return 0;
+  }
+
+  /* Unfinished DBCS. */
+  if (islowbyte && analyser->options.termination_strictness > 0)
+    return 0;
+
+  if ((sum = freq + rare) == 0)
+    return 0;
+#ifdef _DEBUG
+  fprintf(stderr, "GBK: ASCII: %d, Freq: %d, Rare: %d, Ratio: %f\n",
+          ascii, freq, rare, (float)freq/sum);
+#endif
+  if ((float)freq/sum  < FREQRATIO)
+    return 0;
+
+  analyser->result.charset = gbk;
+  analyser->result.surface |= enca_eol_surface(buffer, size, counts);
+  return 1;
+}
+
+/**
+ * is_valid_big5:
+ * @analyser: Analyser whose buffer is to be checked.
+ *
+ * Checks whether @analyser->buffer contains valid Big5.
+ *
+ * Directly modifies @analyser->result on success.
+ *
+ * Returns: Nonzero when @analyser->result was set, zero othewrise.
+ **/
+static int
+is_valid_big5(EncaAnalyserState *analyser)
+{
+  static int big5 = ENCA_CS_UNKNOWN; /* Big5 charset */
+  size_t size = analyser->size;
+  const unsigned char *buffer = analyser->buffer;
+  const size_t *const counts = analyser->counts;
+
+  int ascii = 0, freq = 0, rare = 0, sum;
+  int islowbyte = 0;
+  size_t i;
+  unsigned char b, a;
+
+  /* Initialize when we are called the first time. */
+  if (big5 == ENCA_CS_UNKNOWN) {
+    big5 = enca_name_to_charset("big5");
+    assert(big5 != ENCA_CS_UNKNOWN);
+  }
+  /* Ignore languages that do not contain this charset */
+  for (i = 0; i < analyser->ncharsets; i++) {
+    if (analyser->charsets[i] == big5)
+      break;
+  }
+  if (i == analyser->ncharsets)
+    return 0;
+
+  for (i = 0; i < ' '; i++)
+  {
+    if (i == '\t' || i == '\r' || i == '\n')
+      continue;
+
+    if (counts[i] != 0)
+      return 0;
+  }
+
+  if (counts[0xff])
+    return 0;
+
+  /* Parse. */
+  for (i = 0; i < size; i++) {
+    b = buffer[i];
+
+    /* big5: highbyte range 0xa1~0xf9, lowbyte range 0x40~0x7e and 0xa1~0xfe
+       frequently used characters represented by highbyte 0xa4~0xc5
+       with lowbyte 0x40~0x7e or 0xa1~0xfe, or highbyte 0xc6 with lowbyte
+       0x40~0x7e
+       punctuations represented by highbyte 0xa3 with lowbyte 0x40~0x7e
+       or 0xa1~0xfe */
+
+    /* low byte */
+    if (islowbyte)
+    {
+      assert(i);
+
+      if (b < 0x40 || (b > 0x7e && b < 0xa1))
+        return 0;
+
+      a = buffer[i - 1];
+
+      if ((a >= 0xa3 && a <= 0xc5) || (a == 0xc6 && b >= 0x40 && b <= 0x73))
+        freq++;
+      else
+        rare++;
+
+      islowbyte = 0;
+      continue;
+    }
+
+    /* high byte or standalone ASCII */
+    if (b <= 0x7e)
+    {
+      assert(!islowbyte);
+      ascii++;
+      continue;
+    }
+    else if (b >= 0xa1 && b <= 0xf9)
+      islowbyte = 1;
+    else
+      return 0;
+  }
+
+  /* Unfinished DBCS. */
+  if (islowbyte && analyser->options.termination_strictness > 0)
+    return 0;
+
+  if ((sum = freq + rare) == 0)
+    return 0;
+#ifdef _DEBUG
+  fprintf(stderr, "Big5: ASCII: %d, Freq: %d, Rare: %d, Ratio: %f\n",
+          ascii, freq, rare, (float)freq/sum);
+#endif
+  if ((float)freq/sum  < FREQRATIO)
+    return 0;
+
+  analyser->result.charset = big5;
+  analyser->result.surface |= enca_eol_surface(buffer, size, counts);
+  return 1;
+}
+
+/* vim: ts=2
+ */
 

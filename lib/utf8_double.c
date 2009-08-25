@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: utf8_double.c,v 1.4 2003/12/23 21:22:02 yeti Exp $
+  @(#) $Id: utf8_double.c,v 1.5 2005/11/24 10:09:03 yeti Exp $
   checks for doubly-encoded utf-8
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -106,7 +106,7 @@ enca_double_utf8_check(EncaAnalyser analyser,
   int remains_10xxxxxx = 0;
   size_t i;
 
-  if (analyser->ncharsets == 0)
+  if (analyser->ncharsets == 0 || analyser->lang->weights == 0)
     return 0;
 
   /* Compute weights when we are called the first time. */

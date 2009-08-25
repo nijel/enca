@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: guess.c,v 1.17 2004/05/11 16:14:02 yeti Exp $
+  @(#) $Id: guess.c,v 1.18 2005/11/24 10:09:03 yeti Exp $
   encoding-guesing engine
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -340,8 +340,9 @@ make_guess(EncaAnalyserState *analyser)
   }
 
   /* When no regular charsets are present (i.e. language is `none')
+   * or the language supports multibyte charsets only,
    * nothing of the following procedure has sense so just quit. */
-  if (analyser->ncharsets == 0)
+  if (analyser->ncharsets == 0 || analyser->lang->weights == 0)
     return ENCA_ENOCS8;
 
   /* How many significant characters we caught? */

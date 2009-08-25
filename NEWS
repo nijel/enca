@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.7 (2005-02-27)  guess and convert encoding of text files
+# Enca v1.8 (2005-11-24)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -8,6 +8,12 @@ List of user-visible changes in Enca
 Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
+
+enca-1.8 2005-11-24
+  + Chinese (Big5 and GBK) support (thanks to Zuxy)
+  * deb/ subdirectory is gone as there is finally an Enca package in Debian
+    (thanks to Michal Cihar)
+  - manual page clean-up (thanks to Michal Cihar)
 
 enca-1.7 2005-02-27
   + new name type: preferred MIME name (option -m)

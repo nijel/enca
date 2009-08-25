@@ -1,9 +1,9 @@
 dnl configure.in by David Necas (Yeti) <yeti@physics.muni.cz>
-dnl @(#) $Id: configure.ac,v 1.32 2005/02/27 12:35:56 yeti Exp $
+dnl @(#) $Id: configure.ac,v 1.33 2005/11/24 10:21:32 yeti Exp $
 dnl This file is in public domain.
 dnl Process this file with autoconf to produce a configure script.
 dnl Shake before use.
-AC_INIT(Enca, 1.7, [David Necas (Yeti) <yeti@physics.muni.cz>])
+AC_INIT(Enca, 1.8, [David Necas (Yeti) <yeti@physics.muni.cz>])
 AC_PREREQ(2.52)
 AC_CONFIG_SRCDIR(src/enca.c)
 AC_CONFIG_FILES( \

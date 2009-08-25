@@ -14,6 +14,9 @@ Variouis auxiliary functions and informations about libenca.
 
 </para>
 
+<!-- ##### SECTION Stability_Level ##### -->
+
+
 <!-- ##### FUNCTION enca_charset_has_ucs2_map ##### -->
 <para>
 

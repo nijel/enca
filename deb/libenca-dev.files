@@ -1,5 +1,0 @@
-usr/include/*.h
-usr/lib/*.a
-usr/lib/*.la
-usr/lib/pkgconfig/*.pc
-usr/share/doc/enca/html/*

@@ -304,3 +304,23 @@ aliases:Cork T1
 human:Cork encoding; T1
 flags:ENCA_CHARSET_8BIT | ENCA_CHARSET_FIXED | ENCA_CHARSET_REGULAR
 nsurface:
+
+enca:GBK
+rfc:GB_2312-80
+cstocs:
+iconv:@ICONV_NAME_GBK@
+mime:GB2312
+aliases:GB2312 GBK GB18030 CP936
+human:Simplified Chinese National Standard; GB2312
+flags:ENCA_CHARSET_8BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE
+nsurface:ENCA_SURFACE_EOL_LF
+
+enca:BIG5
+rfc:Big5
+cstocs:
+iconv:@ICONV_NAME_BIG5@
+mime:BIG5
+aliases:BIG5 BIGFIVE BIG-5 BIG-FIVE CP950
+human:Traditional Chinese Industrial Standard; Big5
+flags:ENCA_CHARSET_8BIT | ENCA_CHARSET_VARIABLE | ENCA_CHARSET_MULTIBYTE
+nsurface:ENCA_SURFACE_EOL_LF

@@ -17,6 +17,9 @@ Do not use outside Enca library.
 
 </para>
 
+<!-- ##### SECTION Stability_Level ##### -->
+
+
 <!-- ##### STRUCT EncaAnalyserOptions ##### -->
 <para>
 
@@ -56,6 +59,8 @@ Do not use outside Enca library.
 @pair2bits: 
 @bitcounts: 
 @pairratings: 
+@lcbits: 
+@ucbits: 
 @options: 
 
 <!-- ##### STRUCT EncaCharsetInfo ##### -->
@@ -67,6 +72,7 @@ Do not use outside Enca library.
 @rfc1345: 
 @cstocs: 
 @iconv: 
+@mime: 
 @human: 
 @flags: 
 @nsurface: 
@@ -80,10 +86,13 @@ Do not use outside Enca library.
 @humanname: 
 @ncharsets: 
 @csnames: 
+@weights: 
+@significant: 
 @letters: 
 @pairs: 
 @hook: 
 @eolhook: 
+@lcuchook: 
 
 <!-- ##### STRUCT EncaLanguageHookData1CS ##### -->
 <para>
@@ -184,7 +193,6 @@ Do not use outside Enca library.
 </para>
 
 @size: 
-<!-- # Unused Parameters # -->
 @Returns: 
 
 
@@ -195,7 +203,6 @@ Do not use outside Enca library.
 
 @ptr: 
 @size: 
-<!-- # Unused Parameters # -->
 @Returns: 
 
 

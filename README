@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.7 (2005-02-27)  guess and convert encoding of text files
+# Enca v1.8 (2005-11-24)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -9,8 +9,8 @@ Enca (Extremely Naive Charset Analyser) consists of two main components:
 
   * libenca, an encoding detection library.  It currently supports
     Belarussian, Bulgarian, Croatian, Czech, Estonian, Hungarian, Latvian,
-    Lithuanian, Polish, Russian, Slovak, Slovene, and Ukrainian and some
-    multibyte encodings independently on language.  The API should be
+    Lithuanian, Polish, Russian, Slovak, Slovene, Ukrainian, Chinese, and
+    some multibyte encodings independently on language.  The API should be
     relatively stable (to be read as `it will either change only
     marginally, or very drastically').
 

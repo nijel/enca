@@ -14,6 +14,9 @@ Functions and macros for getting something sensible from #EncaEncoding.
 
 </para>
 
+<!-- ##### SECTION Stability_Level ##### -->
+
+
 <!-- ##### FUNCTION enca_charset_name ##### -->
 <para>
 

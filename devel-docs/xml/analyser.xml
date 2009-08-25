@@ -19,43 +19,43 @@ Basic analyser interface.</refpurpose>
 
 
 
-<link linkend="EncaAnalyser">EncaAnalyser</link> <link linkend="enca-analyser-alloc">enca_analyser_alloc</link>            (const char *langname);
-void        <link linkend="enca-analyser-free">enca_analyser_free</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="EncaAnalyser">EncaAnalyser</link> <link linkend="enca-analyser-alloc">enca_analyser_alloc</link>            (const <link linkend="char">char</link> *langname);
+<link linkend="void">void</link>        <link linkend="enca-analyser-free">enca_analyser_free</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
 <link linkend="EncaEncoding">EncaEncoding</link> <link linkend="enca-analyse">enca_analyse</link>                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);
 <link linkend="EncaEncoding">EncaEncoding</link> <link linkend="enca-analyse-const">enca_analyse_const</link>             (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);
-int         <link linkend="enca-errno">enca_errno</link>                      (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-const char* <link linkend="enca-strerror">enca_strerror</link>                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int errnum);
-int         <link linkend="enca-double-utf8-check">enca_double_utf8_check</link>          (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+<link linkend="int">int</link>         <link linkend="enca-errno">enca_errno</link>                      (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+const <link linkend="char">char</link>* <link linkend="enca-strerror">enca_strerror</link>                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> errnum);
+<link linkend="int">int</link>         <link linkend="enca-double-utf8-check">enca_double_utf8_check</link>          (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);
-int*        <link linkend="enca-double-utf8-get-candidates">enca_double_utf8_get_candidates</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-multibyte">enca_set_multibyte</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int multibyte);
-int         <link linkend="enca-get-multibyte">enca_get_multibyte</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-interpreted-surfaces">enca_set_interpreted_surfaces</link>   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int interpreted_surfaces);
-int         <link linkend="enca-get-interpreted-surfaces">enca_get_interpreted_surfaces</link>   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-ambiguity">enca_set_ambiguity</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int ambiguity);
-int         <link linkend="enca-get-ambiguity">enca_get_ambiguity</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-filtering">enca_set_filtering</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int filtering);
-int         <link linkend="enca-get-filtering">enca_get_filtering</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-garbage-test">enca_set_garbage_test</link>           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int garabage_test);
-int         <link linkend="enca-get-garbage-test">enca_get_garbage_test</link>           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-void        <link linkend="enca-set-termination-strictness">enca_set_termination_strictness</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int termination_strictness);
-int         <link linkend="enca-get-termination-strictness">enca_get_termination_strictness</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-int         <link linkend="enca-set-significant">enca_set_significant</link>            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+<link linkend="int">int</link>*        <link linkend="enca-double-utf8-get-candidates">enca_double_utf8_get_candidates</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-multibyte">enca_set_multibyte</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> multibyte);
+<link linkend="int">int</link>         <link linkend="enca-get-multibyte">enca_get_multibyte</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-interpreted-surfaces">enca_set_interpreted_surfaces</link>   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> interpreted_surfaces);
+<link linkend="int">int</link>         <link linkend="enca-get-interpreted-surfaces">enca_get_interpreted_surfaces</link>   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-ambiguity">enca_set_ambiguity</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> ambiguity);
+<link linkend="int">int</link>         <link linkend="enca-get-ambiguity">enca_get_ambiguity</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-filtering">enca_set_filtering</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> filtering);
+<link linkend="int">int</link>         <link linkend="enca-get-filtering">enca_get_filtering</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-garbage-test">enca_set_garbage_test</link>           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> garabage_test);
+<link linkend="int">int</link>         <link linkend="enca-get-garbage-test">enca_get_garbage_test</link>           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="void">void</link>        <link linkend="enca-set-termination-strictness">enca_set_termination_strictness</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> termination_strictness);
+<link linkend="int">int</link>         <link linkend="enca-get-termination-strictness">enca_get_termination_strictness</link> (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
+<link linkend="int">int</link>         <link linkend="enca-set-significant">enca_set_significant</link>            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
                                              <link linkend="size-t">size_t</link> significant);
 <link linkend="size-t">size_t</link>      <link linkend="enca-get-significant">enca_get_significant</link>            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
-int         <link linkend="enca-set-threshold">enca_set_threshold</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+<link linkend="int">int</link>         <link linkend="enca-set-threshold">enca_set_threshold</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
                                              <link linkend="double">double</link> threshold);
 <link linkend="double">double</link>      <link linkend="enca-get-threshold">enca_get_threshold</link>              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);
 </synopsis>
@@ -67,14 +67,16 @@ int         <link linkend="enca-set-threshold">enca_set_threshold</link>        
 
 
 
+
+
 <refsect1>
 <title>Description</title>
 <para>
-Basically you want to allocate an analyser with <link linkend="enca-analyser-alloc">enca_analyser_alloc</link>() for some
-language, use <link linkend="enca-analyse">enca_analyse</link>() (or <link linkend="enca-analyse-const">enca_analyse_const</link>()) on a buffer to find its
-encoding, and interpret the results with something like <link linkend="enca-charset-name">enca_charset_name</link>().
+Basically you want to allocate an analyser with <link linkend="enca-analyser-alloc"><function>enca_analyser_alloc()</function></link> for some
+language, use <link linkend="enca-analyse"><function>enca_analyse()</function></link> (or <link linkend="enca-analyse-const"><function>enca_analyse_const()</function></link>) on a buffer to find its
+encoding, and interpret the results with something like <link linkend="enca-charset-name"><function>enca_charset_name()</function></link>.
 The analyser then can be used for another buffer. Once you no longer need
-it, call <link linkend="enca-analyser-free">enca_analyser_free</link>() to release it.
+it, call <link linkend="enca-analyser-free"><function>enca_analyser_free()</function></link> to release it.
 </para>
 
 <para>
@@ -85,8 +87,8 @@ A single working example is better than a hundred pages of reference manual.
 <title>A minimal Enca library application &ndash; Czech encoding
 detector.</title>
 <programlisting>
-<link linkend="include">include</link> &lt;stdio.h&gt;
-<link linkend="include">include</link> &lt;enca.h&gt;
+<link linkend="include"><type>include</type></link> &lt;stdio.h&gt;
+<link linkend="include"><type>include</type></link> &lt;enca.h&gt;
 
 int
 main(void)
@@ -110,7 +112,7 @@ main(void)
 
 <para>
 The analyser has plenty of options, but generally you don't need to fiddle
-with them, except <link linkend="enca-set-termination-strictness">enca_set_termination_strictness</link>().
+with them, except <link linkend="enca-set-termination-strictness"><function>enca_set_termination_strictness()</function></link>.
 </para>
 
 <para>
@@ -125,7 +127,7 @@ application function/variable/type/macro names.
 <title>Details</title>
 <refsect2>
 <title><anchor id="enca-analyser-alloc"/>enca_analyser_alloc ()</title>
-<programlisting><link linkend="EncaAnalyser">EncaAnalyser</link> enca_analyser_alloc            (const char *langname);</programlisting>
+<indexterm><primary>enca_analyser_alloc</primary></indexterm><programlisting><link linkend="EncaAnalyser">EncaAnalyser</link> enca_analyser_alloc            (const <link linkend="char">char</link> *langname);</programlisting>
 <para>
 Allocates an analyser and initializes it for language <parameter>language</parameter>.
 </para>
@@ -141,22 +143,22 @@ around.
 <parameter>langname</parameter> is two-letter ISO 639:1989 language code.  Locale names in form
 language_territory and ISO-639 English language names also may be accepted
 in the future. To be on the safe side, use only names returned by
-<link linkend="enca-get-languages">enca_get_languages</link>().</para>
+<link linkend="enca-get-languages"><function>enca_get_languages()</function></link>.</para>
 <para>
 
 </para><variablelist role="params">
 <varlistentry><term><parameter>langname</parameter>&nbsp;:</term>
 <listitem><simpara> Language for which the analyser should be initialized.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> The newly created <link linkend="EncaAnalyser">EncaAnalyser</link> on success, <link linkend="NULL-CAPS">NULL</link> on failure
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The newly created <link linkend="EncaAnalyser"><type>EncaAnalyser</type></link> on success, <link linkend="NULL:CAPS"><type>NULL</type></link> on failure
          (namely when <parameter>langname</parameter> is unknown or otherwise invalid).
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-analyser-free"/>enca_analyser_free ()</title>
-<programlisting>void        enca_analyser_free              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm><primary>enca_analyser_free</primary></indexterm><programlisting><link linkend="void">void</link>        enca_analyser_free              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
-Frees memory used by <link linkend="EncaAnalyser">EncaAnalyser</link> <parameter>analyser</parameter>.</para>
+Frees memory used by <link linkend="EncaAnalyser"><type>EncaAnalyser</type></link> <parameter>analyser</parameter>.</para>
 <para>
 
 </para><variablelist role="params">
@@ -166,8 +168,8 @@ Frees memory used by <link linkend="EncaAnalyser">EncaAnalyser</link> <parameter
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-analyse"/>enca_analyse ()</title>
-<programlisting><link linkend="EncaEncoding">EncaEncoding</link> enca_analyse                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+<indexterm><primary>enca_analyse</primary></indexterm><programlisting><link linkend="EncaEncoding">EncaEncoding</link> enca_analyse                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);</programlisting>
 <para>
 Analyses <parameter>buffer</parameter> and finds its encoding.
@@ -175,11 +177,11 @@ Analyses <parameter>buffer</parameter> and finds its encoding.
 <para>
 The <parameter>buffer</parameter> is checked for 8bit encodings of language for which <parameter>analyser</parameter>
 was initialized and for multibyte encodings, mostly independent on language
-(unless disabled with <link linkend="enca-set-multibyte">enca_set_multibyte</link>()).
+(unless disabled with <link linkend="enca-set-multibyte"><function>enca_set_multibyte()</function></link>).
 </para>
 <para>
 The contents of <parameter>buffer</parameter> may be (and probably will be) modified during the
-analyse.  Use <link linkend="enca-analyse-const">enca_analyse_const</link>() instead if this discomforts you.</para>
+analyse.  Use <link linkend="enca-analyse-const"><function>enca_analyse_const()</function></link> instead if this discomforts you.</para>
 <para>
 
 </para><variablelist role="params">
@@ -192,15 +194,15 @@ analyse.  Use <link linkend="enca-analyse-const">enca_analyse_const</link>() ins
 <varlistentry><term><parameter>size</parameter>&nbsp;:</term>
 <listitem><simpara> Size of <parameter>buffer</parameter>.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Encoding of <parameter>buffer</parameter>.  When charset part of return value is
-         <link linkend="ENCA-CS-UNKNOWN-CAPS">ENCA_CS_UNKNOWN</link>, encoding was not determined.  Check
-         <link linkend="enca-errno">enca_errno</link>() for reason.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Encoding of <parameter>buffer</parameter>.  When charset part of return value is
+         <link linkend="ENCA-CS-UNKNOWN:CAPS"><type>ENCA_CS_UNKNOWN</type></link>, encoding was not determined.  Check
+         <link linkend="enca-errno"><function>enca_errno()</function></link> for reason.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-analyse-const"/>enca_analyse_const ()</title>
-<programlisting><link linkend="EncaEncoding">EncaEncoding</link> enca_analyse_const             (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+<indexterm><primary>enca_analyse_const</primary></indexterm><programlisting><link linkend="EncaEncoding">EncaEncoding</link> enca_analyse_const             (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);</programlisting>
 <para>
 Analyses <parameter>buffer</parameter> and finds its encoding.
@@ -208,11 +210,11 @@ Analyses <parameter>buffer</parameter> and finds its encoding.
 <para>
 The <parameter>buffer</parameter> is checked for 8bit encodings of language for which <parameter>analyser</parameter>
 was initialized and for multibyte encodings, mostly independent on language
-(unless disabled with <link linkend="enca-set-multibyte">enca_set_multibyte</link>()).
+(unless disabled with <link linkend="enca-set-multibyte"><function>enca_set_multibyte()</function></link>).
 </para>
 <para>
 This function never modifies <parameter>buffer</parameter> (can be even used with string literal
-<parameter>buffer</parameter>) at the expense it's generally slower than <link linkend="enca-analyse">enca_analyse</link>().</para>
+<parameter>buffer</parameter>) at the expense it's generally slower than <link linkend="enca-analyse"><function>enca_analyse()</function></link>.</para>
 <para>
 
 </para><variablelist role="params">
@@ -225,14 +227,14 @@ This function never modifies <parameter>buffer</parameter> (can be even used wit
 <varlistentry><term><parameter>size</parameter>&nbsp;:</term>
 <listitem><simpara> Size of <parameter>buffer</parameter>.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Encoding of <parameter>buffer</parameter>.  When charset part of return value is
-         <link linkend="ENCA-CS-UNKNOWN-CAPS">ENCA_CS_UNKNOWN</link>, encoding was not determined.  Check
-         <link linkend="enca-errno">enca_errno</link>() for reason.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Encoding of <parameter>buffer</parameter>.  When charset part of return value is
+         <link linkend="ENCA-CS-UNKNOWN:CAPS"><type>ENCA_CS_UNKNOWN</type></link>, encoding was not determined.  Check
+         <link linkend="enca-errno"><function>enca_errno()</function></link> for reason.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-errno"/>enca_errno ()</title>
-<programlisting>int         enca_errno                      (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm><primary>enca_errno</primary></indexterm><programlisting><link linkend="int">int</link>         enca_errno                      (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns analyser error code.
 </para>
@@ -245,24 +247,24 @@ call to a function taking <parameter>analyser</parameter> as parameter can chang
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Error code of reason why last analyser call failed.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Error code of reason why last analyser call failed.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-strerror"/>enca_strerror ()</title>
-<programlisting>const char* enca_strerror                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int errnum);</programlisting>
+<indexterm><primary>enca_strerror</primary></indexterm><programlisting>const <link linkend="char">char</link>* enca_strerror                   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> errnum);</programlisting>
 <para>
 Returns string describing the error code.
 </para>
 <para>
 The returned string must be considered constant and must NOT be freed.
 It is however gauranteed not to be modified on invalidated by subsequent
-calls to any libenca functions, including <link linkend="enca-strerror">enca_strerror</link>().
+calls to any libenca functions, including <link linkend="enca-strerror"><function>enca_strerror()</function></link>.
 </para>
 <para>
 The analyser error code is not changed for a successful call, and it set
-to <link linkend="ENCA-EINVALUE-CAPS">ENCA_EINVALUE</link> upon error.</para>
+to <link linkend="ENCA-EINVALUE:CAPS"><type>ENCA_EINVALUE</type></link> upon error.</para>
 <para>
 
 </para><variablelist role="params">
@@ -272,13 +274,13 @@ to <link linkend="ENCA-EINVALUE-CAPS">ENCA_EINVALUE</link> upon error.</para>
 <varlistentry><term><parameter>errnum</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser error code.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> String describing the error code.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> String describing the error code.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-double-utf8-check"/>enca_double_utf8_check ()</title>
-<programlisting>int         enca_double_utf8_check          (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             unsigned char *buffer,
+<indexterm><primary>enca_double_utf8_check</primary></indexterm><programlisting><link linkend="int">int</link>         enca_double_utf8_check          (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             unsigned <link linkend="char">char</link> *buffer,
                                              <link linkend="size-t">size_t</link> size);</programlisting>
 <para>
 Checks buffer for double-UTF-8 encoding.
@@ -308,21 +310,21 @@ Calling this function when language is `none' has currently no effect.</para>
 <varlistentry><term><parameter>size</parameter>&nbsp;:</term>
 <listitem><simpara> The size of <parameter>buffer</parameter>.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero, when <parameter>buffer</parameter> probably contains doubly-UTF-8 encoded text.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero, when <parameter>buffer</parameter> probably contains doubly-UTF-8 encoded text.
          More precisely, it returns the number of charsets which are
          possible candidates for source charset.  You can then use
-         <link linkend="enca-double-utf8-get-candidates">enca_double_utf8_get_candidates</link>() to retrieve the charsets.
+         <link linkend="enca-double-utf8-get-candidates"><function>enca_double_utf8_get_candidates()</function></link> to retrieve the charsets.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-double-utf8-get-candidates"/>enca_double_utf8_get_candidates ()</title>
-<programlisting>int*        enca_double_utf8_get_candidates (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm><primary>enca_double_utf8_get_candidates</primary></indexterm><programlisting><link linkend="int">int</link>*        enca_double_utf8_get_candidates (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns array of double-UTF-8 source charset candidates from the last check.
 </para>
 <para>
 The returned array should be freed by caller then no longer needed. Its
-is the return value of the preceding <link linkend="enca-double-utf8-check">enca_double_utf8_check</link>() call.
+is the return value of the preceding <link linkend="enca-double-utf8-check"><function>enca_double_utf8_check()</function></link> call.
 </para>
 <para>
 When called before any double-UTF-8 test has been performed yet or after
@@ -335,7 +337,7 @@ an unsuccessfull check should be considered undefined.</para>
 <listitem><simpara> Analyzer state for which double-UTF-8 candidates are to be
            returned.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> An array containing charset id's of possible source charsets from
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> An array containing charset id's of possible source charsets from
          which the sample was doubly-UTF-8 encoded.  The array may contain
          only one value, but usually enca is not able to decide between
          e.g. ISO-8859-2 and Win1250, thus more candidates are returned.
@@ -343,8 +345,8 @@ an unsuccessfull check should be considered undefined.</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-set-multibyte"/>enca_set_multibyte ()</title>
-<programlisting>void        enca_set_multibyte              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int multibyte);</programlisting>
+<indexterm><primary>enca_set_multibyte</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_multibyte              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> multibyte);</programlisting>
 <para>
 Enables or disables multibyte encoding tests for <parameter>analyser</parameter>.
 </para>
@@ -354,12 +356,12 @@ This option is enabled by default.
 <para>
 When multibyte encodings are disabled, only 8bit charsets are checked.
 Disabling them for language with no 8bit charsets leaves only one thing
-<link linkend="enca-analyse">enca_analyse</link>() could test: whether the sample is purely 7bit ASCII or not
+<link linkend="enca-analyse"><function>enca_analyse()</function></link> could test: whether the sample is purely 7bit ASCII or not
 (the latter leading to analyser failure, of course).
 </para>
 <para>
 Multibyte encoding detection is also affected by
-<link linkend="enca-set-termination-strictness">enca_set_termination_strictness</link>().</para>
+<link linkend="enca-set-termination-strictness"><function>enca_set_termination_strictness()</function></link>.</para>
 <para>
 
 </para><variablelist role="params">
@@ -373,12 +375,12 @@ Multibyte encoding detection is also affected by
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-multibyte"/>enca_get_multibyte ()</title>
-<programlisting>int         enca_get_multibyte              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_multibyte</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_multibyte              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> can return multibyte encodings.
 </para>
 <para>
-See <link linkend="enca-set-multibyte">enca_set_multibyte</link>() for more detailed description of multibyte
+See <link linkend="enca-set-multibyte"><function>enca_set_multibyte()</function></link> for more detailed description of multibyte
 encoding checking.</para>
 <para>
 
@@ -386,15 +388,15 @@ encoding checking.</para>
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when multibyte encoding are possible, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when multibyte encoding are possible, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-interpreted-surfaces"/>enca_set_interpreted_surfaces ()</title>
-<programlisting>void        enca_set_interpreted_surfaces   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int interpreted_surfaces);</programlisting>
+<indexterm><primary>enca_set_interpreted_surfaces</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_interpreted_surfaces   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> interpreted_surfaces);</programlisting>
 <para>
 Enables or disables interpeted surfaces tests for <parameter>analyser</parameter>.
 </para>
@@ -409,7 +411,7 @@ ignoring UCS byteorders may be acceptable in endian-homogenous environment;
 ignoring the fact file is Quoted-Printable encoded can have disasterous
 consequences.  By disabling this option you can disable surfaces requiring
 fundamental reinterpretation of the content, namely <literal>ENCA_SURFACE_QP</literal>
-and <literal>ENCA_SURFACE_EOL_BIN</literal> (thus probably making <link linkend="enca-analyse">enca_analyse</link>() to fail on
+and <literal>ENCA_SURFACE_EOL_BIN</literal> (thus probably making <link linkend="enca-analyse"><function>enca_analyse()</function></link> to fail on
 such samples).</para>
 <para>
 
@@ -424,12 +426,12 @@ such samples).</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-interpreted-surfaces"/>enca_get_interpreted_surfaces ()</title>
-<programlisting>int         enca_get_interpreted_surfaces   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_interpreted_surfaces</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_interpreted_surfaces   (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> allows interpreted surfaces.
 </para>
 <para>
-See <link linkend="enca-set-interpreted-surfaces">enca_set_interpreted_surfaces</link>() for more detailed description of
+See <link linkend="enca-set-interpreted-surfaces"><function>enca_set_interpreted_surfaces()</function></link> for more detailed description of
 interpreted surfaces.</para>
 <para>
 
@@ -437,15 +439,15 @@ interpreted surfaces.</para>
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when interpreted surfaces are possible, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when interpreted surfaces are possible, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-ambiguity"/>enca_set_ambiguity ()</title>
-<programlisting>void        enca_set_ambiguity              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int ambiguity);</programlisting>
+<indexterm><primary>enca_set_ambiguity</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_ambiguity              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> ambiguity);</programlisting>
 <para>
 Enables or disables ambiguous mode for <parameter>analyser</parameter>.
 </para>
@@ -469,27 +471,27 @@ have the same meaning in all charsets under consideration.</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-ambiguity"/>enca_get_ambiguity ()</title>
-<programlisting>int         enca_get_ambiguity              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_ambiguity</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_ambiguity              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> can return ambiguous results.
 </para>
 <para>
-See <link linkend="enca-set-ambiguity">enca_set_ambiguity</link>() for more detailed description of ambiguous results.</para>
+See <link linkend="enca-set-ambiguity"><function>enca_set_ambiguity()</function></link> for more detailed description of ambiguous results.</para>
 <para>
 
 </para><variablelist role="params">
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when ambiguous results are allowed, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when ambiguous results are allowed, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-filtering"/>enca_set_filtering ()</title>
-<programlisting>void        enca_set_filtering              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int filtering);</programlisting>
+<indexterm><primary>enca_set_filtering</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_filtering              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> filtering);</programlisting>
 <para>
 Enables or disables filters for <parameter>analyser</parameter>.
 </para>
@@ -513,27 +515,27 @@ you can disable them by setting this option to zero.</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-filtering"/>enca_get_filtering ()</title>
-<programlisting>int         enca_get_filtering              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_filtering</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_filtering              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> has filtering enabled.
 </para>
 <para>
-See <link linkend="enca-set-filtering">enca_set_filtering</link>() for more detailed description of filtering.</para>
+See <link linkend="enca-set-filtering"><function>enca_set_filtering()</function></link> for more detailed description of filtering.</para>
 <para>
 
 </para><variablelist role="params">
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when filtering is enabled, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when filtering is enabled, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-garbage-test"/>enca_set_garbage_test ()</title>
-<programlisting>void        enca_set_garbage_test           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int garabage_test);</programlisting>
+<indexterm><primary>enca_set_garbage_test</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_garbage_test           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> garabage_test);</programlisting>
 <para>
 Enables or disables garbage test for <parameter>analyser</parameter>.
 </para>
@@ -557,27 +559,27 @@ unwanted, you can disable is by setting this option to zero.</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-garbage-test"/>enca_get_garbage_test ()</title>
-<programlisting>int         enca_get_garbage_test           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_garbage_test</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_garbage_test           (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> has garbage test enabled.
 </para>
 <para>
-See <link linkend="enca-set-garbage-test">enca_set_garbage_test</link>() for more detailed description of garbage test.</para>
+See <link linkend="enca-set-garbage-test"><function>enca_set_garbage_test()</function></link> for more detailed description of garbage test.</para>
 <para>
 
 </para><variablelist role="params">
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when garbage test is enabled, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when garbage test is enabled, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-termination-strictness"/>enca_set_termination_strictness ()</title>
-<programlisting>void        enca_set_termination_strictness (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
-                                             int termination_strictness);</programlisting>
+<indexterm><primary>enca_set_termination_strictness</primary></indexterm><programlisting><link linkend="void">void</link>        enca_set_termination_strictness (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+                                             <link linkend="int">int</link> termination_strictness);</programlisting>
 <para>
 Enables or disables requiring multibyte sequences to be terminated correctly
 at the end of sample.
@@ -586,7 +588,7 @@ at the end of sample.
 This option is enabled by default.
 </para>
 <para>
-The sample given to <link linkend="enca-analyse">enca_analyse</link>() generally may not be a complete text
+The sample given to <link linkend="enca-analyse"><function>enca_analyse()</function></link> generally may not be a complete text
 (e.g. for efficiency reasons).  As a result, it may end in the middle of a
 multibyte sequence.  In this case, you should disable this option to
 prevent rejecting some charset just because the sample don't terminate
@@ -611,12 +613,12 @@ not even (and similarly for UCS-4).</para>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-termination-strictness"/>enca_get_termination_strictness ()</title>
-<programlisting>int         enca_get_termination_strictness (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_termination_strictness</primary></indexterm><programlisting><link linkend="int">int</link>         enca_get_termination_strictness (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns whether <parameter>analyser</parameter> requires strict termination.
 </para>
 <para>
-See <link linkend="enca-set-termination-strictness">enca_set_termination_strictness</link>() for more detailed description of
+See <link linkend="enca-set-termination-strictness"><function>enca_set_termination_strictness()</function></link> for more detailed description of
 termination strictness.</para>
 <para>
 
@@ -624,14 +626,14 @@ termination strictness.</para>
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Nonzero when strict termination is required, zero otherwise.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Nonzero when strict termination is required, zero otherwise.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-significant"/>enca_set_significant ()</title>
-<programlisting>int         enca_set_significant            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+<indexterm><primary>enca_set_significant</primary></indexterm><programlisting><link linkend="int">int</link>         enca_set_significant            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
                                              <link linkend="size-t">size_t</link> significant);</programlisting>
 <para>
 Sets the minimal number of required significant characters.
@@ -640,7 +642,7 @@ Sets the minimal number of required significant characters.
 The default value of this option is 10.
 </para>
 <para>
-<link linkend="enca-analyse">enca_analyse</link>() refuses to make a decision unles at least this number
+<link linkend="enca-analyse"><function>enca_analyse()</function></link> refuses to make a decision unles at least this number
 of significant characters is found in sample.  You may want to lower this
 number for very short texts.</para>
 <para>
@@ -652,19 +654,19 @@ number for very short texts.</para>
 <varlistentry><term><parameter>significant</parameter>&nbsp;:</term>
 <listitem><simpara> Minimal number of required significant characters.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Zero on success, nonzero on failure, i.e. when you passed zero
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Zero on success, nonzero on failure, i.e. when you passed zero
          as <parameter>significant</parameter>.  It sets analyser errno to ENCA_EINVALUE on
          failure.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-significant"/>enca_get_significant ()</title>
-<programlisting><link linkend="size-t">size_t</link>      enca_get_significant            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_significant</primary></indexterm><programlisting><link linkend="size-t">size_t</link>      enca_get_significant            (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns the minimum number of significant characters required by <parameter>analyser</parameter>.
 </para>
 <para>
-See <link linkend="enca-set-significant">enca_set_significant</link>() for more detailed description of required
+See <link linkend="enca-set-significant"><function>enca_set_significant()</function></link> for more detailed description of required
 significant characters.</para>
 <para>
 
@@ -672,14 +674,14 @@ significant characters.</para>
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> The minimum number of significant characters.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The minimum number of significant characters.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.
 </para></refsect2>
 <refsect2>
 <title><anchor id="enca-set-threshold"/>enca_set_threshold ()</title>
-<programlisting>int         enca_set_threshold              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
+<indexterm><primary>enca_set_threshold</primary></indexterm><programlisting><link linkend="int">int</link>         enca_set_threshold              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser,
                                              <link linkend="double">double</link> threshold);</programlisting>
 <para>
 Sets the minimal ratio between the most probable and the second most
@@ -689,7 +691,7 @@ probable charsets.
 The default value of this option is 1.4142.
 </para>
 <para>
-<link linkend="enca-analyse">enca_analyse</link>() consideres the result known only when there's a clear gap
+<link linkend="enca-analyse"><function>enca_analyse()</function></link> consideres the result known only when there's a clear gap
 between the most probable and the second most probable charset
 proababilities.  Lower <parameter>threshold</parameter> values mean larger probability of a
 mistake and smaller probability of not recognizing a charset; higher
@@ -703,26 +705,26 @@ mistake and smaller probability of not recognizing a charset; higher
 <varlistentry><term><parameter>threshold</parameter>&nbsp;:</term>
 <listitem><simpara> Minimal ratio between winner and second best guess.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> Zero on success, nonzero on failure, i.e. when you passed value
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> Zero on success, nonzero on failure, i.e. when you passed value
          smaller than 1.0 as <parameter>threshold</parameter>.  It sets analyser errno to
          ENCA_EINVALUE on failure.
 </simpara></listitem></varlistentry>
 </variablelist></refsect2>
 <refsect2>
 <title><anchor id="enca-get-threshold"/>enca_get_threshold ()</title>
-<programlisting><link linkend="double">double</link>      enca_get_threshold              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
+<indexterm role="1.3."><primary>enca_get_threshold</primary></indexterm><programlisting><link linkend="double">double</link>      enca_get_threshold              (<link linkend="EncaAnalyser">EncaAnalyser</link> analyser);</programlisting>
 <para>
 Returns the threshold value used by <parameter>analyser</parameter>.
 </para>
 <para>
-See <link linkend="enca-set-threshold">enca_set_threshold</link>() for more detailed threshold description.</para>
+See <link linkend="enca-set-threshold"><function>enca_set_threshold()</function></link> for more detailed threshold description.</para>
 <para>
 
 </para><variablelist role="params">
 <varlistentry><term><parameter>analyser</parameter>&nbsp;:</term>
 <listitem><simpara> An analyser.
 </simpara></listitem></varlistentry>
-<varlistentry><term><emphasis>Returns</emphasis> :</term><listitem><simpara> The threshold value.
+<varlistentry><term><emphasis>Returns</emphasis>&nbsp;:</term><listitem><simpara> The threshold value.
 
 </simpara></listitem></varlistentry>
 </variablelist><para>Since  1.3.

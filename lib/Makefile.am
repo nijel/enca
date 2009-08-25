@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.25 2005/02/27 12:35:56 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.29 2005/11/24 20:11:20 yeti Exp $
 include_HEADERS = enca.h
 lib_LTLIBRARIES = libenca.la
 
@@ -7,7 +7,7 @@ lib_LTLIBRARIES = libenca.la
 # Any iface change    C++: 0:   A
 # Adding ifaces       C:   R:   A++
 # Changing ifaces     C:   R:   0
-libenca_la_LDFLAGS = -version-info 5:0:5
+libenca_la_LDFLAGS = -version-info 5:1:5
 libenca_la_SOURCES = \
   common.c \
   ctype.c \
@@ -31,6 +31,7 @@ libenca_la_SOURCES = \
   lang_sk.c \
   lang_sl.c \
   lang_uk.c \
+  lang_zh.c \
   multibyte.c \
   pair.c \
   unicodemap.c \

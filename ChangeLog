@@ -2,6 +2,45 @@
  # See ChangeLog.prelib for changes before that.
  # Unfortunately, there's no ChangeLog for the transition.
 
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/encnames.c: documeneted ENCA_NAME_STYLE_MIME
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/Makefile.am: bumped library version
+    * enca.spec.in, README: added Chinese
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * test/setup.sh, test/zh-s.big5, test/zh-s.gbk, test/zh-s.utf8,
+      test/test-convert-64.sh, test/test-convert-filter.sh,
+      test/test-guiess-utf8.sh, test/test-default-cs.sh,
+      test/test-guess-short.expected, test/Makefile.am:
+      added zh tests files, modified conversion tests to skip over languages
+      that do not have test pair defined
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/multibyte.c: attempted to merge updated patch by Zuxy
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * THANKS, AUTHORS, configure.ac: bumped version, added people
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * deb/*, Makefile.am: removed deb from CVS and distribution
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * NEWS: updated
+
+2005-11-24 David Necas (Yeti) <yeti@physics.muni.cz>
+    * iconvcap.c, lib/guess.c, lib/internal.h, lib/lang.c, lib/Makefile.am,
+      lib/multibyte.c, lib/utf8_double.c, tools/encodings.dat, lib/lang_zh.c,
+      man/enca.1: Applied Chinese support patch by Zuxy (with some small
+      fixes).
+
+2005-09-06 David Necas (Yeti) <yeti@physics.muni.cz>
+    * man/enca.1: fixed lots of - to \- (thanks to Michal Cihar)
+
+2005-05-02 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/convert.c, src/options.c: fixed HAVE_ICONV to HAVE_GOOD_ICONV
+
 v1.7
 2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
     * tools/encodings.dat: fixed MIME name of UTF-7 to UNICODE-1-1-UTF-7

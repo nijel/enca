@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.34 2004/11/17 18:11:49 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
 if MAINTAINER_MODE
 SUBDIRS = tools data script lib src devel-docs test
 else
@@ -34,23 +34,6 @@ EXTRA_DIST = \
   iconvcap.c \
   topline.sh \
   man/enca.1 \
-  deb/changelog \
-  deb/control \
-  deb/copyright \
-  deb/docs \
-  deb/enca.dirs \
-  deb/enca.files \
-  deb/libenca-dev.dirs \
-  deb/libenca-dev.doc-base \
-  deb/libenca-dev.files \
-  deb/libenca0.dirs \
-  deb/libenca0.files \
-  deb/postinst \
-  deb/postrm \
-  deb/preinst \
-  deb/prerm \
-  deb/rules \
-  deb/watch \
   $(M4TESTS)
 
 ####################### maintainer's targets ######################
@@ -78,7 +61,7 @@ uninstall-hook:
 	rm -f $(DESTDIR)$(man1dir)/$$inst
 
 clean-local:
-	rm -f iconvcap iconvcap.o *~ core.* debian/*~
+	rm -f iconvcap iconvcap.o *~ core.*
 
 distclean-local:
 	rm -f iconvenc.h

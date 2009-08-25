@@ -1,4 +1,4 @@
-/* @(#) $Id: internal.h,v 1.23 2005/02/27 12:08:56 yeti Exp $ */
+/* @(#) $Id: internal.h,v 1.24 2005/11/24 10:09:03 yeti Exp $ */
 #ifndef LIBENCA_H
 #define LIBENCA_H
 /***************************************************************************
@@ -496,6 +496,7 @@ extern const EncaLanguageInfo ENCA_LANGUAGE_RU;
 extern const EncaLanguageInfo ENCA_LANGUAGE_SK;
 extern const EncaLanguageInfo ENCA_LANGUAGE_SL;
 extern const EncaLanguageInfo ENCA_LANGUAGE_UK;
+extern const EncaLanguageInfo ENCA_LANGUAGE_ZH;
 
 /* Multibyte test lists.
  * These arrays must be NULL-terminated. */

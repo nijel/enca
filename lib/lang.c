@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: lang.c,v 1.16 2004/06/01 18:38:47 yeti Exp $
+  @(#) $Id: lang.c,v 1.17 2005/11/24 10:09:03 yeti Exp $
   uniform interface to particular languages
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -60,6 +60,7 @@ static const EncaLanguageInfo *const LANGUAGE_LIST[] = {
   &ENCA_LANGUAGE_SK, /* Slovak. */
   &ENCA_LANGUAGE_SL, /* Slovene. */
   &ENCA_LANGUAGE_UK, /* Ukrainian. */
+  &ENCA_LANGUAGE_ZH, /* Chinese. */
   &ENCA_LANGUAGE___, /* None. */
 };
 

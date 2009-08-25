@@ -1,12 +1,12 @@
-# @(#) $Id: enca.spec.in,v 1.26 2004/05/24 19:32:31 yeti Exp $
+# @(#) $Id: enca.spec.in,v 1.27 2005/11/24 19:57:45 yeti Exp $
 Summary: A program detecting encoding of text files.
 Name: enca
-Version: 1.7
+Version: 1.8
 Release: 1
 License: GNU GPL v2
 Group: Applications/Text
 Requires: sed
-Source: http://trific.ath.cx/Ftp/enca/enca-1.7.tar.bz2
+Source: http://trific.ath.cx/Ftp/enca/enca-1.8.tar.bz2
 URL: http://trific.ath.cx/software/enca/
 Packager: David Necas (Yeti) <yeti@physics.muni.cz>
 Vendor: Trific soft.
@@ -20,9 +20,9 @@ either a built-in convertor or external libraries and tools like libiconv,
 librecode, or cstocs.
 
 Currently, it has support for Belarussian, Bulgarian, Croatian, Czech,
-Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, and
-Ukrainian and some multibyte encodings (mostly variants of Unicode)
-independently on the language.
+Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, Ukrainian,
+Chinese, and some multibyte encodings (mostly variants of Unicode)
+independent on the language.
 
 This package also contains shared Enca library other programs can make use of.
 

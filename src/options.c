@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: options.c,v 1.29 2005/02/27 12:08:56 yeti Exp $
+  @(#) $Id: options.c,v 1.30 2005/05/02 20:52:06 yeti Exp $
   command line option processing
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -77,11 +77,11 @@ static const char *VERSION_TEXT = /* {{{ */
 #endif /* HAVE_LIBRECODE */
 "librecode-interface "
 
-#ifdef HAVE_ICONV
+#ifdef HAVE_GOOD_ICONV
 "+"
-#else /* HAVE_ICONV */
+#else /* HAVE_GOOD_ICONV */
 "-"
-#endif /* HAVE_ICONV */
+#endif /* HAVE_GOOD_ICONV */
 "iconv-interface "
 
 #ifdef ENABLE_EXTERNAL

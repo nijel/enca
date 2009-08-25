@@ -1,5 +1,7 @@
 David Necas (Yeti) <yeti@physics.muni.cz>
 
+Zuxy <zuxy.meng@gmail.com> (Chinese encodings support)
+
 Unicode data in src/unicodemap.c comes from various free on-line resources.
 
 Files src/getopt_long.c src/getopt.h come from GNU libc getopt_long by the

@@ -67,7 +67,7 @@ am_libenca_la_OBJECTS = common.lo ctype.lo enca.lo encnames.lo \
 	filters.lo guess.lo lang.lo lang_be.lo lang_bg.lo lang_cs.lo \
 	lang_et.lo lang_hr.lo lang_hu.lo lang_lt.lo lang_lv.lo \
 	lang_pl.lo lang_ru.lo lang_sk.lo lang_sl.lo lang_uk.lo \
-	multibyte.lo pair.lo unicodemap.lo utf8_double.lo
+	lang_zh.lo multibyte.lo pair.lo unicodemap.lo utf8_double.lo
 libenca_la_OBJECTS = $(am_libenca_la_OBJECTS)
 DEFAULT_INCLUDES = -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -205,7 +205,7 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 
-# @(#) $Id: Makefile.am,v 1.25 2005/02/27 12:35:56 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.29 2005/11/24 20:11:20 yeti Exp $
 include_HEADERS = enca.h
 lib_LTLIBRARIES = libenca.la
 
@@ -214,7 +214,7 @@ lib_LTLIBRARIES = libenca.la
 # Any iface change    C++: 0:   A
 # Adding ifaces       C:   R:   A++
 # Changing ifaces     C:   R:   0
-libenca_la_LDFLAGS = -version-info 5:0:5
+libenca_la_LDFLAGS = -version-info 5:1:5
 libenca_la_SOURCES = \
   common.c \
   ctype.c \
@@ -238,6 +238,7 @@ libenca_la_SOURCES = \
   lang_sk.c \
   lang_sl.c \
   lang_uk.c \
+  lang_zh.c \
   multibyte.c \
   pair.c \
   unicodemap.c \
@@ -333,6 +334,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lang_sk.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lang_sl.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lang_uk.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/lang_zh.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/multibyte.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/pair.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/unicodemap.Plo@am__quote@
