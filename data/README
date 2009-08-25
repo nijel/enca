@@ -30,8 +30,8 @@ extreme.pl -- Given two count files, it finds characters most suitable for
               biggest difference of occurences:
               $ ./extreme.pl COUNT1 COUNT2
 
-xlt.c -- [filter] Extremely simple charset convertor, to become independent
-         on the other broken convertors:
+xlt.c -- [filter] Extremely simple charset converter, to become independent
+         on the other broken converters:
          $ ./xlt SOURCE.map TARGET.map <TEXT >CONVERTED_TEXT
 
 mystrings.c -- [filter] Extract text chunks from input (strings(1) doesn't

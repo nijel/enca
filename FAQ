@@ -10,7 +10,7 @@ Frequently Asked Questions about Enca
 
 * Q: How do I specify input encoding?
 * A: You can't.  If you know the encoding, you don't need Enca.  Use some
-     fully-fledged convertor.
+     fully-fledged converter.
 
 * Q: Why Enca can't detect both language and encoding?
 * A: Because this is impossible.  Well, it's possible for natural, long
@@ -47,19 +47,19 @@ Frequently Asked Questions about Enca
         reconstruction of the original characters.  Such sequences could
         be e.g. RFC-1345 mnemonics “e<” and “>>”.
      What happens when you run “enca -x ascii” on something, depends on
-     the convertor used.
+     the converter used.
 
      The usual scenario is: Enca uses librecode or libiconv, which do (1),
      and you get upset.  The only tool doing (2) known to me is cstocs, and
      does it only for Latin2 characters (install cstocs and specify cstocs
-     as the convertor to be used, if you want (2)).  AFAIK, there's no tool
+     as the converter to be used, if you want (2)).  AFAIK, there's no tool
      doing reasonably (3), though recode can expand to mnemonics (use rfc1345
      as target charset instead of ascii).
 
 * Q: Why “enca -E cstocs” doesn't work in my RedHat/Fedora?
 * A: This is a cstocs problem.  Cstocs is broken for Perl ≥ 5.8 and UTF-8
      locales.  Perl Unicode handling changes with every version so an
-     advanced charset convertor working in mutiple Perl versions is something
+     advanced charset converter working in mutiple Perl versions is something
      between impossible and a big mess.  Either set your locales to non-UTF-8
      (e.g. ISO-8859-2) or don't use cstocs until this is resolved somehow.
 

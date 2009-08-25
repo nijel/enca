@@ -9,8 +9,8 @@
 #    define PACKAGE_NAME "Enca"
 #    define PACKAGE_TARNAME "enca"
 #    define PACKAGE_VERSION ""
-#    define DEFAULT_EXTERNAL_CONVERTOR ""
-#    define DEFAULT_CONVERTOR_LIST "built-in"
+#    define DEFAULT_EXTERNAL_CONVERTER ""
+#    define DEFAULT_CONVERTER_LIST "built-in"
 #  endif /* HAVE_CONFIG_H */
 #endif /* not PACKAGE_NAME */
 
@@ -73,9 +73,9 @@ extern int errno;
    conversion between these encodings is not possible
    i/o failure,
    child died
-   convertor library is cheating
+   converter library is cheating
    malformed input,
-   cannot exec external convertor
+   cannot exec external converter
 
    FIXME: this is an ISO C violation E[a-z0-9]+ are reserved for error names
  */
@@ -191,9 +191,9 @@ const char* format_request_string  (EncaEncoding e1,
                                     EncaSurface mask);
 int         convert                (File *file,
                                     EncaEncoding from_enc);
-int         add_convertor          (const char *cname);
-int         external_convertor_listed (void);
-void        print_convertor_list   (void);
+int         add_converter          (const char *cname);
+int         external_converter_listed (void);
+void        print_converter_list   (void);
 void        set_requested_enc      (EncaEncoding enc);
 
 #ifdef HAVE_LIBRECODE
@@ -209,8 +209,8 @@ int         convert_iconv          (File *file,
 #ifdef ENABLE_EXTERNAL
 int         convert_external         (File *file,
                                       EncaEncoding from_enc);
-void        set_external_convertor   (const char *extc);
-int         check_external_convertor (void);
+void        set_external_converter   (const char *extc);
+int         check_external_converter (void);
 #endif /* ENABLE_EXTERNAL */
 
 char*       detect_lang            (const char *lang);

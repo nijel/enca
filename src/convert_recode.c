@@ -78,7 +78,7 @@ convert_recode(File *file,
   }
 
   /* Construct recode request string,
-     try to mimic surfaceless convertor now. */
+     try to mimic surfaceless converter now. */
   {
     EncaEncoding enc;
 

@@ -1,6 +1,6 @@
 /*
   @(#) $Id: convert_extern.c,v 1.9 2003/12/23 23:08:10 yeti Exp $
-  interface to external convertor programs
+  interface to external converter programs
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 
@@ -51,24 +51,24 @@ static char* canonicalize_file_name(const char *fname);
 #  endif /* HAVE_REALPATH */
 #endif /* HAVE_CANONICALIZE_FILE_NAME */
 
-/* external convertor command */
-static char *extern_convertor = NULL;
+/* external converter command */
+static char *extern_converter = NULL;
 
 /* Local prototypes. */
 static int check_executability_one(const char *progpath);
 
-/* fork and the child executes Settings.Convertor on fname
+/* fork and the child executes Settings.Converter on fname
    create temporary file containing stdin when fname == NULL and convert it
-   passing special option STDOUT to convertor (that is assumed to delete
+   passing special option STDOUT to converter (that is assumed to delete
    the temporary file itself)
-   from_enc, to_enc are encoding names as should be passed to convertor
+   from_enc, to_enc are encoding names as should be passed to converter
    returns 0 on success, nonzero on failure;
    on critical failure (like we cannot fork()) it simply aborts */
 int
 convert_external(File *file,
                  const EncaEncoding from_enc)
 {
-  /* special fourth parameter passed to external convertor to instruct it to
+  /* special fourth parameter passed to external converter to instruct it to
   send result to stdout */
   static const char *STDOUT_CONV = "-";
 
@@ -77,14 +77,14 @@ convert_external(File *file,
   File *tempfile = NULL;
   char *from_name, *target_name;
 
-  if (*extern_convertor == '\0') {
-    fprintf(stderr, "%s: No external convertor defined!\n", program_name);
+  if (*extern_converter == '\0') {
+    fprintf(stderr, "%s: No external converter defined!\n", program_name);
     return ERR_CANNOT;
   }
 
   if (options.verbosity_level > 2)
     fprintf(stderr, "    launching `%s' to convert `%s'\n",
-                    extern_convertor, ffname_r(file->name));
+                    extern_converter, ffname_r(file->name));
 
   /* Is conversion of stdin requested? */
   if (file->name == NULL) {
@@ -123,11 +123,11 @@ convert_external(File *file,
   if (pid == 0) {
     /* Child. */
     if (tempfile)
-      execlp(extern_convertor, extern_convertor,
+      execlp(extern_converter, extern_converter,
              from_name, target_name, tempfile->name,
              STDOUT_CONV, NULL);
     else
-      execlp(extern_convertor, extern_convertor,
+      execlp(extern_converter, extern_converter,
              from_name, target_name, file->name, NULL);
 
     exit(ERR_EXEC);
@@ -135,7 +135,7 @@ convert_external(File *file,
 
   /* Parent. */
   if (pid == -1) {
-    fprintf(stderr, "%s: Cannot fork() to execute convertor: %s\n",
+    fprintf(stderr, "%s: Cannot fork() to execute converter: %s\n",
                     program_name,
                     strerror(errno));
     exit(EXIT_TROUBLE);
@@ -143,14 +143,14 @@ convert_external(File *file,
   /* Wait until the child returns. */
   if (waitpid(pid, &status, 0) == -1) {
     /* Error. */
-    fprintf(stderr, "%s: wait_pid() error while waiting for convertor: %s\n",
+    fprintf(stderr, "%s: wait_pid() error while waiting for converter: %s\n",
                     program_name,
                     strerror(errno));
     exit(EXIT_TROUBLE);
   }
   if (!WIFEXITED(status)) {
     /* Child exited abnormally. */
-    fprintf(stderr, "%s: Child convertor process has been murdered.\n",
+    fprintf(stderr, "%s: Child converter process has been murdered.\n",
                     program_name);
     exit(EXIT_TROUBLE);
   }
@@ -165,8 +165,8 @@ convert_external(File *file,
 
   /* Child exited normally, test exit status. */
   if (WEXITSTATUS(status) != EXIT_SUCCESS) {
-    /* This means child was unable to execute convertor or convertor failed. */
-    fprintf(stderr, "%s: External convertor failed (error code %d)\n",
+    /* This means child was unable to execute converter or converter failed. */
+    fprintf(stderr, "%s: External converter failed (error code %d)\n",
                     program_name,
                     WEXITSTATUS(status));
     if (WEXITSTATUS(status) == ERR_EXEC)
@@ -178,43 +178,43 @@ convert_external(File *file,
   return ERR_OK;
 }
 
-/* set external convertor to extc */
+/* set external converter to extc */
 void
-set_external_convertor(const char *extc)
+set_external_converter(const char *extc)
 {
-  enca_free(extern_convertor);
+  enca_free(extern_converter);
   if (strchr(extc, '/') == NULL) {
     if (extc[0] == 'b' && extc[1] == '-') {
       extc += 2;
-      fprintf(stderr, "%s: The `b-' prefix for standard external convertors "
+      fprintf(stderr, "%s: The `b-' prefix for standard external converters "
                       "is deprecated.\n"
                       "I'll pretend you said `%s'.\n",
                       program_name,
                       extc);
     }
-    extern_convertor = enca_strconcat(EXTCONV_DIR, "/", extc, NULL);
+    extern_converter = enca_strconcat(EXTCONV_DIR, "/", extc, NULL);
   }
   else
-    extern_convertor = enca_strdup(extc);
+    extern_converter = enca_strdup(extc);
 }
 
-/* return nonzero if external convertor seems ok */
+/* return nonzero if external converter seems ok */
 int
-check_external_convertor(void)
+check_external_converter(void)
 {
   /* FIXME: This creates a race condition.  However we don't want to do all
    * the checking before every execlp() when conveting 500 files in a row,
    * and even if doing that, something can still sneak between stat() and
    * execlp(), so what.  This is just a simple sanity check, nothing strict.
    */
-  if (*extern_convertor == '\0'
-      || !check_executability_one(extern_convertor)) {
-    fprintf(stderr, "%s: Convertor `%s' doesn't seem to be executable.\n"
-                    "Note as of enca-1.3 external convertors must be\n"
+  if (*extern_converter == '\0'
+      || !check_executability_one(extern_converter)) {
+    fprintf(stderr, "%s: Converter `%s' doesn't seem to be executable.\n"
+                    "Note as of enca-1.3 external converters must be\n"
                     "(a) one of the standard ones residing in %s\n"
                     "(b) specified with full path\n",
                     program_name,
-                    extern_convertor,
+                    extern_converter,
                     EXTCONV_DIR);
     return 0;
   }

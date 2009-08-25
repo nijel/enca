@@ -465,7 +465,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CPP EGREP build build_cpu build_vendor build_os host host_cpu host_vendor host_os LN_S ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CXX CXXFLAGS ac_ct_CXX CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL MKTEMP_PROG CSTOCS_PROG RECODE_PROG UMAP_PROG PICONV_PROG MAP_PROG HTML_DIR GTKDOC ENABLE_GTK_DOC_TRUE ENABLE_GTK_DOC_FALSE LIBM LIBOBJS LIBICONV LTLIBICONV RELEASE CONVERTOR_LIBS DEFAULT_EXTERNAL_CONVERTOR DEFAULT_CONVERTOR_LIST SHELL_RANDOM_FILENAME LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM mkdir_p AWK SET_MAKE am__leading_dot AMTAR am__tar am__untar MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CPP EGREP build build_cpu build_vendor build_os host host_cpu host_vendor host_os LN_S ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CXX CXXFLAGS ac_ct_CXX CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL MKTEMP_PROG CSTOCS_PROG RECODE_PROG UMAP_PROG PICONV_PROG MAP_PROG HTML_DIR GTKDOC ENABLE_GTK_DOC_TRUE ENABLE_GTK_DOC_FALSE LIBM LIBOBJS LIBICONV LTLIBICONV RELEASE CONVERTER_LIBS DEFAULT_EXTERNAL_CONVERTER DEFAULT_CONVERTER_LIST SHELL_RANDOM_FILENAME LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -20601,8 +20601,8 @@ for w in cstocs recode piconv map umap; do
 #define $wPROG "$wPROGcv"
 _ACEOF
 
-    if test -z "$DEFAULT_EXTERNAL_CONVERTOR"; then
-      DEFAULT_EXTERNAL_CONVERTOR=$w
+    if test -z "$DEFAULT_EXTERNAL_CONVERTER"; then
+      DEFAULT_EXTERNAL_CONVERTER=$w
     fi
   fi
 done
@@ -23132,7 +23132,7 @@ cat >>confdefs.h <<_ACEOF
 _ACEOF
 
 
-CONVERTOR_LIBS=
+CONVERTER_LIBS=
 
       if test "X$prefix" = "XNONE"; then
     acl_final_prefix="$ac_default_prefix"
@@ -23922,13 +23922,13 @@ _ACEOF
 
   fi
 
-CONVERTOR_LIBS="$CONVERTOR_LIBS $LIBICONV"
+CONVERTER_LIBS="$CONVERTER_LIBS $LIBICONV"
 
 libiconv_ok="$am_cv_func_iconv"
 if test "$libiconv_ok" = yes; then
   echo "$as_me:$LINENO: checking whether iconv implementation is usable" >&5
 echo $ECHO_N "checking whether iconv implementation is usable... $ECHO_C" >&6
-  if $CC -o iconvcap$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS $srcdir/iconvcap.c $LIBS $CONVERTOR_LIBS 1>&5 2>&5 && test -s ./iconvcap$ac_exeext 2>&5; then
+  if $CC -o iconvcap$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS $srcdir/iconvcap.c $LIBS $CONVERTER_LIBS 1>&5 2>&5 && test -s ./iconvcap$ac_exeext 2>&5; then
     if ./iconvcap 2>&5 >iconvenc.h; then
       libiconv_ok=yes
     else
@@ -24182,7 +24182,7 @@ cat >>confdefs.h <<\_ACEOF
 #define HAVE_LIBRECODE 1
 _ACEOF
 
-    CONVERTOR_LIBS="$CONVERTOR_LIBS -lrecode"
+    CONVERTER_LIBS="$CONVERTER_LIBS -lrecode"
   fi
   LIBS="$yeti_save_LIBS"
 else
@@ -24196,17 +24196,17 @@ if test "$librecode_ok" != "yes"; then
   fi
 fi
 
-DEFAULT_CONVERTOR_LIST="built-in"
+DEFAULT_CONVERTER_LIST="built-in"
 if test "$librecode_ok" = "yes"; then
-  DEFAULT_CONVERTOR_LIST="$DEFAULT_CONVERTOR_LIST,librecode"
+  DEFAULT_CONVERTER_LIST="$DEFAULT_CONVERTER_LIST,librecode"
 else
   if test "$libiconv_ok" = "yes"; then
-    DEFAULT_CONVERTOR_LIST="$DEFAULT_CONVERTOR_LIST,iconv"
+    DEFAULT_CONVERTER_LIST="$DEFAULT_CONVERTER_LIST,iconv"
   fi
 fi
 
 cat >>confdefs.h <<_ACEOF
-#define DEFAULT_CONVERTOR_LIST "$DEFAULT_CONVERTOR_LIST"
+#define DEFAULT_CONVERTER_LIST "$DEFAULT_CONVERTER_LIST"
 _ACEOF
 
 
@@ -24216,18 +24216,18 @@ cat >>confdefs.h <<\_ACEOF
 #define ENABLE_EXTERNAL 1
 _ACEOF
 
-  if test -n "$DEFAULT_EXTERNAL_CONVERTOR"; then
-    enable_external="yes ($DEFAULT_EXTERNAL_CONVERTOR)"
+  if test -n "$DEFAULT_EXTERNAL_CONVERTER"; then
+    enable_external="yes ($DEFAULT_EXTERNAL_CONVERTER)"
   else
     enable_external="yes (but no suitable found)"
   fi
 else
   enable_external=no
-  DEFAULT_EXTERNAL_CONVERTOR=
+  DEFAULT_EXTERNAL_CONVERTER=
 fi
 
 cat >>confdefs.h <<_ACEOF
-#define DEFAULT_EXTERNAL_CONVERTOR "$DEFAULT_EXTERNAL_CONVERTOR"
+#define DEFAULT_EXTERNAL_CONVERTER "$DEFAULT_EXTERNAL_CONVERTER"
 _ACEOF
 
 
@@ -25040,9 +25040,9 @@ s,@LIBOBJS@,$LIBOBJS,;t t
 s,@LIBICONV@,$LIBICONV,;t t
 s,@LTLIBICONV@,$LTLIBICONV,;t t
 s,@RELEASE@,$RELEASE,;t t
-s,@CONVERTOR_LIBS@,$CONVERTOR_LIBS,;t t
-s,@DEFAULT_EXTERNAL_CONVERTOR@,$DEFAULT_EXTERNAL_CONVERTOR,;t t
-s,@DEFAULT_CONVERTOR_LIST@,$DEFAULT_CONVERTOR_LIST,;t t
+s,@CONVERTER_LIBS@,$CONVERTER_LIBS,;t t
+s,@DEFAULT_EXTERNAL_CONVERTER@,$DEFAULT_EXTERNAL_CONVERTER,;t t
+s,@DEFAULT_CONVERTER_LIST@,$DEFAULT_CONVERTER_LIST,;t t
 s,@SHELL_RANDOM_FILENAME@,$SHELL_RANDOM_FILENAME,;t t
 s,@LTLIBOBJS@,$LTLIBOBJS,;t t
 CEOF
@@ -25802,7 +25802,7 @@ echo "    UNIX98 iconv interface:              $libiconv_ok"
 if test "$libiconv_ok" != "yes" && test "$librecode_ok" != "yes"; then
 echo "    (consider installing at least one of GNU libiconv and GNU librecode)"
 fi
-echo "    External convertors:                 $enable_external"
+echo "    External converters:                 $enable_external"
 echo "    Language preferences from locale:    $ac_cv_func_setlocale"
 if test "$ac_cv_func_setlocale" = yes; then
 echo "    Language aliases decryption:         $locale_alias_state"

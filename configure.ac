@@ -50,7 +50,7 @@ if test "$GCC" = yes; then
   CFLAGS="-Wall -W -pedantic $CFLAGS"
 fi
 
-dnl Check for various external convertors.
+dnl Check for various external converters.
 AC_PATH_PROG(CSTOCS_PROG, cstocs)
 AC_PATH_PROG(RECODE_PROG, recode)
 AC_PATH_PROG(UMAP_PROG, umap)
@@ -76,15 +76,15 @@ AC_DEFINE_UNQUOTED(PICONV_PROG,"",[Define to path to the piconv recoder.])
 AC_DEFINE_UNQUOTED(UMAP_PROG,"",[Define to path to the umap recoder.])
 fi
 
-dnl Find default external convertor
+dnl Find default external converter
 for w in cstocs recode piconv map umap; do
   wPROG=`echo $w | tr $as_cr_letters $as_cr_LETTERS`_PROG
   # Is this POSIX?  But even ash supports it.
   eval wPROGcv=$`echo ac_cv_path_$wPROG`
   if test -n "$wPROGcv"; then
     AC_DEFINE_UNQUOTED($wPROG,"$wPROGcv")
-    if test -z "$DEFAULT_EXTERNAL_CONVERTOR"; then
-      DEFAULT_EXTERNAL_CONVERTOR=$w
+    if test -z "$DEFAULT_EXTERNAL_CONVERTER"; then
+      DEFAULT_EXTERNAL_CONVERTER=$w
     fi
   fi
 done
@@ -163,32 +163,32 @@ AC_REPLACE_FUNCS(getopt_long)
 ye_FUNC_SCANF_MODIF_SIZE_T
 dnl Following two check for much more than just library functions, iconv test
 dnl in fact has to build a simple iconv app to find out wheter it's usable.
-CONVERTOR_LIBS=
+CONVERTER_LIBS=
 ye_CHECK_FUNC_ICONV_USABLE
 ye_CHECK_LIB_RECODE
 
-DEFAULT_CONVERTOR_LIST="built-in"
+DEFAULT_CONVERTER_LIST="built-in"
 if test "$librecode_ok" = "yes"; then
-  DEFAULT_CONVERTOR_LIST="$DEFAULT_CONVERTOR_LIST,librecode"
+  DEFAULT_CONVERTER_LIST="$DEFAULT_CONVERTER_LIST,librecode"
 else
   if test "$libiconv_ok" = "yes"; then
-    DEFAULT_CONVERTOR_LIST="$DEFAULT_CONVERTOR_LIST,iconv"
+    DEFAULT_CONVERTER_LIST="$DEFAULT_CONVERTER_LIST,iconv"
   fi
 fi
-AC_DEFINE_UNQUOTED(DEFAULT_CONVERTOR_LIST,"$DEFAULT_CONVERTOR_LIST",[Define to default convertor list.])
+AC_DEFINE_UNQUOTED(DEFAULT_CONVERTER_LIST,"$DEFAULT_CONVERTER_LIST",[Define to default converter list.])
 
 if test "$WANT_EXTERNAL" = "yes" -a "$ac_cv_func_fork_works" = "yes"; then
-  AC_DEFINE(ENABLE_EXTERNAL,1,[Define to enable external convertor programs.])
-  if test -n "$DEFAULT_EXTERNAL_CONVERTOR"; then
-    enable_external="yes ($DEFAULT_EXTERNAL_CONVERTOR)"
+  AC_DEFINE(ENABLE_EXTERNAL,1,[Define to enable external converter programs.])
+  if test -n "$DEFAULT_EXTERNAL_CONVERTER"; then
+    enable_external="yes ($DEFAULT_EXTERNAL_CONVERTER)"
   else
     enable_external="yes (but no suitable found)"
   fi
 else
   enable_external=no
-  DEFAULT_EXTERNAL_CONVERTOR=
+  DEFAULT_EXTERNAL_CONVERTER=
 fi
-AC_DEFINE_UNQUOTED(DEFAULT_EXTERNAL_CONVERTOR,"$DEFAULT_EXTERNAL_CONVERTOR",[Define to default external convertor program.])
+AC_DEFINE_UNQUOTED(DEFAULT_EXTERNAL_CONVERTER,"$DEFAULT_EXTERNAL_CONVERTER",[Define to default external converter program.])
 
 dnl Try to find locale.alias.  FIXME! FIXME! FIXME! This works on GNU/Linux and
 dnl perhaps nowhere else.  Any suggestions are welcome.
@@ -202,9 +202,9 @@ else
 fi
 
 AC_SUBST(RELEASE)
-AC_SUBST(CONVERTOR_LIBS)
-AC_SUBST(DEFAULT_EXTERNAL_CONVERTOR)
-AC_SUBST(DEFAULT_CONVERTOR_LIST)
+AC_SUBST(CONVERTER_LIBS)
+AC_SUBST(DEFAULT_EXTERNAL_CONVERTER)
+AC_SUBST(DEFAULT_CONVERTER_LIST)
 AC_SUBST(SHELL_RANDOM_FILENAME)
 
 AC_OUTPUT
@@ -251,7 +251,7 @@ echo "    UNIX98 iconv interface:              $libiconv_ok"
 if test "$libiconv_ok" != "yes" && test "$librecode_ok" != "yes"; then
 echo "    (consider installing at least one of GNU libiconv and GNU librecode)"
 fi
-echo "    External convertors:                 $enable_external"
+echo "    External converters:                 $enable_external"
 echo "    Language preferences from locale:    $ac_cv_func_setlocale"
 if test "$ac_cv_func_setlocale" = yes; then
 echo "    Language aliases decryption:         $locale_alias_state"

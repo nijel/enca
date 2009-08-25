@@ -1,6 +1,6 @@
 #! /bin/sh
 # @(#) $Id: test-convert-64.sh,v 1.6 2005/11/24 11:42:47 yeti Exp $
-# Purpose: test whether built-in convertor works.  We need files larger than
+# Purpose: test whether built-in converter works.  We need files larger than
 # 64kb, because enca used to have problems with them (the generated big samples
 # are between 100k and 600k, depending on original small sample size).
 . $srcdir/setup.sh

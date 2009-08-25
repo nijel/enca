@@ -21,9 +21,9 @@ TESTS = \
   ./test-recode.sh
 
 noinst_SCRIPTS = \
-  dummy-convertor.sh \
-  failing-convertor.sh \
-  failing-convertor2.sh \
+  dummy-converter.sh \
+  failing-converter.sh \
+  failing-converter2.sh \
   finish.sh \
   setup.sh
 

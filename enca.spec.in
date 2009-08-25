@@ -16,7 +16,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 %description
 Enca is an Extremely Naive Charset Analyser. It detects character set and
 encoding of text files and can also convert them to other encodings using
-either a built-in convertor or external libraries and tools like libiconv,
+either a built-in converter or external libraries and tools like libiconv,
 librecode, or cstocs.
 
 Currently, it has support for Belarussian, Bulgarian, Croatian, Czech,

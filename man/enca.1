@@ -70,8 +70,8 @@ By default, Enca presents results as a multiline human-readable descriptions,
 several other formats are available\-\-see Output type selectors below.
 .PP
 Enca can also convert files to some other encoding \fIENC\fR
-when you ask for it\-\-either using a built\-in convertor,
-some conversion library, or by calling an external convertor.
+when you ask for it\-\-either using a built\-in converter,
+some conversion library, or by calling an external converter.
 .PP
 Enca's primary goal is to be usable unattended, as an automatic conversion
 tool, though it perhaps have not reached this point yet (please see section
@@ -144,7 +144,7 @@ Prints Enca's nice name of the charset, i.e., perhaps the most generally
 accepted and more or less human-readable charset identifier,
 with surfaces appended.
 .sp
-This name is used when calling an external convertor, too.
+This name is used when calling an external converter, too.
 .TP
 \fB\-f\fR, \fB\-\-human\-readable\fR
 Prints verbal description of the detected charset and surfaces\-\-something
@@ -240,37 +240,37 @@ give you finer control of how charset conversion will be performed.
 They don't affect anything when \fB\-x\fR is not specified as output type.
 Please see section \fBCONVERSION\fR for the gory conversion details.
 .TP
-\fB\-C\fR, \fB\-\-try\-convertors=\fR\fILIST\fR
-Appends comma separated \fILIST\fR to the list of convertors that will
+\fB\-C\fR, \fB\-\-try\-converters=\fR\fILIST\fR
+Appends comma separated \fILIST\fR to the list of converters that will
 be tried when you ask for conversion.
 Their names can be abbreviated as long as they are unambiguous.
 Run
 .sp
-enca \-\-list convertors
+enca \-\-list converters
 .sp
-to get list of all valid convertor names (and see section \fBCONVERSION\fR
+to get list of all valid converter names (and see section \fBCONVERSION\fR
 for their description).
 .sp
 The default list depends on how Enca has been compiled, run
 .sp
 enca \-\-help
 .sp
-to find out default convertor list.
+to find out default converter list.
 .sp
 Note the default list is used only when you don't specify \fB\-C\fR at all.
 Otherwise, the list is built as if it were initially empty and every
-\fB\-C\fR adds new convertor(s) to it.  Moreover, specifying
-\fBnone\fR as convertor name causes clearing the convertor list.
+\fB\-C\fR adds new converter(s) to it.  Moreover, specifying
+\fBnone\fR as converter name causes clearing the converter list.
 .TP
-\fB\-E\fR, \fB\-\-external\-convertor\-program=\fR\fIPATH\fR
-Sets external convertor program name to \fIPATH\fR.
-Default external convertor depends on how enca has been complied, and the
-possibility to use external convertors may not be available at all.
+\fB\-E\fR, \fB\-\-external\-converter\-program=\fR\fIPATH\fR
+Sets external converter program name to \fIPATH\fR.
+Default external converter depends on how enca has been complied, and the
+possibility to use external converters may not be available at all.
 Run
 .sp
 enca \-\-help
 .sp
-to find out default convertor program in your enca build.
+to find out default converter program in your enca build.
 .PP
 .
 .SS General options
@@ -314,7 +314,7 @@ unambiguous).
 Available lists include:
 .sp
 \fBbuilt\-in\-charsets\fR.
-All encodings convertible by built\-in convertor, by group
+All encodings convertible by built\-in converter, by group
 (both input and output encoding must be from this list and belong to the same
 group for internal conversion).
 .sp
@@ -322,8 +322,8 @@ group for internal conversion).
 Equivalent to \fBbuilt\-in\-charsets\fR, but considered obsolete; will
 be accepted with a warning, for a while.
 .sp
-\fBconvertors\fR.
-All valid convertor names (to be used with \fB\-C\fR).
+\fBconverters\fR.
+All valid converter names (to be used with \fB\-C\fR).
 .sp
 \fBcharsets\fR.
 All encodings (charsets).
@@ -360,25 +360,25 @@ Though Enca has been originally designed as a tool for guessing encoding
 only, it now features several methods of charset conversion.
 You can control which of them will be used with \fB\-C\fR.
 .PP
-Enca sequentially tries convertors from the list specified by \fB\-C\fR
+Enca sequentially tries converters from the list specified by \fB\-C\fR
 until it finds some that
 is able to perform required conversion or until it exhausts the list.
-You should specify preferred convertors first, less preferred later.
-External convertor (\fBextern\fR)
+You should specify preferred converters first, less preferred later.
+External converter (\fBextern\fR)
 should be always specified last, only as last resort, since it's usually not
 possible to recover when it fails.
-The default list of convertors always starts with \fBbuilt\-in\fR and then
+The default list of converters always starts with \fBbuilt\-in\fR and then
 continues with the first one available from: \fBlibrecode\fR, \fBiconv\fR,
 nothing.
 .PP
 It should be noted when Enca says it is not able to perform the
-conversion it only means none of the convertors is able to perform it.
+conversion it only means none of the converters is able to perform it.
 It can be still possible to perform the required conversion in several steps,
-using several convertors, but to figure out how, human intelligence is
+using several converters, but to figure out how, human intelligence is
 probably needed.
 .PP
 .
-.SS Built\-in convertor
+.SS Built\-in converter
 .PP
 is the simplest and far the fastest of all, can perform only
 a few byte-to-byte conversions and modifies files directly in place (may
@@ -389,10 +389,10 @@ Beside speed, its main advantage (and also disadvantage) is that it doesn't
 care: it simply converts characters having a representation in target
 encoding, doesn't touch anything else and never prints any error message.
 .sp
-This convertor can be specified as \fBbuilt\-in\fR with \fB\-C\fR.
+This converter can be specified as \fBbuilt\-in\fR with \fB\-C\fR.
 .PP
 .
-.SS Librecode convertor
+.SS Librecode converter
 .PP
 is an interface to GNU recode library, that does the actual recoding job.
 It may or may not be compiled in; run
@@ -409,10 +409,10 @@ because it sometimes silently ignores I/O errors,
 and because it's incredibily buggy.
 Please see GNU recode info pages for details about recode library.
 .sp
-This convertor can be specified as \fBlibrecode\fR with \fB\-C\fR.
+This converter can be specified as \fBlibrecode\fR with \fB\-C\fR.
 .PP
 .
-.SS Iconv convertor
+.SS Iconv converter
 .PP
 is an interface to the UNIX98 \fIiconv\fR(3)
 conversion functions, that do the actual recoding job.
@@ -431,10 +431,10 @@ able to perform conversion from/to Unicode.
 Please see iconv documentation about for details about its capabilities on
 your particular system.
 .sp
-This convertor can be specified as \fBiconv\fR with \fB\-C\fR.
+This converter can be specified as \fBiconv\fR with \fB\-C\fR.
 .PP
 .
-.SS External convertor
+.SS External converter
 .PP
 is an arbitrary external conversion tool that can be specified with
 \fB\-E\fR option (at most one can be defined simultaneously).
@@ -443,14 +443,14 @@ There are some standard, provided together with enca: \fBcstocs\fR,
 All are wrapper scripts: for \fIcstocs\fR(1), \fIrecode\fR(1),
 \fImap\fR(1), \fIumap\fR(1), and \fIpiconv\fR(1).
 .sp
-Please note enca has little control what the external convertor really does.
+Please note enca has little control what the external converter really does.
 If you set it to \fB/bin/rm\fR
 you are fully responsible for the consequences.
 .sp
-If you want to make your own convertor to use with enca,
+If you want to make your own converter to use with enca,
 you should know it is always called
-.XA "\fICONVERTOR\fR \fIENC_CURRENT\fR \fIENC\fR \fIFILE\fR [\fB\-\fR]"
-where \fICONVERTOR\fR is what has been set by \fB\-E\fR,
+.XA "\fICONVERTER\fR \fIENC_CURRENT\fR \fIENC\fR \fIFILE\fR [\fB\-\fR]"
+where \fICONVERTER\fR is what has been set by \fB\-E\fR,
 \fIENC_CURRENT\fR is detected encoding,
 \fIENC\fR is what has been specified with \fB\-x\fR,
 and \fIFILE\fR is the file to convert, i.e. it is called for each file
@@ -458,11 +458,11 @@ separately.
 The optional fourth parameter, \fB\-\fR, should cause (when present)
 sending result of conversion to standard output instead of overwriting
 the file \fIFILE\fR.
-The convertor should also take care of not changing file permissions,
+The converter should also take care of not changing file permissions,
 returning error code\~1 when it fails and cleaning its temporary files.
-Please see the standard external convertors for examples.
+Please see the standard external converters for examples.
 .sp
-This convertor can be specified as \fBextern\fR with \fI\-C\fR.
+This converter can be specified as \fBextern\fR with \fI\-C\fR.
 .PP
 .
 .SS Default target charset
@@ -483,7 +483,7 @@ When both methods fail, Enca complains and terminates.
 .
 .SS Reversibility notes
 .PP
-If reversibility is crucial for you, you shouldn't use enca as convertor
+If reversibility is crucial for you, you shouldn't use enca as converter
 at all (or maybe you can, with very specifically designed \fIrecode\fR(1)
 wrapper).
 Otherwise you should at least know that there four
@@ -492,7 +492,7 @@ basic means of handling inconvertible character entities:
 fail\-\-this is a possibility, too, and incidentally it's exactly what current
 GNU libc iconv implementation does (recode can be also told to do it)
 .sp
-don't touch them\-\-this is what enca internal convertor always does and
+don't touch them\-\-this is what enca internal converter always does and
 recode can do; though it is not reversible, a human being is usually able to
 reconstruct the original (at least in principle)
 .sp
@@ -504,15 +504,15 @@ drop them out\-\-this is what both recode and cstocs can do (cstocs can also
 replace these characters by some fixed character instead of mere ignoring);
 useful when the to\-be\-omitted characters contain only noise.
 .sp
-Please consult your favourite convertor manual for details of this issue.
+Please consult your favourite converter manual for details of this issue.
 Generally, if you are not lucky enough to have all convertible characters
 in you file, manual intervention is needed anyway.
 .PP
 .
 .SS Performance notes
 .PP
-Poor performance of available convertors has been one of main reasons for
-including built\-in convertor in enca.
+Poor performance of available converters has been one of main reasons for
+including built\-in converter in enca.
 Try to use it whenever possible, i.e. when files in consideration are
 charset-clean enough or charset-messy enough so that its zero built\-in
 intelligence doesn't matter.
@@ -521,7 +521,7 @@ It requires no extra disk space nor extra memory and can outperform
 version (i.e. the faster one) of \fIcstocs\fR(1) more than 400 times on small
 files (in fact it's almost as fast as mere \fIcp\fR(1)).
 .PP
-Try to avoid external convertors when it's not absolutely necessary since
+Try to avoid external converters when it's not absolutely necessary since
 all the forking and moving stuff around is incredibily slow.
 .
 .
@@ -705,7 +705,7 @@ Enca has interface to GNU recode library charset conversion functions.
 \fBiconv\-interface\fR.
 Enca has interface to UNIX98 iconv charset conversion functions.
 .sp
-\fBexternal\-convertor\fR.
+\fBexternal\-converter\fR.
 Enca can use external conversion programs (if you have some suitable
 installed).
 .sp
@@ -766,7 +766,7 @@ Don't use enca (the program), link to libenca instead if you want anything
 resembling security. You have to perform the eventual conversion yourself
 then.
 .PP
-Don't use external convertors. Ideally, disable them compile-time.
+Don't use external converters. Ideally, disable them compile-time.
 .PP
 Be aware of \fBENCAOPT\fR and all the built-in automagic guessing various
 things from environment, namely locales.
@@ -806,7 +806,7 @@ It can't backup files before mangling them.
 In certain situations, it may behave incorrectly on >31bit file systems
 and/or over NFS (both untested but shouldn't cause problems in practice).
 .PP
-Built\-in convertor does not convert character `ch' from \fIKOI8-CS2\fR,
+Built\-in converter does not convert character `ch' from \fIKOI8-CS2\fR,
 and possibly some other characters you've probably never heard about anyway.
 .PP
 EOL type recognition works poorly on Quoted-printable encoded files.

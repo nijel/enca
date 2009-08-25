@@ -3,7 +3,7 @@
 # Purpose: test whether libiconv interface works.
 # FIXME: this may fail when the interface works but libiconv is broken!
 . $srcdir/setup.sh
-if $ENCA --list convertors | grep '^iconv$' >/dev/null; then
+if $ENCA --list converters | grep '^iconv$' >/dev/null; then
   TEST_TEXT=$srcdir/cs-s.iso88592
   OPTS="-L cs -C iconv"
   # File

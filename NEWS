@@ -46,16 +46,16 @@ enca-1.3 2003-12-24
   + [libenca] it's possible to get analyser option values, not just set them
   * a good BOM (byte order mark) increases the chance of being recognized for
     UCS-4 and UTF-8 too
-  * external convertor wrappers were moved from bin to libexec and the b-
+  * external converter wrappers were moved from bin to libexec and the b-
     prefix was removed (though it still works)
-  * external convertors are no longer searched in PATH, nonstandard ones
+  * external converters are no longer searched in PATH, nonstandard ones
     has to be specified with full path
 
 enca-1.2 2003-11-26
   - fixed segfault in language detection for some locale setups
 
 enca-1.1 2003-11-17
-  - fixed losing data at the end of file when using external convertors in a
+  - fixed losing data at the end of file when using external converters in a
     pipe (and maybe in other situations)
   - [libenca] enca_analyser_free() not freeing analyser completely was fixed
 
@@ -72,7 +72,7 @@ enca-0.99.4 2003-07-15
 
 enca-0.99.3 2003-06-30
   * Debian package is back from death
-  * failure to find external convertor is now fatal
+  * failure to find external converter is now fatal
   - fixed build problems on FreeBSD (and probably other Unices)
   - libiconv is not used for `conversion to ASCII' since never does the
     Right Thing, whatever it is
@@ -82,7 +82,7 @@ enca-0.99.3 2003-06-30
     everything
   - fixed builds with separate source (read-only) and build directories
   - fixed builds with --without-libiconv and --without-librecode on GNU/Linux
-  - external convertor is not checked when it's not going to be used
+  - external converter is not checked when it's not going to be used
 
 enca-0.99.2 2003-06-25
   + EOL type is used to decide ambiguous cases, e.g. CP1250 is reported
@@ -153,8 +153,8 @@ enca-0.10.4 2002-10-10
   - fixed some more compile-time search path issues
 
 enca-0.10.3 2002-09-22
-  * added support for perl umap as external convertor
-  - fixed external convertor wrappers to work with standard sh
+  * added support for perl umap as external converter
+  - fixed external converter wrappers to work with standard sh
   - fixed some compile-time library search path issues
 
 enca-0.10.2 2002-09-15
@@ -165,9 +165,9 @@ enca-0.10.2 2002-09-15
 
 enca-0.10.1 2002-08-29
   + faster I/O
-  * external convertors can be disabled at build time
+  * external converters can be disabled at build time
   - `-' is accepted for standard input
-  - fixed broken built-in convertor
+  - fixed broken built-in converter
   - fixed crasing on an unknown language
   - trivial (identity) conversions are not performed any more
   - help is now printed when input is a terminal and no argument specified
@@ -187,7 +187,7 @@ enca-0.10.0 2002-08-26
   * improved Czech and Slovak charsets detection
 
 enca-0.9.4: 2002-03-03
-  - built-in convertor didn't convert more than first 64kB of a file
+  - built-in converter didn't convert more than first 64kB of a file
 
 enca-0.9.3: 2001-07-16
   + a native Debian package
@@ -215,16 +215,16 @@ enca-0.9.1: 2001-06-25
 enca-0.9.0: 2001-03-26
   Serious incompatibilities:
   * -E and -C option letters exchanged (much better mnemonics)
-  * convertor wrappers renamed to b-cstocs and b-recode
+  * converter wrappers renamed to b-cstocs and b-recode
   * finding only 7bit ASCII is no longer considered failure
   * need to use --language to set language (sometimes)
-  * dull convertor behaviour no longer supported, -x syntax changed
+  * dull converter behaviour no longer supported, -x syntax changed
   * option -g removed (try --name=aliases)
-  * option -c changed to --list=convertors, listing format changed
+  * option -c changed to --list=converters, listing format changed
   * option -l changed to --list=encodings, listing format changed
-  * convertor names are no longer case insensitive
+  * converter names are no longer case insensitive
   * no longer uses cstocs names as canonical
-  * external convertors are called with Enca's names, not cstocs's
+  * external converters are called with Enca's names, not cstocs's
 
   Other changes:
   + support for slovak and russian (and `none') language
@@ -238,7 +238,7 @@ enca-0.9.0: 2001-03-26
   + language detection from locales
   + support for surfaces (experimental)
   + new option --list printing various listings
-  + new convertor wrapper b-map (for perl `map')
+  + new converter wrapper b-map (for perl `map')
   + new option -m to reset -M back
   + new language filters
   + new options -u and -U to control multibyte encoding checks
@@ -256,22 +256,22 @@ enca-0.8.x: Since features planned for 0.8 and 0.9 happened to be developed
 
 enca-0.7.7: 2001-01-01
   + ability to use UNIX98 iconv conversion functions
-  + the word `none' can be used as -E parameter causing clearing of convertor
+  + the word `none' can be used as -E parameter causing clearing of converter
     list
   - fixed disarranged help text, misspelled word `European' in macce long
     name, obsolete statements in manual page and other stuff of this kind
 
 enca-0.7.6: 2000-11-20
-  + any convertor combination/order can be now specified with -E, old -E
+  + any converter combination/order can be now specified with -E, old -E
     meaning is no longer valid
-  + new option -c (list all valid convertor names)
+  + new option -c (list all valid converter names)
   * cork encoding not supported anymore
   * better verbosity
   * `/' is added to recode recoding requests thus partially solving the
     surface problem---surface never changes
   * some errors like specifying invalid value of threshold are no longer fatal,
     the bad values are ignored instead
-  * handling of some exotic characters in bulit-in convertor slightly changed
+  * handling of some exotic characters in bulit-in converter slightly changed
   - fixed several fatal bugs regarding stdin to stdout conversion
   - stdin is copied to stdout in case of failure whenever possible/applicable
 
@@ -280,7 +280,7 @@ enca-0.7.5: 2000-10-25
     specified)
   * prints error message when conversion is impossible
   * binary data filter improved/changed
-  - fails back to external convertor when GNU recode library cannot convert
+  - fails back to external converter when GNU recode library cannot convert
     due to errorneous request
   - '' no longer causes enca to read from stdin
   - tries to restore files damaged by GNU recode library
@@ -308,13 +308,13 @@ enca-0.7.0: 2000-09-26
   + ability to use GNU recode library
   + new output type -r (encoding name after RFC1345)
   + ability to convert cork internally
-  + new external convertor brecode (recode wrapper)
+  + new external converter brecode (recode wrapper)
   + new output type -g (list of aliases)
   + new option -V (verbose)
   * -x (convert) paramteres syntax changed to in_enc..out_enc (old syntax still
     supported, will be removed in 0.8.x)
   * option -e (disable external) no longer supported, empty string as -C
-    (external convertor) parameter can be used instead
+    (external converter) parameter can be used instead
   * encoding names specified as -x (convert) parameters are case insensitive
   * ascii is not considered unknown encoding (i.e. failure) so enca returns 0
   * -d (print details) output improved/changed/updated
@@ -329,17 +329,17 @@ enca-0.6.1: 2000-08-15
   - tarball bugfix
 
 enca-0.6.0: 2000-07-20
-  + bulilt-in convertor
+  + bulilt-in converter
   + -x (convert) can now take form -x in_enc,out_enc causing enca to behave
-    like a dull convertor
-  + new options -e and -E (disable internal/external convertor)
+    like a dull converter
+  + new options -e and -E (disable internal/external converter)
   + new option -l (print internally-convertible encodings)
 
 enca-0.5.0: 2000-07-17
   * -p (prefix result with file name) causes enca to print what is converted
     and how
   * iso8859-2/cp1250 recognition improved
-  - doesn't spawn external convertors as fast as is possbile, but waits for
+  - doesn't spawn external converters as fast as is possbile, but waits for
     them to return
   - fixed `Unrecognized encoding' when winner is 1250 (from 0.4.3)
   - corrected -d (print details) table alignment

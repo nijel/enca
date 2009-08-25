@@ -8,7 +8,7 @@ Operation modes:
 
 Output type selectors:
  -d, --details           Print failure reason when encoding was not recognized
- -e, --enca-name         Print enca's encoding name (passed to convertors)
+ -e, --enca-name         Print enca's encoding name (passed to converters)
  -f, --human-readable    Print full (descriptive) encoding name (default)
  -i, --iconv-name        Print how iconv calls the encoding
  -m, --mime-name         Print preferred MIME encoding name
@@ -22,11 +22,11 @@ Guessing parameters:
                          determined from locale settings
 
 Conversion parameters:
- -E, --external-convertor-program=PATH
-                         Set external convertor program name
-                         (default: @DEFAULT_EXTERNAL_CONVERTOR@)
- -C, --try-convertors=LIST  Convertors to be tried (associative)
-                         (default: @DEFAULT_CONVERTOR_LIST@)
+ -E, --external-converter-program=PATH
+                         Set external converter program name
+                         (default: @DEFAULT_EXTERNAL_CONVERTER@)
+ -C, --try-converters=LIST  Converters to be tried (associative)
+                         (default: @DEFAULT_CONVERTER_LIST@)
 
 General options:
  -p, --with-filename     Print the file name for each result
@@ -36,7 +36,7 @@ General options:
 Listings:
  -G, --license           Print full enca license and terminate
  -h, --help              Print this help and terminate
- -l, --list=WORD         Print required list (built-in-charsets, convertors,
+ -l, --list=WORD         Print required list (built-in-charsets, converters,
                          charsets, languages, lists, names, surfaces)
                          and terminate
  -v, --version           Print version and build information and terminate

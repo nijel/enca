@@ -4,7 +4,7 @@
 ## Defines:
 ## HAVE_GOOD_ICONV when have iconv_open(), iconv.h and it's usable
 ## ICONV_IS_TRANSITIVE when it seems no triangulation is needed.
-## CONVERTOR_LIBS (adds library when needed)
+## CONVERTER_LIBS (adds library when needed)
 ## Creates file iconvenc.h (to be included only if defined(HAVE_ICONV))---it
 ##   would be cleaner to put all the definitions to config.h, but then
 ##   (1) we would have to check for every charset separately
@@ -18,7 +18,7 @@ dnl
 
 dnl Use standard iconv test
 AM_ICONV
-CONVERTOR_LIBS="$CONVERTOR_LIBS $LIBICONV"
+CONVERTER_LIBS="$CONVERTER_LIBS $LIBICONV"
 
 dnl Compile iconvcap.c and run it to determine what encodings iconv actually
 dnl knows an under what names. This is not needed with GNU iconv. HAVE_ICONV
@@ -27,7 +27,7 @@ dnl capabilities.
 libiconv_ok="$am_cv_func_iconv"
 if test "$libiconv_ok" = yes; then
   AC_MSG_CHECKING([whether iconv implementation is usable])
-  if $CC -o iconvcap$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS $srcdir/iconvcap.c $LIBS $CONVERTOR_LIBS 1>&5 2>&5 && test -s ./iconvcap$ac_exeext 2>&5; then
+  if $CC -o iconvcap$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS $srcdir/iconvcap.c $LIBS $CONVERTER_LIBS 1>&5 2>&5 && test -s ./iconvcap$ac_exeext 2>&5; then
     if ./iconvcap 2>&5 >iconvenc.h; then
       libiconv_ok=yes
     else

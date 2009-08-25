@@ -11,7 +11,7 @@ IN FUTURE:
 
 * LCUC check for cyrillic charsets.
 * Backups -- like cp, mv, etc.  This will be hard to get right with all the
-  silly convertors.
+  silly converters.
 * More tests
 * Structured documentation (the manual page is ugly)
   - keep a reasonably brief manual page
@@ -39,7 +39,7 @@ MAYBE SOMEDAY:
   0: only messages followed by exit(EXIT_FAILURE) (or abort()) are printed
      plus `cannot convert...'
   1: all nonfatal errors/warnings
-  2: what convertors are tried, what language gets detected (do not duplicate
+  2: what converters are tried, what language gets detected (do not duplicate
      --details)
   >2: debug
 * _real_ paranoiac behaviour assuring that nothing gets lost and that
@@ -57,8 +57,8 @@ NEVER:
   everywhere nevertheless, enca can be smaller, faster or cleverer on some
   (GNU) systems
 * localization; please correct my english instead ;->
-* convertor calling generalization (would require inlcuding the whole wordexp
-  thing in enca, and: launching external convertor is Bad Thing(TM) anyway)
+* converter calling generalization (would require inlcuding the whole wordexp
+  thing in enca, and: launching external converter is Bad Thing(TM) anyway)
 * data in run-time files (needs parser (could live with) and disallows hooks
   (can't live without))
 * loadable module support (it's not very portable)

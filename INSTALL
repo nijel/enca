@@ -6,11 +6,11 @@
 Enca should compile and work on every POSIX.1 compliant system with ISO C
 compiler, and actually compiles on many noncompliant systems too (see below
 for list dependencies).  If you have some of following additional tools,
-Enca can use them as external convertors:
+Enca can use them as external converters:
 
 * GNU recode and the associated recoding library
-* Perl charset convertors Unicode::Map8 or Unicode::Map
-* cstocs, the famous Czech charset convertor
+* Perl charset converters Unicode::Map8 or Unicode::Map
+* cstocs, the famous Czech charset converter
 
 Optional features:
 
@@ -27,7 +27,7 @@ Optional features:
   include files will be then searched in DIR/include and the library
   itself in DIR/lib.
 
-* Compilation of interface to external convertor programs is controlled by
+* Compilation of interface to external converter programs is controlled by
   --enable-external, --disable-external
   configure parameters.  By default is is compiled in.
 

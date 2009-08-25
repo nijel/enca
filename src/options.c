@@ -89,7 +89,7 @@ static const char *VERSION_TEXT = /* {{{ */
 #else /* ENABLE_EXTERNAL */
 "-"
 #endif /* ENABLE_EXTERNAL */
-"external-convertor "
+"external-converter "
 
 #ifdef HAVE_SETLOCALE
 "+"
@@ -142,7 +142,7 @@ static OutputType optchar_to_otype       (const char c);
 static void       set_otype_from_name    (const char *otname);
 static void       set_program_behaviour  (void);
 static int        parse_arg_x            (const char *s);
-static int        add_parsed_convertors  (const char *list);
+static int        add_parsed_converters  (const char *list);
 static void       print_some_list        (const char *listname);
 static char**     make_filelist          (const int n,
                                           char *argvrest[]);
@@ -179,7 +179,7 @@ process_opt(const int argc, char *argv[])
   set_program_behaviour();
 
 #ifdef ENABLE_EXTERNAL
-  set_external_convertor(DEFAULT_EXTERNAL_CONVERTOR);
+  set_external_converter(DEFAULT_EXTERNAL_CONVERTER);
 #endif /* ENABLE_EXTERNAL */
 
   /* Prepend options in $ENCAOPT. */
@@ -218,7 +218,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
     { "cstocs-name", no_argument, NULL, 's' },
     { "details", no_argument, NULL, 'd' },
     { "enca-name", no_argument, NULL, 'e' },
-    { "external-convertor-program", required_argument, NULL, 'E' },
+    { "external-converter-program", required_argument, NULL, 'E' },
     { "guess", no_argument, NULL, 'g' },
     { "help", no_argument, NULL, 'h' },
     { "human-readable", no_argument, NULL, 'f' },
@@ -230,7 +230,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
     { "name", required_argument, NULL, 'n' },
     { "no-filename", no_argument, NULL, 'P' },
     { "rfc1345-name", no_argument, NULL, 'r' },
-    { "try-convertors", required_argument, NULL, 'C' },
+    { "try-converters", required_argument, NULL, 'C' },
     { "verbose", no_argument, NULL, 'V' },
     { "version", no_argument, NULL, 'v' },
     { "with-filename", no_argument, NULL, 'p' },
@@ -325,17 +325,17 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
       options.language = optarg;
       break;
 
-      case 'C': /* Add convertors to convertor list. */
-      add_parsed_convertors(optarg);
+      case 'C': /* Add converters to converter list. */
+      add_parsed_converters(optarg);
       break;
 
-      case 'E': /* Convertor name. */
+      case 'E': /* Converter name. */
 #ifdef ENABLE_EXTERNAL
-      set_external_convertor(optarg);
+      set_external_converter(optarg);
 #else /* ENABLE_EXTERNAL */
-      fprintf(stderr, "%s: Cannot set external convertor.\n"
+      fprintf(stderr, "%s: Cannot set external converter.\n"
                       "Enca was built without support "
-                      "for external convertors.\n",
+                      "for external converters.\n",
                       program_name);
 #endif /* ENABLE_EXTERNAL */
       break;
@@ -410,9 +410,9 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
     break;
   }
 
-  /* Set up default list of convertors. */
-  if (add_parsed_convertors(NULL) == 0)
-    add_parsed_convertors(DEFAULT_CONVERTOR_LIST);
+  /* Set up default list of converters. */
+  if (add_parsed_converters(NULL) == 0)
+    add_parsed_converters(DEFAULT_CONVERTER_LIST);
 
   /* Create file list from remaining options. */
   filelist = make_filelist(argc-optind, argv+optind);
@@ -422,8 +422,8 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
 
 #ifdef ENABLE_EXTERNAL
   if (options.output_type == OTYPE_CONVERT
-      && external_convertor_listed()
-      && !check_external_convertor())
+      && external_converter_listed()
+      && !check_external_converter())
     exit(EXIT_TROUBLE);
 #endif
 
@@ -652,14 +652,14 @@ parse_arg_x(const char *s)
   return 0;
 }
 
-/* add comma separated list of convertors to list of convertors
+/* add comma separated list of converters to list of converters
    returns zero on success, nonzero otherwise
-   when list is NULL return number of successfully added convertors instead */
+   when list is NULL return number of successfully added converters instead */
 static int
-add_parsed_convertors(const char *list)
+add_parsed_converters(const char *list)
 {
-  /* Convertor list separator for -E argument. */
-  static const char CONVERTOR_SEPARATOR = ',';
+  /* Converter list separator for -E argument. */
+  static const char CONVERTER_SEPARATOR = ',';
 
   char *s;
   char *p_c,*p_c1;
@@ -669,14 +669,14 @@ add_parsed_convertors(const char *list)
     return nc;
 
   s = enca_strdup(list);
-  /* Add convertor names one by one. */
+  /* Add converter names one by one. */
   p_c = s;
-  while ((p_c1 = strchr(p_c, CONVERTOR_SEPARATOR)) != NULL) {
+  while ((p_c1 = strchr(p_c, CONVERTER_SEPARATOR)) != NULL) {
     *p_c1++ = '\0';
-    if (add_convertor(p_c) == 0) nc++;
+    if (add_converter(p_c) == 0) nc++;
     p_c = p_c1;
   }
-  if (add_convertor(p_c) == 0) nc++;
+  if (add_converter(p_c) == 0) nc++;
   enca_free(s);
 
   return 0;
@@ -719,7 +719,7 @@ print_some_list(const char *listname)
      so we use one more level of indirection to comply (and hope gracious
      complier will forgive us our sins, amen) */
   static const ReportFunc printer_bics = print_builtin_charsets;
-  static const ReportFunc printer_conv = print_convertor_list;
+  static const ReportFunc printer_conv = print_converter_list;
   static const ReportFunc printer_char = print_all_charsets;
   static const ReportFunc printer_lang = print_languages;
   static const ReportFunc printer_list = print_lists;
@@ -729,7 +729,7 @@ print_some_list(const char *listname)
   /* List names and pointers to pointers to list-printers. */
   static const Abbreviation LISTS[] = {
     { "built-in-charsets", &printer_bics },
-    { "convertors", &printer_conv },
+    { "converters", &printer_conv },
     { "charsets", &printer_char },
     { "languages", &printer_lang },
     { "lists", &printer_list },

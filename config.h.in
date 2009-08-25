@@ -3,13 +3,13 @@
 /* Define to path to the cstocs recoder. */
 #undef CSTOCS_PROG
 
-/* Define to default convertor list. */
-#undef DEFAULT_CONVERTOR_LIST
+/* Define to default converter list. */
+#undef DEFAULT_CONVERTER_LIST
 
-/* Define to default external convertor program. */
-#undef DEFAULT_EXTERNAL_CONVERTOR
+/* Define to default external converter program. */
+#undef DEFAULT_EXTERNAL_CONVERTER
 
-/* Define to enable external convertor programs. */
+/* Define to enable external converter programs. */
 #undef ENABLE_EXTERNAL
 
 /* Define to 1 if you have the `canonicalize_file_name' function. */

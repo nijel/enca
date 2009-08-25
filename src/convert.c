@@ -29,30 +29,30 @@ pid_t waitpid(pid_t pid, int *status, int options);
 #include <sys/types.h>
 #include <sys/stat.h>
 
-/* convertor flags */
+/* converter flags */
 #define CONV_EXTERN   0x0001
 
-/* convertor-type (filename, input encoding, output encoding) */
-typedef int (* ConvertorFunc)(File*, EncaEncoding);
+/* converter-type (filename, input encoding, output encoding) */
+typedef int (* ConverterFunc)(File*, EncaEncoding);
 
-/* struct convertor data */
-typedef struct _ConvertorData ConvertorData;
+/* struct converter data */
+typedef struct _ConverterData ConverterData;
 
-struct _ConvertorData {
+struct _ConverterData {
   unsigned long int flags; /* flags */
-  ConvertorFunc convfunc; /* pointer to convertor function */
+  ConverterFunc convfunc; /* pointer to converter function */
 };
 
-/* struct convertor list */
-typedef struct _Convertor Convertor;
+/* struct converter list */
+typedef struct _Converter Converter;
 
-struct _Convertor {
-  const Abbreviation *conv; /* the convertor (an abbreviation table entry) */
-  Convertor *next; /* next in the list */
+struct _Converter {
+  const Abbreviation *conv; /* the converter (an abbreviation table entry) */
+  Converter *next; /* next in the list */
 };
 
-/* convertor list */
-static Convertor *convertors = NULL;
+/* converter list */
+static Converter *converters = NULL;
 
 /* data for xtable */
 static struct {
@@ -71,18 +71,18 @@ static int   convert_builtin (File *file,
 static const byte* xtable    (int from_charset);
 static void  xdata_free      (void);
 
-static const ConvertorData cdata_builtin = { 0, &convert_builtin };
+static const ConverterData cdata_builtin = { 0, &convert_builtin };
 #ifdef HAVE_LIBRECODE
-static const ConvertorData cdata_librecode = { 0, &convert_recode };
+static const ConverterData cdata_librecode = { 0, &convert_recode };
 #endif /* HAVE_LIBRECODE */
 #ifdef HAVE_GOOD_ICONV
-static const ConvertorData cdata_iconv = { 0, &convert_iconv };
+static const ConverterData cdata_iconv = { 0, &convert_iconv };
 #endif /* HAVE_GOOD_ICONV */
 #ifdef ENABLE_EXTERNAL
-static const ConvertorData cdata_extern = { CONV_EXTERN, &convert_external };
+static const ConverterData cdata_extern = { CONV_EXTERN, &convert_external };
 #endif /* ENABLE_EXTERNAL */
 
-static const Abbreviation CONVERTORS[] = {
+static const Abbreviation CONVERTERS[] = {
   { "built-in", &cdata_builtin },
 #ifdef HAVE_LIBRECODE
   { "librecode", &cdata_librecode },
@@ -95,7 +95,7 @@ static const Abbreviation CONVERTORS[] = {
 #endif /* ENABLE_EXTERNAL */
 };
 
-/* decide which convertor should be run and do common checks
+/* decide which converter should be run and do common checks
    from_enc, to_enc are current and requested encoding
    returns error code
 
@@ -105,7 +105,7 @@ int
 convert(File *file,
         EncaEncoding from_enc)
 {
-  Convertor *conv;
+  Converter *conv;
   int extern_failed = 0;
   int err;
 
@@ -125,20 +125,20 @@ convert(File *file,
       return copy_and_convert(file, file, NULL);
   }
 
-  /* try sequentially all allowed convertors until we find some that can
+  /* try sequentially all allowed converters until we find some that can
      perform the conversion or exahust the list */
-  conv = convertors;
+  conv = converters;
   while (conv != NULL) {
     if (options.verbosity_level > 1) {
       fprintf(stderr, "    trying to convert `%s' using %s\n",
                       ffname_r(file->name), conv->conv->name);
     }
-    err = ((ConvertorData *)conv->conv->data)->convfunc(file, from_enc);
+    err = ((ConverterData *)conv->conv->data)->convfunc(file, from_enc);
     if (err == ERR_OK)
       return ERR_OK;
 
-    if ((((ConvertorData *)conv->conv->data)->flags & CONV_EXTERN) != 0) {
-      fprintf(stderr, "%s: external convertor failed on `%s', "
+    if ((((ConverterData *)conv->conv->data)->flags & CONV_EXTERN) != 0) {
+      fprintf(stderr, "%s: external converter failed on `%s', "
                       "probably destroying it\n",
                       program_name, ffname_w(file->name));
       extern_failed = 1;
@@ -150,8 +150,8 @@ convert(File *file,
     conv = conv->next;
   }
 
-  /* no convertor able/allowed to perform given conversion, that's bad */
-  fprintf(stderr, "%s: no convertor is able/allowed to perform "
+  /* no converter able/allowed to perform given conversion, that's bad */
+  fprintf(stderr, "%s: no converter is able/allowed to perform "
                   "conversion %s on file `%s'\n",
                   program_name,
                   format_request_string(from_enc, options.target_enc, 0),
@@ -165,7 +165,7 @@ convert(File *file,
   return ERR_CANNOT;
 }
 
-/* built-in convertor
+/* built-in converter
    performs conversion by in place modification of file named fname
    or by calling copy_and_convert() for stdin -> stdout conversion
    returns zero on success, error code otherwise */
@@ -322,46 +322,46 @@ copy_and_convert(File *file_from, File *file_to, const byte *xlat)
   return ERR_OK;
 }
 
-/* add convertor to list of convertors
-   (note `none' adds nothing and causes removing of all convertors instead)
+/* add converter to list of converters
+   (note `none' adds nothing and causes removing of all converters instead)
    returns zero if everything went ok, nonzero otherwise */
 int
-add_convertor(const char *cname)
+add_converter(const char *cname)
 {
-  /* no convertors symbolic name */
-  static const char *CONVERTOR_NAME_NONE = "none";
+  /* no converters symbolic name */
+  static const char *CONVERTER_NAME_NONE = "none";
 
   const Abbreviation *data;
-  Convertor *conv = NULL, *conv1;
+  Converter *conv = NULL, *conv1;
 
   /* remove everything when we got `none' */
-  if (strcmp(CONVERTOR_NAME_NONE, cname) == 0) {
+  if (strcmp(CONVERTER_NAME_NONE, cname) == 0) {
     if (options.verbosity_level > 3)
-      fprintf(stderr, "Removing all convertors\n");
-    while (convertors != NULL) {
-      conv = convertors->next;
-      enca_free(convertors);
-      convertors = conv;
+      fprintf(stderr, "Removing all converters\n");
+    while (converters != NULL) {
+      conv = converters->next;
+      enca_free(converters);
+      converters = conv;
     }
     return 0;
   }
 
-  /* find convertor data */
-  data = expand_abbreviation(cname, CONVERTORS, ELEMENTS(CONVERTORS),
-                             "convertor");
+  /* find converter data */
+  data = expand_abbreviation(cname, CONVERTERS, ELEMENTS(CONVERTERS),
+                             "converter");
   if (data == NULL)
     return 1;
 
-  /* add it to the end of convertor list */
+  /* add it to the end of converter list */
   if (options.verbosity_level > 3)
-    fprintf(stderr, "Adding convertor `%s'\n", data->name);
-  if (convertors == NULL)
-    convertors = conv = NEW(Convertor, 1);
+    fprintf(stderr, "Adding converter `%s'\n", data->name);
+  if (converters == NULL)
+    converters = conv = NEW(Converter, 1);
   else {
-    for (conv1 = convertors; conv1 != NULL; conv1 = conv1->next) {
+    for (conv1 = converters; conv1 != NULL; conv1 = conv1->next) {
       /* reject duplicities */
       if (data == conv1->conv->data) {
-        fprintf(stderr, "%s: convertor %s specified more than once\n",
+        fprintf(stderr, "%s: converter %s specified more than once\n",
                        program_name,
                        conv1->conv->name);
         return 1;
@@ -369,7 +369,7 @@ add_convertor(const char *cname)
       conv = conv1;
     }
 
-    conv->next = NEW(Convertor, 1);
+    conv->next = NEW(Converter, 1);
     conv = conv->next;
   }
   conv->next = NULL;
@@ -378,28 +378,28 @@ add_convertor(const char *cname)
   return 0;
 }
 
-/* return nonzero if the list contains external convertor */
+/* return nonzero if the list contains external converter */
 int
-external_convertor_listed(void)
+external_converter_listed(void)
 {
-  Convertor *conv;
+  Converter *conv;
 
-  for (conv = convertors; conv; conv = conv->next) {
-    if (((ConvertorData*)conv->conv->data)->flags & CONV_EXTERN)
+  for (conv = converters; conv; conv = conv->next) {
+    if (((ConverterData*)conv->conv->data)->flags & CONV_EXTERN)
       return 1;
   }
 
   return 0;
 }
 
-/* print white separated list of all valid convertor names */
+/* print white separated list of all valid converter names */
 void
-print_convertor_list(void)
+print_converter_list(void)
 {
   size_t i;
 
-  for (i = 0; i < sizeof(CONVERTORS)/sizeof(Abbreviation); i++)
-    printf("%s\n", CONVERTORS[i].name);
+  for (i = 0; i < sizeof(CONVERTERS)/sizeof(Abbreviation); i++)
+    printf("%s\n", CONVERTERS[i].name);
 }
 
 /* create and return request string for conversion from e1 to e2

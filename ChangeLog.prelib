@@ -31,7 +31,7 @@ v0.9.4
 v0.9.3
 2001-07-16 Yeti <yeti@physics.muni.cz>
     * configure.in, m4/librecode.m4, m4/iconv.m4, src/Makefile.am,
-      src/epress.c: conversion libraries are put into CONVERTOR_LIBS, so
+      src/epress.c: conversion libraries are put into CONVERTER_LIBS, so
       epress doesn't link with them (they are included in enca_LDADD), LIBS
       is not modified by librecode and iconv tests
     * iconvcap.c: added program_name definition for the case it would link
@@ -54,8 +54,8 @@ v0.9.3
       cannot compile w/o it anyway, warning added to configure
     * src/common.h: include both string[s].h and memory.h. instead of just one
       of them
-    * src/common.h: define PACKAGE, VERSION, DEFAULT_EXTERNAL_CONVERTOR and
-      DEFAULT_CONVERTOR_LIST when don't have config.h to compile w/o it
+    * src/common.h: define PACKAGE, VERSION, DEFAULT_EXTERNAL_CONVERTER and
+      DEFAULT_CONVERTER_LIST when don't have config.h to compile w/o it
     * src/options.c: fixed too many \n's in feature list
     * configure.in, src/texts.c: added isatty() and ttyname() test, defined
       stdout_isatty(), pager is run only when we are able to positively say
@@ -225,7 +225,7 @@ v0.9.0
       than GNU libc's fgets()
     * src/locale_detect.c: fixed segfault when language detection failed
     * m4/tools.m4, configure.in, acconfig.h, src/options.c: consolidated
-      autoconf macros regarding external convertors
+      autoconf macros regarding external converters
     * man/enca.1: minor corrections
 
 2001-03-24 Yeti <yeti@physics.muni.cz>
@@ -277,7 +277,7 @@ v0.9.0
       usability is no longer cached)
     * m4/tools.m4, configure.in, script/b-cstocs, script/b-cstocs.in,
       script/b-map, script/b-map.in, script/b-recode, script/b-recode.in,
-      script/Makefile.am: external convertors are located including path and
+      script/Makefile.am: external converters are located including path and
       it's then used for configure-time substitution in the scripts
 
 v0.9.0pre5
@@ -290,10 +290,10 @@ v0.9.0pre5
 2001-03-11 Yeti <yeti@physics.muni.cz>
     * src/EVERYTHING: Settings.ProgName and Settings.Verbose made globals:
       program_name and verbosity_level
-    * src/common.h, src/options.c, src/convert.c: Settings.ExtConvertor made
-      convert.c module global extern_convertor, set by set_external_convertor()
+    * src/common.h, src/options.c, src/convert.c: Settings.ExtConverter made
+      convert.c module global extern_converter, set by set_external_converter()
     * src/common.h, src/options.c, src/printresult.c: Settings.PreFName made
-      printresult.c module global extern_convertor, set by
+      printresult.c module global extern_converter, set by
       print_set_prefix_filename()
 
 2001-03-10 Yeti <yeti@physics.muni.cz>
@@ -371,10 +371,10 @@ v0.9.0pre2
 v0.9.0pre1
 2001-02-20 Yeti <yeti@physics.muni.cz>
     * src/convert.c: trivial conversions from ASCII are carried out in built-in
-      convertor
+      converter
     * src/EVERYTHING: cleaned terminology encoding vs. charset; encoding means
       (charset,surface) pair
-    * src/options.c: convertor names are case sensitive again
+    * src/options.c: converter names are case sensitive again
     * config.h is included only when HAVE_CONFIG_H
     * iconvenc.nul.h, acinclude.c, src/encnames.c: iconvenc.nul.h merged into
       encnames.c (neede only there when !HAVE_ICONV)
@@ -412,7 +412,7 @@ v0.9.0pre1
 2001-02-18 Yeti <yeti@physics.muni.cz>
     * src/common.c: e_tmpfd() now returns empty string a file name when fails
     * src/options.c: max read limit increased to 16MB
-    * src/options.c: default convertor list changed, now is
+    * src/options.c: default converter list changed, now is
       "built-in,librecode" for +librecode-interface, [+-]iconv-interface
       "built-in,iconv" for -librecode-interface, +iconv-interface
       "built-in" for -librecode-interface, -iconv-interface
@@ -427,12 +427,12 @@ v0.9.0pre1
     * src/EVERYTHING: perror(NULL) changed to perror("") since some C libraries
       don't understand the former to print empty prefix string
     * src/encnames.c, src/options.c: added `surfaces' to --list option
-    * src/convert.c: valid convertor names are printed one per line
+    * src/convert.c: valid converter names are printed one per line
     * src/encnames.c: added iconv name to T_EncInfo, all defined to NULL when
       iconv interface is not build
     * src/common.c: implemented abbreviation searching expand_abbreviation()
     * src/options.c: print_some_list() uses the new abbreviation engine
-    * src/convert.c: add_convertor() uses the new abbreviation engine (needed
+    * src/convert.c: add_converter() uses the new abbreviation engine (needed
       some data types shake-up)
     * src/lang.c: got rid of `initialization discards qualifier...' warnings
       by shaking up with the consts (no functionality changed)
@@ -442,7 +442,7 @@ v0.9.0pre1
     * src/encnames.c: implemented surface <-> name conversion
     * src/encnames.c, src/guess.c: changed UCS surfaces to recode style
     * src/options.c, src/enca.c: updated parse_x_arg(), removed
-      dull-convertor-like beahviour
+      dull-converter-like beahviour
     * src/locale_detect.c: get rid of str[c]spn() (they are ISO C, but autoscan
       tries to convince me I should check for them), flag-table approach is
       more efficient anyway
@@ -561,7 +561,7 @@ v0.9.0pre1
     * implemented name squeezing and alias recognition---almost any sensible
       (and a whole bunch of stupid) encoding identifier is recognized
     * introduced new, less stupid, `canonical' names---passed to external
-      convertor and looked-up faster than the others
+      converter and looked-up faster than the others
     * src/guess.c, src/enca.c, src/printresult.c: result is passed as
       T_Encoding type
     * src/guess.c, src/printresults.c, src/lang_cs.c: print implemented as
@@ -570,7 +570,7 @@ v0.9.0pre1
     * src/printresults.c: mapping from output type to encoding name is used
       instead of ugly switch ()
     * src/unicodemap.c: character 0xa4 from koi8cs2 converted to tilde (0x7f)
-    * src/options.c: refuse to serve as a dull convertor when input encoding
+    * src/options.c: refuse to serve as a dull converter when input encoding
       is not known to us
     * src/common.c, configure.in: implemented stpcpy() when not provided by
       system (configure test added)
@@ -616,7 +616,7 @@ v0.7.7
     * documentation synchronized
 
 2000-12-31 Yeti <yeti@physics.muni.cz>
-    * `none' is accepted as convertor name and causes clearing the convertor
+    * `none' is accepted as converter name and causes clearing the converter
       list
     * finished iconv interface
     * changed some messages, hope no one parses them
@@ -654,15 +654,15 @@ v0.7.6
     * support for cork encoding ceased
     * help text updated and divided to sections (thus fixing warning about
       too long, ISO C violating, string)
-    * get_in_enc_list() and get_convertors() changed to print_* printing the
+    * get_in_enc_list() and get_converters() changed to print_* printing the
       lists, called directly from process_opt()
     * convert_recode.c separated from convert.c to make the amount of #if's
       bearable
     * encoding list made NULL terminated instead of fixed-length
     * reversed order of generating recoding table so, character with lowest
       8bit code is always outputed for synonyms (instead of highest)
-    * implemented convertor flags CONV_EXTERN, we do not try to recover after
-      external convertor failure, since it's impossible by definition
+    * implemented converter flags CONV_EXTERN, we do not try to recover after
+      external converter failure, since it's impossible by definition
     * xlat table cache bubble sorting on use
     * man page and other documentation synchronized
 
@@ -673,22 +673,22 @@ v0.7.6
       called on stdin (not only when recoding is done too), this fixes bug in
       conversion to the same encoding in pipe
     * fixed comparing return value of e_tmpfd() with zero (instead of -1)
-      causing not calling external convertor in redirection
+      causing not calling external converter in redirection
     * stdin is always copied to stdout when we are not able to perform
       conversion, irregardles of reason
     * some error messages improved
 
 2000-11-18 Yeti <yeti@physics.muni.cz>
-    * it's up to every convertor to translate cstocs encoding names to its
+    * it's up to every converter to translate cstocs encoding names to its
       native names---implemented recode's enc_trans(), others use cstocs
-    * rearranged convertors to work in any order as expected, implemented ERR_*
+    * rearranged converters to work in any order as expected, implemented ERR_*
       (internal) error codes in convert.c
-    * implemented -c printing list of all valid convertor names
-      (get_convertors())
+    * implemented -c printing list of all valid converter names
+      (get_converters())
     * implemented e_tolower that cannot fail (and appropriate autoconf test)
     * split process_opt() to make less monster from it
     * error messages begin with enca file name without path (strip_path())
-    * some preliminary iconv support, the convertor doesn't actually exist yet
+    * some preliminary iconv support, the converter doesn't actually exist yet
     * errorneous values of most commandline parametres no longer cause enca to
       abort
     * request cache bubble sorting on use
@@ -697,9 +697,9 @@ v0.7.6
     * fixed destroying outer and request after every use
     * implemented librecode request chache optimization
     * implemented e_unlink()
-    * any convertor combination/order can be specified on command line with
+    * any converter combination/order can be specified on command line with
       -E option (meaning changed!)
-    * external convertor failure made non-fatal
+    * external converter failure made non-fatal
 
 2000-11-14 Yeti <yeti@physics.muni.cz>
     * bcstocs and brecode return exit status and message is printed when it
@@ -713,7 +713,7 @@ v0.7.6
 
 2000-10-30 Yeti <yeti@physics.muni.cz>
     * fixed freeing not allocated request in convert_recode()
-    * implemented some more verbosity in convertor
+    * implemented some more verbosity in converter
     * strstr() alternative moved to common.c
     * implemented strstrcount() conting occurences of needle
     * '/' is added after both in_enc and out_enc when creating recode request
@@ -736,7 +736,7 @@ v0.7.5
     * fixed request cache initialization bug
     * fixed O_RDONLY zero/nonzero portability problem
     * convert_recode() restores file from temporary copy when librecode
-      convertor fails
+      converter fails
     * encoding names are not duplicated but assigned in get_encodings()
     * heavy use of const modifier (too many changes to record here)
     * solved cyclic dependancy between langdata and langhook headers by making
@@ -764,7 +764,7 @@ v0.7.5
     * cleaned names possibly conflicting with POSIX reserved names and libc
       header reserved names
     * recode_scan_request() return value is now checked for success
-    * fails back to external convertor when librecode cannot convert due to
+    * fails back to external converter when librecode cannot convert due to
       errorneous request (as one would understand from man page)
     * prints error message when conversion is impossible
     * merged all file-copying code in convert.c to copy_and_convert(),
@@ -844,7 +844,7 @@ v0.7.1
 
 v0.7.0
 2000-09-25/26 Yeti <yeti@physics.muni.cz>
-    * removed option `disable external convertor' (-e), empty -C parameter
+    * removed option `disable external converter' (-e), empty -C parameter
       can be used instead
     * e_tmpf() divided to e_tmpf() creating the file and e_tmpfname() generating
       temporary file name
@@ -853,7 +853,7 @@ v0.7.0
     * man page updated
 
 2000-09-24/25 Yeti <yeti@physics.muni.cz>
-    * fixed io_pos == 0 bug when enca converts stdin as dull convertor
+    * fixed io_pos == 0 bug when enca converts stdin as dull converter
     * unicode.* renamed to unicodemap.*
     * -x encoding separator changed to .. to be compatible with recode and
       comply RFC 1345 (allowing comma in encoding names)
@@ -867,7 +867,7 @@ v0.7.0
     * conversion to the same encoding no longer causes warnings
     * conversion to the same encoding works correctly even for stdin
     * ascii no longer considered unknown encoding
-    * introduced verbose option (-V), convertor now prints what is doing on
+    * introduced verbose option (-V), converter now prints what is doing on
       -V not on -p
     * librecode interface _disabled_ by default in configure.in
 
@@ -883,7 +883,7 @@ v0.7.0
     * introduced e_tmpf() creating temporary files since none of glibc functions
       does The Right Thing (execept maybe non-POSIX tempnam())
     * convert_external() creates temporary file and put stdin there if stdin is
-      to be converted and passes `-' as fourth parameter to convertor
+      to be converted and passes `-' as fourth parameter to converter
       instructing it to send output to stdout
     * bcstocs and brecode rewritten to recognize the fourth parameter and put
       under GNU GPL
@@ -938,7 +938,7 @@ v0.7.0
       (greetings to Halef)
     * process_file() now only controls what actions should be taken and no
       longer does anything itself
-    * print_results() no longer calls convertor, this is done in process_file()
+    * print_results() no longer calls converter, this is done in process_file()
     * results of guessing passed encapsulated in struct S_GResult
     * language specific files (lang*) got _cs extension
     * HELP_TEXT and VERSION_TEXT defined as strings instead of macros
@@ -960,7 +960,7 @@ v0.6.1
 v0.6.0
 2000-07-20 Yeti <yeti@physics.muni.cz>
     * formal changes in rawdata.c
-    * internal convertor implemented (rawuni.c, encuni.c, enca.c)
+    * internal converter implemented (rawuni.c, encuni.c, enca.c)
     * -x can now take form -x in_enc,out_enc
     * introduced options -e and -E
     * introduced option -l
@@ -969,11 +969,11 @@ v0.6.0
 
 v0.5.0
 2000-07-17 Yeti<yeti@physics.muni.cz>
-    * waits for convertor to return (much slower conversion, but doesn't
+    * waits for converter to return (much slower conversion, but doesn't
       produce `cannot fork()'s)
     * -p makes -x print what is doing
     * fixed `Unrecognized encoding' when winner is 1250 (from 0.4.3)
-    * _exit() in convertor caller corrected to exit() since we don't use
+    * _exit() in converter caller corrected to exit() since we don't use
       vfork()
     * use EXIT_SUCCESS and EXIT_FAILURE instead of 0 and 1
     * aborts when it cannot close open file (since it means something very

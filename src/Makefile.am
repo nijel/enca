@@ -26,7 +26,7 @@ EXTRA_DIST = \
 	HELP.in \
 	text2c.sh
 
-enca_LDADD = @LIBOBJS@ @CONVERTOR_LIBS@ ../lib/libenca.la
+enca_LDADD = @LIBOBJS@ @CONVERTER_LIBS@ ../lib/libenca.la
 enca_LDFLAGS = @LDFLAGS@ @LIBS@
 enca_DEPENDENCIES = @LIBOBJS@ ../lib/libenca.la
 enca_CPPFLAGS = -DEXTCONV_DIR=\"@libexecdir@/enca/extconv\"

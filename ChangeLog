@@ -214,11 +214,11 @@ v1.3
     * script/Makefile.am: remove b- from wrapper names and install them to
       libexec instead of bin, creating non-b- versions using cat
     * src/convert_extern.c: removed check_executability() (i.e. searching
-      in PATH), trying to remove b- prefix from extrnal convertor names and
+      in PATH), trying to remove b- prefix from extrnal converter names and
       find them in EXTCONV_DIR, added deprecation warning messages
     * deb/enca.dirs, deb/enca.files: added the libexec dir
     * enca.pc.in: added encaextconvdir variable
-    * script/Makefile.am: excluded convertor wrappers from --help and --version
+    * script/Makefile.am: excluded converter wrappers from --help and --version
       tests
     * script/b-cstocs.in, script/b-map.in, script/b-piconv.in, script/b-recode,
       script/b-umap.in: added an error message when empty $3 (i.e. probably
@@ -241,7 +241,7 @@ v1.1
 2003-11-17  David Necas (Yeti) <yeti@physics.muni.cz>
     * configure.ac: bumped version
     * src/convert.c (copy_and_convert): added fflush(file_to->stream)
-      fixing occasional losing file tails, namely with external convertors
+      fixing occasional losing file tails, namely with external converters
 
 2003-11-17  David Necas (Yeti) <yeti@physics.muni.cz>
     * configure.ac, lib/internal.h, lib/common.c (enca_strdup): use our
@@ -287,7 +287,7 @@ v1.0
 
 2003-07-31  David Necas (Yeti) <yeti@physics.muni.cz>
     * script/b-piconv.in, script/Makefile.am, configure.ac: added piconv
-      ,perl iconv` wrapper, changed the ugly default convertor code to a
+      ,perl iconv` wrapper, changed the ugly default converter code to a
       for-cycle
     * m4/localias.m4: fixed an excess locale/ in paths
 
@@ -313,9 +313,9 @@ v0.99.4
       parameter to file_temporary
     * src/convert_extern.c (convert_extern): unser some obscure failure,
       NULL file might be unlinked, removed a bogus error message
-    * test/test-extern.c, test/failing-convertor.sh,
-      test/failing-convertor2.sh, Makefile.am: added tests whether external
-      convertor errors are correctly propagated
+    * test/test-extern.c, test/failing-converter.sh,
+      test/failing-converter2.sh, Makefile.am: added tests whether external
+      converter errors are correctly propagated
 
 2003-07-13  David Necas (Yeti) <yeti@physics.muni.cz>
     * test/setup.sh, test/finish.sh, test/test-external.sh, test/test-iconv.sh:
@@ -358,17 +358,17 @@ v0.99.3
 
 2003-06-30  David Necas (Yeti) <yeti@physics.muni.cz>
     * test/finish.sh: added removing $TESTNAME.tmp
-    * test/test-extern.sh, test/dummy-convertor.sh,
-      test/test-external.expected: added external convertor test
-    * test/test-convlist.sh: added --list convertors vs. --version test
+    * test/test-extern.sh, test/dummy-converter.sh,
+      test/test-external.expected: added external converter test
+    * test/test-convlist.sh: added --list converters vs. --version test
     * test/test-iconv.sh: added iconv interface test
     * test/test-pP.sh, test/test-pP.expected: added filename prefixing test
     * test/Makefile.am: added the stuff
 
 2003-06-30  David Necas (Yeti) <yeti@physics.muni.cz>
-    * src/options.c (interpret_opt), src/convert.c (add_convertor,
-      extern_convertor_listed), src/convert_extern.c (check_external_convertor,
-      set_external_convertor), src/common.h: external convertor is checked for
+    * src/options.c (interpret_opt), src/convert.c (add_converter,
+      extern_converter_listed), src/convert_extern.c (check_external_converter,
+      set_external_converter), src/common.h: external converter is checked for
       executability only when conversion with external is going to take place,
       but failure is now fatal
 
@@ -1046,7 +1046,7 @@ v0.10.2
     * man/enca.1:
       updated
     * configure.in:
-      fixed setting default external convertor when not available
+      fixed setting default external converter when not available
 
 2002-09-15  David Necas (Yeti) <yeti@physics.muni.cz>
     * src/locale_detect.c (detect_lang, set_raw_locale,
@@ -1092,15 +1092,15 @@ v.0.10.1
     * lib/enca.h (enca_charset_is_known), lib/Makefile.am:
       API: added this covenience macro, updated library version
 
-    * src/convert.c (set_external_convertor, convert_extern,
+    * src/convert.c (set_external_converter, convert_extern,
       check_executability, check_executability_one), src/convert_extern.c:
-      added early convertor executability text, moved all external convertor
+      added early converter executability text, moved all external converter
       stuff to convert_extern.c, fixed target encoding name construction,
       make all the stuff optional
     * configure.in:
       added tests for canonicalize_file_name, realpath, uid_t, mode_t
     * src/options.c, src/convert.c:
-      made external convertor a feature
+      made external converter a feature
 
 2002-08-27  David Necas (Yeti) <yeti@physics.muni.cz>
     * test/test-aliases.sh, test/test-convert-64.sh, test/Makefile.am:

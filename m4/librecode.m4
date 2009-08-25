@@ -51,7 +51,7 @@ if test "$WANT_LIBRECODE" = 1; then
   fi
   if test "$librecode_ok" = yes; then
     AC_DEFINE(HAVE_LIBRECODE,1,[Define if you have the recode library (-lrecode).])
-    CONVERTOR_LIBS="$CONVERTOR_LIBS -lrecode"
+    CONVERTER_LIBS="$CONVERTER_LIBS -lrecode"
   fi
   LIBS="$yeti_save_LIBS"
 else

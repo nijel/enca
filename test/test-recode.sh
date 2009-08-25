@@ -3,7 +3,7 @@
 # Purpose: test whether librecode interface works.
 # FIXME: this may fail when the interface works but librecode is broken!
 . $srcdir/setup.sh
-if $ENCA --list convertors | grep '^librecode$' >/dev/null; then
+if $ENCA --list converters | grep '^librecode$' >/dev/null; then
   TEST_TEXT=$srcdir/cs-s.iso88592
   OPTS="-L cs -C librecode"
   # File
