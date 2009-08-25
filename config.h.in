@@ -44,6 +44,9 @@
 #undef HAVE_GETTIMEOFDAY
 
 /* Define if you have the UNIX98 iconv functions. */
+#undef HAVE_GOOD_ICONV
+
+/* Define if you have the iconv() function. */
 #undef HAVE_ICONV
 
 /* Define to 1 if you have the <inttypes.h> header file. */
@@ -160,8 +163,8 @@
 /* Define to 1 if you have the file `AC_File'. */
 #undef HAVE__DEV_URANDOM
 
-/* Define as const when iconv() second argument needs const. */
-#undef ICONV_ARG2_CONST
+/* Define as const if the declaration of iconv() needs const. */
+#undef ICONV_CONST
 
 /* Define if iconv is transitive. */
 #undef ICONV_IS_TRANSITIVE

@@ -1,4 +1,4 @@
-/* @(#) $Id: enca.h,v 1.10 2003/12/22 22:24:33 yeti Exp $ */
+/* @(#) $Id: enca.h,v 1.11 2005/02/27 12:08:55 yeti Exp $ */
 /* This header file is in the public domain. */
 #ifndef ENCA_H
 #define ENCA_H
@@ -44,7 +44,8 @@ typedef enum {
   ENCA_NAME_STYLE_RFC1345,
   ENCA_NAME_STYLE_CSTOCS,
   ENCA_NAME_STYLE_ICONV,
-  ENCA_NAME_STYLE_HUMAN
+  ENCA_NAME_STYLE_HUMAN,
+  ENCA_NAME_STYLE_MIME
 } EncaNameStyle;
 
 typedef enum { /*< flags >*/

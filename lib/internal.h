@@ -1,4 +1,4 @@
-/* @(#) $Id: internal.h,v 1.22 2004/06/01 18:38:47 yeti Exp $ */
+/* @(#) $Id: internal.h,v 1.23 2005/02/27 12:08:56 yeti Exp $ */
 #ifndef LIBENCA_H
 #define LIBENCA_H
 /***************************************************************************
@@ -71,6 +71,7 @@ typedef struct _EncaUTFCheckData EncaUTFCheckData;
  *          (For charsets not in RFC1345, some canonical name is invented.)
  * @cstocs: Cstocs charset name or -1.
  * @iconv: Iconv charset name or -1.
+ * @mime: Preferred MIME charset name or -1.
  * @human: Human comprehensible description.
  * @flags: Charset properties (7bit, 8bit, multibyte, ...).
  * @nsurface: Natural surface (`implied' in recode).
@@ -84,6 +85,7 @@ struct _EncaCharsetInfo {
   int rfc1345;
   int cstocs;
   int iconv;
+  int mime;
   const char *human;
   unsigned int flags;
   unsigned int nsurface;
@@ -236,7 +238,7 @@ struct _EncaAnalyserState {
   unsigned char *pair2bits;
   size_t *bitcounts;
   size_t *pairratings;
-  /* LCUC data */
+  /* LCUC data XXX: unused (yet) */
   size_t *lcbits;
   size_t *ucbits;
   /* Options. */

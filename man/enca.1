@@ -5,7 +5,7 @@
 .RE
 .PP
 ..
-.TH "enca" "1" "Dec 2003" "enca 1.3" " "
+.TH "enca" "1" "Jan 2005" "enca 1.7" " "
 .SH "NAME"
 .PP
 enca \-\- detect and convert encoding of text files
@@ -162,7 +162,7 @@ in the future.
 Prints how \fIiconv\fR(3) (and/or \fIiconv\fR(1)) calls the detected charset.
 More precisely, it prints one, more or less arbitrarily chosen, alias
 accepted by iconv.
-A charset name unknown to iconv counts as unknown.
+A charset unknown to iconv counts as unknown.
 .sp
 This output type makes sense only when Enca is compiled with iconv support
 (feature +iconv\-interface).
@@ -175,9 +175,16 @@ author consideres `the most canonical', is printed.
 .sp
 Since RFC\~1345 doesn't define surfaces, no surface info is appended.
 .TP
+\fB\-m\fR, \fB\-\-mime\-name\fR
+Prints preferred MIME name of detected charset.  This is the name you should
+normally use when fixing e-mails or web pages.
+.sp
+A charset not present in http://www.iana.org/assignments/character-sets
+counts as unknown.
+.TP
 \fB\-s\fR, \fB\-\-cstocs\-name\fR
 Prints how \fIcstocs\fR(1) calls the detected charset.
-A charset name unknown to cstocs counts as unknown.
+A charset unknown to cstocs counts as unknown.
 .TP
 \fB\-n\fR, \fB\-\-name=\fR\fIWORD\fR
 Prints charset (encoding) name selected by \fIWORD\fR (can be abbreviated as
@@ -520,8 +527,8 @@ all the forking and moving stuff around is incredibily slow.
 .
 .SH "ENCODINGS"
 .PP
-You can get list of recognised charsets with
-.XA "enca --list encodings"
+You can get list of recognised character sets with
+.XA "enca --list charsets"
 and using \fB\-\-name\fR parameter you can select any name you want to be
 used in the listing.
 You can also list all surfaces with

@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: options.c,v 1.28 2004/05/30 08:18:18 yeti Exp $
+  @(#) $Id: options.c,v 1.29 2005/02/27 12:08:56 yeti Exp $
   command line option processing
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -208,7 +208,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
 {
   /* Short command line options. */
   static const char *short_options =
-    "cC:deE:fgGhil:L:n:pPrsvVx:";
+    "cC:deE:fgGhil:L:mn:pPrsvVx:";
 
   /* Long `GNU style' command line options {{{. */
   static const struct option long_options[] = {
@@ -225,6 +225,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
     { "language", required_argument, NULL, 'L' },
     { "license", no_argument, NULL, 'G' },
     { "list", required_argument, NULL, 'l' },
+    { "mime-name", no_argument, NULL, 'm' },
     { "name", required_argument, NULL, 'n' },
     { "no-filename", no_argument, NULL, 'P' },
     { "rfc1345-name", no_argument, NULL, 'r' },
@@ -284,6 +285,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
       case 'e': /* Canonical name. */
       case 'f': /* Full (descriptive) output. */
       case 'i': /* Iconv name. */
+      case 'm': /* MIME name. */
       case 'r': /* RFC 1345 name as output. */
       case 's': /* Cstocs name as output. */
       options.output_type = optchar_to_otype(c);
@@ -571,6 +573,7 @@ optchar_to_otype(const char c)
     case 'i': return OTYPE_ICONV;   /* Iconv name. */
     case 'r': return OTYPE_RFC1345; /* RFC 1345 name as output */
     case 's': return OTYPE_CS2CS;   /* Cstocs name as output. */
+    case 'm': return OTYPE_MIME;    /* Preferred MIME name as output. */
   }
 
   abort();
@@ -591,18 +594,20 @@ set_otype_from_name(const char *otname)
     OTYPE_RFC1345,
     OTYPE_ICONV,
     OTYPE_CS2CS,
+    OTYPE_MIME,
     OTYPE_ALIASES
   };
 
   /* Output type names. */
   static const Abbreviation OTNAMES[] =
   {
-    { "aliases", OTS+6 },
+    { "aliases", OTS+7 },
     { "cstocs", OTS+4 },
     { "details", OTS },
     { "enca", OTS+1 },
     { "human-readable", OTS+2 },
     { "iconv", OTS+5 },
+    { "mime", OTS+6 },
     { "rfc1345", OTS+3 },
   };
 
@@ -837,6 +842,11 @@ print_charsets(int only_builtin)
       case OTYPE_ICONV:
       if (enca_charset_name(i, ENCA_NAME_STYLE_ICONV) != NULL)
         puts(enca_charset_name(i, ENCA_NAME_STYLE_ICONV));
+      break;
+
+      case OTYPE_MIME:
+      if (enca_charset_name(i, ENCA_NAME_STYLE_MIME) != NULL)
+        puts(enca_charset_name(i, ENCA_NAME_STYLE_MIME));
       break;
 
       default:

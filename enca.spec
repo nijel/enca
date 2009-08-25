@@ -1,12 +1,12 @@
 # @(#) $Id: enca.spec.in,v 1.26 2004/05/24 19:32:31 yeti Exp $
 Summary: A program detecting encoding of text files.
 Name: enca
-Version: 1.6
+Version: 1.7
 Release: 1
 License: GNU GPL v2
 Group: Applications/Text
 Requires: sed
-Source: http://trific.ath.cx/Ftp/enca/enca-1.6.tar.bz2
+Source: http://trific.ath.cx/Ftp/enca/enca-1.7.tar.bz2
 URL: http://trific.ath.cx/software/enca/
 Packager: David Necas (Yeti) <yeti@physics.muni.cz>
 Vendor: Trific soft.

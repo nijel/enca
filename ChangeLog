@@ -2,6 +2,38 @@
  # See ChangeLog.prelib for changes before that.
  # Unfortunately, there's no ChangeLog for the transition.
 
+v1.7
+2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
+    * tools/encodings.dat: fixed MIME name of UTF-7 to UNICODE-1-1-UTF-7
+      (both are registered, the latter used)
+
+2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/convert_iconv.c: fixed a gcc warning
+
+2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
+    * lib/Makefile.am: changed library version (interface added)
+    * configure.ac, NEWS, deb/changelog: bumped version
+    * INSTALL, THANKS: updated
+
+2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
+    * man/enca.1: documented -m option, fixed mention of --list encodings
+
+2005-02-27 David Necas (Yeti) <yeti@physics.muni.cz>
+    * tools/make_hash.c, tools/encodings.dat, lib/enca.h, lib/encnames.c,
+      lib/internal.h, src/options.c, src/enca.c, src/common.h, src/HELP.in:
+      added new name style: preferred MIME name
+    * iconvcap.c: added a few ISO-8859-16 aliases
+
+2004-12-09 David Necas (Yeti) <yeti@physics.muni.cz>
+    * src/common.h: removed long dead PAGER stuff
+
+2004-11-17 David Necas (Yeti) <yeti@physics.muni.cz>
+    * m4/libiconv.m4: use system libiconv.m4
+    * autogen.sh: require automake 1.8 or better for iconv test related macros
+    * src/convert_iconv.c, src/common.h: update for new iconv preprocessor
+      symbols
+    * config.rpath: added
+
 v1.6
 2004-07-22 David Necas (Yeti) <yeti@physics.muni.cz>
     * src/Makefile.am: add $(EXEEXT) to binary names before trying to symlink

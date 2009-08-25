@@ -1,5 +1,5 @@
 /*
- * @(#) $Id: iconvcap.c,v 1.7 2003/11/17 12:27:39 yeti Exp $
+ * @(#) $Id: iconvcap.c,v 1.8 2005/02/27 12:08:55 yeti Exp $
  * iconv capability checker by David Necas (Yeti).
  * This program is in the public domain.
  *
@@ -86,7 +86,8 @@ char* VARIANT_ISO885913[] = {
 };
 
 char* VARIANT_ISO885916[] = {
-  "ISO-8859-16", "ISO8859-16", "8859_16", "ISO_8859-16", "ISO-IR-226", NULL
+  "ISO-8859-16", "ISO8859-16", "8859_16", "ISO_8859-16", "ISO-IR-226",
+  "LATIN10", "ISOLATIN10", "CSLATIN10", "CSISOLATIN10", NULL
 };
 
 char* VARIANT_BALTIC[] = {

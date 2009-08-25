@@ -1,4 +1,4 @@
-/* @(#) $Id: common.h,v 1.25 2003/11/17 12:27:39 yeti Exp $ */
+/* @(#) $Id: common.h,v 1.28 2005/02/27 12:08:56 yeti Exp $ */
 #ifndef COMMON_H
 #define COMMON_H 1
 
@@ -49,14 +49,6 @@
 extern int errno;
 #endif /* HAVE_ERRNO_H */
 
-/* +pager feature */
-#undef USE_PAGER
-#if defined(HAVE_POPEN) && defined(DEFAULT_PAGER_PROG)
-#  if defined(HAVE_ISATTY) || defined(HAVE_TTYNAME)
-#    define USE_PAGER 1
-#  endif /* HAVE_ISATTY || HAVE_TTYNAME */
-#endif /* HAVE_POPEN && DEFAULT_PAGER_PROG */
-
 /* portable isatty(), assume never on tty when neither isatty/ttyname is
    available */
 #ifdef HAVE_ISATTY
@@ -105,6 +97,7 @@ typedef enum {
   OTYPE_DETAILS,
   OTYPE_CANON,
   OTYPE_ICONV,
+  OTYPE_MIME,
   OTYPE_CONVERT,
   OTYPE_ALIASES
 } OutputType;
@@ -208,10 +201,10 @@ int         convert_recode         (File *file,
                                     EncaEncoding from_enc);
 #endif /* HAVE_LIBRECODE */
 
-#ifdef HAVE_ICONV
+#ifdef HAVE_GOOD_ICONV
 int         convert_iconv          (File *file,
                                     EncaEncoding from_enc);
-#endif /* HAVE_ICONV */
+#endif /* HAVE_GOOD_ICONV */
 
 #ifdef ENABLE_EXTERNAL
 int         convert_external         (File *file,

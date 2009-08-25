@@ -60,6 +60,7 @@ typedef struct {
   char *rfc1345;
   char *cstocs;
   char *iconv;
+  char *mime;
   int naliases;
   char **aliases;
   char *human;
@@ -72,13 +73,14 @@ typedef struct {
   int rfc1345;
   int cstocs;
   int iconv;
+  int mime;
   char *human;
   char *flags;
   char *nsurface;
 } EncaCharsetFine;
 
 static EncaCharsetRaw RawNULL = {
-  NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL
+  NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL
 };
 
 static char*
@@ -151,7 +153,7 @@ read_raw_charset_data(FILE *stream,
   rs = 1;
   while (1) {
     gl = fgets(line, LEN, stream);
-    if (r->enca && r->rfc1345 && r->cstocs && r->human && r->iconv
+    if (r->enca && r->rfc1345 && r->cstocs && r->human && r->iconv && r->mime
         && r->flags && r->nsurface && r->aliases) {
       if (r->enca[0] == '\0') {
         fprintf(stderr, "Enca's charset name #%d empty\n", r - raw + 1);
@@ -163,10 +165,12 @@ read_raw_charset_data(FILE *stream,
       }
       if (r->iconv[0] == '\0') r->iconv = NULL;
       if (r->cstocs[0] == '\0') r->cstocs = NULL;
+      if (r->mime[0] == '\0') r->mime = NULL;
       if (r->nsurface[0] == '\0') r->nsurface = strdup("0");
       r->aliases = check_alias(r->aliases, &r->naliases, r->enca);
       r->aliases = check_alias(r->aliases, &r->naliases, r->iconv);
       r->aliases = check_alias(r->aliases, &r->naliases, r->rfc1345);
+      r->aliases = check_alias(r->aliases, &r->naliases, r->mime);
       r->aliases = check_alias(r->aliases, &r->naliases, r->cstocs);
       if (!gl) break;
       rs++;
@@ -183,6 +187,7 @@ read_raw_charset_data(FILE *stream,
     if (add_item(line, "enca:", &r->enca)) continue;
     if (add_item(line, "rfc:", &r->rfc1345)) continue;
     if (add_item(line, "iconv:", &r->iconv)) continue;
+    if (add_item(line, "mime:", &r->mime)) continue;
     if (add_item(line, "cstocs:", &r->cstocs)) continue;
     if (add_item(line, "human:", &r->human)) continue;
     if (add_item(line, "flags:", &r->flags)) continue;
@@ -319,6 +324,7 @@ refine_data(EncaCharsetRaw *raw, const int ncs, char **alist, const int nn)
     fine[i].rfc1345 = bin_search(alist, nn, raw[i].rfc1345);
     fine[i].iconv = raw[i].iconv ? bin_search(alist, nn, raw[i].iconv) : -1;
     fine[i].cstocs = raw[i].cstocs ? bin_search(alist, nn, raw[i].cstocs) : -1;
+    fine[i].mime = raw[i].mime ? bin_search(alist, nn, raw[i].mime) : -1;
     fine[i].human = raw[i].human;
     fine[i].flags = raw[i].flags;
     fine[i].nsurface = raw[i].nsurface;
@@ -357,7 +363,7 @@ print_fine_data(EncaCharsetFine *fine, const int ncs,
   puts("static const EncaCharsetInfo CHARSET_INFO[] = {");
   for (i = 0; i < ncs; i++) {
     printf("  {\n"
-           "     %d, %d, %d, %d,\n"
+           "     %d, %d, %d, %d, %d,\n"
            "     \"%s\",\n"
            "     %s,\n"
            "     %s\n"
@@ -366,6 +372,7 @@ print_fine_data(EncaCharsetFine *fine, const int ncs,
            fine[i].rfc1345,
            fine[i].cstocs,
            fine[i].iconv,
+           fine[i].mime,
            fine[i].human,
            fine[i].flags,
            fine[i].nsurface);

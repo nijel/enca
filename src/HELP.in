@@ -11,6 +11,7 @@ Output type selectors:
  -e, --enca-name         Print enca's encoding name (passed to convertors)
  -f, --human-readable    Print full (descriptive) encoding name (default)
  -i, --iconv-name        Print how iconv calls the encoding
+ -m, --mime-name         Print preferred MIME encoding name
  -r, --rfc1345-name      Print RFC 1345 (or otherwise canonized) encoding name
  -s, --cstocs-name       Print how cstocs calls the encoding
  -n, --name=WORD         Print required name (enca-name, human-readable, etc.)

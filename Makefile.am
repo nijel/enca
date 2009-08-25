@@ -1,4 +1,4 @@
-# @(#) $Id: Makefile.am,v 1.33 2004/07/22 14:39:36 yeti Exp $
+# @(#) $Id: Makefile.am,v 1.34 2004/11/17 18:11:49 yeti Exp $
 if MAINTAINER_MODE
 SUBDIRS = tools data script lib src devel-docs test
 else
@@ -27,6 +27,7 @@ EXTRA_DIST = \
   TODO \
   ChangeLog.prelib \
   autogen.sh \
+  config.rpath \
   enca.pc.in \
   enca.spec \
   enca.spec.in \

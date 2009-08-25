@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: enca.c,v 1.17 2003/11/17 12:27:39 yeti Exp $
+  @(#) $Id: enca.c,v 1.18 2005/02/27 12:08:56 yeti Exp $
   Extremely Naive Charset Analyser.  main module
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -266,6 +266,13 @@ print_results(const char *fname,
       puts(enca_charset_name(result.charset, ENCA_NAME_STYLE_ICONV));
     else
       puts(enca_charset_name(ENCA_CS_UNKNOWN, ENCA_NAME_STYLE_ICONV));
+    break;
+
+    case OTYPE_MIME:
+    if (enca_charset_name(result.charset, ENCA_NAME_STYLE_MIME) != NULL)
+      puts(enca_charset_name(result.charset, ENCA_NAME_STYLE_MIME));
+    else
+      puts(enca_charset_name(ENCA_CS_UNKNOWN, ENCA_NAME_STYLE_MIME));
     break;
 
     default:

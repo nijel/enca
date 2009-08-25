@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: encnames.c,v 1.8 2004/05/11 16:14:02 yeti Exp $
+  @(#) $Id: encnames.c,v 1.9 2005/02/27 12:08:56 yeti Exp $
   convert charset and surface names to internal representation and back
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -144,6 +144,7 @@ enca_charset_name(int charset,
     switch (whatname) {
       case ENCA_NAME_STYLE_RFC1345:
       case ENCA_NAME_STYLE_ENCA:
+      case ENCA_NAME_STYLE_MIME:
       return UNKNOWN_CHARSET_NAME;
 
       case ENCA_NAME_STYLE_HUMAN:
@@ -176,6 +177,9 @@ enca_charset_name(int charset,
 
     case ENCA_NAME_STYLE_ICONV:
     return cs->iconv < 0 ? NULL : ALIAS_LIST[cs->iconv];
+
+    case ENCA_NAME_STYLE_MIME:
+    return cs->mime < 0 ? NULL : ALIAS_LIST[cs->mime];
 
     default:
     return NULL;
@@ -242,6 +246,7 @@ enca_get_surface_name(EncaSurface surface,
     case ENCA_NAME_STYLE_CSTOCS:
     case ENCA_NAME_STYLE_RFC1345:
     case ENCA_NAME_STYLE_ICONV:
+    case ENCA_NAME_STYLE_MIME:
     s = enca_strdup("");
     break;
 

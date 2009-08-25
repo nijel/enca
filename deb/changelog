@@ -1,3 +1,9 @@
+enca (1.7-1) unstable; urgency=low
+
+  * Updated to upstream version 1.7.
+
+ -- David Necas (Yeti) <yeti@physics.muni.cz>  Sun, 27 Feb 2005 13:24:28 +0100
+
 enca (1.6-1) unstable; urgency=low
 
   * Updated to upstream version 1.6.

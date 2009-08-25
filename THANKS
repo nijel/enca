@@ -23,6 +23,7 @@ Martin Man <Martin.Man@seznam.cz>
   for Debian packages
 
 Nick Rezmerski <nick@bpsi.net>
+David Kamholz <davekam@pobox.com>
   for testing on Mac OS X
 
 Jindřich Makovička <makovick@kmlinux.fjfi.cvut.cz>
@@ -30,6 +31,9 @@ Jindřich Makovička <makovick@kmlinux.fjfi.cvut.cz>
 
 Jan Bílek <bilek@centrum.cz>
   for Win32 (MinGW and Cygwin) testing
+
+Михаил Рамендик <mr@ramendik.ru>
+  for the idea of preferred MIME charset name style
 
 François Pinard <pinard@iro.umontreal.ca>
   for his infinitely powerful, though incredibly buggy, recode

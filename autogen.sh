@@ -1,5 +1,5 @@
 #!/bin/sh
-# @(#) $Id: autogen.sh,v 1.8 2003/11/17 12:27:39 yeti Exp $
+# @(#) $Id: autogen.sh,v 1.9 2004/11/17 18:11:49 yeti Exp $
 # Run this to generate all the initial makefiles, etc.
 # Tweaked by David Necas (Yeti) <yeti@physics.muni.cz> from various other
 # autogen.sh's.  This file is in public domain.
@@ -34,7 +34,7 @@ ACLOCAL_FLAGS="-I m4"
   echo
   echo "**ERROR**: You must have \`automake' installed to re-generate"
   echo "all the $PROJECT Makefiles."
-  echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.6.1.tar.gz"
+  echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
   echo "(or a newer version if it is available) and read README.devel."
   DIE=1
   NO_AUTOMAKE=yes
@@ -57,11 +57,11 @@ fi
 
 if test -z "$NO_AUTOMAKE"; then
   AM_VERSION=`automake --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$AM_VERSION" '<' "1.6"; then
+  if test "$AM_VERSION" '<' "1.8"; then
     echo
-    echo "**ERROR**: You need at least automake-1.6 installed to re-generate"
+    echo "**ERROR**: You need at least automake-1.8 installed to re-generate"
     echo "all the $PROJECT Makefiles."
-    echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.6.1.tar.gz"
+    echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
     echo "(or a newer version if it is available) and read README.devel."
     DIE=1
   else
@@ -74,7 +74,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
   echo
   echo "**ERROR**: Missing \`aclocal'.  The version of \`automake'"
   echo "installed doesn't appear recent enough."
-  echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.6.1.tar.gz"
+  echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
   echo "(or a newer version if it is available) and read README.devel."
   DIE=1
 }

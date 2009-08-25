@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.6 (2004-09-01)  guess and convert encoding of text files
+# Enca v1.7 (2005-02-27)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 #============================================================================
 
@@ -41,15 +41,16 @@ POSIX features:
 
 Enca is known to compile and work on following systems:
   Version    OS                       Compiler             Tester
-  1.6        Fedora Core 2            gcc 3.3              (1)
+  1.7        Fedora Core 3            gcc 3.4              (1)
   0.99.4     RedHat Linux 9           gcc 3.2              (1)
-  1.5        Debian GNU/Linux 3.0     gcc 2.95.4           (1)
+  1.6        Debian GNU/Linux 3.0     gcc 2.95.4           (1)
   1.2        Mandrake Linux 9.0       gcc 3.2              (1)
   0.10.6     BDS/OS 3.1  BSDI         gcc 1.42             (2)
   0.10.1     IRIX 6.5                 MIPSpro 7.3.1.1m     (1)
   1.2        FreeBSD 4.8              gcc 2.95.4           (3)
   0.10.7     Solaris 2.6              gcc                  (4)
   1.6        MinGW, Cygwin            gcc                  (5)
+  1.7        Mac OS X                 gcc                  (6)
 
   Testers:
   (1) <yeti@physics.muni.cz>
@@ -57,6 +58,7 @@ Enca is known to compile and work on following systems:
   (3) <never@nevermind.kiev.ua>
   (4) <yong321@yahoo.com>
   (5) <bilek@centrum.cz>
+  (6) <davekam@pobox.com>
 
 
 Generic GNU installation instructions follows:

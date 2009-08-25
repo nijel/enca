@@ -1,5 +1,5 @@
 /*
-  @(#) $Id: convert_iconv.c,v 1.17 2004/05/27 19:22:49 yeti Exp $
+  @(#) $Id: convert_iconv.c,v 1.19 2005/02/27 12:40:50 yeti Exp $
   interface to UNIX98 iconv conversion functions
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -18,7 +18,7 @@
   59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 #include "common.h"
-#ifdef HAVE_ICONV
+#ifdef HAVE_GOOD_ICONV
 
 #include <iconv.h>
 #include "iconvenc.h"
@@ -108,7 +108,7 @@ iconv_one_step(File *file_from,
                iconv_t icd)
 {
   size_t size_from, size_to, n;
-  byte *p_from, *p_to;
+  char *p_from, *p_to;
   int hit_eof;
 
   /* convert */
@@ -117,17 +117,17 @@ iconv_one_step(File *file_from,
     if (file_read(file_from) == -1)
       return ERR_IOFAIL;
 
-    p_from = file_from->buffer->data;
+    p_from = (char*)file_from->buffer->data;
     size_from = file_from->buffer->pos;
     hit_eof = (ssize_t)file_from->buffer->size > file_from->buffer->pos;
     /* convert without reading more data until io_buffer is exhausted or some
        error occurs */
     do {
-      p_to = file_to->buffer->data;
+      p_to = (char*)file_to->buffer->data;
       size_to = file_to->buffer->size;
       n = iconv(icd,
-                (ICONV_ARG2_CONST char**)&p_from, &size_from,
-                (char**)&p_to, &size_to);
+                (ICONV_CONST char**)&p_from, &size_from,
+                &p_to, &size_to);
       file_to->buffer->pos = file_to->buffer->size - size_to;
       if (n != (size_t)-1 || errno != E2BIG)
         break;
@@ -268,7 +268,7 @@ acceptable_surface(EncaEncoding enc)
   return (enc.surface & ~mask) == 0;
 }
 
-#endif /* HAVE_ICONV */
+#endif /* HAVE_GOOD_ICONV */
 
 /* vim: ts=2
  */
