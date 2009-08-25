@@ -12,6 +12,7 @@ Legend: + new feature
 
 enca-1.10 2009-??-??
   + Enca is back alive or at least in maintenance mode.
+  * Enca now lives in git repository, see <http://gitorious.org/enca>.
   - Add missing charset koi8u to belarussian language.
 
 enca-1.9 2005-12-18
