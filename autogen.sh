@@ -43,7 +43,7 @@ ACLOCAL_FLAGS="-I m4"
 # The world is curel.
 if test -z "$NO_AUTOCONF"; then
   AC_VERSION=`autoconf --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$AC_VERSION" '<' "2.52"; then
+  if test "$AC_VERSION" -lt "2.52"; then
     echo
     echo "**ERROR**: You need at least autoconf-2.52 installed to re-generate"
     echo "all the $PROJECT Makefiles."
@@ -57,7 +57,7 @@ fi
 
 if test -z "$NO_AUTOMAKE"; then
   AM_VERSION=`automake --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$AM_VERSION" '<' "1.8"; then
+  if test "$AM_VERSION" -lt "1.8"; then
     echo
     echo "**ERROR**: You need at least automake-1.8 installed to re-generate"
     echo "all the $PROJECT Makefiles."
@@ -81,7 +81,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
 
 if test -z "$NO_LIBTOOL"; then
   LT_VERSION=`libtool --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$LT_VERSION" '<' "1.4"; then
+  if test "$LT_VERSION" -lt "1.4"; then
     echo
     echo "**ERROR**: You need at least libtool-1.4 installed to re-generate"
     echo "all the $PROJECT Makefiles."
