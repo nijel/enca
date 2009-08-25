@@ -6,3 +6,5 @@ enca.pc
 libtool
 stamp-h1
 iconvenc.h
+enca.spec
+iconvcap
