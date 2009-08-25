@@ -43,13 +43,13 @@ GNU General Public License.  Please see COPYING for details.
 
 4. Web resources
 
-Enca can be found at http://trific.ath.cx/Ftp/enca/ and its home page is
-http://trific.ath.cx/software/enca/.
+Enca can be found at http://gitorious.org/enca/, you can download 
+tarballs from http/dl.cihar.com/enca/.
 
 
 5. Bugs
 
-Report problems to <yeti@physics.muni.cz>.  Please include `enca'
+Report problems to <michal@cihar.com>.  Please include `enca'
 in subject.  (Some known bugs have been collected in BUGS section
 of enca manual page.)
 

@@ -2,6 +2,8 @@
  # See ChangeLog.prelib for changes before that.
  # Unfortunately, there's no ChangeLog for the transition.
 
+ # Later changelog is not maintained for details check Git tree.
+
 v1.9
 2005-12-18 David Necas (Yeti) <yeti@physics.muni.cz>
     * NEWS: fixed version number

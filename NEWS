@@ -1,6 +1,7 @@
 #============================================================================
-# Enca v1.9 (2005-12-18)  guess and convert encoding of text files
+# Enca v1.10 (2009-??-??)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
+# Copyright (C) 2009 Michal Cihar <michal@cihar.com>
 #============================================================================
 
 List of user-visible changes in Enca
@@ -10,6 +11,7 @@ Legend: + new feature
         - bugfix
 
 enca-1.10 2009-??-??
+  + Enca is back alive or at least in maintenance mode.
   - Add missing charset koi8u to belarussian language.
 
 enca-1.9 2005-12-18
