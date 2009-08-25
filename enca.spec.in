@@ -67,7 +67,7 @@ library.
 %doc %{_mandir}/man1/enca.1*
 %doc %{_mandir}/man1/enconv.1*
 %defattr(-,root,root)
-%doc AUTHORS COPYING ChangeLog ChangeLog.prelib FAQ INSTALL NEWS README README.devel THANKS TODO
+%doc AUTHORS COPYING ChangeLog ChangeLog.prelib FAQ INSTALL ChangeLog.old README README.devel THANKS TODO
 
 %files devel
 %defattr(-,root,root)
