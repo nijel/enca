@@ -1,0 +1,44 @@
+Source: enca
+Priority: optional
+Maintainer: David Necas (Yeti) <yeti@physics.muni.cz>
+Build-Depends: debhelper (>> 3.0.0), librecode-dev
+Standards-Version: 3.5.2
+
+Package: enca
+Section: text
+Architecture: any
+Depends: libenca0 (>=${Source-Version}), ${shlibs:Depends}
+Suggests: cstocs
+Description: Extremely Naive Charset Analyser - binaries.
+ Enca is an Extremely Naive Charset Analyser. It detects character set and
+ encoding of text files and can also convert them to other encodings using
+ either a built-in convertor or external libraries and tools like libiconv,
+ librecode, or cstocs.
+ .
+ Currently, it has support for Belarussian, Bulgarian, Croatian, Czech,
+ Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, and
+ Ukrainian and some multibyte encodings (mostly variants of Unicode)
+ independently on the language.
+
+Package: libenca0
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Extremely Naive Charset Analyser - shared library files.
+ Enca is an Extremely Naive Charset Analyser. It detects character set and
+ encoding of text files and can also convert them to other encodings.
+ .
+ This package contains shared library needed to run applications compiled
+ against libenca.
+
+Package: libenca-dev
+Section: devel
+Architecture: any
+Depends: libenca0 (>=${Source-Version})
+Description: Extremely Naive Charset Analyser - development files.
+ Enca is an Extremely Naive Charset Analyser. It detects character set and
+ encoding of text files and can also convert them to other encodings.
+ .
+ This package contains static library and header files needed for development
+ with libenca.  It also contains API documentation.
+

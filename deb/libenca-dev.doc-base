@@ -1,0 +1,13 @@
+Document: libenca-api
+Title: Enca Library Reference Manual
+Author: David Necas (Yeti), yeti@physics.muni.cz
+Abstract: This manual describes libenca API
+ and how it can be used to
+ create programs using the library to detect
+ encoding of text files.
+Section: Apps/Programming
+
+Format: HTML
+Index: /usr/share/doc/enca/html/libenca/index.html
+Files: /usr/share/doc/enca/html/libenca/*.html
+
