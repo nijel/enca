@@ -5,6 +5,7 @@
 #============================================================================
 
 List of user-visible changes in Enca
+More detailed log can be obtained from older changelogs or git log.
 
 Legend: + new feature
         * change of behaviour (including disappearing of a feature)
