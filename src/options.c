@@ -364,7 +364,7 @@ interpret_opt(int argc, char *argv[], int cmdl_argc)
     behaviour = BEHAVE_ENCA;
     if (options.output_type == OTYPE_CONVERT
         && options.verbosity_level > 2)
-      fprintf(stderr, "Explicitely specified target charset: %s\n",
+      fprintf(stderr, "Explicitly specified target charset: %s\n",
                       options.target_enc_str);
   }
 
