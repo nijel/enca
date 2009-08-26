@@ -43,8 +43,8 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gtk-doc.m4 \
 	$(top_srcdir)/m4/libiconv.m4 $(top_srcdir)/m4/libm.m4 \
 	$(top_srcdir)/m4/librecode.m4 $(top_srcdir)/m4/localias.m4 \
-	$(top_srcdir)/m4/scanf.m4 $(top_srcdir)/m4/tools.m4 \
-	$(top_srcdir)/m4/typevar.m4 $(top_srcdir)/configure.ac
+	$(top_srcdir)/m4/tools.m4 $(top_srcdir)/m4/typevar.m4 \
+	$(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs

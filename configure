@@ -12865,46 +12865,6 @@ fi
 done
 
 
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for scanf size_t conversion modifier" >&5
-$as_echo_n "checking for scanf size_t conversion modifier... " >&6; }
-if test "${yeti_cv_func_scanf_modif_size_t+set}" = set; then :
-  $as_echo_n "(cached) " >&6
-else
-  if test "$cross_compiling" = yes; then :
-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
-as_fn_error "cannot run test program while cross compiling
-See \`config.log' for more details." "$LINENO" 5; }
-else
-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
-/* end confdefs.h.  */
-#ifdef STDC_HEADERS
-    #include <stdlib.h>
-    #endif
-    int main(void) {
-    size_t x;
-    if (sscanf("123456789", "%zd\n", &x) == 1 && x == 123456789) return 0; else return 1;
-    }
-_ACEOF
-if ac_fn_c_try_run "$LINENO"; then :
-  yeti_cv_func_scanf_modif_size_t=z
-else
-  yeti_cv_func_scanf_modif_size_t=
-fi
-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
-  conftest.$ac_objext conftest.beam conftest.$ac_ext
-fi
-
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $yeti_cv_func_scanf_modif_size_t" >&5
-$as_echo "$yeti_cv_func_scanf_modif_size_t" >&6; }
-
-cat >>confdefs.h <<_ACEOF
-#define SCANF_MODIF_SIZE_T "$yeti_cv_func_scanf_modif_size_t"
-_ACEOF
-
-
 CONVERTER_LIBS=
 
       if test "X$prefix" = "XNONE"; then

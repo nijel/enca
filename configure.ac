@@ -160,7 +160,6 @@ AC_CHECK_FUNCS( \
   ttyname \
   wordexp)
 AC_REPLACE_FUNCS(getopt_long)
-ye_FUNC_SCANF_MODIF_SIZE_T
 dnl Following two check for much more than just library functions, iconv test
 dnl in fact has to build a simple iconv app to find out wheter it's usable.
 CONVERTER_LIBS=

@@ -206,9 +206,6 @@
 /* Define to path to the recode recoder. */
 #undef RECODE_PROG
 
-/* Define to scanf() format needed for size_t conversion. */
-#undef SCANF_MODIF_SIZE_T
-
 /* Define to 1 if the `S_IS*' macros in <sys/stat.h> do not work properly. */
 #undef STAT_MACROS_BROKEN
 
