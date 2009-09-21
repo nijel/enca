@@ -481,7 +481,7 @@ prepend_env(int argc,
     fprintf(stderr, "%s: Cannot parse value of %s (",
                     program_name, ENCA_ENV_VAR);
     if (msg == NULL)
-      fprintf(stderr, "error %d", i);
+      fprintf(stderr, "error %zd", i);
     else
       fprintf(stderr, "%s", msg);
 
@@ -939,7 +939,7 @@ print_languages(void)
   /* Print the names. */
   for (i = 0; i < nl; i++) {
     if (english)
-      printf("%*s:", maxlen, enca_language_english_name(l[i]));
+      printf("%*s:", (int)maxlen, enca_language_english_name(l[i]));
     else
       printf("%s:", l[i]);
     c = enca_get_language_charsets(l[i], &nc);
