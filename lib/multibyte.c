@@ -852,7 +852,7 @@ looks_like_hz(EncaAnalyserState *analyser)
   const size_t *const counts = analyser->counts;
 
   int escaped; /* true when we're in 8-bit mode */
-  int i;
+  unsigned int i;
 
   /* Initialize when we are called the first time. */
   if (hz == ENCA_CS_UNKNOWN) {
