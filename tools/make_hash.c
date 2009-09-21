@@ -156,11 +156,11 @@ read_raw_charset_data(FILE *stream,
     if (r->enca && r->rfc1345 && r->cstocs && r->human && r->iconv && r->mime
         && r->flags && r->nsurface && r->aliases) {
       if (r->enca[0] == '\0') {
-        fprintf(stderr, "Enca's charset name #%d empty\n", r - raw + 1);
+        fprintf(stderr, "Enca's charset name #%d empty\n", (int)(r - raw + 1));
         exit(1);
       }
       if (r->rfc1345[0] == '\0') {
-        fprintf(stderr, "RFC-1345 charset name #%d empty\n", r - raw + 1);
+        fprintf(stderr, "RFC-1345 charset name #%d empty\n", (int)(r - raw + 1));
         exit(1);
       }
       if (r->iconv[0] == '\0') r->iconv = NULL;
