@@ -296,7 +296,7 @@ indent_surface(const char *s)
 
   while ((p = strchr(s, '\n')) != NULL) {
     p++;
-    printf("  %.*s", p-s, s);
+    printf("  %.*s", (int)(p-s), s);
     s = p;
   }
 }
