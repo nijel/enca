@@ -11,8 +11,9 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.11 2009-??-??
+enca-1.11 2009-09-25
   - Dropped scanf configure test which is not used at all.
+  - Fixes some wrong format strings.
 
 enca-1.10 2009-08-25
   + Enca is back alive or at least in maintenance mode.
