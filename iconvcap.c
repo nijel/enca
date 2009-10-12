@@ -328,6 +328,7 @@ check_transitivity(char *fname)
   s = (char*)malloc(1024);
   if ((f = fopen(fname, "r")) == NULL) {
     fprintf(stderr, "iconvcap: cannot open %s\n", fname);
+    free(s);
     return 1;
   }
 
@@ -336,12 +337,14 @@ check_transitivity(char *fname)
     if (strncmp(s, "#define", 7) != 0) {
       fprintf(stderr, "iconvcap: malformed input line: %s", s);
       fclose(f);
+      free(s);
       return 1;
     }
     if ((sb = strchr(s, '"')) != NULL) {
       if ((se = strrchr(s, '"')) == sb) {
         fprintf(stderr, "iconvcap: malformed input line: %s", s);
         fclose(f);
+        free(s);
         return 1;
       }
 
@@ -355,6 +358,7 @@ check_transitivity(char *fname)
 
   if (enclist == NULL) {
     fprintf(stderr, "no valid encodings\n");
+    free(s);
     return 1;
   }
 
@@ -363,11 +367,13 @@ check_transitivity(char *fname)
       if (iconv_check_one(enclist->enc, p_e->enc) != 0) {
         fprintf(stderr, "iconvap: iconv_open(%s, %s) failed\n",
                 enclist->enc, p_e->enc);
+        free(s);
         return 1;
       }
       if (iconv_check_one(p_e->enc, enclist->enc) != 0) {
         fprintf(stderr, "iconvcap: iconv_open(%s, %s) failed\n",
                 p_e->enc, enclist->enc);
+        free(s);
         return 1;
       }
     }
@@ -375,6 +381,7 @@ check_transitivity(char *fname)
   }
 
   fprintf(stderr, "iconvcap: transitivity OK\n");
+  free(s);
   return 0;
 }
 
