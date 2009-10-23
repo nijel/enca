@@ -40,10 +40,70 @@ ACLOCAL_FLAGS="-I m4"
   NO_AUTOMAKE=yes
 }
 
+version_check ( ) {
+    if [ "x$1" = "x" ] ; then
+        echo "INTERNAL ERROR: version_check was not provided a minimum version"
+        exit 1
+    fi
+    _min="$1"
+    if [ "x$2" = "x" ] ; then
+        echo "INTERNAL ERROR: version check was not provided a comparison version"
+        exit 1
+    fi
+    _cur="$2"
+
+    # needed to handle versions like 1.10 and 1.4-p6
+    _min="`echo ${_min}. | sed 's/[^0-9]/./g' | sed 's/\.\././g'`"
+    _cur="`echo ${_cur}. | sed 's/[^0-9]/./g' | sed 's/\.\././g'`"
+
+    _min_major="`echo $_min | cut -d. -f1`"
+    _min_minor="`echo $_min | cut -d. -f2`"
+    _min_patch="`echo $_min | cut -d. -f3`"
+
+    _cur_major="`echo $_cur | cut -d. -f1`"
+    _cur_minor="`echo $_cur | cut -d. -f2`"
+    _cur_patch="`echo $_cur | cut -d. -f3`"
+
+    if [ "x$_min_major" = "x" ] ; then
+        _min_major=0
+    fi
+    if [ "x$_min_minor" = "x" ] ; then
+        _min_minor=0
+    fi
+    if [ "x$_min_patch" = "x" ] ; then
+        _min_patch=0
+    fi
+    if [ "x$_cur_minor" = "x" ] ; then
+        _cur_major=0
+    fi
+    if [ "x$_cur_minor" = "x" ] ; then
+        _cur_minor=0
+    fi
+    if [ "x$_cur_patch" = "x" ] ; then
+        _cur_patch=0
+    fi
+
+    if [ $_min_major -lt $_cur_major ] ; then
+        return 0
+    elif [ $_min_major -eq $_cur_major ] ; then
+        if [ $_min_minor -lt $_cur_minor ] ; then
+            return 0
+        elif [ $_min_minor -eq $_cur_minor ] ; then
+            if [ $_min_patch -lt $_cur_patch ] ; then
+                return 0
+            elif [ $_min_patch -eq $_cur_patch ] ; then
+                return 0
+            fi
+        fi
+    fi
+    return 1
+}
+
+
 # The world is cruel.
 if test -z "$NO_AUTOCONF"; then
   AC_VERSION=`autoconf --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$AC_VERSION" -lt "2.52"; then
+  if ! version_check "2.52" "$AC_VERSION" ; then
     echo
     echo "**ERROR**: You need at least autoconf-2.52 installed to re-generate"
     echo "all the $PROJECT Makefiles."
@@ -57,7 +117,7 @@ fi
 
 if test -z "$NO_AUTOMAKE"; then
   AM_VERSION=`automake --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$AM_VERSION" -lt "1.8"; then
+  if ! version_check "1.8" "$AM_VERSION" ; then
     echo
     echo "**ERROR**: You need at least automake-1.8 installed to re-generate"
     echo "all the $PROJECT Makefiles."
@@ -81,7 +141,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
 
 if test -z "$NO_LIBTOOL"; then
   LT_VERSION=`libtool --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
-  if test "$LT_VERSION" -lt "1.4"; then
+  if ! version_check "1.4" "$LT_VERSION" ; then
     echo
     echo "**ERROR**: You need at least libtool-1.4 installed to re-generate"
     echo "all the $PROJECT Makefiles."
