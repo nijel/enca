@@ -11,6 +11,10 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
+enca-1.12 2009-??-??
+  - Fixes some minor memory leaks.
+  - Fixes little problems in autoconf scripts.
+
 enca-1.11 2009-09-25
   - Dropped scanf configure test which is not used at all.
   - Fixes some wrong format strings.
