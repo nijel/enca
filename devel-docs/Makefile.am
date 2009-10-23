@@ -84,7 +84,6 @@ SCANOBJ_FILES = 		\
 	$(DOC_MODULE).intefraces
 
 if ENABLE_GTK_DOC
-if MAINTAINER_MODE
 docs: html-build.stamp
 
 #### scan ####
@@ -137,7 +136,6 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files)
 	@echo '-- Fixing Crossreferences' 
 	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
 	touch html-build.stamp
-endif
 endif
 
 ##############

@@ -450,58 +450,58 @@ uninstall-am: uninstall-local
 	uninstall uninstall-am uninstall-local
 
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@docs: html-build.stamp
+@ENABLE_GTK_DOC_TRUE@docs: html-build.stamp
 
 #### scan ####
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@scan-build.stamp: $(HFILE_GLOB)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@echo '*** Scanning header files ***'
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	if grep -l '^..*$$' $(srcdir)/$(DOC_MODULE).types > /dev/null ; then \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	    CC="$(GTKDOC_CC)" LD="$(GTKDOC_LD)" CFLAGS="$(GTKDOC_CFLAGS)" LDFLAGS="$(GTKDOC_LIBS)" gtkdoc-scanobj $(SCANOBJ_OPTIONS) --module=$(DOC_MODULE) --output-dir=$(srcdir) ; \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	else \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	    cd $(srcdir) ; \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	    for i in $(SCANOBJ_FILES) ; do \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@               test -f $$i || touch $$i ; \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	    done \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	fi
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	cd $(srcdir) && \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	  gtkdoc-scan --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --ignore-headers="$(IGNORE_HFILES)" $(SCAN_OPTIONS) $(EXTRA_HFILES)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	touch scan-build.stamp
+@ENABLE_GTK_DOC_TRUE@scan-build.stamp: $(HFILE_GLOB)
+@ENABLE_GTK_DOC_TRUE@	@echo '*** Scanning header files ***'
+@ENABLE_GTK_DOC_TRUE@	if grep -l '^..*$$' $(srcdir)/$(DOC_MODULE).types > /dev/null ; then \
+@ENABLE_GTK_DOC_TRUE@	    CC="$(GTKDOC_CC)" LD="$(GTKDOC_LD)" CFLAGS="$(GTKDOC_CFLAGS)" LDFLAGS="$(GTKDOC_LIBS)" gtkdoc-scanobj $(SCANOBJ_OPTIONS) --module=$(DOC_MODULE) --output-dir=$(srcdir) ; \
+@ENABLE_GTK_DOC_TRUE@	else \
+@ENABLE_GTK_DOC_TRUE@	    cd $(srcdir) ; \
+@ENABLE_GTK_DOC_TRUE@	    for i in $(SCANOBJ_FILES) ; do \
+@ENABLE_GTK_DOC_TRUE@               test -f $$i || touch $$i ; \
+@ENABLE_GTK_DOC_TRUE@	    done \
+@ENABLE_GTK_DOC_TRUE@	fi
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && \
+@ENABLE_GTK_DOC_TRUE@	  gtkdoc-scan --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --ignore-headers="$(IGNORE_HFILES)" $(SCAN_OPTIONS) $(EXTRA_HFILES)
+@ENABLE_GTK_DOC_TRUE@	touch scan-build.stamp
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@$(DOC_MODULE)-decl.txt $(SCANOBJ_FILES): scan-build.stamp
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@true
+@ENABLE_GTK_DOC_TRUE@$(DOC_MODULE)-decl.txt $(SCANOBJ_FILES): scan-build.stamp
+@ENABLE_GTK_DOC_TRUE@	@true
 
 #### templates ####
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@tmpl-build.stamp: $(DOC_MODULE)-decl.txt $(SCANOBJ_FILES) $(DOC_MODULE)-sections.txt $(DOC_OVERRIDES)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@echo '*** Rebuilding template files ***'
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	cd $(srcdir) && gtkdoc-mktmpl --module=$(DOC_MODULE)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	touch tmpl-build.stamp
+@ENABLE_GTK_DOC_TRUE@tmpl-build.stamp: $(DOC_MODULE)-decl.txt $(SCANOBJ_FILES) $(DOC_MODULE)-sections.txt $(DOC_OVERRIDES)
+@ENABLE_GTK_DOC_TRUE@	@echo '*** Rebuilding template files ***'
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-mktmpl --module=$(DOC_MODULE)
+@ENABLE_GTK_DOC_TRUE@	touch tmpl-build.stamp
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@tmpl.stamp: tmpl-build.stamp
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@true
+@ENABLE_GTK_DOC_TRUE@tmpl.stamp: tmpl-build.stamp
+@ENABLE_GTK_DOC_TRUE@	@true
 
 #### sgml ####
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@sgml-build.stamp: tmpl.stamp $(CFILE_GLOB) $(srcdir)/tmpl/*.sgml
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@echo '*** Building XML ***'
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	cd $(srcdir) && \
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	gtkdoc-mkdb --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --output-format=xml $(MKDB_OPTIONS)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	touch sgml-build.stamp
+@ENABLE_GTK_DOC_TRUE@sgml-build.stamp: tmpl.stamp $(CFILE_GLOB) $(srcdir)/tmpl/*.sgml
+@ENABLE_GTK_DOC_TRUE@	@echo '*** Building XML ***'
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && \
+@ENABLE_GTK_DOC_TRUE@	gtkdoc-mkdb --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --output-format=xml $(MKDB_OPTIONS)
+@ENABLE_GTK_DOC_TRUE@	touch sgml-build.stamp
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@sgml.stamp: sgml-build.stamp
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@true
+@ENABLE_GTK_DOC_TRUE@sgml.stamp: sgml-build.stamp
+@ENABLE_GTK_DOC_TRUE@	@true
 
 #### html ####
 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@html-build.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@echo '*** Building HTML ***'
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	test -d $(srcdir)/html || mkdir $(srcdir)/html
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	@echo '-- Fixing Crossreferences' 
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
-@ENABLE_GTK_DOC_TRUE@@MAINTAINER_MODE_TRUE@	touch html-build.stamp
+@ENABLE_GTK_DOC_TRUE@html-build.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files)
+@ENABLE_GTK_DOC_TRUE@	@echo '*** Building HTML ***'
+@ENABLE_GTK_DOC_TRUE@	test -d $(srcdir)/html || mkdir $(srcdir)/html
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
+@ENABLE_GTK_DOC_TRUE@	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
+@ENABLE_GTK_DOC_TRUE@	@echo '-- Fixing Crossreferences' 
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+@ENABLE_GTK_DOC_TRUE@	touch html-build.stamp
 
 ##############
 
