@@ -8,6 +8,8 @@ man_MANS = man/enca.1
 
 DISTCHECK_CONFIGURE_FLAGS = --enable-maintainer-mode
 
+ACLOCAL_AMFLAGS = -I m4
+
 M4TESTS = \
   m4/crash-me \
   m4/gtk-doc.m4 \
