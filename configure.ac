@@ -6,6 +6,7 @@ dnl Shake before use.
 AC_INIT(Enca, 1.11, [Michal Cihar <michal@cihar.com>])
 AC_PREREQ(2.52)
 AC_CONFIG_SRCDIR(src/enca.c)
+AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_FILES( \
   Makefile \
   enca.spec \
