@@ -40,7 +40,7 @@ ACLOCAL_FLAGS="-I m4"
   NO_AUTOMAKE=yes
 }
 
-# The world is curel.
+# The world is cruel.
 if test -z "$NO_AUTOCONF"; then
   AC_VERSION=`autoconf --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
   if test "$AC_VERSION" -lt "2.52"; then
