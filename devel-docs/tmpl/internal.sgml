@@ -86,13 +86,11 @@ Do not use outside Enca library.
 @humanname: 
 @ncharsets: 
 @csnames: 
-@weights: 
-@significant: 
-@letters: 
-@pairs: 
+@weight_sum: 
 @hook: 
 @eolhook: 
 @lcuchook: 
+@ratinghook: 
 
 <!-- ##### STRUCT EncaLanguageHookData1CS ##### -->
 <para>
@@ -101,7 +99,6 @@ Do not use outside Enca library.
 
 @name: 
 @size: 
-@list: 
 @cs: 
 
 <!-- ##### STRUCT EncaLanguageHookDataEOL ##### -->
