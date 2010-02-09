@@ -103,10 +103,7 @@ convert_recode(File *file,
     file->buffer->pos = 0;
 
     if ((tempfile = file_temporary(file->buffer, 1)) == NULL
-        || copy_and_convert(file, tempfile, NULL) != 0
-        || file_seek(file, 0, SEEK_SET) != 0
-        || file_seek(tempfile, 0, SEEK_SET) != 0
-        || file_truncate(file, 0) != 0) {
+        || file_seek(file, 0, SEEK_SET) != 0) {
       file_free(tempfile);
       return ERR_IOFAIL;
     }
@@ -128,7 +125,10 @@ convert_recode(File *file,
     if (!success) {
       print_recode_warning(task->error_so_far, file->name);
     } else {
-      if (copy_and_convert(tempfile, file, NULL) != 0) {
+      if (file_seek(file, 0, SEEK_SET) != 0
+          || file_seek(tempfile, 0, SEEK_SET) != 0
+          || file_truncate(file, 0) != 0
+          || copy_and_convert(tempfile, file, NULL) != 0) {
         fprintf(stderr, "failed to rename temporary file back\n");
         file_free(tempfile);
         return ERR_IOFAIL;
