@@ -12,6 +12,8 @@ Legend: + new feature
         - bugfix
 
 enca-1.13 2009-??-??
+  - Reverse usage of temp file while converting using recode to prevent
+    file truncation (bug #1135).
 
 enca-1.12 2009-10-29
   - Fixes some minor memory leaks.

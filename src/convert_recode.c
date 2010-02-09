@@ -116,32 +116,23 @@ convert_recode(File *file,
     task->fail_level = enca_recode_fail_level;
     task->abort_level = RECODE_SYSTEM_ERROR;
     task->input.name = NULL;
-    task->input.file = tempfile->stream;
+    task->input.file = file->stream;
     task->output.name = NULL;
-    task->output.file = file->stream;
+    task->output.file = tempfile->stream;
 
-    /* Now run conversion temporary file -> original. */
+    /* Now run conversion original -> temporary file. */
     success = recode_perform_task(task);
 
     /* If conversion wasn't successfull, original file is probably damaged
        (damned librecode!) try to restore it from the temporary copy. */
     if (!success) {
-      if (task->error_so_far >= RECODE_SYSTEM_ERROR) {
-        fprintf(stderr, "%s: librecode probably damaged file `%s'. "
-                        "Trying to recover... ",
-                        program_name,
-                        file->name);
-        tempfile->buffer->pos = 0;
-        if (file_seek(tempfile, 0, SEEK_SET) != -1
-            && file_seek(file, 0, SEEK_SET) != -1
-            && file_truncate(file, file->size) == 0
-            && copy_and_convert(tempfile, file, NULL) == 0)
-          fprintf(stderr, "succeeded.\n");
-        else
-          fprintf(stderr, "failed\n");
+      print_recode_warning(task->error_so_far, file->name);
+    } else {
+      if (copy_and_convert(tempfile, file, NULL) != 0) {
+        fprintf(stderr, "failed to rename temporary file back\n");
+        file_free(tempfile);
+        return ERR_IOFAIL;
       }
-      else
-        print_recode_warning(task->error_so_far, file->name);
     }
 
     recode_delete_task(task);
