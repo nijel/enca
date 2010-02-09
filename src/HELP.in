@@ -48,4 +48,3 @@ standard output.  Exit status is 0 if all files were successfully proceeded,
 When called as `enconv' without -x, target encoding it guessed from locales.
 
 Report bugs to @PACKAGE_BUGREPORT@
-(please include `@PACKAGE_NAME@' in subject).
