@@ -11,6 +11,10 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
+enca-1.14
+  - Allow standard names for belarusian and slovenian languages, thanks 
+    to Branislav Geržo for suggestion.
+
 enca-1.13 2010-02-09
   - Reverse usage of temp file while converting using recode to prevent
     file truncation (bug #1135).
