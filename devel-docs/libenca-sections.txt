@@ -127,6 +127,7 @@ ENCA_LANGUAGE_RU
 ENCA_LANGUAGE_SK
 ENCA_LANGUAGE_SL
 ENCA_LANGUAGE_UK
+ENCA_LANGUAGE_ZH
 enca_double_utf8_init
 enca_double_utf8_destroy
 enca_pair_init
