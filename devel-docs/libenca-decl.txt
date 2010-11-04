@@ -225,12 +225,12 @@ struct _EncaUTFCheckData {
 <FUNCTION>
 <NAME>enca_malloc</NAME>
 <RETURNS>void*</RETURNS>
-size_t size
+size_t size 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_realloc</NAME>
 <RETURNS>void*</RETURNS>
-void *ptr,size_t size
+void *ptr, size_t size 
 </FUNCTION>
 <MACRO>
 <NAME>enca_free</NAME>
@@ -253,12 +253,12 @@ void *ptr,size_t size
 <FUNCTION>
 <NAME>enca_strdup</NAME>
 <RETURNS>char*</RETURNS>
-const char *s
+const char *s 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_strstr</NAME>
 <RETURNS>const char*</RETURNS>
-const char *haystack,const char* needle
+const char *haystack, const char* needle 
 </FUNCTION>
 <MACRO>
 <NAME>enca_strstr</NAME>
@@ -267,7 +267,7 @@ const char *haystack,const char* needle
 <FUNCTION>
 <NAME>enca_stpcpy</NAME>
 <RETURNS>char*</RETURNS>
-char *dest,const char *src
+char *dest, const char *src 
 </FUNCTION>
 <MACRO>
 <NAME>enca_stpcpy</NAME>
@@ -280,102 +280,102 @@ char *dest,const char *src
 <FUNCTION>
 <NAME>enca_strconcat</NAME>
 <RETURNS>char*</RETURNS>
-const char *str,...
+const char *str, ... 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_strappend</NAME>
 <RETURNS>char*</RETURNS>
-char *str,...
+char *str, ... 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_name_to_charset</NAME>
 <RETURNS>int         </RETURNS>
-const char *csname
+const char *csname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_name_to_surface</NAME>
 <RETURNS>EncaSurface </RETURNS>
-const char *sname
+const char *sname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_init</NAME>
 <RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser,const char *langname
+EncaAnalyserState *analyser, const char *langname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_destroy</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_charset_similarity_matrix</NAME>
 <RETURNS>double*</RETURNS>
-const EncaLanguageInfo *lang
+const EncaLanguageInfo *lang 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charsets_subset_identical</NAME>
 <RETURNS>int         </RETURNS>
-int charset1,int charset2,const size_t *counts
+int charset1, int charset2, const size_t *counts 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_filter_boxdraw</NAME>
 <RETURNS>size_t      </RETURNS>
-EncaAnalyserState *analyser,unsigned char fill_char
+EncaAnalyserState *analyser, unsigned char fill_char 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_hook_ncs</NAME>
 <RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser,size_t ncs,EncaLanguageHookData1CS *hookdata
+EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookData1CS *hookdata 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_hook_eol</NAME>
 <RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser,size_t ncs,EncaLanguageHookDataEOL *hookdata
+EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookDataEOL *hookdata 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_guess_init</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_guess_destroy</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_eol_surface</NAME>
 <RETURNS>EncaSurface </RETURNS>
-const unsigned char *buffer,size_t size,const size_t *counts
+const unsigned char *buffer, size_t size, const size_t *counts 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_find_max_sec</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_init</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_destroy</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_init</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_destroy</NAME>
 <RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_analyse</NAME>
 <RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser
+EncaAnalyserState *analyser 
 </FUNCTION>
 <VARIABLE>
 <NAME>ENCA_LANGUAGE_BE</NAME>
@@ -521,152 +521,152 @@ struct _EncaEncoding { int charset; EncaSurface surface; };
 <FUNCTION>
 <NAME>enca_analyser_alloc</NAME>
 <RETURNS>EncaAnalyser  </RETURNS>
-const char *langname
+const char *langname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_analyser_free</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_analyse</NAME>
 <RETURNS>EncaEncoding  </RETURNS>
-EncaAnalyser analyser,unsigned char *buffer,size_t size
+EncaAnalyser analyser, unsigned char *buffer, size_t size 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_analyse_const</NAME>
 <RETURNS>EncaEncoding  </RETURNS>
-EncaAnalyser analyser,const unsigned char *buffer,size_t size
+EncaAnalyser analyser, const unsigned char *buffer, size_t size 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_check</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser,const unsigned char *buffer,size_t size
+EncaAnalyser analyser, const unsigned char *buffer, size_t size 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_get_candidates</NAME>
 <RETURNS>int*</RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_errno</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_strerror</NAME>
 <RETURNS>const char*</RETURNS>
-EncaAnalyser analyser,int errnum
+EncaAnalyser analyser, int errnum 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_multibyte</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int multibyte
+EncaAnalyser analyser, int multibyte 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_multibyte</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_interpreted_surfaces</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int interpreted_surfaces
+EncaAnalyser analyser, int interpreted_surfaces 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_interpreted_surfaces</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_ambiguity</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int ambiguity
+EncaAnalyser analyser, int ambiguity 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_ambiguity</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_filtering</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int filtering
+EncaAnalyser analyser, int filtering 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_filtering</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_garbage_test</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int garabage_test
+EncaAnalyser analyser, int garabage_test 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_garbage_test</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_termination_strictness</NAME>
 <RETURNS>void          </RETURNS>
-EncaAnalyser analyser,int termination_strictness
+EncaAnalyser analyser, int termination_strictness 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_termination_strictness</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_significant</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser,size_t significant
+EncaAnalyser analyser, size_t significant 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_significant</NAME>
 <RETURNS>size_t        </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_set_threshold</NAME>
 <RETURNS>int           </RETURNS>
-EncaAnalyser analyser,double threshold
+EncaAnalyser analyser, double threshold 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_threshold</NAME>
 <RETURNS>double        </RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charset_name</NAME>
 <RETURNS>const char*</RETURNS>
-int charset,EncaNameStyle whatname
+int charset, EncaNameStyle whatname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_charset_aliases</NAME>
 <RETURNS>const char**</RETURNS>
-int charset,size_t *n
+int charset, size_t *n 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_surface_name</NAME>
 <RETURNS>char*</RETURNS>
-EncaSurface surface,EncaNameStyle whatname
+EncaSurface surface, EncaNameStyle whatname 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_parse_encoding_name</NAME>
 <RETURNS>EncaEncoding      </RETURNS>
-const char *name
+const char *name 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charset_natural_surface</NAME>
 <RETURNS>EncaSurface       </RETURNS>
-int charset
+int charset 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charset_properties</NAME>
 <RETURNS>EncaCharsetFlags  </RETURNS>
-int charset
+int charset 
 </FUNCTION>
 <MACRO>
 <NAME>enca_charset_is_known</NAME>
@@ -721,35 +721,35 @@ int charset
 <FUNCTION>
 <NAME>enca_charset_has_ucs2_map</NAME>
 <RETURNS>int           </RETURNS>
-int charset
+int charset 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charset_ucs2_map</NAME>
 <RETURNS>int           </RETURNS>
-int charset,unsigned int *buffer
+int charset, unsigned int *buffer 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_number_of_charsets</NAME>
 <RETURNS>size_t        </RETURNS>
-void
+void 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_analyser_language</NAME>
 <RETURNS>const char*</RETURNS>
-EncaAnalyser analyser
+EncaAnalyser analyser 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_english_name</NAME>
 <RETURNS>const char*</RETURNS>
-const char *lang
+const char *lang 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_languages</NAME>
 <RETURNS>const char**</RETURNS>
-size_t *n
+size_t *n 
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_language_charsets</NAME>
 <RETURNS>int*</RETURNS>
-const char *langname,size_t *n
+const char *langname, size_t *n 
 </FUNCTION>
