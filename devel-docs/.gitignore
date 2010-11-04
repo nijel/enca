@@ -1,0 +1,10 @@
+html
+tmpl
+xml
+*.stamp
+libenca-unused.txt
+libenca.args
+libenca.hierarchy
+libenca.intefraces
+libenca.prerequisites
+libenca.signals
