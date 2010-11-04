@@ -1,13 +1,20 @@
-98% symbol docs coverage.
-178 symbols documented.
+94% symbol docs coverage.
+171 symbols documented.
 1 symbols incomplete.
-4 not documented.
+11 not documented.
 
 
 EncaLanguageInfo (lcuchook)
 count_bits
+tested
 
 
+analyser:Long_Description
+analyser:Short_Description
 auxiliary:Long_Description
+auxiliary:Short_Description
 encodings:Long_Description
+encodings:Short_Description
 enums:Long_Description
+enums:Short_Description
+internal:Short_Description
