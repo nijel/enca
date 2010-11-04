@@ -11,3 +11,6 @@ iconvcap
 autom4te.cache
 tags
 TAGS
+*.swp
+*~
+*.bak
