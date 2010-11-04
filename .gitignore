@@ -13,3 +13,4 @@ tags
 TAGS
 aclocal.m4
 configure
+Makefile.in
