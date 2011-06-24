@@ -202,6 +202,8 @@ dwim_libenca_options(EncaAnalyser an, const File *file)
   /* When buffer contains whole file, require correct termination. */
   if (file->size == size)
     enca_set_termination_strictness(an, 1);
+  else
+    enca_set_termination_strictness(an, 0);
 
   enca_set_filtering(an, sgnf > 2);
 }
