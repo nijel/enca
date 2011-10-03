@@ -137,7 +137,7 @@ charset having no name in given namespace in such situations.
 It used to print a few pages of details about the guessing process, but since
 Enca is just a program linked against Enca library, this is not possible and
 this option is roughly equivalent to \fB\-\-human\-readable\fR,
-except it reports failure reason when Enca doesn't recoginize the encoding.
+except it reports failure reason when Enca doesn't recognize the encoding.
 .TP
 \fB\-e\fR, \fB\-\-enca\-name\fR
 Prints Enca's nice name of the charset, i.e., perhaps the most generally
@@ -169,9 +169,9 @@ This output type makes sense only when Enca is compiled with iconv support
 .TP
 \fB\-r\fR, \fB\-\-rfc1345\-name\fR
 Prints RFC\~1345 charset name.
-When such a name doesn't exist because RFC\~1345 doesn't define given
+When such a name doesn't exist because RFC\~1345 doesn't define a given
 encoding, some other name defined in some other RFC or just the name which
-author consideres `the most canonical', is printed.
+author considers `the most canonical', is printed.
 .sp
 Since RFC\~1345 doesn't define surfaces, no surface info is appended.
 .TP
@@ -406,7 +406,7 @@ You may run into problems using it together with Enca
 particularly because Enca's support for surfaces not 100% compatible,
 because recode tries too hard to make the transformation reversible,
 because it sometimes silently ignores I/O errors,
-and because it's incredibily buggy.
+and because it's incredibly buggy.
 Please see GNU recode info pages for details about recode library.
 .sp
 This converter can be specified as \fBlibrecode\fR with \fB\-C\fR.
@@ -467,7 +467,7 @@ This converter can be specified as \fBextern\fR with \fI\-C\fR.
 .
 .SS Default target charset
 .PP
-The starightforward way of specifying target charset is the \fB\-x\fR
+The straightforward way of specifying target charset is the \fB\-x\fR
 option, which overrides any defaults.
 When Enca is called as \fBenconv\fR, default target charset is selected
 exactly the same way as \fIrecode\fR(1) does it.
@@ -522,7 +522,7 @@ version (i.e. the faster one) of \fIcstocs\fR(1) more than 400 times on small
 files (in fact it's almost as fast as mere \fIcp\fR(1)).
 .PP
 Try to avoid external converters when it's not absolutely necessary since
-all the forking and moving stuff around is incredibily slow.
+all the forking and moving stuff around is incredibly slow.
 .
 .
 .SH "ENCODINGS"
