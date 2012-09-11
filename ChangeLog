@@ -14,6 +14,9 @@ Legend: + new feature
 enca-1.14
   - Allow standard names for belarusian and slovenian languages, thanks 
     to Branislav Geržo for suggestion.
+  - Reset strictness when check buffer less than file size, thanks to 
+    Sam Liao.
+  - Fixed typos in man page, thanks to A. Costa.
 
 enca-1.13 2010-02-09
   - Reverse usage of temp file while converting using recode to prevent
