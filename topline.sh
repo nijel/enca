@@ -17,6 +17,9 @@ else
   files=$@
 fi
 for fnm in $files; do
+  if [ "$fnm" = "NEWS" ] ; then
+    continue
+  fi
   echo "Updating $fnm..." 1>&2
   { echo "#============================================================================"
     echo "# Enca v$ver ($date)  guess and convert encoding of text files"
