@@ -19,7 +19,6 @@ M4TESTS = \
   m4/localias.m4 \
   m4/long-text.l2 \
   m4/recode-bugs.m4 \
-  m4/scanf.m4 \
   m4/tools.m4 \
   m4/typevar.m4
 
