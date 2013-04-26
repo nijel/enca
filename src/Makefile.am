@@ -30,7 +30,7 @@ enca_LDADD = @LIBOBJS@ @CONVERTER_LIBS@ ../lib/libenca.la
 enca_LDFLAGS = @LDFLAGS@ @LIBS@
 enca_DEPENDENCIES = @LIBOBJS@ ../lib/libenca.la
 enca_CPPFLAGS = -DEXTCONV_DIR=\"@libexecdir@/enca/extconv\"
-INCLUDES = -I$(top_srcdir)/lib
+AM_CPPFLAGS = -I$(top_srcdir)/lib
 
 # BUILT_SOURCES.  How we build them:
 

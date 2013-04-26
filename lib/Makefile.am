@@ -36,7 +36,8 @@ libenca_la_SOURCES = \
   pair.c \
   unicodemap.c \
   utf8_double.c
-INCLUDES = -I$(top_srcdir)
+
+AM_CPPFLAGS = -I$(top_srcdir)
 
 clean-local:
 	rm -f core.* *~

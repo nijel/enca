@@ -33,7 +33,7 @@ simtable_SOURCES = simtable.c
 simtable_LDFLAGS = @LDFLAGS@ @LIBS@
 simtable_LDADD = $(top_builddir)/lib/libenca.la
 simtable_DEPENDENCIES = $(top_builddir)/lib/libenca.la
-INCLUDES = -I$(top_srcdir)/lib
+AM_CPPFLAGS = -I$(top_srcdir)/lib
 endif
 
 EXTRA_DIST = $(TEST_SAMPLES) $(TESTS) $(TEST_RESULTS) $(noinst_SCRIPTS)

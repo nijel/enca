@@ -6,7 +6,6 @@
 ##   defined in errno.h
 AC_DEFUN([ye_CHECK_VAR_PROGRAM_INVOCATION_SHORT_NAME],
 [AC_REQUIRE([AC_PROG_CC])dnl
-AC_REQUIRE([AM_PROG_CC_STDC])dnl
 dnl
 
 dnl Check for program_invocation_short_name (present on GNU systems only?)
