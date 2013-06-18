@@ -5,7 +5,4 @@ compiler:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq librecode-dev
-script: 
-  - ./configure
-  - make
-  - make test
+script: ./configure && make && make test
