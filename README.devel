@@ -108,3 +108,14 @@ You have to give --enable-maintainer-mode to ./configure (or ./autogen) to
 build dists and/or the strange stuff in tools/, data/, tests/, and
 devel-docs/.
 
+
+5. Repository and continuous integration
+****************************************
+
+The git repository is located at GitHub:
+
+    http://github.com/nijel/enca
+
+There is also continuous integration on Travis:
+
+    https://travis-ci.org/nijel/enca
