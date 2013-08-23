@@ -33,10 +33,10 @@ be selected at ./configure time.
 
 For the impatient: Run
 
-   ./configure
-   make
-   make check
-   make install
+    ./configure
+    make
+    make check
+    make install
 
 as usual.
 
