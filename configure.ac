@@ -69,6 +69,9 @@ AC_ARG_ENABLE(external,
     esac],
   [WANT_EXTERNAL=yes])
 
+dnl gcov coverage
+AM_GCOV
+
 dnl Fool autoconf, it can't parse the for-cycle below
 if false; then
 AC_DEFINE_UNQUOTED(CSTOCS_PROG,"",[Define to path to the cstocs recoder.])

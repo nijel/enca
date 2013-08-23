@@ -37,7 +37,10 @@ libenca_la_SOURCES = \
   unicodemap.c \
   utf8_double.c
 
-AM_CPPFLAGS = -I$(top_srcdir)
+AM_CPPFLAGS = -I$(top_srcdir) $(GCOV_CPPFLAGS)
+AM_LDFLAGS =  $(GCOV_LDFLAGS)
+AM_CFLAGS =  $(GCOV_FLAGS)
 
 clean-local:
 	rm -f core.* *~
+	rm -f *.gc*
