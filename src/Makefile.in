@@ -874,6 +874,7 @@ uninstall-hook:
 
 clean-local:
 	rm -f core.* *~ HELP.c COPYING.c
+	rm -f *.gc*
 
 dist-hook:
 	rm -f $(distdir)/HELP.c $(distdir)/COPYING.c
