@@ -5,4 +5,8 @@ compiler:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq librecode-dev
-script: ./configure && make && make test
+  - sudo pip install cpp-coveralls --use-mirrors
+script: 
+  - ./configure --with-gcov && make && make test
+after_success:
+  - coveralls
