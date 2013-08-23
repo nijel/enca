@@ -6,6 +6,7 @@
 ## Copyright 
 
 Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
+
 Copyright (C) 2009-2012 Michal Cihar <michal@cihar.com>
 
 ## Description
@@ -32,10 +33,10 @@ be selected at ./configure time.
 
 For the impatient: Run
 
-  ./configure
-  make
-  make check
-  make install
+   ./configure
+   make
+   make check
+   make install
 
 as usual.
 
