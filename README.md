@@ -1,10 +1,14 @@
-#============================================================================
-# Enca v1.15-dev (2012-09-11)  guess and convert encoding of text files
-# Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
-# Copyright (C) 2009-2012 Michal Cihar <michal@cihar.com>
-#============================================================================
+# Enca - guess and convert encoding of text files
 
-1. Description
+[![build status](https://secure.travis-ci.org/nijel/enca.png)](https://travis-ci.org/nijel/enca)
+[![Coverage Status](https://coveralls.io/repos/nijel/enca/badge.png?branch=master)](https://coveralls.io/r/nijel/enca?branch=master)
+
+## Copyright 
+
+Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
+Copyright (C) 2009-2012 Michal Cihar <michal@cihar.com>
+
+## Description
 
 Enca (Extremely Naive Charset Analyser) consists of two main components:
 
@@ -20,7 +24,7 @@ Enca (Extremely Naive Charset Analyser) consists of two main components:
     perl Unicode::Map, cstocs).
 
 
-2. Installation
+## Installation
 
 Please see INSTALL for system requirements, detailed installation
 instructions and also for description of optional features that can
@@ -36,25 +40,25 @@ For the impatient: Run
 as usual.
 
 
-3. License
+## License
 
 Enca can be copied and/or modified under the terms of version 2 of
 GNU General Public License.  Please see COPYING for details.
 
 
-4. Web resources
+## Web resources
 
 Enca can be found at http://github.com/nijel/enca/, you can download 
 tarballs from http/dl.cihar.com/enca/.
 
 
-5. Bugs
+## Bugs
 
-Report problems at <http://bugs.cihar.com/>. Some known bugs have been
-collected in BUGS section of enca manual page.
+Report problems at <https://github.com/nijel/enca/issues>. Some known bugs have
+been collected in BUGS section of enca manual page.
 
 
-6. Hacking (with) Enca
+## Hacking (with) Enca
 
 Please see TODO for list of things that should be fixed and features to
 be implemented and their priority and also for list of things that
@@ -65,4 +69,3 @@ encoding or language to Enca.
 
 The directory devel-docs/html contains Enca library API documentation in
 HTML form.
-
