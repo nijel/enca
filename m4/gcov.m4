@@ -16,7 +16,7 @@ fi
 AC_PATH_PROG([GCOV], [gcov])
 if test "$GCOV" -a "$using_gcov" = "yes"
 then
-    GCOV_FLAGS="-coverage"
+    GCOV_FLAGS="--coverage"
     GCOV_CPPFLAGS=${GCOV_FLAGS}
     GCOV_LDFLAGS=${GCOV_FLAGS}
     AC_SUBST(GCOV_FLAGS)
