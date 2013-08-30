@@ -1,7 +1,7 @@
 #============================================================================
-# Enca v1.15-dev (2012-09-11)  guess and convert encoding of text files
+# Enca v1.15-dev (2013-08-30)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
-# Copyright (C) 2009-2012 Michal Cihar <michal@cihar.com>
+# Copyright (C) 2009-2013 Michal Cihar <michal@cihar.com>
 #============================================================================
 
 Frequently Asked Questions about Enca
