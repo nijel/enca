@@ -282,7 +282,7 @@ main(int argc, char *argv[])
   TEST_ENC_TO_UNICODE(GBK);
   TEST_ENC_TO_UNICODE(BIG5);
   TEST_ENC_TO_UNICODE(HZ);
-  
+
   if (ok >= 2) exit(0);
   else exit(1);
 }
@@ -338,6 +338,7 @@ check_transitivity(char *fname)
       fprintf(stderr, "iconvcap: malformed input line: %s", s);
       fclose(f);
       free(s);
+      free(p_e);
       return 1;
     }
     if ((sb = strchr(s, '"')) != NULL) {
@@ -345,6 +346,7 @@ check_transitivity(char *fname)
         fprintf(stderr, "iconvcap: malformed input line: %s", s);
         fclose(f);
         free(s);
+        free(p_e);
         return 1;
       }
 
