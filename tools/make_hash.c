@@ -409,5 +409,8 @@ main(void)
   ilist = create_index_list(raw, ncs, alist, nn);
   print_fine_data(fine, ncs, ilist, alist, nn);
 
+  free(fine);
+  free(ilist);
+
   return 0;
 }
