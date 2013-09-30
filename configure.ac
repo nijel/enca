@@ -3,7 +3,7 @@ dnl @(#) $Id: configure.ac,v 1.34 2005/12/18 12:07:46 yeti Exp $
 dnl This file is in public domain.
 dnl Process this file with autoconf to produce a configure script.
 dnl Shake before use.
-AC_INIT(Enca, 1.15, [https://github.com/nijel/enca/issues])
+AC_INIT(Enca, 1.16-dev, [https://github.com/nijel/enca/issues])
 AC_PREREQ(2.52)
 AC_CONFIG_SRCDIR(src/enca.c)
 AC_CONFIG_MACRO_DIR([m4])
