@@ -40,7 +40,7 @@ static int hook_855866(EncaAnalyserState *analyser);
  **/
 const EncaLanguageInfo ENCA_LANGUAGE_BE = {
   "be",
-  "belarussian",
+  "belarusian",
   NCHARSETS,
   CHARSET_NAMES,
   CHARSET_WEIGHTS,
