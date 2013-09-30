@@ -117,9 +117,10 @@ static const char *VERSION_TEXT = /* {{{ */
 #else /* HAVE_WORDEXP */
 "-"
 #endif /* HAVE_WORDEXP */
-"ENCAOPT "
+"ENCAOPT ";
+/* }}} */
 
-"\n\n"
+static const char *COPYRIGHT_TEXT = /* {{{ */
 "Copyright (C) 2000-2005 David Necas (Yeti) (<yeti@physics.muni.cz>),\n"
 "              2005 Zuxy Meng (<zuxy.meng@gmail.com>).\n"
 "\n"
@@ -776,7 +777,7 @@ strip_path(const char *fullpath)
 static void
 print_version(void)
 {
-  printf("%s %s\n\n%s\n", PACKAGE_TARNAME, PACKAGE_VERSION, VERSION_TEXT);
+  printf("%s %s\n\n%s\n\n%s\n", PACKAGE_TARNAME, PACKAGE_VERSION, VERSION_TEXT, COPYRIGHT_TEXT);
 }
 
 /**
