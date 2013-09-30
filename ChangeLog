@@ -11,7 +11,7 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.15
+enca-1.15 2013-09-30
   - Documentation improvement
   - Development moved to GitHub
   - Do not use deprecated autoconf macros
