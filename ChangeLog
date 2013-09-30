@@ -11,7 +11,7 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.14
+enca-1.14 2012-09-11
   - Allow standard names for belarusian and slovenian languages, thanks 
     to Branislav Geržo for suggestion.
   - Reset strictness when check buffer less than file size, thanks to 
