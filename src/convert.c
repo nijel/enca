@@ -106,7 +106,6 @@ convert(File *file,
         EncaEncoding from_enc)
 {
   Converter *conv;
-  int extern_failed = 0;
   int err;
 
   if (options.verbosity_level) {
@@ -141,7 +140,6 @@ convert(File *file,
       fprintf(stderr, "%s: external converter failed on `%s', "
                       "probably destroying it\n",
                       program_name, ffname_w(file->name));
-      extern_failed = 1;
     }
     /* don't tempt fate in case of i/o or other serious problems */
     if (err != ERR_CANNOT)
