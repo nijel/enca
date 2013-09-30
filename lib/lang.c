@@ -48,7 +48,7 @@ static const EncaLanguageInfo ENCA_LANGUAGE___ = {
 
 /* All languages. */
 static const EncaLanguageInfo *const LANGUAGE_LIST[] = {
-  &ENCA_LANGUAGE_BE, /* Belarussian. */
+  &ENCA_LANGUAGE_BE, /* Belarusian. */
   &ENCA_LANGUAGE_BG, /* Bulgarian. */
   &ENCA_LANGUAGE_CS, /* Czech. */
   &ENCA_LANGUAGE_ET, /* Estonian. */

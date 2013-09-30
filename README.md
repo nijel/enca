@@ -14,7 +14,7 @@ Copyright (C) 2009-2013 Michal Cihar <michal@cihar.com>
 Enca (Extremely Naive Charset Analyser) consists of two main components:
 
   * libenca, an encoding detection library.  It currently supports
-    Belarussian, Bulgarian, Croatian, Czech, Estonian, Hungarian, Latvian,
+    Belarusian, Bulgarian, Croatian, Czech, Estonian, Hungarian, Latvian,
     Lithuanian, Polish, Russian, Slovak, Slovene, Ukrainian, Chinese, and
     some multibyte encodings independently on language.  The API should be
     relatively stable (to be read as `it will either change only

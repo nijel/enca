@@ -12,6 +12,7 @@ Legend: + new feature
         - bugfix
 
 enca-1.16
+  - Fixed typo in Belarusian language name
 
 enca-1.15 2013-09-30
   - Documentation improvement
@@ -40,7 +41,7 @@ enca-1.11 2009-09-25
 enca-1.10 2009-08-25
   + Enca is back alive or at least in maintenance mode.
   * Enca now lives in git repository, see <http://gitorious.org/enca>.
-  - Add missing charset koi8u to belarussian language.
+  - Add missing charset koi8u to belarusian language.
   - Fixed some typos in program and documentation.
 
 enca-1.9 2005-12-18
@@ -205,7 +206,7 @@ enca-0.10.1 2002-08-29
 
 enca-0.10.0 2002-08-26
   + added support for Ukraininan (CP1251, IBM855, ISO-8859-5, KOI8-U, maccyr
-    CP1125), Belarussian (CP1251, IBM866, ISO-8859-5, KOI8-UNI, maccyr,
+    CP1125), Belarusian (CP1251, IBM866, ISO-8859-5, KOI8-UNI, maccyr,
     IBM855) and Polish (ISO-8859-2, ISO-8859-12, ISO-8859-16, Baltic, macce,
     IBM852, CP1250)
   + Enca library introduced

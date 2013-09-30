@@ -1,6 +1,6 @@
 /*
   @(#) $Id: lang_be.c,v 1.10 2005/12/01 10:08:53 yeti Exp $
-  encoding data and routines dependent on language; belarussian
+  encoding data and routines dependent on language; belarusian
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 
@@ -23,7 +23,7 @@
 
 #include "enca.h"
 #include "internal.h"
-#include "data/belarussian/belarussian.h"
+#include "data/belarusian/belarusian.h"
 
 /* Local prototypes. */
 static int hook(EncaAnalyserState *analyser);
@@ -34,7 +34,7 @@ static int hook_855866(EncaAnalyserState *analyser);
 /**
  * ENCA_LANGUAGE_BE:
  *
- * Belarussian language.
+ * Belarusian language.
  *
  * Everything the world out there needs to know about this language.
  **/

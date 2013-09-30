@@ -334,10 +334,13 @@ static_iso639_alias_convert(const char *locname)
   }
   const ALIASES[] = {
     { "byelarussian", "be" },
+    { "byelarusian", "be" },
     { "belarussian", "be" },
     { "belarusian", "be" },
     { "byelorussian", "be" },
     { "belorussian", "be" },
+    { "byelorusian", "be" },
+    { "belorusian", "be" },
     { "bulgarian", "bg" },
     { "croatian", "hr" },
     { "czech", "cs" },

@@ -19,7 +19,7 @@ encoding of text files and can also convert them to other encodings using
 either a built-in converter or external libraries and tools like libiconv,
 librecode, or cstocs.
 
-Currently, it has support for Belarussian, Bulgarian, Croatian, Czech,
+Currently, it has support for Belarusian, Bulgarian, Croatian, Czech,
 Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, Ukrainian,
 Chinese, and some multibyte encodings (mostly variants of Unicode)
 independent on the language.

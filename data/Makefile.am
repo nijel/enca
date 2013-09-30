@@ -9,7 +9,7 @@ noinst_PROGRAMS = \
   xlt
 noinst_DATA = $(BASES) $(RAWCOUNTS) $(PAIRCOUNTS) $(MAPS) Letters
 noinst_HEADERS = \
-  belarussian/belarussian.h \
+  belarusian/belarusian.h \
   bulgarian/bulgarian.h \
   chinese/chinese.h \
   chinese/zh_weight_big5.h \
@@ -42,7 +42,7 @@ noinst_SCRPITS = \
   map2letters.sh \
   normalize.pl \
   totals.pl \
-  belarussian/doit.sh \
+  belarusian/doit.sh \
   bulgarian/doit.sh \
   croatian/doit.sh \
   czech/doit.sh \
@@ -57,7 +57,7 @@ noinst_SCRPITS = \
   ukrainian/doit.sh
 
 BASES = \
-  belarussian/cp1251.base \
+  belarusian/cp1251.base \
   bulgarian/cp1251.base \
   croatian/cp1250.base \
   czech/iso88592.base \
@@ -72,7 +72,7 @@ BASES = \
   ukrainian/cp1251.base
 
 RAWCOUNTS = \
-  belarussian/rawcounts.cp1251 \
+  belarusian/rawcounts.cp1251 \
   bulgarian/rawcounts.cp1251 \
   croatian/rawcounts.cp1250 \
   czech/rawcounts.iso88592 \
@@ -87,8 +87,8 @@ RAWCOUNTS = \
   ukrainian/rawcounts.cp1251
 
 PAIRCOUNTS = \
-  belarussian/paircounts.cp1251 \
-  belarussian/paircounts.ibm866 \
+  belarusian/paircounts.cp1251 \
+  belarusian/paircounts.ibm866 \
   bulgarian/paircounts.cp1251 \
   russian/paircounts.koi8r \
   ukrainian/paircounts.cp1251

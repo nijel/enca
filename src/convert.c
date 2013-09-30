@@ -544,7 +544,7 @@ xtable(int from_charset)
   }
 
   /* XXX XXX XXX XXX XXX Warning: Extreme brain damage! XXX XXX XXX XXX XXX
-   * When converting to ibm866 we have to replace Belarussian/Ukrainian i/I
+   * When converting to ibm866 we have to replace Belarusian/Ukrainian i/I
    * with Latin versions.  I've been told everybody expect this. */
   if (options.target_enc.charset == enca_name_to_charset("ibm866")) {
     xdata.ucs2_map[0x0406] = (byte)'I';

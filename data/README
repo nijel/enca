@@ -67,7 +67,7 @@ maps/ -- 8bit charset -> UCS2 maps, notable ones:
                crappy one used by recode.
   koi8u.map -- KOI8-U (Ukrainian) (recode uses some strange mapping?).
   koi8uni.map -- KOI8-Unified.
-  koi8ub.map -- KOI8-UB (Ukrainian/Belarussian).
+  koi8ub.map -- KOI8-UB (Ukrainian/Belarusian).
   cork.map -- T1 Cork encoding (recode uses some strange mapping?).
   iso885913.map -- ISO-8859-13 map (recode uses some strange mapping?).
 
