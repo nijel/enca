@@ -11,6 +11,7 @@ Contents
   2. How to add a new surface to libenca
   3. How to add a new language to libenca
   4. Automake, autoconf, libtool, ... note
+  5. Repository and continuous integration
 
 
 0. Developing programs utilizing libenca
