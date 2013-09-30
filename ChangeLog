@@ -11,6 +11,11 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
+enca-1.15
+  - Documentation improvement
+  - Development moved to GitHub
+  - Do not use deprecated autoconf macros
+
 enca-1.14 2012-09-11
   - Allow standard names for belarusian and slovenian languages, thanks 
     to Branislav Geržo for suggestion.
