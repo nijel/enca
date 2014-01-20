@@ -49,7 +49,7 @@ AC_PATH_PROG(MKTEMP_PROG, mktemp)
 dnl With GCC, be paranoiac.  It should compile really cleanly.
 dnl Except -Wno-sign-compare, but older gcc's don't know it.
 if test "$GCC" = yes; then
-  CFLAGS="-Wall -W -pedantic $CFLAGS"
+  CFLAGS="-Wall -Wextra -W -pedantic $CFLAGS"
 fi
 
 dnl Check for various external converters.

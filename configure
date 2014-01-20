@@ -12569,7 +12569,7 @@ fi
 
 
 if test "$GCC" = yes; then
-  CFLAGS="-Wall -W -pedantic $CFLAGS"
+  CFLAGS="-Wall -Wextra -W -pedantic $CFLAGS"
 fi
 
 # Extract the first word of "cstocs", so it can be a program name with args.
