@@ -27,7 +27,7 @@
 static int hook(EncaAnalyserState *analyser);
 static int calc_rating(EncaAnalyserState *analyser);
 /* Not 8-bit clean, can't be a HZ here */
-static int is_hz(const unsigned char* str) { return 0; }
+static int is_hz(const unsigned char* str __attribute__((unused))) { return 0; }
 
 static const char *const CHARSET_NAMES[] = {
   "gbk",
