@@ -12842,7 +12842,7 @@ fi
 
 if test "$GCOV" -a "$using_gcov" = "yes"
 then
-    GCOV_FLAGS="--coverage -fprofile-arcs -ftest-coverage"
+    GCOV_FLAGS="-fprofile-arcs -ftest-coverage"
     GCOV_CPPFLAGS=${GCOV_FLAGS}
     GCOV_LDFLAGS=${GCOV_FLAGS}
 
