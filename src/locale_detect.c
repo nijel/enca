@@ -351,13 +351,13 @@ static_iso639_alias_convert(const char *locname)
     { "lettic", "lv" },
     { "lettish", "lv" },
     { "lithuanian", "lt" },
-    { "macedonian", "bg"
+    { "macedonian", "bg"},
     { "magyar", "hu" },
-    { "montenegrin-cyrilic", "bg"
+    { "montenegrin-cyrilic", "bg"},
     { "montenegrin-latin", "hr" },
     { "polish", "pl" },
     { "russian", "ru" },
-    { "serbian-cyrilic", "bg"
+    { "serbian-cyrilic", "bg"},
     { "serbian-latin", "hr"},
     { "slovak", "sk" },
     { "slovene", "sl" },
