@@ -347,12 +347,12 @@ static_iso639_alias_convert(const char *locname)
     { "czech", "cs" },
     { "estonian", "et" },
     { "hungarian", "hu" },
-    { "magyar", "hu" },
     { "lativan", "lt" },
     { "lettic", "lv" },
     { "lettish", "lv" },
     { "lithuanian", "lt" },
     { "macedonian", "bg"
+    { "magyar", "hu" },
     { "montenegrin-cyrilic", "bg"
     { "montenegrin-latin", "hr" },
     { "polish", "pl" },
