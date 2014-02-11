@@ -341,6 +341,7 @@ static_iso639_alias_convert(const char *locname)
     { "belorussian", "be" },
     { "byelorusian", "be" },
     { "belorusian", "be" },
+    { "bosnian", "hr" },
     { "bulgarian", "bg" },
     { "croatian", "hr" },
     { "czech", "cs" },
@@ -351,8 +352,13 @@ static_iso639_alias_convert(const char *locname)
     { "lettic", "lv" },
     { "lettish", "lv" },
     { "lithuanian", "lt" },
+    { "macedonian", "bg"
+    { "montenegrin-cyrilic", "bg"
+    { "montenegrin-latin", "hr" },
     { "polish", "pl" },
     { "russian", "ru" },
+    { "serbian-cyrilic", "bg"
+    { "serbian-latin", "hr"},
     { "slovak", "sk" },
     { "slovene", "sl" },
     { "slovenian", "sl" },
