@@ -47,7 +47,7 @@ install-exec-hook:
 	cd $(DESTDIR)$(bindir); \
 	inst1=`echo enca | sed '$(transform)'`; \
 	inst2=`echo enconv | sed '$(transform)'`; \
-	$(LN_S) $$inst1$(EXEEXT) $$inst2$(EXEEXT)
+	$(LN_S) -f $$inst1$(EXEEXT) $$inst2$(EXEEXT)
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`; \

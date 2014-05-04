@@ -100,15 +100,6 @@ gtk_CHECK_GTK_DOC
 dnl Check for good random number sources
 AC_CHECK_FILES(/dev/random /dev/urandom /dev/srandom /dev/arandom)
 
-dnl Dirty path hack.  Helps some people with badly set up search paths.
-if test "$prefix" = "NONE"; then
-  LDFLAGS="$LDFLAGS -L$ac_default_prefix/lib"
-  CPPFLAGS="$CPPFLAGS -I$ac_default_prefix/include"
-else
-  LDFLAGS="$LDFLAGS -L$prefix/lib"
-  CPPFLAGS="$CPPFLAGS -I$prefix/include"
-fi
-
 dnl Checks for libraries.
 ye_CHECK_LIBM
 

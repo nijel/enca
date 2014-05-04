@@ -17,7 +17,7 @@ AC_REQUIRE([AC_C_CONST])dnl
 dnl
 
 dnl Use standard iconv test
-AM_ICONV
+m4_pattern_allow([AM_ICONV])
 CONVERTER_LIBS="$CONVERTER_LIBS $LIBICONV"
 
 dnl Compile iconvcap.c and run it to determine what encodings iconv actually
