@@ -323,6 +323,8 @@ double_utf8_chk(EncaAnalyser an,
     return;
 
   candidates = enca_double_utf8_get_candidates(an);
+  if (candidates == NULL)
+    return;
   if (dbl == 1)
     printf("  Doubly-encoded to UTF-8 from");
   else
