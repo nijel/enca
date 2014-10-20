@@ -11,7 +11,7 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.16
+enca-1.16 2014-10-20
   - Fixed typo in Belarusian language name
   - Added aliases for Chinese and Yugoslavian languages
 
