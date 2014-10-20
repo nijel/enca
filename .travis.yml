@@ -10,3 +10,12 @@ script:
   - ./configure --with-gcov && make && make test
 after_success:
   - coveralls
+addons:
+  coverity_scan:
+    project:
+      name: "nijel/enca"
+      description: "Build submitted via Travis CI"
+    notification_email: michal@cihar.com
+    build_command_prepend: "./configure; make clean"
+    build_command:   "make -j 4"
+    branch_pattern: coverity_scan
