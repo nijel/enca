@@ -13,6 +13,7 @@ Legend: + new feature
 
 enca-1.16
   - Fixed typo in Belarusian language name
+  - Added alias for Chinese language
 
 enca-1.15 2013-09-30
   - Documentation improvement

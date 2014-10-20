@@ -343,6 +343,7 @@ static_iso639_alias_convert(const char *locname)
     { "belorusian", "be" },
     { "bosnian", "hr" },
     { "bulgarian", "bg" },
+    { "chinese", "zh" },
     { "croatian", "hr" },
     { "czech", "cs" },
     { "estonian", "et" },
