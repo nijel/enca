@@ -219,14 +219,12 @@ INSTALL_SCRIPT = @INSTALL_SCRIPT@
 INSTALL_STRIP_PROGRAM = @INSTALL_STRIP_PROGRAM@
 LD = @LD@
 LDFLAGS = @LDFLAGS@
-LIBICONV = @LIBICONV@
 LIBM = @LIBM@
 LIBOBJS = @LIBOBJS@
 LIBS = @LIBS@
 LIBTOOL = @LIBTOOL@
 LIPO = @LIPO@
 LN_S = @LN_S@
-LTLIBICONV = @LTLIBICONV@
 LTLIBOBJS = @LTLIBOBJS@
 MAINT = @MAINT@
 MAKEINFO = @MAKEINFO@
@@ -866,7 +864,7 @@ install-exec-hook:
 	cd $(DESTDIR)$(bindir); \
 	inst1=`echo enca | sed '$(transform)'`; \
 	inst2=`echo enconv | sed '$(transform)'`; \
-	$(LN_S) $$inst1$(EXEEXT) $$inst2$(EXEEXT)
+	$(LN_S) -f $$inst1$(EXEEXT) $$inst2$(EXEEXT)
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`; \
