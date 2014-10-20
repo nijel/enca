@@ -7,7 +7,7 @@
 
 Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 
-Copyright (C) 2009-2013 Michal Cihar <michal@cihar.com>
+Copyright (C) 2009-2014 Michal Cihar <michal@cihar.com>
 
 ## Description
 

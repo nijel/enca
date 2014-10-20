@@ -1,7 +1,7 @@
 #============================================================================
-# Enca v1.16-dev (2013-09-30)  guess and convert encoding of text files
+# Enca v1.16-dev (2014-10-20)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
-# Copyright (C) 2009-2013 Michal Cihar <michal@cihar.com>
+# Copyright (C) 2009-2014 Michal Cihar <michal@cihar.com>
 #============================================================================
 
 Enca should compile and work on every POSIX.1 compliant system with ISO C
