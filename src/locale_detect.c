@@ -170,6 +170,7 @@ detect_user_language(void)
     return s;
   }
 
+  free(s);
   return NULL;
 }
 #endif /* HAVE_SETLOCALE */
