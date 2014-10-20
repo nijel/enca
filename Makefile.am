@@ -25,6 +25,7 @@ M4TESTS = \
 EXTRA_DIST = \
   FAQ \
   README.devel \
+  README.md \
   TODO \
   ChangeLog.prelib \
   autogen.sh \
