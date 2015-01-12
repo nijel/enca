@@ -151,18 +151,6 @@
 /* Define to 1 if the system has the type `_Bool'. */
 #undef HAVE__BOOL
 
-/* Define to 1 if you have the file `/dev/arandom'. */
-#undef HAVE__DEV_ARANDOM
-
-/* Define to 1 if you have the file `/dev/random'. */
-#undef HAVE__DEV_RANDOM
-
-/* Define to 1 if you have the file `/dev/srandom'. */
-#undef HAVE__DEV_SRANDOM
-
-/* Define to 1 if you have the file `/dev/urandom'. */
-#undef HAVE__DEV_URANDOM
-
 /* Define as const if the declaration of iconv() needs const. */
 #undef ICONV_CONST
 

@@ -97,9 +97,6 @@ done
 dnl And for gtk-doc
 gtk_CHECK_GTK_DOC
 
-dnl Check for good random number sources
-AC_CHECK_FILES(/dev/random /dev/urandom /dev/srandom /dev/arandom)
-
 dnl Checks for libraries.
 ye_CHECK_LIBM
 

@@ -2556,8 +2556,8 @@ test "$program_suffix" != NONE &&
 ac_script='s/[\\$]/&&/g;s/;s,x,x,$//'
 program_transform_name=`$as_echo "$program_transform_name" | sed "$ac_script"`
 
-# expand $ac_aux_dir to an absolute path
-am_aux_dir=`cd $ac_aux_dir && pwd`
+# Expand $ac_aux_dir to an absolute path.
+am_aux_dir=`cd "$ac_aux_dir" && pwd`
 
 if test x"${MISSING+set}" != xset; then
   case $am_aux_dir in
@@ -12992,96 +12992,6 @@ else
   ENABLE_GTK_DOC_FALSE=
 fi
 
-
-
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /dev/random" >&5
-$as_echo_n "checking for /dev/random... " >&6; }
-if ${ac_cv_file__dev_random+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
-if test -r "/dev/random"; then
-  ac_cv_file__dev_random=yes
-else
-  ac_cv_file__dev_random=no
-fi
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_file__dev_random" >&5
-$as_echo "$ac_cv_file__dev_random" >&6; }
-if test "x$ac_cv_file__dev_random" = xyes; then :
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE__DEV_RANDOM 1
-_ACEOF
-
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /dev/urandom" >&5
-$as_echo_n "checking for /dev/urandom... " >&6; }
-if ${ac_cv_file__dev_urandom+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
-if test -r "/dev/urandom"; then
-  ac_cv_file__dev_urandom=yes
-else
-  ac_cv_file__dev_urandom=no
-fi
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_file__dev_urandom" >&5
-$as_echo "$ac_cv_file__dev_urandom" >&6; }
-if test "x$ac_cv_file__dev_urandom" = xyes; then :
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE__DEV_URANDOM 1
-_ACEOF
-
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /dev/srandom" >&5
-$as_echo_n "checking for /dev/srandom... " >&6; }
-if ${ac_cv_file__dev_srandom+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
-if test -r "/dev/srandom"; then
-  ac_cv_file__dev_srandom=yes
-else
-  ac_cv_file__dev_srandom=no
-fi
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_file__dev_srandom" >&5
-$as_echo "$ac_cv_file__dev_srandom" >&6; }
-if test "x$ac_cv_file__dev_srandom" = xyes; then :
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE__DEV_SRANDOM 1
-_ACEOF
-
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for /dev/arandom" >&5
-$as_echo_n "checking for /dev/arandom... " >&6; }
-if ${ac_cv_file__dev_arandom+:} false; then :
-  $as_echo_n "(cached) " >&6
-else
-  test "$cross_compiling" = yes &&
-  as_fn_error $? "cannot check for file existence when cross compiling" "$LINENO" 5
-if test -r "/dev/arandom"; then
-  ac_cv_file__dev_arandom=yes
-else
-  ac_cv_file__dev_arandom=no
-fi
-fi
-{ $as_echo "$as_me:${as_lineno-$LINENO}: result: $ac_cv_file__dev_arandom" >&5
-$as_echo "$ac_cv_file__dev_arandom" >&6; }
-if test "x$ac_cv_file__dev_arandom" = xyes; then :
-
-cat >>confdefs.h <<_ACEOF
-#define HAVE__DEV_ARANDOM 1
-_ACEOF
-
-fi
 
 
 

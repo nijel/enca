@@ -24,49 +24,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-/* These are mutually exclusive, define exactly one. */
-#undef RANDOM_FILE
-#undef RANDOM_GETTIMEOFDAY
-#undef RANDOM_TIME
-
-/* Good random seed source, prefer urandom, this is not a crypto app. */
-#if !(defined RANDOM_FILE) && (defined HAVE__DEV_URANDOM)
-# define RANDOM_FILE "/dev/urandom"
-#endif /* HAVE__DEV_URANDOM */
-#if !(defined RANDOM_FILE) && (defined HAVE__DEV_ARANDOM)
-# define RANDOM_FILE "/dev/arandom"
-#endif /* HAVE__DEV_ARANDOM */
-#if !(defined RANDOM_FILE) && (defined HAVE__DEV_RANDOM)
-# define RANDOM_FILE "/dev/random"
-#endif /* HAVE__DEV_RANDOM */
-#if !(defined RANDOM_FILE) && (defined HAVE__DEV_SRANDOM)
-# define RANDOM_FILE "/dev/srandom"
-#endif /* HAVE__DEV_SRANDOM */
-
-#ifndef RANDOM_FILE
-#  ifdef HAVE_GETTIMEOFDAY
-#    define RANDOM_GETTIMEOFDAY
-#    ifdef HAVE_SYS_TIME_H
-#      include <sys/time.h>
-#    else /* HAVE_SYS_TIME_H */
-struct timeval { long tv_sec; long tv_usec; };
-int gettimeofday(struct timeval *tv, void *tz);  /* Wrong, but we pass NULL. */
-#    endif /* HAVE_SYS_TIME_H */
-#  else /* HAVE_GETTIMEOFDAY */
-#    define RANDOM_TIME
-#    ifdef HAVE_TIME_H
-#      include <time.h>
-#    else /* HAVE_TIME_H */
-long int time(void *);  /* Wrong, but we pass NULL. */
-#    endif /* HAVE_TIME_H */
-#  endif /* HAVE_SYS_TIME_H */
-#endif /* not RANDOM_FILE */
-
-#ifndef HAVE_RANDOM
-#  define random rand
-#  define srandom srand
-#endif /* HAVE_RANDOM */
-
 #if HAVE_FCNTL_H
 # include <fcntl.h>
 #else /* HAVE_FCNTL_H */
@@ -88,20 +45,13 @@ static const char *stdin_fname = "STDIN";
 static const char *stdout_fname = "STDOUT";
 
 /* Local prototypes. */
-void random_seed_init(void);
 static off_t file_size(File *file);
 static int file_fileno(File *file);
-static char* temporary_file_name(const char *prefix,
-                                 size_t chars);
 static ssize_t file_read_limited(File *file,
                                  ssize_t limit);
 
 /* I/O buffer size. */
 size_t buffer_size = 0x10000;
-
-/* Module global, since more than function can potentially seed the
- * generator. */
-static int random_generator_seeded = 0;
 
 /*
    Implementation notes:
@@ -188,7 +138,7 @@ expand_abbreviation(const char *name,
                     program_name,
                     name);
     for (i = 0; i < size; i++) {
-      if (strncmp(name, atable[i].name, n) == 0) 
+      if (strncmp(name, atable[i].name, n) == 0)
         fprintf(stderr, "  %s\n", atable[i].name);
     }
     return NULL;
@@ -211,37 +161,6 @@ const char*
 ffname_w(const char *fname)
 {
   return (fname == NULL) ? stdout_fname : fname;
-}
-
-/* create a temporary file name begining with prefix
-   returns the file name as newly created string, that should be destroyed
-   by caller */
-static char*
-temporary_file_name(const char *prefix, size_t chars)
-{
-  /* characters allowed in temporary file name */
-  static const char TMP_FNAME_CHARS[] =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-  static const size_t NCH = sizeof(TMP_FNAME_CHARS)/sizeof(char);
-
-  char *fname;
-  size_t i,n;
-
-  if (!random_generator_seeded) {
-    random_seed_init();
-    random_generator_seeded = 1;
-  }
-
-  /* generate random name by adding chars random characters after prefix */
-  n = strlen(prefix);
-  fname = (char*)enca_malloc(n+chars+1);
-  strcpy(fname, prefix);
-  for (i = 0; i < chars; i++)
-    fname[n+i] = TMP_FNAME_CHARS[(random()/83UL) % NCH];
-  fname[n+chars] = '\0';
-
-  return fname;
 }
 
 /* file_read_limited() wrapper, limit is buffer size */
@@ -387,53 +306,44 @@ file_write(File *file)
    when ulink is true, delete it right after opening
    (XXX: this requires POSIX-conformant system)
 
-   (glibc provides about eight similar routines, but all are either deprecated
-   for security reasons or nonportable)
-
    FIXME: we always create temporary files in /tmp */
 File*
 file_temporary(Buffer *buffer, int ulink)
 {
   /* `template' for temporary file creation */
-  static const char *TMP_PREFIX = "/tmp/" PACKAGE_TARNAME;
+  char *temp_filename;
 
   File *file = NULL;
-  char *pfname = NULL;
   int fd;
-  int i;
 
-  /* try thrice to generate a unique file name */
-  for (i = 0; i < 16; i++) {
-    file_free(file);
-    pfname = temporary_file_name(TMP_PREFIX, 8);
-    file = file_new(pfname, buffer);
-    enca_free(pfname);
-    /* try to open it */
-    if (options.verbosity_level > 8)
-      fprintf(stderr, "Trying to create temporary file `%s'\n", file->name);
-    if ((fd = open(file->name, O_RDWR | O_CREAT | O_EXCL, 0600)) < 0)
-      continue;
-    /* fdopen it to get the stream */
-    if ((file->stream = fdopen(fd, "w+b")) == NULL) {
-      fprintf(stderr, "%s: Cannot get stream for an open filedescriptor %d: %s\n",
-                      program_name,
-                      fd,
-                      strerror(errno));
-      exit(EXIT_TROUBLE);
-    }
-    /* here, we have a unique temporary file opened readwrite */
-    if (ulink)
-      file_unlink(file->name);
-    return file;
+  temp_filename = strdup("/tmp/" PACKAGE_TARNAME "XXXXXX");
+
+  if ((fd = mkstemp(temp_filename)) < 0) {
+    /* trieed heavy without success? that's bad */
+    fprintf(stderr, "%s: Unable to create a temporary file\n"
+                   "do you have write permissions in /tmp?\n",
+                    program_name);
+
+    free(temp_filename);
+    return NULL;
   }
 
-  /* trieed heavy without success? that's bad */
-  fprintf(stderr, "%s: Unable to create a temporary file\n"
-                 "do you have write permissions in /tmp?\n",
-                  program_name);
-  file_free(file);
+  file = file_new(temp_filename, buffer);
 
-  return NULL;
+  free(temp_filename);
+
+  /* fdopen it to get the stream */
+  if ((file->stream = fdopen(fd, "w+b")) == NULL) {
+    fprintf(stderr, "%s: Cannot get stream for an open filedescriptor %d: %s\n",
+                    program_name,
+                    fd,
+                    strerror(errno));
+    exit(EXIT_TROUBLE);
+  }
+  /* here, we have a unique temporary file opened readwrite */
+  if (ulink)
+    file_unlink(file->name);
+  return file;
 }
 
 /* reposition file file
@@ -679,53 +589,6 @@ file_free(File *file)
     file_close(file);
   enca_free(file->name);
   enca_free(file);
-}
-
-/**
- * Initialize ranom number generator with some pseudo-random bits from
- * the environment.
- **/
-void
-random_seed_init(void)
-{
-  unsigned int seed;
-
-#ifdef RANDOM_FILE
-  Buffer buf;
-  File *file;
-
-  buf.data = (void*)&seed;
-  buf.pos = 0;
-  buf.size = sizeof(unsigned int);
-  if (options.verbosity_level > 8)
-    fprintf(stderr, "Initializing random seed from `%s'\n", RANDOM_FILE);
-  file = file_new(RANDOM_FILE, &buf);
-  if (file_open(file, "rb") || file_read(file) == -1 || file_close(file))
-    exit(EXIT_TROUBLE);
-  file_free(file);
-#endif /* RANDOM_FILE */
-
-#ifdef RANDOM_GETTIMEOFDAY
-  struct timeval tv;
-
-  if (options.verbosity_level > 8)
-    fprintf(stderr, "Initializing random seed from time of the day ;-(\n");
-  if (gettimeofday(&tv, NULL)) {
-    fprintf(stderr, "%s: Cannot get time of day: %s\n",
-                    program_name,
-                    strerror(errno));
-    exit(EXIT_TROUBLE);
-  }
-  seed = (unsigned int)(tv.tv_usec ^ tv.tv_sec ^ (getpid() << 4));
-#endif /* RANDOM_GETTIMEOFDAY */
-
-#ifdef RANDOM_TIME
-  if (options.verbosity_level > 8)
-    fprintf(stderr, "Initializing random seed an exteremely lame way ;-(\n");
-  seed = (unsigned int)time(NULL) ^ (getpid() << 4);
-#endif /* RANDOM_TIME */
-
-  srandom(seed);
 }
 
 /* vim: ts=2
