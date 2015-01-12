@@ -1,91 +1,137 @@
-# @(#) $Id: enca.spec.in,v 1.28 2005/12/18 12:05:30 yeti Exp $
-Summary: A program detecting encoding of text files.
-Name: @PACKAGE_TARNAME@
-Version: @PACKAGE_VERSION@
-Release: @RELEASE@
-License: GNU GPL v2
-Group: Applications/Text
-Requires: sed
-Source: http://trific.ath.cx/Ftp/enca/@PACKAGE_TARNAME@-@PACKAGE_VERSION@.tar.bz2
-URL: http://trific.ath.cx/software/@PACKAGE_TARNAME@/
-Packager: @PACKAGE_BUGREPORT@
-Vendor: Trific soft.
-Prefix: %{_prefix}
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
+# RPM package for Enca, an Extremely Naive Charset Analyser.
+#
+# This RPM package suports conditional builds. Components can be
+# enabled/disabled in rpmbuild via --with/--without. Default is:
+#
+#   rpmbuild -ba --without htmldocs --with static
+#
+# Check http://www.rpm.org/wiki/PackagerDocs/ConditionalBuilds for more info.
+
+# add --with htmldocs option, i.e. disable generation of HTML documentation by
+# default
+%bcond_with htmldocs
+
+# add --without static, i.e. enable generation of static libraries by
+# default
+%bcond_without static
+
+Summary:        Detect encoding of text files and convert to other encodings.
+Name:           @PACKAGE_TARNAME@
+Version:        @PACKAGE_VERSION@
+Release:        @RELEASE@%{?dist}
+License:        GPLv2
+Group:          Applications/Text
+Source:         http://dl.cihar.com/enca/@PACKAGE_TARNAME@-@PACKAGE_VERSION@.tar.gz
+URL:            https://github.com/nijel/@PACKAGE_TARNAME@
+Prefix:         %{_prefix}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
-Enca is an Extremely Naive Charset Analyser. It detects character set and
-encoding of text files and can also convert them to other encodings using
-either a built-in converter or external libraries and tools like libiconv,
-librecode, or cstocs.
+Enca is an Extremely Naive Charset Analyser.
+
+It detects character set and encoding of text files and can also convert them
+to other encodings using either a built-in converter or external libraries and
+tools like GNU recode (librecode), UNIX98 iconv (libiconv), perl Unicode::Map
+and cstocs.
 
 Currently, it has support for Belarusian, Bulgarian, Croatian, Czech,
 Estonian, Latvian, Lithuanian, Polish, Russian, Slovak, Slovene, Ukrainian,
-Chinese, and some multibyte encodings (mostly variants of Unicode)
-independent on the language.
+Chinese, and some multibyte encodings (mostly variants of Unicode) independent
+on the language.
 
-This package also contains shared Enca library other programs can make use of.
+This package contains enca, a command line frontend, as well as the shared
+Enca libraries other programs can make use of.
 
-Install Enca if you need to cope with text files of dubious origin
-and unknown encoding and convert them to some reasonable encoding.
+Install enca if you need to cope with text files of dubious origin and unknown
+encoding and convert them to some reasonable encoding.
 
-%package devel
-Summary: Header files and libraries for Enca development.
-Group: Development/Libraries
-Requires: %{name} = %{version}
+%package        devel
+Summary:        Header files and libraries for Enca development.
+Group:          Development/Libraries
+Requires:       %{name} = %{version}-%{release}
+Requires:       pkgconfig
+
 %description devel
-The enca-devel package contains the static libraries and header files
-for writing programs using the Extremely Naive Charset Analyser library,
-and its API documentation.
+The %{name}-devel package contains the static libraries, header files and
+documentation for writing programs using Enca, the Extremely Naive Charset
+Analyser.
 
-Install enca-devel if you are going to create applications using the Enca
+Install %{name}-devel if you are going to create applications using the Enca
 library.
 
 %prep
-%setup
+%setup -q
 
 %build
-%configure
-%__make
+%configure \
+    --disable-dependency-tracking \
+    --without-librecode \
+    %{?_without_htmldocs:--disable-gtk-doc} \
+    %{?_without_static:--disable-static}
+
+%__make %{?_smp_mflags}
+
+%check
+#make check
 
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && %__rm -rf $RPM_BUILD_ROOT
-%makeinstall HTML_DIR=$RPM_BUILD_ROOT/%{_datadir}/gtk-doc/html
+[ "%{buildroot}" != "/" ] && %__rm -rf %{buildroot}
+%make_install
+
+%__mv %{buildroot}/%{_datadir}/gtk-doc/ gtk-doc
+
+%if %{without static}
+%__rm -f %{buildroot}/%{_libdir}/libenca.a
+%__rm -f %{buildroot}/%{_libdir}/libenca.la
+%endif
 
 %clean
-[ "$RPM_BUILD_ROOT" != "/" ] && %__rm -rf $RPM_BUILD_ROOT
+[ "%{buildroot}" != "/" ] && %__rm -rf %{buildroot}
 
 %files
 %defattr(755,root,root)
 %{_bindir}/enca
 %{_bindir}/enconv
+%{_libdir}/libenca.so*
+
+# external converters
 %{_libexecdir}/%{name}/extconv/*
 %dir %{_libexecdir}/%{name}/extconv
 %dir %{_libexecdir}/%{name}
-%{_libdir}/libenca.so.*
+
+# docs and man pages
 %defattr(644,root,root)
+%doc AUTHORS ChangeLog COPYING FAQ README THANKS TODO
 %doc %{_mandir}/man1/enca.1*
 %doc %{_mandir}/man1/enconv.1*
-%defattr(-,root,root)
-%doc AUTHORS COPYING ChangeLog ChangeLog.prelib FAQ INSTALL ChangeLog.old README README.devel THANKS TODO
 
 %files devel
 %defattr(-,root,root)
 %{_includedir}/enca.h
 %{_libdir}/pkgconfig/enca.pc
+
+# static libs
+%if %{with static}
 %{_libdir}/libenca.a
 %{_libdir}/libenca.la
-%{_libdir}/libenca.so
-%doc %{_datadir}/gtk-doc/html/libenca/*
-%doc %dir %{_datadir}/gtk-doc/html/libenca
-%doc %dir %{_datadir}/gtk-doc/html
-%doc %dir %{_datadir}/gtk-doc
+%endif
+
+# README and HTML docs
+%doc README.devel
+%if %{with htmldocs}
+%doc gtk-doc/html
+%endif
 
 %post -p /sbin/ldconfig
 
 %postun -p /sbin/ldconfig
 
 %changelog
+* Sat Jan 10 2015 Victor Foitzik (vifo) <vifo@cpan.org>
+- updated spec to match information on Github and
+  align with recent packaging guidelines from Fedora
+- added conditional builds for HTML documentation and
+  static libraries
 * Sun Dec 18 2005 David Necas (Yeti) <yeti@physics.muni.cz>
 - fixed 0644 permissions on doc directory
 * Mon May 17 2004 David Necas (Yeti) <yeti@physics.muni.cz>
@@ -160,4 +206,3 @@ library.
 - fixed not installing bcstocs
 * Wed Sep 13 2000 David Necas (Yeti) <yeti@physics.muni.cz>
 - first packaged (0.6.2)
-
