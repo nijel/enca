@@ -20,9 +20,9 @@ ACLOCAL_FLAGS="-I m4"
 }
 
 (grep "^AM_PROG_LIBTOOL" ./configure.ac >/dev/null) && {
-  (libtool --version) < /dev/null > /dev/null 2>&1 || {
+  (libtoolize --version) < /dev/null > /dev/null 2>&1 || {
     echo
-    echo "**Error**: You must have \`libtool' installed."
+    echo "**Error**: You must have \`libtoolize' installed."
     echo "Get ftp://ftp.gnu.org/pub/gnu/libtool-1.4.tar.gz"
     echo "(or a newer version if it is available)"
     DIE=1
@@ -140,7 +140,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
 }
 
 if test -z "$NO_LIBTOOL"; then
-  LT_VERSION=`libtool --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
+  LT_VERSION=`libtoolize --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
   if ! version_check "1.4" "$LT_VERSION" ; then
     echo
     echo "**ERROR**: You need at least libtool-1.4 installed to re-generate"
