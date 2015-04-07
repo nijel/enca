@@ -200,7 +200,7 @@ char* VARIANT_CORK[] = {
 };
 
 char* VARIANT_GBK[] = {
-	"GBK", "GB2312", "CP936", NULL
+	"GBK", "GB18030", "GB2312", "CP936", NULL
 };
 
 char* VARIANT_BIG5[] = {
@@ -208,7 +208,7 @@ char* VARIANT_BIG5[] = {
 };
 
 char* VARIANT_HZ[] = {
-  "HZ", "HZ-GB-2312", "GB2312", NULL
+  "HZ", "HZ-GB-2312", "GB18030", "GB2312", NULL
 };
 
 typedef struct S_EncList {
