@@ -12,10 +12,10 @@ for l in $TEST_LANGUAGES; do
   if test "x$lname" != x; then
     src=
     for c in $lname; do
-      cp -f $srcdir/$l-s.$c $l-big.$c
+      cp -f $srcdir/$l-s.$c $l-big-64.$c
       for i in 1 2 3 4 5 6; do
-        cat $l-big.$c $l-big.$c $l-big.$c $l-big.$c >test.tmp
-        mv -f test.tmp $l-big.$c
+        cat $l-big-64.$c $l-big-64.$c $l-big-64.$c $l-big-64.$c >test-64.tmp
+        mv -f test-64.tmp $l-big-64.$c
       done
       if test -z "$src"; then
         src=$c
@@ -25,13 +25,13 @@ for l in $TEST_LANGUAGES; do
     done
     # The test itself.
     DIE_THIS=0
-    $ENCA -L $l -x $tgt $l-big.$src || DIE_THIS=1
-    diff $l-big.$src $l-big.$tgt >/dev/null || DIE_THIS=1
+    $ENCA -L $l -x $tgt $l-big-64.$src || DIE_THIS=1
+    diff $l-big-64.$src $l-big-64.$tgt >/dev/null || DIE_THIS=1
     if test "$DIE_THIS" = "1"; then
       echo "Conversion $l: $src -> $tgt failed."
       DIE=1
     else
-      rm -f $l-big.$src $l-big.$tgt
+      rm -f $l-big-64.$src $l-big-64.$tgt
     fi
   fi
 done
