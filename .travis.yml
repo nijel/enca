@@ -9,7 +9,7 @@ compiler:
 before_install:
   - pip install --user codecov
 script: 
-  - ./configure --with-gcov && make && make test
+  - ./configure --with-gcov --enable-static --disable-shared && make && make test
 after_failure:
   - cat test/test-suite.log
 after_script:
