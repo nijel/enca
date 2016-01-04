@@ -103,9 +103,12 @@ zh-s.gbk: GBK
 zh-s.hz: HZ
 zh-s.utf8: UTF-8
 none-s.ucs2: UCS-2/LF
+none-s.ucs2be.bom: UCS-2/LF
 none-s.ucs2le: UCS-2/LF/21
+none-s.ucs2le.bom: UCS-2/LF/21
 none-s.ucs2le.qp: UCS-2/LF/21/qp
 none-s.ucs4: UCS-4/LF
 none-s.ucs4le: UCS-4/LF/4321
 none-s.utf7: UTF-7/LF
 none-s.utf8: UTF-8
+none-s.utf8.bom: UTF-8
