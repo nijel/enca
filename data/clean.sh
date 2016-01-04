@@ -8,4 +8,5 @@ for d in `ls */doit.sh | cut -d/ -f1`; do
   ls *.base *.xbase | grep -v '^'$base'\.' | xargs rm -vf
   cd .. >/dev/null
 done
+rm -rf letters
 rm *~ 2>/dev/null
