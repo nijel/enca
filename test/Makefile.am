@@ -1,4 +1,4 @@
-TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@
+TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@ builddir=@builddir@
 
 TESTS = \
   ./test-lists.sh \

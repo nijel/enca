@@ -1,5 +1,5 @@
 #! /bin/sh
 # Purpose: check simtable rendering
 . $srcdir/setup.sh
-$destdir/simtable
+$builddir/simtable || DIE=1
 . $srcdir/finish.sh

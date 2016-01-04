@@ -521,7 +521,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@
+TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@ builddir=@builddir@
 TESTS = \
   ./test-lists.sh \
   ./test-long-texts.sh \
