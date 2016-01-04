@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: guess.c,v 1.19 2005/12/01 10:08:53 yeti Exp $
   encoding-guesing engine
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>

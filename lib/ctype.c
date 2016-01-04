@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: ctype.c,v 1.1 2004/05/11 16:14:02 yeti Exp $
   convert charset and surface names to internal representation and back
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

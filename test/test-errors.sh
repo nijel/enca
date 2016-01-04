@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-errors.sh,v 1.6 2003/11/17 12:27:39 yeti Exp $
 # Purpose: check how enca reacts on various incorrect inputs
 . $srcdir/setup.sh
 TEST_TEXT=$srcdir/cs-s.iso88592

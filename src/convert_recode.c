@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: convert_recode.c,v 1.13 2003/11/17 12:27:39 yeti Exp $
   interface to GNU recode library (`librecode')
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

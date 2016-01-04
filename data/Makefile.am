@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.22 2005/12/01 10:13:50 yeti Exp $
 noinst_PROGRAMS = \
   basetoc \
   countall \

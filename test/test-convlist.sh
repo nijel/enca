@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-convlist.sh,v 1.2 2003/11/17 12:27:39 yeti Exp $
 # Purpose: check whether --list converters and --version are consistent
 . $srcdir/setup.sh
 rm -f $TESTNAME.expected 2>/dev/null

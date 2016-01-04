@@ -381,8 +381,6 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 @MAINTAINER_MODE_FALSE@SUBDIRS = tools script lib src devel-docs test
-
-# @(#) $Id: Makefile.am,v 1.35 2005/11/24 10:21:32 yeti Exp $
 @MAINTAINER_MODE_TRUE@SUBDIRS = tools data script lib src devel-docs test
 man_MANS = man/enca.1
 DISTCHECK_CONFIGURE_FLAGS = --enable-maintainer-mode

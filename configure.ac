@@ -1,5 +1,4 @@
 dnl configure.in by David Necas (Yeti) <yeti@physics.muni.cz>
-dnl @(#) $Id: configure.ac,v 1.34 2005/12/18 12:07:46 yeti Exp $
 dnl This file is in public domain.
 dnl Process this file with autoconf to produce a configure script.
 dnl Shake before use.

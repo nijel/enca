@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: filebuf.c,v 1.20 2004/07/20 19:30:01 yeti Exp $
   buffers, input/output operations with magic buffering and small utils
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>

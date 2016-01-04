@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-recode.sh,v 1.2 2003/11/17 12:27:40 yeti Exp $
 # Purpose: test whether librecode interface works.
 # FIXME: this may fail when the interface works but librecode is broken!
 . $srcdir/setup.sh

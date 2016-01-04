@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: b-umap.in,v 1.4 2003/12/22 15:32:37 yeti Exp $
 # umap batch-call wrapper.
 # To be called by enca, don't use directly. See enca(1) for calling convention.
 #

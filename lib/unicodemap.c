@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: unicodemap.c,v 1.14 2003/12/22 22:24:33 yeti Exp $
   unicode (i.e. ucs-2) data and conversion table managment
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

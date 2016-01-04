@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-pP.sh,v 1.2 2003/11/17 12:27:40 yeti Exp $
 # Purpose: test whether -p, -P and default file prefixing works
 . $srcdir/setup.sh
 TEST_TEXT=$srcdir/cs-s.iso88592

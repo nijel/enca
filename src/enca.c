@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: enca.c,v 1.18 2005/02/27 12:08:56 yeti Exp $
   Extremely Naive Charset Analyser.  main module
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>

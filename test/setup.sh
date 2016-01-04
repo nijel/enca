@@ -1,4 +1,3 @@
-# @(#) $Id: setup.sh,v 1.8 2005/11/24 11:42:47 yeti Exp $
 ENCA=$top_builddir/src/enca
 TEST_LANGUAGES="be bg cs et hr hu lt lv pl ru sk sl uk zh"
 ALL_TEST_LANGUAGES="$TEST_LANGUAGES none"

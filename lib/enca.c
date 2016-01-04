@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: enca.c,v 1.9 2003/12/22 22:24:33 yeti Exp $
   encoding-guessing libary; the high-level analyser interface
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

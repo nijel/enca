@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-tex.sh,v 1.4 2003/11/17 12:27:40 yeti Exp $
 # Purpose: test whether TeX decoding works.
 . $srcdir/setup.sh
 TEST_TEXT=$srcdir/cs-s.tex

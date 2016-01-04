@@ -14,8 +14,6 @@
 
 @SET_MAKE@
 
-# @(#) $Id: Makefile.am,v 1.7 2003/12/22 15:32:37 yeti Exp $
-
 VPATH = @srcdir@
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \

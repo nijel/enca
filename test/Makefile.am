@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.26 2005/12/01 10:12:10 yeti Exp $
 TESTS_ENVIRONMENT = srcdir=@srcdir@ top_srcdir=@top_srcdir@ top_builddir=@top_builddir@
 
 TESTS = \

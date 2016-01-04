@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: utf8_double.c,v 1.5 2005/11/24 10:09:03 yeti Exp $
   checks for doubly-encoded utf-8
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>

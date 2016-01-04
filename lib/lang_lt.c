@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: lang_lt.c,v 1.12 2005/12/01 10:08:53 yeti Exp $
   encoding data and routines dependent on language; lithuanian
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>

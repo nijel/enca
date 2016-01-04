@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-external.sh,v 1.4 2003/11/17 12:27:39 yeti Exp $
 # Purpose: test whether external converter is executed with correct arguments,
 # whether enca fails when it cannot find it iff there's something to convert,
 # whether converter errors are correctly propagated

@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: pair.c,v 1.6 2003/11/17 12:27:39 yeti Exp $
   pair-frequency based tests (used for 8bit-dense languages)
 
   Copyright (C) 2003 David Necas (Yeti) <yeti@physics.muni.cz>

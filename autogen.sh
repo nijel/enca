@@ -1,5 +1,4 @@
 #!/bin/sh
-# @(#) $Id: autogen.sh,v 1.9 2004/11/17 18:11:49 yeti Exp $
 # Run this to generate all the initial makefiles, etc.
 # Tweaked by David Necas (Yeti) <yeti@physics.muni.cz> from various other
 # autogen.sh's.  This file is in public domain.

@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.8 2004/05/27 17:17:15 yeti Exp $
 ## Process this file with automake to produce Makefile.in
 
 # This is a blank Makefile.am for using gtk-doc.

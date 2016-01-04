@@ -1,5 +1,4 @@
 /*
- * @(#) $Id: iconvcap.c,v 1.10 2005/12/01 10:08:53 yeti Exp $
  * iconv capability checker by David Necas (Yeti).
  * This program is in the public domain.
  *

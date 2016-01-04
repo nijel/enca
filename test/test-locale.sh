@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-iconv.sh,v 1.4 2003/11/17 12:27:40 yeti Exp $
 # Purpose: test whether libiconv interface works.
 # FIXME: this may fail when the interface works but libiconv is broken!
 . $srcdir/setup.sh

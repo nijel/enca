@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: options.c,v 1.31 2005/12/18 12:07:46 yeti Exp $
   command line option processing
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

@@ -1,4 +1,3 @@
-/* @(#) $Id: common.h,v 1.28 2005/02/27 12:08:56 yeti Exp $ */
 #ifndef COMMON_H
 #define COMMON_H 1
 

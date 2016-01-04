@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: filters.c,v 1.13 2004/05/11 16:14:02 yeti Exp $
   filters and hooks that various languages can use
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

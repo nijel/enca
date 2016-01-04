@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: convert_extern.c,v 1.9 2003/12/23 23:08:10 yeti Exp $
   interface to external converter programs
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

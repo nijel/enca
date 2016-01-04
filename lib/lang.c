@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: lang.c,v 1.18 2005/12/01 10:08:53 yeti Exp $
   uniform interface to particular languages
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

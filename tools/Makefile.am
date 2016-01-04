@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.10 2003/11/17 12:27:40 yeti Exp $
 noinst_PROGRAMS = make_hash
 noinst_HEADERS = encodings.h
 noinst_SCRIPTS = expand_table.pl

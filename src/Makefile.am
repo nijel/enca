@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.22 2004/07/22 16:18:42 yeti Exp $
 bin_PROGRAMS = enca
 noinst_SCRIPTS = text2c.sh
 

@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: convert_iconv.c,v 1.19 2005/02/27 12:40:50 yeti Exp $
   interface to UNIX98 iconv conversion functions
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

@@ -1,4 +1,3 @@
-# @(#) $Id: finish.sh,v 1.5 2003/11/17 12:27:39 yeti Exp $
 if test -n "$E77"; then
   exit 77
 fi

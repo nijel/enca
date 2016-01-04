@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-guess-stdin.sh,v 1.5 2003/11/17 12:27:40 yeti Exp $
 # Purpose: test charset recognition of samples coming from stdin.
 . $srcdir/setup.sh
 DATATESTNAME=test-guess-short

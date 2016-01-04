@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-empty.sh,v 1.4 2003/11/17 12:27:39 yeti Exp $
 # Purpose: check how enca reacts on various incorrect inputs
 . $srcdir/setup.sh
 # These should succeede

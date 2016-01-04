@@ -1,4 +1,3 @@
-# @(#) $Id: Makefile.am,v 1.29 2005/11/24 20:11:20 yeti Exp $
 include_HEADERS = enca.h
 lib_LTLIBRARIES = libenca.la
 

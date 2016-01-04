@@ -1,4 +1,3 @@
-/* @(#) $Id: enca.h,v 1.11 2005/02/27 12:08:55 yeti Exp $ */
 /* This header file is in the public domain. */
 #ifndef ENCA_H
 #define ENCA_H

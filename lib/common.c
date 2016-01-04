@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: common.c,v 1.4 2003/11/17 12:27:39 yeti Exp $
   memory and string operations and some more common stuff
 
   Copyright (C) 2000-2002 David Necas (Yeti) <yeti@physics.muni.cz>

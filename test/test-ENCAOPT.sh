@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-ENCAOPT.sh,v 1.5 2003/11/17 12:27:39 yeti Exp $
 # Purpose: test whether ENCAOPT works.
 . $srcdir/setup.sh
 DATATESTNAME=test-guess-short

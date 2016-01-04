@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-convert-filter.sh,v 1.6 2005/11/24 11:42:47 yeti Exp $
 # Purpose: test whether built-in converter works on stdin (see test-convert-64
 # for details).
 . $srcdir/setup.sh

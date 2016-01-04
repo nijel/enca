@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-guess-utf8.sh,v 1.5 2005/11/24 11:42:47 yeti Exp $
 # Purpose: various UTF-8 variant recognition.
 . $srcdir/setup.sh
 for l in $ALL_TEST_LANGUAGES; do

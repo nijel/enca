@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-long-texts.sh,v 1.5 2003/11/17 12:27:40 yeti Exp $
 # Purpose: check whether enca correctly prints license, help, version.
 . $srcdir/setup.sh
 $ENCA --version >$TESTNAME.actual || DIE=1

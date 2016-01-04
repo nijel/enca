@@ -1,5 +1,4 @@
 #! /bin/sh
-# @(#) $Id: test-default-cs.sh,v 1.8 2005/11/24 11:42:47 yeti Exp $
 # Purpose: test whether DEFAULT_CHARSET works.
 . $srcdir/setup.sh
 for l in $TEST_LANGUAGES; do

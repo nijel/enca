@@ -1,5 +1,4 @@
 /*
-  @(#) $Id: locale_detect.c,v 1.24 2004/07/20 20:15:09 yeti Exp $
   try to guess user's native language from locale
 
   Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>

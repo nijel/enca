@@ -1,4 +1,3 @@
-/* @(#) $Id: simtable.c,v 1.11 2003/11/17 12:27:39 yeti Exp $ */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
