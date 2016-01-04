@@ -19,6 +19,7 @@ TESTS = \
   ./test-external.sh \
   ./test-iconv.sh \
   ./test-tex.sh \
+  ./test-locale.sh \
   ./test-recode.sh
 
 noinst_SCRIPTS = \

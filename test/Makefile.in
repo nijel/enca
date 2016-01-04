@@ -543,6 +543,7 @@ TESTS = \
   ./test-external.sh \
   ./test-iconv.sh \
   ./test-tex.sh \
+  ./test-locale.sh \
   ./test-recode.sh
 
 noinst_SCRIPTS = \
@@ -1111,6 +1112,13 @@ recheck: all
 ./test-tex.sh.log: ./test-tex.sh
 	@p='./test-tex.sh'; \
 	b='./test-tex.sh'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+./test-locale.sh.log: ./test-locale.sh
+	@p='./test-locale.sh'; \
+	b='./test-locale.sh'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
