@@ -8,11 +8,13 @@ compiler:
   - clang
 before_install:
   - pip install --user codecov
+  - pip install --user cpp-coveralls --use-mirrors
 script: 
   - ./configure --with-gcov && make && make test
 after_failure:
   - cat test/test-suite.log
 after_success:
+  - coveralls
   - codecov
 addons:
   coverity_scan:
