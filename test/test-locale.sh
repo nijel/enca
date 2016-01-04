@@ -3,11 +3,13 @@
 # FIXME: this may fail when the interface works but libiconv is broken!
 . $srcdir/setup.sh
 if $ENCA --version | grep ' +language-detection ' >/dev/null; then
+  export LC_CTYPE=cs_CZ
   TEST_TEXT=$srcdir/cs-s.iso88592
   OPTS=""
-  export LC_CTYPE=cs_CZ
-  cp $TEST_TEXT $TESTNAME.actual
-  $ENCA $OPTS -x UTF-8 $TESTNAME.actual || DIE=1
+  if locale | grep -q '^LC_CTYPE=cs_CZx$' ; then
+    cp $TEST_TEXT $TESTNAME.actual
+    $ENCA $OPTS -x UTF-8 $TESTNAME.actual || DIE=1
+  fi
   # Failures
   export LC_CTYPE=INVALID
   export LC_COLLATE=INVALID
