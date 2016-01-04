@@ -17,6 +17,7 @@ after_script:
   - find . -name '*.gcno'
   - find . -name '*.gcda'
   - if [ $CC = gcc ] ; then codecov ; else codecov --gcov-exec llvm-cov ; fi
+  - if [ $CC = clang ] ; then llvm-cov --help ; fi
   - if [ $CC = clang ] ; then find `pwd` -type f -name '*.gcno'  -exec llvm-cov gcov -p -b  '{}' + ; fi
 addons:
   coverity_scan:
