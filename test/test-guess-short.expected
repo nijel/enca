@@ -104,6 +104,8 @@ zh-s.hz: HZ
 zh-s.utf8: UTF-8
 none-s.ucs2: UCS-2/LF
 none-s.ucs2be.bom: UCS-2/LF
+none-s.ucs2be.bom.crlf: UCS-2/CRLF
+none-s.ucs2be.bom.noeol: UCS-2/LF
 none-s.ucs2le: UCS-2/LF/21
 none-s.ucs2le.bom: UCS-2/LF/21
 none-s.ucs2le.qp: UCS-2/LF/21/qp
