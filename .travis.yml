@@ -8,6 +8,7 @@ compiler:
   - clang
 before_install:
   - pip install --user codecov
+  - pip install --user cpp-coveralls --use-mirrors
 script: 
   - ./configure --with-gcov --enable-static --disable-shared && make && make test
 after_failure:
@@ -19,6 +20,7 @@ after_script:
   - if [ $CC = gcc ] ; then codecov ; else codecov --gcov-exec llvm-cov ; fi
   - if [ $CC = clang ] ; then llvm-cov --help ; fi
   - if [ $CC = clang ] ; then find `pwd` -type f -name '*.gcno'  -exec llvm-cov gcov -p -b  '{}' + ; fi
+  - coveralls
 addons:
   coverity_scan:
     project:
