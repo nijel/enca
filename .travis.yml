@@ -10,6 +10,8 @@ before_install:
   - pip install --user cpp-coveralls --use-mirrors
 script: 
   - ./configure --with-gcov && make && make test
+after_failure:
+  - find test/ -name '*.log' | while read x; do echo '==' $x '==' ; cat $x ; done
 after_success:
   - coveralls
 addons:
