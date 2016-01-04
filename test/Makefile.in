@@ -526,6 +526,7 @@ TESTS = \
   ./test-lists.sh \
   ./test-long-texts.sh \
   ./test-convlist.sh \
+  ./test-guess-unknown.sh \
   ./test-guess-short.sh \
   ./test-guess-stdin.sh \
   ./test-guess-utf8.sh \
@@ -1012,6 +1013,13 @@ recheck: all
 ./test-convlist.sh.log: ./test-convlist.sh
 	@p='./test-convlist.sh'; \
 	b='./test-convlist.sh'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+./test-guess-unknown.sh.log: ./test-guess-unknown.sh
+	@p='./test-guess-unknown.sh'; \
+	b='./test-guess-unknown.sh'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \

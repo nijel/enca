@@ -4,6 +4,7 @@ TESTS = \
   ./test-lists.sh \
   ./test-long-texts.sh \
   ./test-convlist.sh \
+  ./test-guess-unknown.sh \
   ./test-guess-short.sh \
   ./test-guess-stdin.sh \
   ./test-guess-utf8.sh \
