@@ -7,6 +7,7 @@ compiler:
   - gcc
   - clang
 before_install:
+  - pip install --user codecov
   - pip install --user cpp-coveralls --use-mirrors
 script: 
   - ./configure --with-gcov && make && make test
@@ -14,6 +15,7 @@ after_failure:
   - find test/ -name '*.log' | while read x; do echo '==' $x '==' ; cat $x ; done
 after_success:
   - coveralls
+  - codecov
 addons:
   coverity_scan:
     project:

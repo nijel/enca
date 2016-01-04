@@ -1,13 +1,14 @@
 # Enca - guess and convert encoding of text files
 
 [![build status](https://secure.travis-ci.org/nijel/enca.png)](https://travis-ci.org/nijel/enca)
+[![codecov.io](https://codecov.io/github/nijel/enca/coverage.svg?branch=master)](https://codecov.io/github/nijel/enca?branch=master)
 [![Coverage Status](https://coveralls.io/repos/nijel/enca/badge.png?branch=master)](https://coveralls.io/r/nijel/enca?branch=master)
 
 ## Copyright 
 
 Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 
-Copyright (C) 2009-2014 Michal Cihar <michal@cihar.com>
+Copyright (C) 2009-2016 Michal Cihar <michal@cihar.com>
 
 ## Description
 
