@@ -20,6 +20,7 @@ cs-s.iso88592: ISO-8859-2
 cs-s.keybcs2: KEYBCS2
 cs-s.koi8cs2: KOI-8_CS_2
 cs-s.macce: macce
+cs-s.tex: TeX
 cs-s.utf8: UTF-8/CRLF
 et-s.baltic: baltic
 et-s.cp1257: CP1257

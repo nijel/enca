@@ -18,6 +18,7 @@ TESTS = \
   ./test-default-cs.sh \
   ./test-external.sh \
   ./test-iconv.sh \
+  ./test-tex.sh \
   ./test-recode.sh
 
 noinst_SCRIPTS = \
