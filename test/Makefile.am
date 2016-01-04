@@ -19,6 +19,7 @@ TESTS = \
   ./test-iconv.sh \
   ./test-tex.sh \
   ./test-locale.sh \
+  ./test-simtable.sh \
   ./test-recode.sh
 
 noinst_SCRIPTS = \
@@ -28,7 +29,6 @@ noinst_SCRIPTS = \
   finish.sh \
   setup.sh
 
-if MAINTAINER_MODE
 noinst_PROGRAMS = simtable
 simtable_SOURCES = simtable.c
 simtable_LDFLAGS = @LDFLAGS@ @LIBS@
@@ -37,7 +37,6 @@ simtable_DEPENDENCIES = $(top_builddir)/lib/libenca.la
 AM_CPPFLAGS = -I$(top_srcdir)/lib $(GCOV_CPPFLAGS)
 AM_LDFLAGS =  $(GCOV_LDFLAGS)
 AM_CFLAGS =  $(GCOV_FLAGS)
-endif
 
 EXTRA_DIST = $(TEST_SAMPLES) $(TESTS) $(TEST_RESULTS) $(noinst_SCRIPTS)
 

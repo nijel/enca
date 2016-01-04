@@ -89,7 +89,7 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@MAINTAINER_MODE_TRUE@noinst_PROGRAMS = simtable$(EXEEXT)
+noinst_PROGRAMS = simtable$(EXEEXT)
 subdir = test
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/gcov.m4 \
@@ -108,8 +108,7 @@ CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 PROGRAMS = $(noinst_PROGRAMS)
-am__simtable_SOURCES_DIST = simtable.c
-@MAINTAINER_MODE_TRUE@am_simtable_OBJECTS = simtable.$(OBJEXT)
+am_simtable_OBJECTS = simtable.$(OBJEXT)
 simtable_OBJECTS = $(am_simtable_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
@@ -154,7 +153,7 @@ am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
 SOURCES = $(simtable_SOURCES)
-DIST_SOURCES = $(am__simtable_SOURCES_DIST)
+DIST_SOURCES = $(simtable_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -542,6 +541,7 @@ TESTS = \
   ./test-iconv.sh \
   ./test-tex.sh \
   ./test-locale.sh \
+  ./test-simtable.sh \
   ./test-recode.sh
 
 noinst_SCRIPTS = \
@@ -551,13 +551,13 @@ noinst_SCRIPTS = \
   finish.sh \
   setup.sh
 
-@MAINTAINER_MODE_TRUE@simtable_SOURCES = simtable.c
-@MAINTAINER_MODE_TRUE@simtable_LDFLAGS = @LDFLAGS@ @LIBS@
-@MAINTAINER_MODE_TRUE@simtable_LDADD = $(top_builddir)/lib/libenca.la
-@MAINTAINER_MODE_TRUE@simtable_DEPENDENCIES = $(top_builddir)/lib/libenca.la
-@MAINTAINER_MODE_TRUE@AM_CPPFLAGS = -I$(top_srcdir)/lib $(GCOV_CPPFLAGS)
-@MAINTAINER_MODE_TRUE@AM_LDFLAGS = $(GCOV_LDFLAGS)
-@MAINTAINER_MODE_TRUE@AM_CFLAGS = $(GCOV_FLAGS)
+simtable_SOURCES = simtable.c
+simtable_LDFLAGS = @LDFLAGS@ @LIBS@
+simtable_LDADD = $(top_builddir)/lib/libenca.la
+simtable_DEPENDENCIES = $(top_builddir)/lib/libenca.la
+AM_CPPFLAGS = -I$(top_srcdir)/lib $(GCOV_CPPFLAGS)
+AM_LDFLAGS = $(GCOV_LDFLAGS)
+AM_CFLAGS = $(GCOV_FLAGS)
 EXTRA_DIST = $(TEST_SAMPLES) $(TESTS) $(TEST_RESULTS) $(noinst_SCRIPTS)
 TEST_RESULTS = \
   test-guess-short.expected \
@@ -1117,6 +1117,13 @@ recheck: all
 ./test-locale.sh.log: ./test-locale.sh
 	@p='./test-locale.sh'; \
 	b='./test-locale.sh'; \
+	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
+	--log-file $$b.log --trs-file $$b.trs \
+	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
+	"$$tst" $(AM_TESTS_FD_REDIRECT)
+./test-simtable.sh.log: ./test-simtable.sh
+	@p='./test-simtable.sh'; \
+	b='./test-simtable.sh'; \
 	$(am__check_pre) $(LOG_DRIVER) --test-name "$$f" \
 	--log-file $$b.log --trs-file $$b.trs \
 	$(am__common_driver_flags) $(AM_LOG_DRIVER_FLAGS) $(LOG_DRIVER_FLAGS) -- $(LOG_COMPILE) \
