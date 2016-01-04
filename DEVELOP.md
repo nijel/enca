@@ -2,14 +2,14 @@
 
 * Look at libenca API documentation in devel-docs/html.
 * Look into enca source how it uses libenca.  Note enca is quite a simple
-  application (practically all libenca interaction is in src/enca.c).  It's
+  application (practically all libenca interaction is in `src/enca.c`). It's
   single-threaded and uses one language and one analyser all the time.
   Provided each thread has its own analyser, libenca should be thread-safe
   (untested).
-* Take names starting with ENCA, Enca, enca, _ENCA, _Enca, and _enca as
-  reserved.
-* pkgconfig is supported, you can use PKG_CHECK_MODULES to check for libenca in
-  your configure scripts
+* Take names starting with `ENCA`, `Enca`, `enca`, `_ENCA`, `_Enca`, and
+  `_enca` as reserved.
+* pkgconfig is supported, you can use `PKG_CHECK_MODULES` to check for libenca
+  in your configure scripts
 
 # How to add a new charset/encoding
 
@@ -17,7 +17,7 @@
 
 * `iconvcap.c`:
     * Add a new test (even if you are 100% sure iconv will never support it),
-      please see top of iconvcap.c for some documentation how it works.
+      please see top of `iconvcap.c` for some documentation how it works.
 * `tools/encodings.dat`:
     * Add a new entry.
     * Use `@ICONV_NAME_<name>@` (as it will appear in iconvcap output) for
@@ -29,7 +29,7 @@ Specifically, for regular 8bit (language dependent) charsets:
 
 * `lib/unicodemap.c`:
     * Add a new map to Unicode (UCS-2) `unicode_map_...[]`.
-    * Add a new UNICODE_MAP[] entry.
+    * Add a new `UNICODE_MAP[]` entry.
 * `lib/filters.c`: _[optional]_
     * Create a new filter or make an alias of an existing filter.
 * `lib/lang_??.c`:
@@ -44,8 +44,8 @@ Specifically, for multibyte encodings:
 * `lib/multibyte.c`:
     * Create a new check function.
     * Put it into appropriate ascii/8bit/binary test group
-      ENCA_MULTIBYTE_TESTS_ASCII[], ENCA_MULTIBYTE_TESTS_8BIT[],
-      ENCA_MULTIBYTE_TESTS_BINARY[].
+      `ENCA_MULTIBYTE_TESTS_ASCII[]`, `ENCA_MULTIBYTE_TESTS_8BIT[]`,
+      `ENCA_MULTIBYTE_TESTS_BINARY[]`.
     * Put strict tests (i.e. test which may fail) first, looks-like tests
       last.
 
