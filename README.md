@@ -2,7 +2,6 @@
 
 [![build status](https://secure.travis-ci.org/nijel/enca.png)](https://travis-ci.org/nijel/enca)
 [![codecov.io](https://codecov.io/github/nijel/enca/coverage.svg?branch=master)](https://codecov.io/github/nijel/enca?branch=master)
-[![Coverage Status](https://coveralls.io/repos/nijel/enca/badge.png?branch=master)](https://coveralls.io/r/nijel/enca?branch=master)
 
 ## Copyright 
 
