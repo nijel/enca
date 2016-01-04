@@ -1,37 +1,17 @@
-#============================================================================
-# Enca v1.17-dev (2016-01-04)  guess and convert encoding of text files
-# Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
-# Copyright (C) 2009-2016 Michal Cihar <michal@cihar.com>
-#============================================================================
+# Developing programs utilizing libenca
 
-Contents
+* Look at libenca API documentation in devel-docs/html.
+* Look into enca source how it uses libenca.  Note enca is quite a simple
+  application (practically all libenca interaction is in src/enca.c).  It's
+  single-threaded and uses one language and one analyser all the time.
+  Provided each thread has its own analyser, libenca should be thread-safe
+  (untested).
+* Take names starting with ENCA, Enca, enca, _ENCA, _Enca, and _enca as
+  reserved.
+* pkgconfig is supported, you can use PKG_CHECK_MODULES to check for libenca in
+  your configure scripts
 
-  0. Developing programs utilizing libenca
-  1. How to add a new charset/encoding to libenca
-  2. How to add a new surface to libenca
-  3. How to add a new language to libenca
-  4. Automake, autoconf, libtool, ... note
-  5. Repository and continuous integration
-
-
-0. Developing programs utilizing libenca
-****************************************
-
-  * Look at libenca API documentation in devel-docs/html.
-  * Look into enca source how it uses libenca.
-    Note enca is quite a simple application (practically all libenca
-    interaction is in src/enca.c).  It's single-threaded and uses one
-    language and one analyser all the time.  Provided each thread has its own
-    analyser, libenca should be thread-safe (untested).
-  * Take names starting with ENCA, Enca, enca, _ENCA, _Enca, and _enca
-    as reserved.
-  * pkgconfig is supported, you can use PKG_CHECK_MODULES to check for libenca
-    in your configure scripts
-
-
-
-1. How to add a new charset/encoding
-************************************
+# How to add a new charset/encoding
 
 (optional steps are marked `[optional]'):
 
@@ -72,19 +52,17 @@ Specifically, for multibyte encodings:
 
 
 
-2. How to add a new surface
-***************************
+# How to add a new surface
 
-  * Try to ask the author what to do, since this may be complicated, or
-  * Hack, basically it must be added to lib/enca.h EncaSurface enum,
-    to lib/encnames.c SURFACE_INFO[] a detection method must be added to
-    lib/guess.c and now the most complicated part: this new method must be
-    used ``in the right places'' in lib/guess.c make_guess().
-
+* Try to ask the author what to do, since this may be complicated, or
+* Hack, basically it must be added to lib/enca.h EncaSurface enum, to
+  lib/encnames.c SURFACE_INFO[] a detection method must be added to lib/guess.c
+  and now the most complicated part: this new method must be used ``in the
+  right places'' in lib/guess.c make_guess().
 
 
-3. How to add a new language
-****************************
+
+# How to add a new language
 
   Create a new language file:
     * Create new lib/lang_....c files by copying some existing (use locale code
@@ -99,8 +77,7 @@ Specifically, for multibyte encodings:
 
 
 
-4. Automake, autoconf, libtool, ... note
-****************************************
+# Automake, autoconf, libtool, ... note
 
 If you run ./autogen.sh and it finishes OK, you are lucky and can expect
 things to work.
@@ -110,8 +87,7 @@ build dists and/or the strange stuff in tools/, data/, tests/, and
 devel-docs/.
 
 
-5. Repository and continuous integration
-****************************************
+# Repository and continuous integration
 
 The git repository is located at GitHub:
 
