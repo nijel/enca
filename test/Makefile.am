@@ -44,10 +44,12 @@ EXTRA_DIST = $(TEST_SAMPLES) $(TESTS) $(TEST_RESULTS) $(noinst_SCRIPTS)
 TEST_RESULTS = \
   test-guess-short.expected \
   test-guess-utf8.expected \
+  test-guess-unknown.expected \
   test-external.expected \
   test-pP.expected
 
 TEST_SAMPLES =  \
+  binary \
   be-s.cp1251 \
   be-s.ibm855 \
   be-s.ibm866 \
@@ -70,6 +72,7 @@ TEST_SAMPLES =  \
   bg-utf8.ibm855 \
   bg-utf8.iso88595 \
   bg-utf8.maccyr \
+  cs-s.ambi \
   cs-s.cork \
   cs-s.cp1250 \
   cs-s.ibm852 \
@@ -78,6 +81,7 @@ TEST_SAMPLES =  \
   cs-s.keybcs2 \
   cs-s.koi8cs2 \
   cs-s.macce \
+  cs-s.tex \
   cs-s.utf8 \
   cs-utf8.bin \
   cs-utf8.cork \
@@ -137,12 +141,17 @@ TEST_SAMPLES =  \
   lv-utf8.iso88594 \
   lv-utf8.macce \
   none-s.ucs2 \
+  none-s.ucs2be.bom \
+  none-s.ucs2be.bom.crlf \
+  none-s.ucs2be.bom.noeol \
   none-s.ucs2le \
+  none-s.ucs2le.bom \
   none-s.ucs2le.qp \
   none-s.ucs4 \
   none-s.ucs4le \
   none-s.utf7 \
   none-s.utf8 \
+  none-s.utf8.bom \
   none-utf8.messy \
   pl-s.baltic \
   pl-s.baltic.qp \
