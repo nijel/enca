@@ -12,7 +12,7 @@ script:
   - ./configure --with-gcov && make && make test
 after_failure:
   - cat test/test-suite.log
-after_success:
+after_script:
   - codecov
 addons:
   coverity_scan:
