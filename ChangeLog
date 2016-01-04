@@ -14,6 +14,7 @@ Legend: + new feature
 enca-1.17
   - Fixed conversion of GB2312 encoding with iconv
   - Fixed iconv conversion on OSX
+  - Documentation improvements
 
 enca-1.16 2014-10-20
   - Fixed typo in Belarusian language name
