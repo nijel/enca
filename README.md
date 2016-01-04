@@ -27,9 +27,41 @@ Enca (Extremely Naive Charset Analyser) consists of two main components:
 
 ## Installation
 
-Please see INSTALL for system requirements, detailed installation
-instructions and also for description of optional features that can
-be selected at ./configure time.
+Enca should compile and work on every POSIX.1 compliant system with ISO C
+compiler, and actually compiles on many noncompliant systems too (see below
+for list dependencies).  If you have some of following additional tools,
+Enca can use them as external converters:
+
+* GNU recode and the associated recoding library
+* Perl charset converters Unicode::Map8 or Unicode::Map
+* cstocs, the famous Czech charset converter
+
+Optional features:
+
+* Compilation of GNU recode library interface is controlled by
+  `--with-librecode[=DIR]`, `--without-librecode`
+  configure parameters.  It is compiled in by default when found.
+  Optionally, you can specify a DIR; librecode include files will be
+  then searched in DIR/include and the library itself in DIR/lib.
+
+* Compilation of UNIX98 iconv interface is controlled by
+  `--with-libiconv=[DIR]`, `--without-libiconv`
+  configure parameters.  It is compiled in by default when found
+  and considered usable.  Optionally, you can specify a DIR; libiconv
+  include files will be then searched in DIR/include and the library
+  itself in DIR/lib.
+
+* Compilation of interface to external converter programs is controlled by
+  `--enable-external`, `--disable-external`
+  configure parameters.  By default is is compiled in.
+
+Don't even try to compile Enca on system not supporting following ISO C and
+POSIX features:
+* Function prototypes.
+* Basic ISO C headers and functions declared there:
+  - assert.h, ctype.h, math.h, stdarg.h, stdio.h, stdlib.h
+  - any (working) one of string.h, strings.h, memory.h
+  - unistd.h, sys/stat.h, sys/types.h
 
 For the impatient: Run
 
