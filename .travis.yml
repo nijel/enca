@@ -26,3 +26,7 @@ addons:
   apt:
     packages:
     - librecode-dev
+matrix:
+  exclude:
+    - os: osx
+      compiler: gcc
