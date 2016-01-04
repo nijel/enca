@@ -16,9 +16,11 @@ TAGS
 *.bak
 *.log
 *.trs
+*.o
 *.gcov
 *.gcno
 *.gcda
+.libs/
 enca-*.tar.bz2
 enca-*.tar.gz
 enca-*.tar.xz
