@@ -12,6 +12,7 @@ bg-s.ibm855: IBM855
 bg-s.iso88595: ISO-8859-5
 bg-s.maccyr: maccyr
 bg-s.utf8: UTF-8/CRLF
+cs-s.ambi: CP1250
 cs-s.cork: CORK/LF
 cs-s.cp1250: CP1250
 cs-s.ibm852: IBM852
