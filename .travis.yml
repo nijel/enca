@@ -26,6 +26,3 @@ addons:
   apt:
     packages:
     - librecode-dev
-matrix:
-  allow_failures:
-    - os: osx
