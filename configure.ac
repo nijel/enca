@@ -139,7 +139,6 @@ ye_CHECK_VAR_PROGRAM_INVOCATION_SHORT_NAME
 dnl Checks for library functions.
 AC_FUNC_FORK
 AC_CHECK_FUNCS( \
-  canonicalize_file_name \
   ftruncate \
   gettimeofday \
   isatty \

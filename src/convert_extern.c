@@ -29,6 +29,8 @@ pid_t waitpid(pid_t pid, int *status, int options);
 #include <sys/types.h>
 #include <sys/stat.h>
 
+#include <unistd.h>
+
 #ifdef HAVE_LIMITS_H
 #  include <limits.h>
 #endif /* HAVE_LIMITS_H */
@@ -42,19 +44,8 @@ pid_t waitpid(pid_t pid, int *status, int options);
 #  define vfork fork
 #endif /* HAVE_WORKING_VFORK */
 
-#ifndef HAVE_CANONICALIZE_FILE_NAME
-#  ifdef HAVE_REALPATH
-static char* canonicalize_file_name(const char *fname);
-#  else /* HAVE_REALPATH */
-#    define canonicalize_file_name enca_strdup
-#  endif /* HAVE_REALPATH */
-#endif /* HAVE_CANONICALIZE_FILE_NAME */
-
 /* external converter command */
 static char *extern_converter = NULL;
-
-/* Local prototypes. */
-static int check_executability_one(const char *progpath);
 
 /* fork and the child executes Settings.Converter on fname
    create temporary file containing stdin when fname == NULL and convert it
@@ -207,7 +198,7 @@ check_external_converter(void)
    * execlp(), so what.  This is just a simple sanity check, nothing strict.
    */
   if (*extern_converter == '\0'
-      || !check_executability_one(extern_converter)) {
+      || access(extern_converter, X_OK) != 0) {
     fprintf(stderr, "%s: Converter `%s' doesn't seem to be executable.\n"
                     "Note as of enca-1.3 external converters must be\n"
                     "(a) one of the standard ones residing in %s\n"
@@ -220,62 +211,6 @@ check_external_converter(void)
 
   return 1;
 }
-
-/**
- * Checks whether @progpath is and executable we can execute it.
- * Tries to resolve relative paths and symlinks.
- **/
-static int
-check_executability_one(const char *progpath)
-{
-  static uid_t uid;
-  static gid_t gid;
-  static int check_executability_one_initialized = 0;
-
-  struct stat st;
-  char *fname = canonicalize_file_name(progpath);
-
-  /* Is it a regular file at all? */
-  if (stat(fname, &st) != 0
-      || (st.st_mode & S_IFREG) == 0) {
-    enca_free(fname);
-    return 0;
-  }
-
-  /* Check executability by anyone, user, group. */
-  enca_free(fname);
-  if (st.st_mode & S_IXOTH)
-    return 1;
-
-  if (!check_executability_one_initialized) {
-    uid = getuid();
-    gid = getgid();
-    check_executability_one_initialized = 1;
-  }
-
-  if ((st.st_mode & S_IXUSR) && st.st_uid == gid)
-    return 1;
-
-  if ((st.st_mode & S_IXGRP) && st.st_uid == uid)
-    return 1;
-
-  return 0;
-}
-
-#ifndef HAVE_CANONICALIZE_FILE_NAME
-#  ifdef HAVE_REALPATH
-#  ifndef FILENAME_MAX
-#    define FILENAME_MAX 4096
-#  endif /* FILENAME_MAX */
-static char*
-canonicalize_file_name(const char *fname)
-{
-  char *resolved = enca_malloc(FILENAME_MAX + 1);
-
-  return realpath(fname, resolved);
-}
-#  endif /* HAVE_REALPATH */
-#endif /* not HAVE_CANONICALIZE_FILE_NAME */
 
 #endif /* ENABLE_EXTERNAL */
 /* vim: ts=2
