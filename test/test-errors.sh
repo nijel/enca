@@ -21,4 +21,6 @@ chmod 000 zombie
 $ENCA -L none zombie 2>/dev/null && DIE=1
 chmod 700 zombie
 rm -f zombie 2>/dev/null
+# Test no converter
+$ENCA -C none -L cs -x utf-8 <$TEST_TEXT && DIE=1
 . $srcdir/finish.sh
