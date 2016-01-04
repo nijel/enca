@@ -8,6 +8,8 @@ if $ENCA --list converters | grep '^librecode$' >/dev/null; then
   # File
   cp $TEST_TEXT $TESTNAME.actual
   $ENCA $OPTS -x UTF-8 $TESTNAME.actual || DIE=1
+  # Convert more files to hit recode request cache
+  $ENCA $OPTS -x UTF-8 $TESTNAME.actual $TESTNAME.actual $TESTNAME.actual $TESTNAME.actual || DIE=1
   $ENCA -L none $TESTNAME.actual | grep UTF-8 >/dev/null || DIE=1
   $ENCA $OPTS -x ISO-8859-2 $TESTNAME.actual || DIE=1
   diff $TEST_TEXT $TESTNAME.actual || DIE=1
