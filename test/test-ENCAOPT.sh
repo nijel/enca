@@ -10,5 +10,9 @@ for l in $ALL_TEST_LANGUAGES; do
   export ENCAOPT
   $ENCA $srcdir/$l-s.* | sed -e "s#^$srcdir/##" >>$TESTNAME.actual || DIE=1
 done
+# Test invalid option string
+ENCAOPT=";"
+export ENCAOPT
+$ENCA $srcdir/cs-s.utf8 || DIE=1
 . $srcdir/finish.sh
 rm -f $TESTNAME.expected 2>/dev/null
