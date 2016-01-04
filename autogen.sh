@@ -35,7 +35,7 @@ ACLOCAL_FLAGS="-I m4"
   echo "**ERROR**: You must have \`automake' installed to re-generate"
   echo "all the $PROJECT Makefiles."
   echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
-  echo "(or a newer version if it is available) and read README.devel."
+  echo "(or a newer version if it is available) and read DEVELOP.md."
   DIE=1
   NO_AUTOMAKE=yes
 }
@@ -122,7 +122,7 @@ if test -z "$NO_AUTOMAKE"; then
     echo "**ERROR**: You need at least automake-1.8 installed to re-generate"
     echo "all the $PROJECT Makefiles."
     echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
-    echo "(or a newer version if it is available) and read README.devel."
+    echo "(or a newer version if it is available) and read DEVELOP.md."
     DIE=1
   else
     echo "Automake $AM_VERSION: OK"
@@ -135,7 +135,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
   echo "**ERROR**: Missing \`aclocal'.  The version of \`automake'"
   echo "installed doesn't appear recent enough."
   echo "Get ftp://ftp.gnu.org/pub/gnu/automake-1.8.3.tar.gz"
-  echo "(or a newer version if it is available) and read README.devel."
+  echo "(or a newer version if it is available) and read DEVELOP.md."
   DIE=1
 }
 
@@ -146,7 +146,7 @@ if test -z "$NO_LIBTOOL"; then
     echo "**ERROR**: You need at least libtool-1.4 installed to re-generate"
     echo "all the $PROJECT Makefiles."
     echo "Get ftp://ftp.gnu.org/pub/gnu/libtool-1.4.tar.gz"
-    echo "(or a newer version if it is available) and read README.devel."
+    echo "(or a newer version if it is available) and read DEVELOP.md."
     DIE=1
   else
     echo "Libtool $LT_VERSION: OK"
@@ -171,7 +171,7 @@ echo processing $dir
   automake --add-missing $am_opt && \
   autoconf) || {
     echo "**ERROR**: Re-generating failed.  You are allowed to shoot $PROJECT maintainer."
-    echo "(BTW, why are you re-generating everything? Have you read README.devel?)"
+    echo "(BTW, why are you re-generating everything? Have you read DEVELOP.md?)"
     exit 1
   }
 

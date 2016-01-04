@@ -24,7 +24,7 @@ M4TESTS = \
 
 EXTRA_DIST = \
   FAQ \
-  README.devel \
+  DEVELOP.md \
   README.md \
   TODO \
   ChangeLog.prelib \

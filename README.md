@@ -65,7 +65,7 @@ Please see TODO for list of things that should be fixed and features to
 be implemented and their priority and also for list of things that
 definitely shouldn't be implemented.
 
-The file README.devel describes what needs to be done to add a new
+The file DEVELOP.md describes what needs to be done to add a new
 encoding or language to Enca.
 
 The directory devel-docs/html contains Enca library API documentation in

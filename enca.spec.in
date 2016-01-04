@@ -117,7 +117,7 @@ library.
 %endif
 
 # README and HTML docs
-%doc README.devel
+%doc DEVELOP.md
 %if %{with htmldocs}
 %doc gtk-doc/html
 %endif
