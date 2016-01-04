@@ -8,6 +8,7 @@ if $ENCA --list converters | grep '^extern$' >/dev/null; then
   cat $TEST_TEXT >$TESTNAME.tmp
   OPTS="-L cs -x 1250"
   $ENCA -E $srcdir/dummy-converter.sh $OPTS -C extern $TESTNAME.tmp >>$TESTNAME.actual || DIE=1
+  $ENCA -E $srcdir/dummy-converter.sh $OPTS -C extern <$TESTNAME.tmp >>$TESTNAME.actual > /dev/null || DIE=1
   $ENCA -E tolstoj-mumble-mumble $OPTS -C built-in <$TEST_TEXT >/dev/null || DIE=1
   $ENCA -E tolstoj-mumble-mumble $OPTS -C extern <$TEST_TEXT >/dev/null 2>/dev/null && DIE=1
   $ENCA -E '' $OPTS -C extern <$TEST_TEXT >/dev/null 2>/dev/null && DIE=1
