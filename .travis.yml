@@ -14,12 +14,7 @@ script:
 after_failure:
   - cat test/test-suite.log
 after_script:
-  - find . -type d -name .libs | while read d ; do ln -s $d/../*.c $d/ ; done
-  - find . -name '*.gcno'
-  - find . -name '*.gcda'
-  - if [ $CC = gcc ] ; then codecov ; else codecov --gcov-exec llvm-cov ; fi
-  - if [ $CC = clang ] ; then llvm-cov --help ; fi
-  - if [ $CC = clang ] ; then find `pwd` -type f -name '*.gcno'  -exec llvm-cov gcov -p -b  '{}' + ; fi
+  - codecov
   - coveralls
 addons:
   coverity_scan:
