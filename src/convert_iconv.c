@@ -140,7 +140,7 @@ iconv_one_step(File *file_from,
     if (n == (size_t)-1) {
       /* EINVAL means some multibyte sequence has been splitted---that's ok,
          move it to the begining and go on */
-      if (errno == EINVAL) {
+      if (errno == EINVAL && !hit_eof) {
         memmove(file_from->buffer->data, p_from, size_from);
         file_from->buffer->pos = size_from;
       }
