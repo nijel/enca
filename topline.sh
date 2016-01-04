@@ -10,7 +10,6 @@ if test -z "$ver"; then
 fi
 date=$(date +"%Y-%m-%d")
 # update
-shopt -s nullglob
 if test -z "$@"; then
   files=$(grep -l '^#=====' * 2>/dev/null)
 else
