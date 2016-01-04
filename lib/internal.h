@@ -30,11 +30,6 @@
 #  include <stdio.h>
 #endif /* DEBUG */
 
-/* Simple macro statement wrappers. Use do / while (0) since the other cases
- * tend to produce an incredible amount of gcc warnings with -pedantic. */
-#define ENCA_STMT_START do
-#define ENCA_STMT_END while (0)
-
 /* Flags for character type table.
  * 0-10 are standard ones, 11-13 Enca-specific. */
 enum {
@@ -375,7 +370,7 @@ void*  enca_realloc (void *ptr,
  * @ptr MUST be l-value.
  **/
 #define enca_free(ptr) \
-  ENCA_STMT_START{ if (ptr) free(ptr); ptr=NULL; }ENCA_STMT_END
+  { if (ptr) free(ptr); ptr=NULL; }
 
 /**
  * NEW:
