@@ -3,13 +3,13 @@
                "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <refentry id="libenca-Auxiliary-Functions">
 <refmeta>
-<refentrytitle role="top_of_page" id="libenca-Auxiliary-Functions.top_of_page">Auxiliary Functions</refentrytitle>
+<refentrytitle role="top_of_page" id="libenca-Auxiliary-Functions.top_of_page">Auxiliary functions</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>LIBENCA Library</refmiscinfo>
 </refmeta>
 <refnamediv>
-<refname>Auxiliary Functions</refname>
-<refpurpose></refpurpose>
+<refname>Auxiliary functions</refname>
+<refpurpose>Variouis auxiliary functions and informations about libenca.</refpurpose>
 </refnamediv>
 
 

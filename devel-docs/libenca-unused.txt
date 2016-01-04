@@ -1,0 +1,19 @@
+ENCA_STMT_END
+ENCA_STMT_START
+EncaAnalyser
+enca_ctype_test
+enca_isalnum
+enca_isalpha
+enca_isbinary
+enca_iscntrl
+enca_isdigit
+enca_isgraph
+enca_islower
+enca_isname
+enca_isprint
+enca_ispunct
+enca_isspace
+enca_istext
+enca_isupper
+enca_isxdigit
+EncaEncoding(surface, charset)

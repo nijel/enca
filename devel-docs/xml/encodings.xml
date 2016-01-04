@@ -9,7 +9,7 @@
 </refmeta>
 <refnamediv>
 <refname>Charsets and Surfaces</refname>
-<refpurpose></refpurpose>
+<refpurpose>Functions and macros for getting something sensible from <link linkend="EncaEncoding"><type>EncaEncoding</type></link>.</refpurpose>
 </refnamediv>
 
 

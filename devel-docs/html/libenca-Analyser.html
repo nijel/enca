@@ -27,13 +27,78 @@
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
 <h2><span class="refentrytitle"><a name="libenca-Analyser.top_of_page"></a>Analyser</span></h2>
-<p>Analyser</p>
+<p>Analyser — Basic analyser interface.</p>
 </td>
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
 <a name="libenca-Analyser.description"></a><h2>Description</h2>
 <p>
+Basically you want to allocate an analyser with <code class="function">enca_analyser_alloc()</code> for some
+language, use <code class="function">enca_analyse()</code> (or <code class="function">enca_analyse_const()</code>) on a buffer to find its
+encoding, and interpret the results with something like <code class="function">enca_charset_name()</code>.
+The analyser then can be used for another buffer. Once you no longer need
+it, call <code class="function">enca_analyser_free()</code> to release it.
+</p>
+<p>
+A single working example is better than a hundred pages of reference manual.
+</p>
+<div class="example">
+<a name="id-1.2.2.3.4"></a><p class="title"><b>Example 1. A minimal Enca library application – Czech encoding
+detector.</b></p>
+<div class="example-contents">
+  <table class="listing_frame" border="0" cellpadding="0" cellspacing="0">
+    <tbody>
+      <tr>
+        <td class="listing_lines" align="right"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17</pre></td>
+        <td class="listing_code"><pre class="programlisting"><span class="gtkdoc ppc">#include &lt;stdio.h&gt;</span>
+<span class="gtkdoc ppc">#include &lt;enca.h&gt;</span>
+<span class="gtkdoc kwb">int</span>
+<span class="function">main</span><span class="gtkdoc opt">(</span><span class="gtkdoc kwb">void</span><span class="gtkdoc opt">)</span>
+<span class="gtkdoc opt">{</span>
+  EncaAnalyser analyser<span class="gtkdoc opt">;</span>
+  EncaEncoding encoding<span class="gtkdoc opt">;</span>
+  <span class="gtkdoc kwb">unsigned char</span> buffer<span class="gtkdoc opt">[</span><span class="number">4096</span><span class="gtkdoc opt">];</span>
+  <span class="gtkdoc kwb">size_t</span> buflen<span class="gtkdoc opt">;</span>
+  buflen <span class="gtkdoc opt">=</span> <span class="function">fread</span><span class="gtkdoc opt">(</span>buffer<span class="gtkdoc opt">,</span> <span class="number">1</span><span class="gtkdoc opt">,</span> <span class="number">4096</span><span class="gtkdoc opt">,</span> stdin<span class="gtkdoc opt">);</span>
+  analyser <span class="gtkdoc opt">=</span> <span class="function">enca_analyser_alloc</span><span class="gtkdoc opt">(</span><span class="string">&quot;cs&quot;</span><span class="gtkdoc opt">);</span>
+  encoding <span class="gtkdoc opt">=</span> <span class="function">enca_analyse</span><span class="gtkdoc opt">(</span>analyser<span class="gtkdoc opt">,</span> buffer<span class="gtkdoc opt">,</span> buflen<span class="gtkdoc opt">);</span>
+  <span class="function">printf</span><span class="gtkdoc opt">(</span><span class="string">&quot;Charset: %%s</span><span class="gtkdoc esc">\n</span><span class="string">&quot;</span><span class="gtkdoc opt">,</span> <span class="function">enca_charset_name</span><span class="gtkdoc opt">(</span>encoding<span class="gtkdoc opt">.</span>charset<span class="gtkdoc opt">,</span>
+                                             ENCA_NAME_STYLE_HUMAN<span class="gtkdoc opt">));</span>
+  <span class="function">enca_analyser_free</span><span class="gtkdoc opt">(</span>analyser<span class="gtkdoc opt">);</span>
+  <span class="keyword">return</span> <span class="number">0</span><span class="gtkdoc opt">;</span>
+<span class="gtkdoc opt">}</span></pre></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div>
+<br class="example-break"><p>
+The analyser has plenty of options, but generally you don't need to fiddle
+with them, except <code class="function">enca_set_termination_strictness()</code>.
+</p>
+<p>
+All names prefixed with <code class="function">ENCA_</code>,
+<code class="function">Enca</code>, <code class="function">_Enca</code>,
+or <code class="function">enca_</code> should be treated as reserved and not used for
+application function/variable/type/macro names.
 </p>
 </div>
 <div class="refsect1">

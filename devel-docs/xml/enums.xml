@@ -9,7 +9,7 @@
 </refmeta>
 <refnamediv>
 <refname>Typedefs and Constants</refname>
-<refpurpose></refpurpose>
+<refpurpose>Enca library typedefs, enums and constants.</refpurpose>
 </refnamediv>
 
 <refsect1 id="libenca-Typedefs-and-Constants.functions" role="functions_proto">

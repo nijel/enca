@@ -3,13 +3,15 @@
                "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <refentry id="libenca-Internal-Functions">
 <refmeta>
-<refentrytitle role="top_of_page" id="libenca-Internal-Functions.top_of_page">Internal Functions</refentrytitle>
+<refentrytitle role="top_of_page" id="libenca-Internal-Functions.top_of_page">internal</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>LIBENCA Library</refmiscinfo>
 </refmeta>
 <refnamediv>
-<refname>Internal Functions</refname>
-<refpurpose></refpurpose>
+<refname>internal</refname>
+<refpurpose><para>
+internal functions
+</para></refpurpose>
 </refnamediv>
 
 <refsect1 id="libenca-Internal-Functions.functions" role="functions_proto">
@@ -126,6 +128,7 @@
 <refsect1 id="libenca-Internal-Functions.description" role="desc">
 <title role="desc.title">Description</title>
 <para>
+Do not use outside Enca library.
 </para>
 
 </refsect1>

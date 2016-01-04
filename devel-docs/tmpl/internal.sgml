@@ -1,20 +1,21 @@
 <!-- ##### SECTION Title ##### -->
-Internal Functions
+internal
 
 <!-- ##### SECTION Short_Description ##### -->
 
+<para>
+internal functions
+</para>
 
 <!-- ##### SECTION Long_Description ##### -->
 <para>
-
+Do not use outside Enca library.
 </para>
-
 
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
-
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -147,6 +148,7 @@ Internal Functions
 </para>
 
 @array: 
+@Returns: 
 
 
 <!-- ##### MACRO MAKE_HOOK_LINE ##### -->
@@ -219,6 +221,7 @@ Internal Functions
 
 @type: 
 @n: 
+@Returns: 
 
 
 <!-- ##### MACRO RENEW ##### -->
@@ -229,6 +232,7 @@ Internal Functions
 @ptr: 
 @type: 
 @n: 
+@Returns: 
 
 
 <!-- ##### FUNCTION enca_strdup ##### -->
