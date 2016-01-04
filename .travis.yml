@@ -14,7 +14,7 @@ after_failure:
   - cat test/test-suite.log
 after_script:
   - find . -type d -name .libs | while read d ; do ln -s $d/../*.c $d/ ; done
-  - if [ $COMPILER = gcc ] ; then codecov ; else codecov --gcov-exec llvm-cov gcov ; fi
+  - if [ $COMPILER = gcc ] ; then codecov ; else codecov --gcov-exec "llvm-cov gcov" ; fi
 addons:
   coverity_scan:
     project:
