@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<book xmlns="http://www.devhelp.net/book" title="Enca Library Reference Manual" link="index.html" author="" name="libenca" version="2" language="c">
+  <chapters>
+    <sub name="Enca Library API" link="ch01.html">
+      <sub name="Analyser" link="libenca-Analyser.html"/>
+      <sub name="Typedefs and Constants" link="libenca-Typedefs-and-Constants.html"/>
+      <sub name="Charsets and Surfaces" link="libenca-Charsets-and-Surfaces.html"/>
+      <sub name="Auxiliary Functions" link="libenca-Auxiliary-Functions.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <keyword type="macro" name="ENCA_CS_UNKNOWN" link="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS"/>
+    <keyword type="struct" name="EncaEncoding" link="libenca-Typedefs-and-Constants.html#EncaEncoding"/>
+    <keyword type="enum" name="enum EncaSurface" link="libenca-Typedefs-and-Constants.html#EncaSurface"/>
+    <keyword type="enum" name="enum EncaCharsetFlags" link="libenca-Typedefs-and-Constants.html#EncaCharsetFlags"/>
+    <keyword type="enum" name="enum EncaNameStyle" link="libenca-Typedefs-and-Constants.html#EncaNameStyle"/>
+    <keyword type="enum" name="enum EncaErrno" link="libenca-Typedefs-and-Constants.html#EncaErrno"/>
+    <keyword type="macro" name="ENCA_NOT_A_CHAR" link="libenca-Typedefs-and-Constants.html#ENCA-NOT-A-CHAR:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_EOL_CR" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-EOL-CR:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_EOL_LF" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-EOL-LF:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_EOL_CRLF" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-EOL-CRLF:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_EOL_MIX" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-EOL-MIX:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_EOL_BIN" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-EOL-BIN:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_MASK_EOL" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-MASK-EOL:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_PERM_21" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-PERM-21:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_PERM_4321" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-PERM-4321:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_PERM_MIX" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-PERM-MIX:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_MASK_PERM" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-MASK-PERM:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_QP" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-QP:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_REMOVE" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-REMOVE:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_UNKNOWN" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="ENCA_SURFACE_MASK_ALL" link="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-MASK-ALL:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_7BIT" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-7BIT:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_8BIT" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-8BIT:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_16BIT" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-16BIT:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_32BIT" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-32BIT:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_FIXED" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-FIXED:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_VARIABLE" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-VARIABLE:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_BINARY" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-BINARY:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_REGULAR" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-REGULAR:CAPS"/>
+    <keyword type="constant" name="ENCA_CHARSET_MULTIBYTE" link="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-MULTIBYTE:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_ENCA" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-ENCA:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_RFC1345" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-RFC1345:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_CSTOCS" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-CSTOCS:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_ICONV" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-ICONV:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_HUMAN" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-HUMAN:CAPS"/>
+    <keyword type="constant" name="ENCA_NAME_STYLE_MIME" link="libenca-Typedefs-and-Constants.html#ENCA-NAME-STYLE-MIME:CAPS"/>
+    <keyword type="constant" name="ENCA_EOK" link="libenca-Typedefs-and-Constants.html#ENCA-EOK:CAPS"/>
+    <keyword type="constant" name="ENCA_EINVALUE" link="libenca-Typedefs-and-Constants.html#ENCA-EINVALUE:CAPS"/>
+    <keyword type="constant" name="ENCA_EEMPTY" link="libenca-Typedefs-and-Constants.html#ENCA-EEMPTY:CAPS"/>
+    <keyword type="constant" name="ENCA_EFILTERED" link="libenca-Typedefs-and-Constants.html#ENCA-EFILTERED:CAPS"/>
+    <keyword type="constant" name="ENCA_ENOCS8" link="libenca-Typedefs-and-Constants.html#ENCA-ENOCS8:CAPS"/>
+    <keyword type="constant" name="ENCA_ESIGNIF" link="libenca-Typedefs-and-Constants.html#ENCA-ESIGNIF:CAPS"/>
+    <keyword type="constant" name="ENCA_EWINNER" link="libenca-Typedefs-and-Constants.html#ENCA-EWINNER:CAPS"/>
+    <keyword type="constant" name="ENCA_EGARBAGE" link="libenca-Typedefs-and-Constants.html#ENCA-EGARBAGE:CAPS"/>
+  </functions>
+</book>

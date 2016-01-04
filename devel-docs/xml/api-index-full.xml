@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<indexdiv id="api-index-full">
+<indexdiv><title>A</title>
+<indexentry><primaryie linkends="EncaAnalyserOptions"><link linkend="EncaAnalyserOptions">EncaAnalyserOptions</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaAnalyserState"><link linkend="EncaAnalyserState">EncaAnalyserState</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>C</title>
+<indexentry><primaryie linkends="EncaCharsetFlags"><link linkend="EncaCharsetFlags">EncaCharsetFlags</link>, enum in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaCharsetInfo"><link linkend="EncaCharsetInfo">EncaCharsetInfo</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-charsets-subset-identical"><link linkend="enca-charsets-subset-identical">enca_charsets_subset_identical</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="CR:CAPS"><link linkend="CR:CAPS">CR</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-csname"><link linkend="enca-csname">enca_csname</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-CS-UNKNOWN:CAPS"><link linkend="ENCA-CS-UNKNOWN:CAPS">ENCA_CS_UNKNOWN</link>, macro in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>D</title>
+<indexentry><primaryie linkends="enca-double-utf8-destroy"><link linkend="enca-double-utf8-destroy">enca_double_utf8_destroy</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-double-utf8-init"><link linkend="enca-double-utf8-init">enca_double_utf8_init</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>E</title>
+<indexentry><primaryie linkends="ELEMENTS:CAPS"><link linkend="ELEMENTS:CAPS">ELEMENTS</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaEncoding"><link linkend="EncaEncoding">EncaEncoding</link>, struct in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-eol-surface"><link linkend="enca-eol-surface">enca_eol_surface</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EPSILON:CAPS"><link linkend="EPSILON:CAPS">EPSILON</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaErrno"><link linkend="EncaErrno">EncaErrno</link>, enum in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>F</title>
+<indexentry><primaryie linkends="FILL-NONLETTER:CAPS"><link linkend="FILL-NONLETTER:CAPS">FILL_NONLETTER</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-filter-boxdraw"><link linkend="enca-filter-boxdraw">enca_filter_boxdraw</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-find-max-sec"><link linkend="enca-find-max-sec">enca_find_max_sec</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-free"><link linkend="enca-free">enca_free</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>G</title>
+<indexentry><primaryie linkends="enca-get-charset-similarity-matrix"><link linkend="enca-get-charset-similarity-matrix">enca_get_charset_similarity_matrix</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaGuessFunc"><link linkend="EncaGuessFunc">EncaGuessFunc</link>, user_function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-guess-destroy"><link linkend="enca-guess-destroy">enca_guess_destroy</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-guess-init"><link linkend="enca-guess-init">enca_guess_init</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>H</title>
+<indexentry><primaryie linkends="EncaHookFunc"><link linkend="EncaHookFunc">EncaHookFunc</link>, user_function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>L</title>
+<indexentry><primaryie linkends="EncaLanguageHookData1CS"><link linkend="EncaLanguageHookData1CS">EncaLanguageHookData1CS</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaLanguageHookDataEOL"><link linkend="EncaLanguageHookDataEOL">EncaLanguageHookDataEOL</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaLanguageInfo"><link linkend="EncaLanguageInfo">EncaLanguageInfo</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-BE:CAPS"><link linkend="ENCA-LANGUAGE-BE:CAPS">ENCA_LANGUAGE_BE</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-BG:CAPS"><link linkend="ENCA-LANGUAGE-BG:CAPS">ENCA_LANGUAGE_BG</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-CS:CAPS"><link linkend="ENCA-LANGUAGE-CS:CAPS">ENCA_LANGUAGE_CS</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-language-destroy"><link linkend="enca-language-destroy">enca_language_destroy</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-ET:CAPS"><link linkend="ENCA-LANGUAGE-ET:CAPS">ENCA_LANGUAGE_ET</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-language-hook-eol"><link linkend="enca-language-hook-eol">enca_language_hook_eol</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-language-hook-ncs"><link linkend="enca-language-hook-ncs">enca_language_hook_ncs</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-HR:CAPS"><link linkend="ENCA-LANGUAGE-HR:CAPS">ENCA_LANGUAGE_HR</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-HU:CAPS"><link linkend="ENCA-LANGUAGE-HU:CAPS">ENCA_LANGUAGE_HU</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-language-init"><link linkend="enca-language-init">enca_language_init</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-LT:CAPS"><link linkend="ENCA-LANGUAGE-LT:CAPS">ENCA_LANGUAGE_LT</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-LV:CAPS"><link linkend="ENCA-LANGUAGE-LV:CAPS">ENCA_LANGUAGE_LV</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-PL:CAPS"><link linkend="ENCA-LANGUAGE-PL:CAPS">ENCA_LANGUAGE_PL</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-RU:CAPS"><link linkend="ENCA-LANGUAGE-RU:CAPS">ENCA_LANGUAGE_RU</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-SK:CAPS"><link linkend="ENCA-LANGUAGE-SK:CAPS">ENCA_LANGUAGE_SK</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-SL:CAPS"><link linkend="ENCA-LANGUAGE-SL:CAPS">ENCA_LANGUAGE_SL</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-UK:CAPS"><link linkend="ENCA-LANGUAGE-UK:CAPS">ENCA_LANGUAGE_UK</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-LANGUAGE-ZH:CAPS"><link linkend="ENCA-LANGUAGE-ZH:CAPS">ENCA_LANGUAGE_ZH</link>, variable in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="LF:CAPS"><link linkend="LF:CAPS">LF</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>M</title>
+<indexentry><primaryie linkends="MAKE-HOOK-LINE:CAPS"><link linkend="MAKE-HOOK-LINE:CAPS">MAKE_HOOK_LINE</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-malloc"><link linkend="enca-malloc">enca_malloc</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>N</title>
+<indexentry><primaryie linkends="EncaNameStyle"><link linkend="EncaNameStyle">EncaNameStyle</link>, enum in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-name-to-charset"><link linkend="enca-name-to-charset">enca_name_to_charset</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-name-to-surface"><link linkend="enca-name-to-surface">enca_name_to_surface</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="NEW:CAPS"><link linkend="NEW:CAPS">NEW</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="ENCA-NOT-A-CHAR:CAPS"><link linkend="ENCA-NOT-A-CHAR:CAPS">ENCA_NOT_A_CHAR</link>, macro in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>P</title>
+<indexentry><primaryie linkends="enca-pair-analyse"><link linkend="enca-pair-analyse">enca_pair_analyse</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-pair-destroy"><link linkend="enca-pair-destroy">enca_pair_destroy</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-pair-init"><link linkend="enca-pair-init">enca_pair_init</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>R</title>
+<indexentry><primaryie linkends="enca-realloc"><link linkend="enca-realloc">enca_realloc</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="RENEW:CAPS"><link linkend="RENEW:CAPS">RENEW</link>, macro in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="enca-stpcpy"><link linkend="enca-stpcpy">enca_stpcpy</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-strappend"><link linkend="enca-strappend">enca_strappend</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-strconcat"><link linkend="enca-strconcat">enca_strconcat</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-strdup"><link linkend="enca-strdup">enca_strdup</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="enca-strstr"><link linkend="enca-strstr">enca_strstr</link>, function in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+<indexentry><primaryie linkends="EncaSurface"><link linkend="EncaSurface">EncaSurface</link>, enum in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
+</indexdiv>
+<indexdiv><title>U</title>
+<indexentry><primaryie linkends="EncaUTFCheckData"><link linkend="EncaUTFCheckData">EncaUTFCheckData</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

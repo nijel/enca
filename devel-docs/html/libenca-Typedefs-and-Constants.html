@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Typedefs and Constants: Enca Library Reference Manual</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Enca Library Reference Manual">
+<link rel="up" href="ch01.html" title="Enca Library API">
+<link rel="prev" href="libenca-Analyser.html" title="Analyser">
+<link rel="next" href="libenca-Charsets-and-Surfaces.html" title="Charsets and Surfaces">
+<meta name="generator" content="GTK-Doc V1.24 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="5"><tr valign="middle">
+<td width="100%" align="left" class="shortcuts">
+<a href="#" class="shortcut">Top</a><span id="nav_description">  <span class="dim">|</span> 
+                  <a href="#libenca-Typedefs-and-Constants.description" class="shortcut">Description</a></span>
+</td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="16" height="16" border="0" alt="Home"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="16" height="16" border="0" alt="Up"></a></td>
+<td><a accesskey="p" href="libenca-Analyser.html"><img src="left.png" width="16" height="16" border="0" alt="Prev"></a></td>
+<td><a accesskey="n" href="libenca-Charsets-and-Surfaces.html"><img src="right.png" width="16" height="16" border="0" alt="Next"></a></td>
+</tr></table>
+<div class="refentry">
+<a name="libenca-Typedefs-and-Constants"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libenca-Typedefs-and-Constants.top_of_page"></a>Typedefs and Constants</span></h2>
+<p>Typedefs and Constants</p>
+</td>
+<td class="gallery_image" valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="libenca-Typedefs-and-Constants.functions"></a><h2>Functions</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="functions_return">
+<col class="functions_name">
+</colgroup>
+<tbody><tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS" title="ENCA_CS_UNKNOWN">ENCA_CS_UNKNOWN</a></td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libenca-Typedefs-and-Constants.other"></a><h2>Types and Values</h2>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="name">
+<col class="description">
+</colgroup>
+<tbody>
+<tr>
+<td class="datatype_keyword"> </td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaEncoding" title="EncaEncoding">EncaEncoding</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaSurface" title="enum EncaSurface">EncaSurface</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaCharsetFlags" title="enum EncaCharsetFlags">EncaCharsetFlags</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaNameStyle" title="enum EncaNameStyle">EncaNameStyle</a></td>
+</tr>
+<tr>
+<td class="datatype_keyword">enum</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaErrno" title="enum EncaErrno">EncaErrno</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-NOT-A-CHAR:CAPS" title="ENCA_NOT_A_CHAR">ENCA_NOT_A_CHAR</a></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="refsect1">
+<a name="libenca-Typedefs-and-Constants.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="libenca-Typedefs-and-Constants.functions_details"></a><h2>Functions</h2>
+<div class="refsect2">
+<a name="ENCA-CS-UNKNOWN:CAPS"></a><h3>ENCA_CS_UNKNOWN</h3>
+<pre class="programlisting">#define ENCA_CS_UNKNOWN (-1)
+</pre>
+<p>Unknown character set id.</p>
+<p>Use <code class="function">enca_charset_is_known()</code> to check for unknown charset instead of direct
+comparsion.</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="libenca-Typedefs-and-Constants.other_details"></a><h2>Types and Values</h2>
+<div class="refsect2">
+<a name="EncaEncoding"></a><h3>EncaEncoding</h3>
+<pre class="programlisting">typedef struct _EncaEncoding EncaEncoding;</pre>
+<p>Encoding, i.e. charset and surface.</p>
+<p>This is what <code class="function">enca_analyse()</code> and <code class="function">enca_analyse_const()</code> return.</p>
+<p>The <em class="parameter"><code>charset</code></em>
+ field is an opaque numerical charset identifier, which has no
+meaning outside Enca library.
+You will probably want to use it only as <code class="function">enca_charset_name()</code> argument.
+It is only guaranteed not to change meaning
+during program execution time; change of its interpretation (e.g. due to
+addition of new charsets) is not considered API change.</p>
+<p>The <em class="parameter"><code>surface</code></em>
+ field is a combination of <a class="link" href="libenca-Typedefs-and-Constants.html#EncaSurface" title="enum EncaSurface"><span class="type">EncaSurface</span></a> flags.  You may want
+to ignore it completely; you should use <code class="function">enca_set_interpreted_surfaces()</code>
+to disable weird surfaces then.</p>
+<div class="refsect3">
+<a name="id-1.2.3.7.2.8"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="struct_members_name">
+<col class="struct_members_description">
+<col width="200px" class="struct_members_annotations">
+</colgroup>
+<tbody></tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EncaSurface"></a><h3>enum EncaSurface</h3>
+<p>Surface flags.</p>
+<div class="refsect3">
+<a name="id-1.2.3.7.3.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-EOL-CR:CAPS"></a>ENCA_SURFACE_EOL_CR</p></td>
+<td class="enum_member_description">
+<p>End-of-lines are represented with CR's.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-EOL-LF:CAPS"></a>ENCA_SURFACE_EOL_LF</p></td>
+<td class="enum_member_description">
+<p>End-of-lines are represented with LF's.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-EOL-CRLF:CAPS"></a>ENCA_SURFACE_EOL_CRLF</p></td>
+<td class="enum_member_description">
+<p>End-of-lines are represented with CRLF's.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-EOL-MIX:CAPS"></a>ENCA_SURFACE_EOL_MIX</p></td>
+<td class="enum_member_description">
+<p>Several end-of-line types, mixed.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-EOL-BIN:CAPS"></a>ENCA_SURFACE_EOL_BIN</p></td>
+<td class="enum_member_description">
+<p>End-of-line concept not applicable (binary data).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-MASK-EOL:CAPS"></a>ENCA_SURFACE_MASK_EOL</p></td>
+<td class="enum_member_description">
+<p>Mask for end-of-line surfaces.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-PERM-21:CAPS"></a>ENCA_SURFACE_PERM_21</p></td>
+<td class="enum_member_description">
+<p>Odd and even bytes swapped.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-PERM-4321:CAPS"></a>ENCA_SURFACE_PERM_4321</p></td>
+<td class="enum_member_description">
+<p>Reversed byte sequence in 4byte words.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-PERM-MIX:CAPS"></a>ENCA_SURFACE_PERM_MIX</p></td>
+<td class="enum_member_description">
+<p>Chunks with both endianess, concatenated.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-MASK-PERM:CAPS"></a>ENCA_SURFACE_MASK_PERM</p></td>
+<td class="enum_member_description">
+<p>Mask for permutation surfaces.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-QP:CAPS"></a>ENCA_SURFACE_QP</p></td>
+<td class="enum_member_description">
+<p>Quoted printables.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-REMOVE:CAPS"></a>ENCA_SURFACE_REMOVE</p></td>
+<td class="enum_member_description">
+<p>Recode `remove' surface.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-UNKNOWN:CAPS"></a>ENCA_SURFACE_UNKNOWN</p></td>
+<td class="enum_member_description">
+<p>Unknown surface.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-SURFACE-MASK-ALL:CAPS"></a>ENCA_SURFACE_MASK_ALL</p></td>
+<td class="enum_member_description">
+<p>Mask for all bits, withnout <a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-SURFACE-UNKNOWN:CAPS"><span class="type">ENCA_SURFACE_UNKNOWN</span></a>.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EncaCharsetFlags"></a><h3>enum EncaCharsetFlags</h3>
+<p>Charset properties.</p>
+<p>Flags <a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-7BIT:CAPS"><code class="literal">ENCA_CHARSET_7BIT</code></a>, <a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-8BIT:CAPS"><code class="literal">ENCA_CHARSET_8BIT</code></a>, <a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-16BIT:CAPS"><code class="literal">ENCA_CHARSET_16BIT</code></a>,
+<a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CHARSET-32BIT:CAPS"><code class="literal">ENCA_CHARSET_32BIT</code></a> tell how many bits a `fundamental piece' consists of.
+This is different from bits per character; r.g. UTF-8 consists of 8bit
+pieces (bytes), but character can be composed from 1 to 6 of them.</p>
+<div class="refsect3">
+<a name="id-1.2.3.7.4.5"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-7BIT:CAPS"></a>ENCA_CHARSET_7BIT</p></td>
+<td class="enum_member_description">
+<p>Characters are represented with 7bit characters.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-8BIT:CAPS"></a>ENCA_CHARSET_8BIT</p></td>
+<td class="enum_member_description">
+<p>Characters are represented with bytes.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-16BIT:CAPS"></a>ENCA_CHARSET_16BIT</p></td>
+<td class="enum_member_description">
+<p>Characters are represented with 2byte words.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-32BIT:CAPS"></a>ENCA_CHARSET_32BIT</p></td>
+<td class="enum_member_description">
+<p>Characters are represented with 4byte words.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-FIXED:CAPS"></a>ENCA_CHARSET_FIXED</p></td>
+<td class="enum_member_description">
+<p>One characters consists of one fundamental piece.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-VARIABLE:CAPS"></a>ENCA_CHARSET_VARIABLE</p></td>
+<td class="enum_member_description">
+<p>One character consists of variable number of
+fundamental pieces.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-BINARY:CAPS"></a>ENCA_CHARSET_BINARY</p></td>
+<td class="enum_member_description">
+<p>Charset is binary from ASCII viewpoint.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-REGULAR:CAPS"></a>ENCA_CHARSET_REGULAR</p></td>
+<td class="enum_member_description">
+<p>Language dependent (8bit) charset.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-CHARSET-MULTIBYTE:CAPS"></a>ENCA_CHARSET_MULTIBYTE</p></td>
+<td class="enum_member_description">
+<p>Multibyte charset.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EncaNameStyle"></a><h3>enum EncaNameStyle</h3>
+<p>Charset naming styles and conventions.</p>
+<div class="refsect3">
+<a name="id-1.2.3.7.5.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-ENCA:CAPS"></a>ENCA_NAME_STYLE_ENCA</p></td>
+<td class="enum_member_description">
+<p>Default, implicit charset name in Enca.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-RFC1345:CAPS"></a>ENCA_NAME_STYLE_RFC1345</p></td>
+<td class="enum_member_description">
+<p>RFC 1345 or otherwise canonical charset name.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-CSTOCS:CAPS"></a>ENCA_NAME_STYLE_CSTOCS</p></td>
+<td class="enum_member_description">
+<p>Cstocs charset name (may not exist).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-ICONV:CAPS"></a>ENCA_NAME_STYLE_ICONV</p></td>
+<td class="enum_member_description">
+<p>Iconv charset name (may not exist).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-HUMAN:CAPS"></a>ENCA_NAME_STYLE_HUMAN</p></td>
+<td class="enum_member_description">
+<p>Human comprehensible description.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-NAME-STYLE-MIME:CAPS"></a>ENCA_NAME_STYLE_MIME</p></td>
+<td class="enum_member_description">
+<p>Preferred MIME name (may not exist).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EncaErrno"></a><h3>enum EncaErrno</h3>
+<p>Error codes.</p>
+<div class="refsect3">
+<a name="id-1.2.3.7.6.4"></a><h4>Members</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="300px" class="enum_members_name">
+<col class="enum_members_description">
+<col width="200px" class="enum_members_annotations">
+</colgroup>
+<tbody>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EOK:CAPS"></a>ENCA_EOK</p></td>
+<td class="enum_member_description">
+<p>OK.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EINVALUE:CAPS"></a>ENCA_EINVALUE</p></td>
+<td class="enum_member_description">
+<p>Invalid value (usually of an option).</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EEMPTY:CAPS"></a>ENCA_EEMPTY</p></td>
+<td class="enum_member_description">
+<p>Sample is empty.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EFILTERED:CAPS"></a>ENCA_EFILTERED</p></td>
+<td class="enum_member_description">
+<p>After filtering, (almost) nothing remained.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-ENOCS8:CAPS"></a>ENCA_ENOCS8</p></td>
+<td class="enum_member_description">
+<p>Mulitibyte tests failed and language contains no 8bit charsets.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-ESIGNIF:CAPS"></a>ENCA_ESIGNIF</p></td>
+<td class="enum_member_description">
+<p>Too few significant characters.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EWINNER:CAPS"></a>ENCA_EWINNER</p></td>
+<td class="enum_member_description">
+<p>No clear winner.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+<tr>
+<td class="enum_member_name"><p><a name="ENCA-EGARBAGE:CAPS"></a>ENCA_EGARBAGE</p></td>
+<td class="enum_member_description">
+<p>Sample is garbage.</p>
+</td>
+<td class="enum_member_annotations"> </td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ENCA-NOT-A-CHAR:CAPS"></a><h3>ENCA_NOT_A_CHAR</h3>
+<pre class="programlisting">#define ENCA_NOT_A_CHAR 0xffff
+</pre>
+<p>Not-a-character in unicode tables.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>Generated by GTK-Doc V1.24</div>
+</body>
+</html>

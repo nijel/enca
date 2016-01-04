@@ -1,6 +1,3 @@
-html
-tmpl
-xml
 *.stamp
 libenca-unused.txt
 libenca.args

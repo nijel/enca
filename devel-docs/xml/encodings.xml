@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libenca-Charsets-and-Surfaces">
+<refmeta>
+<refentrytitle role="top_of_page" id="libenca-Charsets-and-Surfaces.top_of_page">Charsets and Surfaces</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBENCA Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Charsets and Surfaces</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+
+
+<refsect1 id="libenca-Charsets-and-Surfaces.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+
+</refsect1>
+<refsect1 id="libenca-Charsets-and-Surfaces.functions_details" role="details">
+<title role="details.title">Functions</title>
+<para />
+</refsect1>
+<refsect1 id="libenca-Charsets-and-Surfaces.other_details" role="details">
+<title role="details.title">Types and Values</title>
+
+</refsect1>
+
+</refentry>

@@ -1,0 +1,353 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<refentry id="libenca-Typedefs-and-Constants">
+<refmeta>
+<refentrytitle role="top_of_page" id="libenca-Typedefs-and-Constants.top_of_page">Typedefs and Constants</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>LIBENCA Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Typedefs and Constants</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsect1 id="libenca-Typedefs-and-Constants.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_return" colwidth="150px"/>
+<colspec colname="functions_name"/>
+<tbody>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="ENCA-CS-UNKNOWN:CAPS">ENCA_CS_UNKNOWN</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="libenca-Typedefs-and-Constants.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="name" colwidth="150px"/>
+<colspec colname="description"/>
+<tbody>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="EncaEncoding">EncaEncoding</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaSurface">EncaSurface</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaCharsetFlags">EncaCharsetFlags</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaNameStyle">EncaNameStyle</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaErrno">EncaErrno</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="ENCA-NOT-A-CHAR:CAPS">ENCA_NOT_A_CHAR</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+
+<refsect1 id="libenca-Typedefs-and-Constants.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+
+</refsect1>
+<refsect1 id="libenca-Typedefs-and-Constants.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="ENCA-CS-UNKNOWN:CAPS" role="macro">
+<title>ENCA_CS_UNKNOWN</title>
+<indexterm zone="ENCA-CS-UNKNOWN:CAPS"><primary>ENCA_CS_UNKNOWN</primary></indexterm>
+<programlisting language="C">#define ENCA_CS_UNKNOWN (-1)
+</programlisting>
+<para>Unknown character set id.</para>
+<para>Use <link linkend="enca-charset-is-known"><function>enca_charset_is_known()</function></link> to check for unknown charset instead of direct
+comparsion.</para>
+</refsect2>
+
+</refsect1>
+<refsect1 id="libenca-Typedefs-and-Constants.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="EncaEncoding" role="struct">
+<title>EncaEncoding</title>
+<indexterm zone="EncaEncoding"><primary>EncaEncoding</primary></indexterm>
+<programlisting language="C">typedef struct _EncaEncoding EncaEncoding;</programlisting>
+<para>Encoding, i.e. charset and surface.</para>
+<para>This is what <link linkend="enca-analyse"><function>enca_analyse()</function></link> and <link linkend="enca-analyse-const"><function>enca_analyse_const()</function></link> return.</para>
+<para>The <parameter>charset</parameter>
+ field is an opaque numerical charset identifier, which has no
+meaning outside Enca library.
+You will probably want to use it only as <link linkend="enca-charset-name"><function>enca_charset_name()</function></link> argument.
+It is only guaranteed not to change meaning
+during program execution time; change of its interpretation (e.g. due to
+addition of new charsets) is not considered API change.</para>
+<para>The <parameter>surface</parameter>
+ field is a combination of <link linkend="EncaSurface"><type>EncaSurface</type></link> flags.  You may want
+to ignore it completely; you should use <link linkend="enca-set-interpreted-surfaces"><function>enca_set_interpreted_surfaces()</function></link>
+to disable weird surfaces then.</para>
+<refsect3 role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+<refsect2 id="EncaSurface" role="enum">
+<title>enum EncaSurface</title>
+<indexterm zone="EncaSurface"><primary>EncaSurface</primary></indexterm>
+<para>Surface flags.</para>
+<refsect3 role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-EOL-CR:CAPS">ENCA_SURFACE_EOL_CR</para></entry>
+<entry role="enum_member_description"><para>End-of-lines are represented with CR's.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-EOL-LF:CAPS">ENCA_SURFACE_EOL_LF</para></entry>
+<entry role="enum_member_description"><para>End-of-lines are represented with LF's.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-EOL-CRLF:CAPS">ENCA_SURFACE_EOL_CRLF</para></entry>
+<entry role="enum_member_description"><para>End-of-lines are represented with CRLF's.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-EOL-MIX:CAPS">ENCA_SURFACE_EOL_MIX</para></entry>
+<entry role="enum_member_description"><para>Several end-of-line types, mixed.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-EOL-BIN:CAPS">ENCA_SURFACE_EOL_BIN</para></entry>
+<entry role="enum_member_description"><para>End-of-line concept not applicable (binary data).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-MASK-EOL:CAPS">ENCA_SURFACE_MASK_EOL</para></entry>
+<entry role="enum_member_description"><para>Mask for end-of-line surfaces.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-PERM-21:CAPS">ENCA_SURFACE_PERM_21</para></entry>
+<entry role="enum_member_description"><para>Odd and even bytes swapped.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-PERM-4321:CAPS">ENCA_SURFACE_PERM_4321</para></entry>
+<entry role="enum_member_description"><para>Reversed byte sequence in 4byte words.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-PERM-MIX:CAPS">ENCA_SURFACE_PERM_MIX</para></entry>
+<entry role="enum_member_description"><para>Chunks with both endianess, concatenated.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-MASK-PERM:CAPS">ENCA_SURFACE_MASK_PERM</para></entry>
+<entry role="enum_member_description"><para>Mask for permutation surfaces.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-QP:CAPS">ENCA_SURFACE_QP</para></entry>
+<entry role="enum_member_description"><para>Quoted printables.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-REMOVE:CAPS">ENCA_SURFACE_REMOVE</para></entry>
+<entry role="enum_member_description"><para>Recode `remove' surface.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-UNKNOWN:CAPS">ENCA_SURFACE_UNKNOWN</para></entry>
+<entry role="enum_member_description"><para>Unknown surface.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-SURFACE-MASK-ALL:CAPS">ENCA_SURFACE_MASK_ALL</para></entry>
+<entry role="enum_member_description"><para>Mask for all bits, withnout <link linkend="ENCA-SURFACE-UNKNOWN:CAPS"><type>ENCA_SURFACE_UNKNOWN</type></link>.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="EncaCharsetFlags" role="enum">
+<title>enum EncaCharsetFlags</title>
+<indexterm zone="EncaCharsetFlags"><primary>EncaCharsetFlags</primary></indexterm>
+<para>Charset properties.</para>
+<para>Flags <link linkend="ENCA-CHARSET-7BIT:CAPS"><literal>ENCA_CHARSET_7BIT</literal></link>, <link linkend="ENCA-CHARSET-8BIT:CAPS"><literal>ENCA_CHARSET_8BIT</literal></link>, <link linkend="ENCA-CHARSET-16BIT:CAPS"><literal>ENCA_CHARSET_16BIT</literal></link>,
+<link linkend="ENCA-CHARSET-32BIT:CAPS"><literal>ENCA_CHARSET_32BIT</literal></link> tell how many bits a `fundamental piece' consists of.
+This is different from bits per character; r.g. UTF-8 consists of 8bit
+pieces (bytes), but character can be composed from 1 to 6 of them.</para>
+<refsect3 role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-7BIT:CAPS">ENCA_CHARSET_7BIT</para></entry>
+<entry role="enum_member_description"><para>Characters are represented with 7bit characters.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-8BIT:CAPS">ENCA_CHARSET_8BIT</para></entry>
+<entry role="enum_member_description"><para>Characters are represented with bytes.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-16BIT:CAPS">ENCA_CHARSET_16BIT</para></entry>
+<entry role="enum_member_description"><para>Characters are represented with 2byte words.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-32BIT:CAPS">ENCA_CHARSET_32BIT</para></entry>
+<entry role="enum_member_description"><para>Characters are represented with 4byte words.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-FIXED:CAPS">ENCA_CHARSET_FIXED</para></entry>
+<entry role="enum_member_description"><para>One characters consists of one fundamental piece.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-VARIABLE:CAPS">ENCA_CHARSET_VARIABLE</para></entry>
+<entry role="enum_member_description"><para>One character consists of variable number of
+fundamental pieces.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-BINARY:CAPS">ENCA_CHARSET_BINARY</para></entry>
+<entry role="enum_member_description"><para>Charset is binary from ASCII viewpoint.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-REGULAR:CAPS">ENCA_CHARSET_REGULAR</para></entry>
+<entry role="enum_member_description"><para>Language dependent (8bit) charset.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-CHARSET-MULTIBYTE:CAPS">ENCA_CHARSET_MULTIBYTE</para></entry>
+<entry role="enum_member_description"><para>Multibyte charset.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="EncaNameStyle" role="enum">
+<title>enum EncaNameStyle</title>
+<indexterm zone="EncaNameStyle"><primary>EncaNameStyle</primary></indexterm>
+<para>Charset naming styles and conventions.</para>
+<refsect3 role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-ENCA:CAPS">ENCA_NAME_STYLE_ENCA</para></entry>
+<entry role="enum_member_description"><para>Default, implicit charset name in Enca.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-RFC1345:CAPS">ENCA_NAME_STYLE_RFC1345</para></entry>
+<entry role="enum_member_description"><para>RFC 1345 or otherwise canonical charset name.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-CSTOCS:CAPS">ENCA_NAME_STYLE_CSTOCS</para></entry>
+<entry role="enum_member_description"><para>Cstocs charset name (may not exist).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-ICONV:CAPS">ENCA_NAME_STYLE_ICONV</para></entry>
+<entry role="enum_member_description"><para>Iconv charset name (may not exist).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-HUMAN:CAPS">ENCA_NAME_STYLE_HUMAN</para></entry>
+<entry role="enum_member_description"><para>Human comprehensible description.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-NAME-STYLE-MIME:CAPS">ENCA_NAME_STYLE_MIME</para></entry>
+<entry role="enum_member_description"><para>Preferred MIME name (may not exist).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="EncaErrno" role="enum">
+<title>enum EncaErrno</title>
+<indexterm zone="EncaErrno"><primary>EncaErrno</primary></indexterm>
+<para>Error codes.</para>
+<refsect3 role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EOK:CAPS">ENCA_EOK</para></entry>
+<entry role="enum_member_description"><para>OK.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EINVALUE:CAPS">ENCA_EINVALUE</para></entry>
+<entry role="enum_member_description"><para>Invalid value (usually of an option).</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EEMPTY:CAPS">ENCA_EEMPTY</para></entry>
+<entry role="enum_member_description"><para>Sample is empty.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EFILTERED:CAPS">ENCA_EFILTERED</para></entry>
+<entry role="enum_member_description"><para>After filtering, (almost) nothing remained.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-ENOCS8:CAPS">ENCA_ENOCS8</para></entry>
+<entry role="enum_member_description"><para>Mulitibyte tests failed and language contains no 8bit charsets.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-ESIGNIF:CAPS">ENCA_ESIGNIF</para></entry>
+<entry role="enum_member_description"><para>Too few significant characters.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EWINNER:CAPS">ENCA_EWINNER</para></entry>
+<entry role="enum_member_description"><para>No clear winner.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="ENCA-EGARBAGE:CAPS">ENCA_EGARBAGE</para></entry>
+<entry role="enum_member_description"><para>Sample is garbage.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3></refsect2>
+<refsect2 id="ENCA-NOT-A-CHAR:CAPS" role="macro">
+<title>ENCA_NOT_A_CHAR</title>
+<indexterm zone="ENCA-NOT-A-CHAR:CAPS"><primary>ENCA_NOT_A_CHAR</primary></indexterm>
+<programlisting language="C">#define ENCA_NOT_A_CHAR 0xffff
+</programlisting>
+<para>Not-a-character in unicode tables.</para>
+</refsect2>
+
+</refsect1>
+
+</refentry>

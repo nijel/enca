@@ -7,27 +7,6 @@
 #define ENCA_STMT_END while (0)
 </MACRO>
 <STRUCT>
-<NAME>EncaAnalyserOptions</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaAnalyserState</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaCharsetInfo</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaLanguageInfo</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaLanguageHookData1CS</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaLanguageHookDataEOL</NAME>
-</STRUCT>
-<STRUCT>
-<NAME>EncaUTFCheckData</NAME>
-</STRUCT>
-<STRUCT>
 <NAME>EncaCharsetInfo</NAME>
 struct _EncaCharsetInfo {
   int enca;
@@ -224,13 +203,13 @@ struct _EncaUTFCheckData {
 </MACRO>
 <FUNCTION>
 <NAME>enca_malloc</NAME>
-<RETURNS>void*</RETURNS>
-size_t size 
+<RETURNS>void *  </RETURNS>
+size_t size
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_realloc</NAME>
-<RETURNS>void*</RETURNS>
-void *ptr, size_t size 
+<RETURNS>void *  </RETURNS>
+void *ptr, size_t size
 </FUNCTION>
 <MACRO>
 <NAME>enca_free</NAME>
@@ -252,130 +231,122 @@ void *ptr, size_t size
 </MACRO>
 <FUNCTION>
 <NAME>enca_strdup</NAME>
-<RETURNS>char*</RETURNS>
-const char *s 
+<RETURNS>char * </RETURNS>
+const char *s
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_strstr</NAME>
-<RETURNS>const char*</RETURNS>
-const char *haystack, const char* needle 
+<RETURNS>const char * </RETURNS>
+const char *haystack, const char* needle
 </FUNCTION>
-<MACRO>
-<NAME>enca_strstr</NAME>
-# define enca_strstr strstr
-</MACRO>
 <FUNCTION>
 <NAME>enca_stpcpy</NAME>
-<RETURNS>char*</RETURNS>
-char *dest, const char *src 
+<RETURNS>char * </RETURNS>
+char *dest, const char *src
 </FUNCTION>
-<MACRO>
-<NAME>enca_stpcpy</NAME>
-# define enca_stpcpy stpcpy
-</MACRO>
 <MACRO>
 <NAME>enca_csname</NAME>
 #define enca_csname(cs) enca_charset_name((cs), ENCA_NAME_STYLE_ENCA)
 </MACRO>
 <FUNCTION>
 <NAME>enca_strconcat</NAME>
-<RETURNS>char*</RETURNS>
-const char *str, ... 
+<RETURNS>char * </RETURNS>
+const char *str, ...
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_strappend</NAME>
-<RETURNS>char*</RETURNS>
-char *str, ... 
+<RETURNS>char * </RETURNS>
+char *str, ...
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_name_to_charset</NAME>
-<RETURNS>int         </RETURNS>
-const char *csname 
+<RETURNS>int          </RETURNS>
+const char *csname
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_name_to_surface</NAME>
-<RETURNS>EncaSurface </RETURNS>
-const char *sname 
+<RETURNS>EncaSurface  </RETURNS>
+const char *sname
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_init</NAME>
-<RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser, const char *langname 
+<RETURNS>int          </RETURNS>
+EncaAnalyserState *analyser, const char *langname
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_destroy</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_get_charset_similarity_matrix</NAME>
-<RETURNS>double*</RETURNS>
-const EncaLanguageInfo *lang 
+<RETURNS>double *     </RETURNS>
+const EncaLanguageInfo *lang
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_charsets_subset_identical</NAME>
-<RETURNS>int         </RETURNS>
-int charset1, int charset2, const size_t *counts 
+<RETURNS>int          </RETURNS>
+int charset1, int charset2, const size_t *counts
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_filter_boxdraw</NAME>
-<RETURNS>size_t      </RETURNS>
-EncaAnalyserState *analyser, unsigned char fill_char 
+<RETURNS>size_t       </RETURNS>
+EncaAnalyserState *analyser, unsigned char fill_char
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_hook_ncs</NAME>
-<RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookData1CS *hookdata 
+<RETURNS>int          </RETURNS>
+EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookData1CS *hookdata
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_language_hook_eol</NAME>
-<RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookDataEOL *hookdata 
+<RETURNS>int          </RETURNS>
+EncaAnalyserState *analyser, size_t ncs, EncaLanguageHookDataEOL *hookdata
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_guess_init</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_guess_destroy</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_eol_surface</NAME>
-<RETURNS>EncaSurface </RETURNS>
-const unsigned char *buffer, size_t size, const size_t *counts 
+<RETURNS>EncaSurface  </RETURNS>
+const unsigned char *buffer, size_t size, const size_t *counts
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_find_max_sec</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_init</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_double_utf8_destroy</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_init</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_destroy</NAME>
-<RETURNS>void        </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>void         </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <FUNCTION>
 <NAME>enca_pair_analyse</NAME>
-<RETURNS>int         </RETURNS>
-EncaAnalyserState *analyser 
+<RETURNS>int          </RETURNS>
+EncaAnalyserState *analyser
 </FUNCTION>
 <VARIABLE>
 <NAME>ENCA_LANGUAGE_BE</NAME>
@@ -514,242 +485,3 @@ typedef struct _EncaAnalyserState *EncaAnalyser;
 <STRUCT>
 <NAME>EncaEncoding</NAME>
 </STRUCT>
-<STRUCT>
-<NAME>EncaEncoding</NAME>
-struct _EncaEncoding { int charset; EncaSurface surface; };
-</STRUCT>
-<FUNCTION>
-<NAME>enca_analyser_alloc</NAME>
-<RETURNS>EncaAnalyser  </RETURNS>
-const char *langname 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_analyser_free</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_analyse</NAME>
-<RETURNS>EncaEncoding  </RETURNS>
-EncaAnalyser analyser, unsigned char *buffer, size_t size 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_analyse_const</NAME>
-<RETURNS>EncaEncoding  </RETURNS>
-EncaAnalyser analyser, const unsigned char *buffer, size_t size 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_double_utf8_check</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser, const unsigned char *buffer, size_t size 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_double_utf8_get_candidates</NAME>
-<RETURNS>int*</RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_errno</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_strerror</NAME>
-<RETURNS>const char*</RETURNS>
-EncaAnalyser analyser, int errnum 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_multibyte</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int multibyte 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_multibyte</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_interpreted_surfaces</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int interpreted_surfaces 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_interpreted_surfaces</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_ambiguity</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int ambiguity 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_ambiguity</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_filtering</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int filtering 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_filtering</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_garbage_test</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int garabage_test 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_garbage_test</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_termination_strictness</NAME>
-<RETURNS>void          </RETURNS>
-EncaAnalyser analyser, int termination_strictness 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_termination_strictness</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_significant</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser, size_t significant 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_significant</NAME>
-<RETURNS>size_t        </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_set_threshold</NAME>
-<RETURNS>int           </RETURNS>
-EncaAnalyser analyser, double threshold 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_threshold</NAME>
-<RETURNS>double        </RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_charset_name</NAME>
-<RETURNS>const char*</RETURNS>
-int charset, EncaNameStyle whatname 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_charset_aliases</NAME>
-<RETURNS>const char**</RETURNS>
-int charset, size_t *n 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_surface_name</NAME>
-<RETURNS>char*</RETURNS>
-EncaSurface surface, EncaNameStyle whatname 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_parse_encoding_name</NAME>
-<RETURNS>EncaEncoding      </RETURNS>
-const char *name 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_charset_natural_surface</NAME>
-<RETURNS>EncaSurface       </RETURNS>
-int charset 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_charset_properties</NAME>
-<RETURNS>EncaCharsetFlags  </RETURNS>
-int charset 
-</FUNCTION>
-<MACRO>
-<NAME>enca_charset_is_known</NAME>
-#define enca_charset_is_known(cs) \
-  ((cs) != ENCA_CS_UNKNOWN)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_7bit</NAME>
-#define enca_charset_is_7bit(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_7BIT)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_8bit</NAME>
-#define enca_charset_is_8bit(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_8BIT)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_16bit</NAME>
-#define enca_charset_is_16bit(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_16BIT)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_32bit</NAME>
-#define enca_charset_is_32bit(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_32BIT)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_fixed</NAME>
-#define enca_charset_is_fixed(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_FIXED)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_variable</NAME>
-#define enca_charset_is_variable(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_VARIABLE)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_binary</NAME>
-#define enca_charset_is_binary(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_BINARY)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_regular</NAME>
-#define enca_charset_is_regular(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_REGULAR)
-</MACRO>
-<MACRO>
-<NAME>enca_charset_is_multibyte</NAME>
-#define enca_charset_is_multibyte(cs) \
-  (enca_charset_properties(cs) & ENCA_CHARSET_MULTIBYTE)
-</MACRO>
-<FUNCTION>
-<NAME>enca_charset_has_ucs2_map</NAME>
-<RETURNS>int           </RETURNS>
-int charset 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_charset_ucs2_map</NAME>
-<RETURNS>int           </RETURNS>
-int charset, unsigned int *buffer 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_number_of_charsets</NAME>
-<RETURNS>size_t        </RETURNS>
-void 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_analyser_language</NAME>
-<RETURNS>const char*</RETURNS>
-EncaAnalyser analyser 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_language_english_name</NAME>
-<RETURNS>const char*</RETURNS>
-const char *lang 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_languages</NAME>
-<RETURNS>const char**</RETURNS>
-size_t *n 
-</FUNCTION>
-<FUNCTION>
-<NAME>enca_get_language_charsets</NAME>
-<RETURNS>int*</RETURNS>
-const char *langname, size_t *n 
-</FUNCTION>
