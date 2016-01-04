@@ -13,7 +13,7 @@ script:
 after_failure:
   - cat test/test-suite.log
 after_script:
-  - codecov
+  - if [ $COMPILER = gcc ] ; then codecov ; else codecov --gcov-exec llvm-cov gcov ; fi
 addons:
   coverity_scan:
     project:
