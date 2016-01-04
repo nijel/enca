@@ -11,7 +11,7 @@ before_install:
 script: 
   - ./configure --with-gcov && make && make test
 after_failure:
-  - find test/ -name '*.log' | while read x; do echo '==' $x '==' ; cat $x ; done
+  - cat test/test-suite.log
 after_success:
   - codecov
 addons:
