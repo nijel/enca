@@ -13,6 +13,6 @@ done
 # Test invalid option string
 ENCAOPT=";"
 export ENCAOPT
-$ENCA $srcdir/cs-s.utf8 || DIE=1
+$ENCA -L none $srcdir/cs-s.utf8 || DIE=1
 . $srcdir/finish.sh
 rm -f $TESTNAME.expected 2>/dev/null
