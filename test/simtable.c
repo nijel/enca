@@ -13,13 +13,14 @@ static void
 prl(const EncaLanguageInfo *l, const char *hooks)
 {
   double *m;
+  int a;
   size_t i, j;
 
   if (myargc > 1) {
-    i = 1;
-    while (i < myargc && strcmp(myargv[i], l->name))
-      i++;
-    if (i == myargc)
+    a = 1;
+    while (a < myargc && strcmp(myargv[a], l->name))
+      a++;
+    if (a == myargc)
       return;
   }
 
