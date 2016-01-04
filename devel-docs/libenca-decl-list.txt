@@ -12,8 +12,6 @@ EncaEncoding
 
 <SECTION>
 <FILE>internal</FILE>
-ENCA_STMT_START
-ENCA_STMT_END
 EncaCharsetInfo
 EncaHookFunc
 EncaGuessFunc

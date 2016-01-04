@@ -53,6 +53,10 @@
 </colgroup>
 <tbody>
 <tr>
+<td class="typedef_keyword">typedef</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaAnalyser" title="EncaAnalyser">EncaAnalyser</a></td>
+</tr>
+<tr>
 <td class="datatype_keyword"> </td>
 <td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaEncoding" title="EncaEncoding">EncaEncoding</a></td>
 </tr>
@@ -98,6 +102,14 @@ comparsion.</p>
 <div class="refsect1">
 <a name="libenca-Typedefs-and-Constants.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
+<a name="EncaAnalyser"></a><h3>EncaAnalyser</h3>
+<pre class="programlisting">typedef struct _EncaAnalyserState *EncaAnalyser;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="EncaEncoding"></a><h3>EncaEncoding</h3>
 <pre class="programlisting">typedef struct _EncaEncoding EncaEncoding;</pre>
 <p>Encoding, i.e. charset and surface.</p>
@@ -114,7 +126,7 @@ addition of new charsets) is not considered API change.</p>
 to ignore it completely; you should use <code class="function">enca_set_interpreted_surfaces()</code>
 to disable weird surfaces then.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.2.8"></a><h4>Members</h4>
+<a name="id-1.2.3.7.3.8"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="struct_members_name">
@@ -130,7 +142,7 @@ to disable weird surfaces then.</p>
 <a name="EncaSurface"></a><h3>enum EncaSurface</h3>
 <p>Surface flags.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.3.4"></a><h4>Members</h4>
+<a name="id-1.2.3.7.4.4"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -249,7 +261,7 @@ to disable weird surfaces then.</p>
 This is different from bits per character; r.g. UTF-8 consists of 8bit
 pieces (bytes), but character can be composed from 1 to 6 of them.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.4.5"></a><h4>Members</h4>
+<a name="id-1.2.3.7.5.5"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -330,7 +342,7 @@ fundamental pieces.</p>
 <a name="EncaNameStyle"></a><h3>enum EncaNameStyle</h3>
 <p>Charset naming styles and conventions.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.5.4"></a><h4>Members</h4>
+<a name="id-1.2.3.7.6.4"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -389,7 +401,7 @@ fundamental pieces.</p>
 <a name="EncaErrno"></a><h3>enum EncaErrno</h3>
 <p>Error codes.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.6.4"></a><h4>Members</h4>
+<a name="id-1.2.3.7.7.4"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">

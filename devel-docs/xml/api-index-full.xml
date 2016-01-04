@@ -3,6 +3,7 @@
                "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <indexdiv id="api-index-full">
 <indexdiv><title>A</title>
+<indexentry><primaryie linkends="EncaAnalyser"><link linkend="EncaAnalyser">EncaAnalyser</link>, typedef in <link linkend="libenca-Typedefs-and-Constants">Typedefs and Constants</link></primaryie></indexentry>
 <indexentry><primaryie linkends="EncaAnalyserOptions"><link linkend="EncaAnalyserOptions">EncaAnalyserOptions</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
 <indexentry><primaryie linkends="EncaAnalyserState"><link linkend="EncaAnalyserState">EncaAnalyserState</link>, struct in <link linkend="libenca-Internal-Functions">Internal Functions</link></primaryie></indexentry>
 </indexdiv>

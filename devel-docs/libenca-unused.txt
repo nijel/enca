@@ -1,6 +1,3 @@
-ENCA_STMT_END
-ENCA_STMT_START
-EncaAnalyser
 enca_ctype_test
 enca_isalnum
 enca_isalpha

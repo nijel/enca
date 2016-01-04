@@ -1,6 +1,7 @@
 <SECTION>
 <FILE>enums</FILE>
 <TITLE>Typedefs and Constants</TITLE>
+EncaAnalyser
 EncaEncoding
 ENCA_CS_UNKNOWN
 EncaSurface

@@ -1,11 +1,3 @@
-<MACRO>
-<NAME>ENCA_STMT_START</NAME>
-#define ENCA_STMT_START do
-</MACRO>
-<MACRO>
-<NAME>ENCA_STMT_END</NAME>
-#define ENCA_STMT_END while (0)
-</MACRO>
 <STRUCT>
 <NAME>EncaCharsetInfo</NAME>
 struct _EncaCharsetInfo {
@@ -214,7 +206,7 @@ void *ptr, size_t size
 <MACRO>
 <NAME>enca_free</NAME>
 #define enca_free(ptr) \
-  ENCA_STMT_START{ if (ptr) free(ptr); ptr=NULL; }ENCA_STMT_END
+  { if (ptr) free(ptr); ptr=NULL; }
 </MACRO>
 <MACRO>
 <NAME>NEW</NAME>
