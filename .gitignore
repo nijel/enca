@@ -14,6 +14,8 @@ TAGS
 *.swp
 *~
 *.bak
+*.log
+*.trs
 enca-*.tar.bz2
 enca-*.tar.gz
 enca-*.tar.xz
