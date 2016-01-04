@@ -16,4 +16,4 @@ enca_isspace
 enca_istext
 enca_isupper
 enca_isxdigit
-EncaEncoding(surface, charset)
+EncaEncoding(charset, surface)
