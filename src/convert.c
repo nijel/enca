@@ -227,7 +227,8 @@ convert_builtin(File *file,
      whichever come first) */
   buf = file->buffer;
   buf->pos = 0;
-  file_seek(file, 0, SEEK_SET);
+  if (file_seek(file, 0, SEEK_SET) == -1)
+    return ERR_IOFAIL;
 
   do {
     if (file_read(file) == -1)
