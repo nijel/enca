@@ -46,6 +46,7 @@ prl(const EncaLanguageInfo *l, const char *hooks)
     printf("   %s\n", l->csnames[i]);
   }
   printf("Hooks: \x1b[32m%s\x1b[m\n", hooks);
+  free(m);
 }
 
 int
