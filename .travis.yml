@@ -9,7 +9,10 @@ compiler:
 before_install:
   - pip install --user codecov cpp-coveralls
 script: 
-  - ./configure --with-gcov && make && make test
+  - ./configure --with-gcov
+  - make
+  - make test
+  - make install DESTDIR=/tmp/inst
 after_failure:
   - cat test/test-suite.log
 after_success:
