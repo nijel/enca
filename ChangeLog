@@ -11,6 +11,9 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
+enca-1.19-dev
+  - fix possible memory leak
+
 enca-1.18 2016-01-07
   - fix installation of devhelp documentation
 
