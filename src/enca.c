@@ -40,7 +40,7 @@ int
 main(int argc, char *argv[])
 {
   char **pp_file, **flist; /* filename list pointer */
-  long int err; /* nonzero if process_file() ever returned nonzero */
+  long int err=0; /* nonzero if process_file() ever returned nonzero */
   EncaAnalyser an;
 
   /* Process command line arguments. */
@@ -74,7 +74,6 @@ main(int argc, char *argv[])
   }
   else {
     /* Process file list, cumultate the worst error in err. */
-    err = 0;
     while (*pp_file != NULL) {
       err |= process_file(an, *pp_file);
       enca_free(*pp_file);
