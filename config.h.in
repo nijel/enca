@@ -157,8 +157,7 @@
 /* Define to the path to locale.alias file. */
 #undef LOCALE_ALIAS_PATH
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #undef LT_OBJDIR
 
 /* Define to path to the map recoder. */
