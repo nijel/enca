@@ -139,7 +139,7 @@ test -n "$NO_AUTOMAKE" || (aclocal --version) < /dev/null > /dev/null 2>&1 || {
 }
 
 if test -z "$NO_LIBTOOL"; then
-  LT_VERSION=`libtoolize --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//'`
+  LT_VERSION=`libtoolize --version | sed -e '2,$ d' -e 's/ *([^()]*)$//' -e 's/.* \(.*\)/\1/' -e 's/-p[0-9]\+//' -e 's/^[a-zA-z]*-//'`
   if ! version_check "1.4" "$LT_VERSION" ; then
     echo
     echo "**ERROR**: You need at least libtool-1.4 installed to re-generate"
