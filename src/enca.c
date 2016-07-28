@@ -82,6 +82,7 @@ main(int argc, char *argv[])
     }
   }
 
+  /* Free buffer */
   process_file(NULL, NULL);
   enca_analyser_free(an);
   enca_free(options.language);
