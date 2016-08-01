@@ -163,7 +163,7 @@ process_file(EncaAnalyser an,
     if ((err == ERR_OK && !enca_charset_is_known(result.charset)
          && enca_errno(an) != ENCA_EEMPTY)
         || err == ERR_CANNOT)
-      return 1;
+      return EXIT_FAILURE;
 
     return (err == ERR_OK) ? EXIT_SUCCESS : EXIT_TROUBLE;
   }
