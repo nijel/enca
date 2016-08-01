@@ -23,10 +23,10 @@
 #include "../lib/internal.h"
 
 /* define or correctly redefine EXIT_* values */
-#if !(defined EXIT_SUCCESS) || (EXIT_SUCCESS != 0)
+#if !(defined EXIT_SUCCESS) || (EXIT_SUCCESS != 0) || (EXIT_FAILURE == 0)
 #  define EXIT_SUCCESS 0
 #  define EXIT_FAILURE 1
-#endif /* !(defined EXIT_SUCCESS) || (EXIT_SUCCESS != 0) */
+#endif /* !(defined EXIT_SUCCESS) || (EXIT_SUCCESS != 0) || (EXIT_FAILURE == 0) */
 #define EXIT_TROUBLE 2
 
 /* str- an mem- function, theoretically they are all in string.h */
