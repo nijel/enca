@@ -88,7 +88,7 @@ to build dists and/or the strange stuff in `tools/`, `data/`, `tests/`, and
 
 The git repository is located at GitHub:
 
-    http://github.com/nijel/enca
+    https://github.com/nijel/enca
 
 There is also continuous integration on Travis:
 

@@ -83,8 +83,8 @@ GNU General Public License.  Please see COPYING for details.
 
 ## Web resources
 
-Enca can be found at http://github.com/nijel/enca/, you can download 
-tarballs from http://dl.cihar.com/enca/.
+Enca can be found at https://github.com/nijel/enca/, you can download 
+tarballs from https://dl.cihar.com/enca/.
 
 
 ## Bugs
