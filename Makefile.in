@@ -200,7 +200,7 @@ DIST_SUBDIRS = tools script lib src devel-docs test data
 am__DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/config.h.in \
 	$(srcdir)/enca.pc.in $(srcdir)/enca.spec.in AUTHORS COPYING \
 	ChangeLog INSTALL NEWS README THANKS TODO compile config.guess \
-	config.rpath config.sub install-sh ltmain.sh missing \
+	config.rpath config.sub depcomp install-sh ltmain.sh missing \
 	mkinstalldirs
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
