@@ -11,7 +11,10 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.19-dev
+enca-1.20-dev
+
+
+enca-1.19 2016-09-05
   - fix possible memory leak
   - make utf-8 detection work even on one character
 
