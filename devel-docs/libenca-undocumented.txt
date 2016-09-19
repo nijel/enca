@@ -9,7 +9,6 @@ EncaLanguageInfo (lcuchook)
 count_bits
 tested
 
-
 auxiliary:Long_Description
 encodings:Long_Description
 enums:Long_Description

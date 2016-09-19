@@ -27,8 +27,6 @@ internal functions
 </entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="EncaGuessFunc">*EncaGuessFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
 <row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="ELEMENTS:CAPS">ELEMENTS</link><phrase role="c_punctuation">()</phrase></entry></row>
 <row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="MAKE-HOOK-LINE:CAPS">MAKE_HOOK_LINE</link><phrase role="c_punctuation">()</phrase></entry></row>
-<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="LF:CAPS">LF</link></entry></row>
-<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="CR:CAPS">CR</link></entry></row>
 <row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>&#160;*
 </entry><entry role="function_name"><link linkend="enca-malloc">enca_malloc</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
 <row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>&#160;*
@@ -104,6 +102,8 @@ internal functions
 <row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="EncaUTFCheckData">EncaUTFCheckData</link></entry></row>
 <row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="EPSILON:CAPS">EPSILON</link></entry></row>
 <row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="FILL-NONLETTER:CAPS">FILL_NONLETTER</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="LF:CAPS">LF</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="CR:CAPS">CR</link></entry></row>
 <row><entry role="variable_type">extern const EncaLanguageInfo </entry><entry role="function_name"><link linkend="ENCA-LANGUAGE-BE:CAPS">ENCA_LANGUAGE_BE</link></entry></row>
 <row><entry role="variable_type">extern const EncaLanguageInfo </entry><entry role="function_name"><link linkend="ENCA-LANGUAGE-BG:CAPS">ENCA_LANGUAGE_BG</link></entry></row>
 <row><entry role="variable_type">extern const EncaLanguageInfo </entry><entry role="function_name"><link linkend="ENCA-LANGUAGE-CS:CAPS">ENCA_LANGUAGE_CS</link></entry></row>
@@ -141,7 +141,7 @@ Do not use outside Enca library.
 <phrase role="c_punctuation">(</phrase>*EncaHookFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Language hook function type.</para>
 <para>Launches language specific hooks for a particular language.</para>
-<refsect3 role="parameters">
+<refsect3 id="EncaHookFunc.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -153,7 +153,7 @@ Do not use outside Enca library.
 <entry role="parameter_description"><para>Analyser state whose charset ratings are to be modified.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="EncaHookFunc.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero if charset ratigns have been actually modified, zero
 otherwise.</para>
@@ -164,7 +164,7 @@ otherwise.</para>
 <programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
 <phrase role="c_punctuation">(</phrase>*EncaGuessFunc<phrase role="c_punctuation">)</phrase> (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Special (multibyte) encoding check function type.</para>
-<refsect3 role="parameters">
+<refsect3 id="EncaGuessFunc.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -176,7 +176,7 @@ otherwise.</para>
 <entry role="parameter_description"><para>Analyser state whose buffer should be checked.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="EncaGuessFunc.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero if analyser->result has been set, zero otherwise.</para>
 </refsect3></refsect2>
@@ -186,7 +186,7 @@ otherwise.</para>
 <programlisting language="C">#define ELEMENTS(array) (sizeof(array)/sizeof((array)[0]))
 </programlisting>
 <para>Compute the number of elements of a static array.</para>
-<refsect3 role="parameters">
+<refsect3 id="ELEMENTS.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -198,7 +198,7 @@ otherwise.</para>
 <entry role="parameter_description"><para>An array whose size is to be computed.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="ELEMENTS.returns" role="returns">
 <title>Returns</title>
 <para> the number of elements.</para>
 </refsect3></refsect2>
@@ -207,7 +207,7 @@ otherwise.</para>
 <indexterm zone="MAKE-HOOK-LINE:CAPS"><primary>MAKE_HOOK_LINE</primary></indexterm>
 <programlisting language="C">#define             MAKE_HOOK_LINE(name)</programlisting>
 <para>Ugly code `beautifier' macro for language hooks.</para>
-<refsect3 role="parameters">
+<refsect3 id="MAKE-HOOK-LINE.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -220,27 +220,13 @@ otherwise.</para>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
 </refsect3></refsect2>
-<refsect2 id="LF:CAPS" role="macro">
-<title>LF</title>
-<indexterm zone="LF:CAPS"><primary>LF</primary></indexterm>
-<programlisting language="C">#define LF ((unsigned char)'\n')
-</programlisting>
-<para>Line feed character (End-of-line on Unix).</para>
-</refsect2>
-<refsect2 id="CR:CAPS" role="macro">
-<title>CR</title>
-<indexterm zone="CR:CAPS"><primary>CR</primary></indexterm>
-<programlisting language="C">#define CR ((unsigned char)'\r')
-</programlisting>
-<para>Carriage return character (End-of-line on Macintosh).</para>
-</refsect2>
 <refsect2 id="enca-malloc" role="function">
 <title>enca_malloc&#160;()</title>
 <indexterm zone="enca-malloc"><primary>enca_malloc</primary></indexterm>
 <programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>&#160;*
 enca_malloc (<parameter><link linkend="size-t"><type>size_t</type></link> size</parameter>);</programlisting>
 <para>Allocates memory, always successfully (when fails, aborts program).</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-malloc.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -252,7 +238,7 @@ enca_malloc (<parameter><link linkend="size-t"><type>size_t</type></link> size</
 <entry role="parameter_description"><para>The number of bytes to allocate.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-malloc.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the newly allocated memory.</para>
 </refsect3></refsect2>
@@ -263,7 +249,7 @@ enca_malloc (<parameter><link linkend="size-t"><type>size_t</type></link> size</
 enca_realloc (<parameter><link linkend="void"><type>void</type></link> *ptr</parameter>,
               <parameter><link linkend="size-t"><type>size_t</type></link> size</parameter>);</programlisting>
 <para>Reallocates memory, always successfully (when fails, aborts program).</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-realloc.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -278,7 +264,7 @@ enca_realloc (<parameter><link linkend="void"><type>void</type></link> *ptr</par
 <entry role="parameter_description"><para>The number of bytes to resize the block.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-realloc.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the newly allocated memory, <link linkend="NULL:CAPS"><type>NULL</type></link> when <parameter>size</parameter>
 is zero.</para>
@@ -292,7 +278,7 @@ is zero.</para>
 thus may be called more than once.</para>
 <para><parameter>ptr</parameter>
  MUST be l-value.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-free.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -311,7 +297,7 @@ thus may be called more than once.</para>
 <programlisting language="C">#define NEW(type,n) ((type*)enca_malloc((n)*sizeof(type)))
 </programlisting>
 <para>An <link linkend="enca-malloc"><function>enca_malloc()</function></link> wrapper.</para>
-<refsect3 role="parameters">
+<refsect3 id="NEW.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -326,7 +312,7 @@ thus may be called more than once.</para>
 <entry role="parameter_description"><para>Number of elements to allocate.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="NEW.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the newly allocated memory.</para>
 </refsect3></refsect2>
@@ -336,7 +322,7 @@ thus may be called more than once.</para>
 <programlisting language="C">#define RENEW(ptr,type,n) ((type*)enca_realloc((ptr),(n)*sizeof(type)))
 </programlisting>
 <para>An <link linkend="enca-realloc"><function>enca_realloc()</function></link> wrapper.</para>
-<refsect3 role="parameters">
+<refsect3 id="RENEW.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -354,7 +340,7 @@ thus may be called more than once.</para>
 <entry role="parameter_description"><para>Number of elements to resize the memory to.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="RENEW.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the reallocated memory (or pointer safe to call <link linkend="free"><function>free()</function></link>
 on when <parameter>n</parameter>
@@ -367,7 +353,7 @@ is zero).</para>
 enca_strdup (<parameter>const <link linkend="char"><type>char</type></link> *s</parameter>);</programlisting>
 <para>Duplicates string.</para>
 <para>Will be defined as <link linkend="strdup"><function>strdup()</function></link> when system provides it.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-strdup.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -379,7 +365,7 @@ enca_strdup (<parameter>const <link linkend="char"><type>char</type></link> *s</
 <entry role="parameter_description"><para>A string.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-strdup.returns" role="returns">
 <title>Returns</title>
 <para> The newly allocated string copy.</para>
 </refsect3></refsect2>
@@ -391,7 +377,7 @@ enca_strstr (<parameter>const <link linkend="char"><type>char</type></link> *hay
              <parameter>const <link linkend="char"><type>char</type></link> *needle</parameter>);</programlisting>
 <para>Finds occurence of a substring in a string.</para>
 <para>Will be defined as <link linkend="strstr"><function>strstr()</function></link> when system provides it.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-strstr.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -406,7 +392,7 @@ enca_strstr (<parameter>const <link linkend="char"><type>char</type></link> *hay
 <entry role="parameter_description"><para>A string to find.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-strstr.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the first occurence of <parameter>needle</parameter>
 in <parameter>haystack</parameter>
@@ -424,7 +410,7 @@ the terminating zero byte.</para>
 <para>Will be defined as <link linkend="stpcpy"><function>stpcpy()</function></link> when system provides it.</para>
 <para>Caller is responisble for providing <parameter>dest</parameter>
  long enough to hold the result.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-stpcpy.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -439,7 +425,7 @@ the terminating zero byte.</para>
 <entry role="parameter_description"><para>A string to append.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-stpcpy.returns" role="returns">
 <title>Returns</title>
 <para> Pointer to the terminating zero byte of resulting string.</para>
 </refsect3></refsect2>
@@ -450,7 +436,7 @@ the terminating zero byte.</para>
 enca_strconcat (<parameter>const <link linkend="char"><type>char</type></link> *str</parameter>,
                 <parameter>...</parameter>);</programlisting>
 <para>Concatenates arbitrary (but at least one) number of strings.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-strconcat.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -465,7 +451,7 @@ enca_strconcat (<parameter>const <link linkend="char"><type>char</type></link> *
 <entry role="parameter_description"><para>A <link linkend="NULL-terminated"><type>NULL-terminated</type></link> list of string to append.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-strconcat.returns" role="returns">
 <title>Returns</title>
 <para> All the strings concatenated together.</para>
 </refsect3></refsect2>
@@ -478,7 +464,7 @@ enca_strappend (<parameter><link linkend="char"><type>char</type></link> *str</p
 <para>Appends arbitrary number of strings to a string.</para>
 <para>The string <parameter>str</parameter>
  is destroyed (reallocated), the others are kept.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-strappend.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -493,7 +479,7 @@ enca_strappend (<parameter><link linkend="char"><type>char</type></link> *str</p
 <entry role="parameter_description"><para>A <link linkend="NULL-terminated"><type>NULL-terminated</type></link> list of string to append.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-strappend.returns" role="returns">
 <title>Returns</title>
 <para> All the strings concatenated together.</para>
 </refsect3></refsect2>
@@ -503,7 +489,7 @@ enca_strappend (<parameter><link linkend="char"><type>char</type></link> *str</p
 <programlisting language="C">#define enca_csname(cs) enca_charset_name((cs), ENCA_NAME_STYLE_ENCA)
 </programlisting>
 <para>A shorthand for printing names with <link linkend="ENCA-NAME-STYLE-ENCA:CAPS"><type>ENCA_NAME_STYLE_ENCA</type></link>.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-csname.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -522,7 +508,7 @@ enca_strappend (<parameter><link linkend="char"><type>char</type></link> *str</p
 <programlisting language="C"><link linkend="int"><returnvalue>int</returnvalue></link>
 enca_name_to_charset (<parameter>const <link linkend="char"><type>char</type></link> *csname</parameter>);</programlisting>
 <para>Transforms charset name to numeric charset id.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-name-to-charset.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -534,7 +520,7 @@ enca_name_to_charset (<parameter>const <link linkend="char"><type>char</type></l
 <entry role="parameter_description"><para>The charset name.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-name-to-charset.returns" role="returns">
 <title>Returns</title>
 <para> The charset id; <link linkend="ENCA-CS-UNKNOWN:CAPS"><type>ENCA_CS_UNKNOWN</type></link> when the name is not recognized.</para>
 </refsect3></refsect2>
@@ -544,7 +530,7 @@ enca_name_to_charset (<parameter>const <link linkend="char"><type>char</type></l
 <programlisting language="C"><link linkend="EncaSurface"><returnvalue>EncaSurface</returnvalue></link>
 enca_name_to_surface (<parameter>const <link linkend="char"><type>char</type></link> *sname</parameter>);</programlisting>
 <para>Transforms surface name to numeric surface id.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-name-to-surface.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -556,7 +542,7 @@ enca_name_to_surface (<parameter>const <link linkend="char"><type>char</type></l
 <entry role="parameter_description"><para>The surface name.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-name-to-surface.returns" role="returns">
 <title>Returns</title>
 <para> The surface id; <link linkend="ENCA-SURFACE-UNKNOWN:CAPS"><literal>ENCA_SURFACE_UNKNOWN</literal></link> when the name is not
 recognized.</para>
@@ -573,7 +559,7 @@ enca_language_init (<parameter><link linkend="EncaAnalyserState"><type>EncaAnaly
  is unitinialized, calling with an initialized <parameter>analyser</parameter>
 
 leads to memory leak.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-language-init.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -588,7 +574,7 @@ leads to memory leak.</para>
 <entry role="parameter_description"><para>Two-letter ISO-639 language code.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-language-init.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero on success, zero otherwise.</para>
 </refsect3></refsect2>
@@ -599,7 +585,7 @@ leads to memory leak.</para>
 enca_language_destroy (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Destroys the language part of analyser state <parameter>analyser</parameter>
 .</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-language-destroy.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -631,7 +617,7 @@ the other languages.</para>
 <para>For all practical applications, the higher one of sim[i,j] and sim[j,i]
 is important.</para>
 <para>Note: this is not used anywhere, only by simtable.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-get-charset-similarity-matrix.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -643,7 +629,7 @@ is important.</para>
 <entry role="parameter_description"><para>A language.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-get-charset-similarity-matrix.returns" role="returns">
 <title>Returns</title>
 <para> The matrix, its size is determined by <parameter>lang->ncharsets</parameter>
 ; <link linkend="NULL:CAPS"><type>NULL</type></link>
@@ -662,7 +648,7 @@ in both charsets.</para>
 these characters from <parameter>charset1</parameter>
  to <parameter>charset2</parameter>
  would be identity.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-charsets-subset-identical.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -680,7 +666,7 @@ these characters from <parameter>charset1</parameter>
 <entry role="parameter_description"><para>An array of size 0x100 containing character counts.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-charsets-subset-identical.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero if charsets are identical on the subset, zero otherwise.</para>
 </refsect3></refsect2>
@@ -693,7 +679,7 @@ enca_filter_boxdraw (<parameter><link linkend="EncaAnalyserState"><type>EncaAnal
 <para>Runs boxdrawing characters filter on <parameter>buffer</parameter>
  for each charset in <parameter>language</parameter>
 .</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-filter-boxdraw.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -708,7 +694,7 @@ enca_filter_boxdraw (<parameter><link linkend="EncaAnalyserState"><type>EncaAnal
 <entry role="parameter_description"><para>Replacement character for filtered bytes.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-filter-boxdraw.returns" role="returns">
 <title>Returns</title>
 <para> Number of characters filtered out.</para>
 </refsect3></refsect2>
@@ -726,7 +712,7 @@ give the characters they differ half the weight of all other characters
 together, thus allowing to decide between the two very similar charsets.</para>
 <para>It also recomputes <parameter>order</parameter>
  when something changes.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-language-hook-ncs.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -745,7 +731,7 @@ together, thus allowing to decide between the two very similar charsets.</para>
 weight.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-language-hook-ncs.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero when <parameter>ratings</parameter>
 were actually modified, nonzero otherwise.</para>
@@ -765,7 +751,7 @@ else matches.</para>
 <para>All the charsets have to have the same rating, or nothing happens.</para>
 <para>It also recomputes <parameter>order</parameter>
  when something changes.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-language-hook-eol.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -784,7 +770,7 @@ else matches.</para>
 on the EOL type.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-language-hook-eol.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero when <parameter>ratings</parameter>
 were actually modified, nonzero otherwise.</para>
@@ -800,7 +786,7 @@ enca_guess_init (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyser
 
 leads to memory leak, but <parameter>analyser->lang</parameter>
  must be already initialized.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-guess-init.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -819,7 +805,7 @@ leads to memory leak, but <parameter>analyser->lang</parameter>
 <programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
 enca_guess_destroy (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Frees memory owned by analyser state.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-guess-destroy.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -841,7 +827,7 @@ enca_eol_surface (<parameter>const unsigned <link linkend="char"><type>char</typ
                   <parameter>const <link linkend="size-t"><type>size_t</type></link> *counts</parameter>);</programlisting>
 <para>Find EOL type of sample in <parameter>buffer</parameter>
 .</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-eol-surface.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -860,7 +846,7 @@ enca_eol_surface (<parameter>const unsigned <link linkend="char"><type>char</typ
 <entry role="parameter_description"><para>Character counts.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-eol-surface.returns" role="returns">
 <title>Returns</title>
 <para> The EOL surface flags.</para>
 </refsect3></refsect2>
@@ -877,7 +863,7 @@ data/&lt;lang>/&lt;lang>.h header file which is in turn defined by odering in
 the appropriate script (doit.sh).  Silly.</para>
 <para>Must not be called with <parameter>analyser</parameter>
  with no regular charsets.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-find-max-sec.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -898,7 +884,7 @@ enca_double_utf8_init (<parameter><link linkend="EncaAnalyserState"><type>EncaAn
 <para>Initializes double-UTF-8 check.</para>
 <para>In fact it initializes the fields to <link linkend="NULL:CAPS"><type>NULL</type></link>'s, they are actually initialized
 only when needed.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-double-utf8-init.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -918,7 +904,7 @@ only when needed.</para>
 enca_double_utf8_destroy (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Destroys the double-UTF-8 check part of analyser state <parameter>analyser</parameter>
 .</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-double-utf8-destroy.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -938,7 +924,7 @@ enca_double_utf8_destroy (<parameter><link linkend="EncaAnalyserState"><type>Enc
 enca_pair_init (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Initializes pair statistics data.</para>
 <para>In fact it just sets everything to <link linkend="NULL:CAPS"><type>NULL</type></link>, to be initialized when needed.</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-pair-init.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -958,7 +944,7 @@ enca_pair_init (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserS
 enca_pair_destroy (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Destroys the pair statistics part of analyser state <parameter>analyser</parameter>
 .</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-pair-destroy.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -978,7 +964,7 @@ enca_pair_destroy (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalys
 enca_pair_analyse (<parameter><link linkend="EncaAnalyserState"><type>EncaAnalyserState</type></link> *analyser</parameter>);</programlisting>
 <para>Performs pair-frequency based analysis, provided that the language supports
 it (does nothing otherwise).</para>
-<refsect3 role="parameters">
+<refsect3 id="enca-pair-analyse.parameters" role="parameters">
 <title>Parameters</title>
 <informaltable role="parameters_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -990,7 +976,7 @@ it (does nothing otherwise).</para>
 <entry role="parameter_description"><para>Analysed containing the sample for pair frequency analysis.</para></entry>
 <entry role="parameter_annotations"></entry></row>
 </tbody></tgroup></informaltable>
-</refsect3><refsect3 role="returns">
+</refsect3><refsect3 id="enca-pair-analyse.returns" role="returns">
 <title>Returns</title>
 <para> Nonzero when the character set was succesfully determined,
 <parameter>analyser</parameter>
@@ -1018,7 +1004,7 @@ is then directly modified.</para>
 };
 </programlisting>
 <para>Analyser options, a part of analyser state.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaAnalyserOptions.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1026,40 +1012,40 @@ is then directly modified.</para>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.const-buffer">const_buffer</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.const-buffer">const_buffer</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Treat buffer as const?  Otherwise its content can be,
 and probably will be, modified.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserOptions.min-chars">min_chars</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserOptions.min-chars">min_chars</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Minimal number significant characters.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;<structfield id="EncaAnalyserOptions.threshold">threshold</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;<structfield id="EncaAnalyserOptions.threshold">threshold</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Minimal ratio between winner and the second.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.multibyte-enabled">multibyte_enabled</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.multibyte-enabled">multibyte_enabled</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Check for multibyte encodings?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.interpreted-surfaces">interpreted_surfaces</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.interpreted-surfaces">interpreted_surfaces</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Allow surfaces causing fundamental reinterpretation?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.ambiguous-mode">ambiguous_mode</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.ambiguous-mode">ambiguous_mode</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Ambiguous mode?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.filtering">filtering</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.filtering">filtering</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Allow binary and box-drawing filters?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.test-garbageness">test_garbageness</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.test-garbageness">test_garbageness</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Do test garbageness?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.termination-strictness">termination_strictness</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaAnalyserOptions.termination-strictness">termination_strictness</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Disallow broken multibyte sequences at buffer end?</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
@@ -1102,7 +1088,7 @@ and probably will be, modified.</para></entry>
 </programlisting>
 <para>The internal analyser state.</para>
 <para>Passed as an opaque object (`this') to analyser calls.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaAnalyserState.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1110,81 +1096,81 @@ and probably will be, modified.</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="EncaLanguageInfo"><type>EncaLanguageInfo</type></link>&#160;*<structfield id="EncaAnalyserState.lang">lang</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="EncaLanguageInfo"><type>EncaLanguageInfo</type></link>&#160;*<structfield id="EncaAnalyserState.lang">lang</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Language informations.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.ncharsets">ncharsets</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.ncharsets">ncharsets</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of 8bit charsets in this language.
 (Equal to <parameter>lang->ncharsets</parameter>
 .)</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaAnalyserState.charsets">charsets</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaAnalyserState.charsets">charsets</structfield>;</para></entry>
 <entry role="struct_member_description"><para>8bit charset id's [<parameter>ncharsets</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaErrno"><type>EncaErrno</type></link>&#160;<structfield id="EncaAnalyserState.gerrno">gerrno</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaErrno"><type>EncaErrno</type></link>&#160;<structfield id="EncaAnalyserState.gerrno">gerrno</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Guessing gerrno.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.size">size</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.size">size</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Size of buffer.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.buffer">buffer</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.buffer">buffer</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Buffer whose encoding is to be detected [<parameter>size</parameter>
 ].
 (Owned by outer world.)</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaEncoding"><type>EncaEncoding</type></link>&#160;<structfield id="EncaAnalyserState.result">result</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaEncoding"><type>EncaEncoding</type></link>&#160;<structfield id="EncaAnalyserState.result">result</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Result returned to caller.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.counts">counts</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.counts">counts</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Character counts [0x100].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.bin">bin</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.bin">bin</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of `binary' characters.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.up">up</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.up">up</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of 8bit characters.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;*<structfield id="EncaAnalyserState.ratings">ratings</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;*<structfield id="EncaAnalyserState.ratings">ratings</structfield>;</para></entry>
 <entry role="struct_member_description"><para>8bit charset ratings [<parameter>ncharsets</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.order">order</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.order">order</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset indices (not id's) sorted by ratings in descending order
 [ncharsets].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.size2">size2</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaAnalyserState.size2">size2</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Size of buffer2.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.buffer2">buffer2</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.buffer2">buffer2</structfield>;</para></entry>
 <entry role="struct_member_description"><para>A temporary secondary buffer [<parameter>size2</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaUTFCheckData"><type>EncaUTFCheckData</type></link>&#160;*<structfield id="EncaAnalyserState.utfch">utfch</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaUTFCheckData"><type>EncaUTFCheckData</type></link>&#160;*<structfield id="EncaAnalyserState.utfch">utfch</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Double-UTF-8 test data [<parameter>ncharsets</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaAnalyserState.utfbuf">utfbuf</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaAnalyserState.utfbuf">utfbuf</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Double-UTF-8 buffer for various UCS-2 character counting [0x10000].
 (Magic: see <link linkend="mark-scratch-buffer"><function>mark_scratch_buffer()</function></link> for description.)</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.pair2bits">pair2bits</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaAnalyserState.pair2bits">pair2bits</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Character pair map to charsets [0x100000] (indexed
 0x100*first + second).  Each bit corresponds to one charset,
 when set, the pair is `good' for the given charset.  The
@@ -1194,27 +1180,27 @@ not be accessed from outer world, so it can be easily enlarged
 to more bits.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.bitcounts">bitcounts</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.bitcounts">bitcounts</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Counts for each possible bit combinations in <parameter>pair2bits</parameter>
 [0x1 &lt;&lt; ncharsets].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.pairratings">pairratings</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.pairratings">pairratings</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Counts of `good' pairs per charset [<parameter>ncharsets</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.lcbits">lcbits</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.lcbits">lcbits</structfield>;</para></entry>
 <entry role="struct_member_description"><para>If a character is lowercase in some charset, correspinding bit
 is set [0x100].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.ucbits">ucbits</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;*<structfield id="EncaAnalyserState.ucbits">ucbits</structfield>;</para></entry>
 <entry role="struct_member_description"><para>If a character is uppercase in some charset, correspinding bit
 is set [0x100].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaAnalyserOptions"><type>EncaAnalyserOptions</type></link>&#160;<structfield id="EncaAnalyserState.options">options</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaAnalyserOptions"><type>EncaAnalyserOptions</type></link>&#160;<structfield id="EncaAnalyserState.options">options</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Analyser options.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
@@ -1237,7 +1223,7 @@ is set [0x100].</para></entry>
 </programlisting>
 <para>General charset informnations.</para>
 <para>All the <link linkend="int"><type>int</type></link> fields are indices in <link linkend="ALIAS-LIST:CAPS"><type>ALIAS_LIST</type></link>[].</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaCharsetInfo.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1245,36 +1231,36 @@ is set [0x100].</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.enca">enca</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.enca">enca</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Default, implicit name in enca.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.rfc1345">rfc1345</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.rfc1345">rfc1345</structfield>;</para></entry>
 <entry role="struct_member_description"><para>RFC1345 charset name.
 (For charsets not in RFC1345, some canonical name is invented.)</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.cstocs">cstocs</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.cstocs">cstocs</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Cstocs charset name or -1.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.iconv">iconv</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.iconv">iconv</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Iconv charset name or -1.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.mime">mime</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.mime">mime</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Preferred MIME charset name or -1.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaCharsetInfo.human">human</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaCharsetInfo.human">human</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Human comprehensible description.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.flags">flags</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.flags">flags</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset properties (7bit, 8bit, multibyte, ...).</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.nsurface">nsurface</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaCharsetInfo.nsurface">nsurface</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Natural surface (`implied' in recode).</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
@@ -1301,7 +1287,7 @@ is set [0x100].</para></entry>
 };
 </programlisting>
 <para>Language specific data.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaLanguageInfo.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1309,41 +1295,41 @@ is set [0x100].</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageInfo.name">name</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageInfo.name">name</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Language name, or more precisely, locale name.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageInfo.humanname">humanname</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageInfo.humanname">humanname</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Normal human-readable [English] language name.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageInfo.ncharsets">ncharsets</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageInfo.ncharsets">ncharsets</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of charsets in this language.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*const&#160;&#160;*<structfield id="EncaLanguageInfo.csnames">csnames</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*const&#160;&#160;*<structfield id="EncaLanguageInfo.csnames">csnames</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset names [<parameter>ncharsets</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para>long&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaLanguageInfo.weight-sum">weight_sum</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>long&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="EncaLanguageInfo.weight-sum">weight_sum</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Sum of all <parameter>weights</parameter>
 (is the same for all charsets).</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.hook">hook</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.hook">hook</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Hook function (deciding hard cases).</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.eolhook">eolhook</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.eolhook">eolhook</structfield>;</para></entry>
 <entry role="struct_member_description"><para>EOL hook function (deciding ambiguous cases based on EOL type).</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.lcuchook">lcuchook</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.lcuchook">lcuchook</structfield>;</para></entry>
 <entry role="struct_member_description"></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.ratinghook">ratinghook</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.ratinghook">ratinghook</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Helper to calculate ratings for weightingless languages.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
@@ -1361,7 +1347,7 @@ is set [0x100].</para></entry>
 };
 </programlisting>
 <para>Cointainer for data needed by <link linkend="enca-language-hook-ncs"><function>enca_language_hook_ncs()</function></link>.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaLanguageHookData1CS.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1369,16 +1355,16 @@ is set [0x100].</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageHookData1CS.name">name</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageHookData1CS.name">name</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset name.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookData1CS.size">size</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookData1CS.size">size</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of characters in <parameter>list</parameter>
 .</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookData1CS.cs">cs</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookData1CS.cs">cs</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset number.  This is an index in <parameter>analyser</parameter>
 arrays (like <parameter>charsets</parameter>
 ),
@@ -1398,7 +1384,7 @@ NOT a charset id.</para></entry>
 };
 </programlisting>
 <para>Cointainer for data needed by <link linkend="enca-language-hook-eol"><function>enca_language_hook_eol()</function></link>.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaLanguageHookDataEOL.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1406,15 +1392,15 @@ NOT a charset id.</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageHookDataEOL.name">name</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para>const&#160;<link linkend="char"><type>char</type></link>&#160;*<structfield id="EncaLanguageHookDataEOL.name">name</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset name.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="EncaSurface"><type>EncaSurface</type></link>&#160;<structfield id="EncaLanguageHookDataEOL.eol">eol</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="EncaSurface"><type>EncaSurface</type></link>&#160;<structfield id="EncaLanguageHookDataEOL.eol">eol</structfield>;</para></entry>
 <entry role="struct_member_description"><para>The corresponding <link linkend="EncaSurface"><type>EncaSurface</type></link> bit.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookDataEOL.cs">cs</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaLanguageHookDataEOL.cs">cs</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Charset number.  This is an index in <parameter>analyser</parameter>
 arrays (like <parameter>charsets</parameter>
 ),
@@ -1436,7 +1422,7 @@ NOT a charset id.</para></entry>
 };
 </programlisting>
 <para>Data needed by double-UTF-8 check, per language charset.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaUTFCheckData.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -1444,25 +1430,25 @@ NOT a charset id.</para></entry>
 <colspec colname="struct_members_description"/>
 <colspec colname="struct_members_annotations" colwidth="200px"/>
 <tbody>
-<row><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;<structfield id="EncaUTFCheckData.rating">rating</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="double"><type>double</type></link>&#160;<structfield id="EncaUTFCheckData.rating">rating</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Total rating for this charset.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaUTFCheckData.size">size</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="size-t"><type>size_t</type></link>&#160;<structfield id="EncaUTFCheckData.size">size</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Number of UCS-2 characters.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaUTFCheckData.result">result</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="EncaUTFCheckData.result">result</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Nonzero when the sample is probably Doubly-UTF-8 encoded from
 this charset.</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaUTFCheckData.ucs2">ucs2</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaUTFCheckData.ucs2">ucs2</structfield>;</para></entry>
 <entry role="struct_member_description"><para>List of significant UCS-2 characters, in order [<parameter>size</parameter>
 ].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
-<row><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaUTFCheckData.weights">weights</structfield>;</para></entry>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;*<structfield id="EncaUTFCheckData.weights">weights</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Weights for double-UTF-8 check [<parameter>size</parameter>
 ].  Positive means normal
 UTF-8, negative doubly-encoded.</para></entry>
@@ -1484,6 +1470,20 @@ UTF-8, negative doubly-encoded.</para></entry>
 <programlisting language="C">#define FILL_NONLETTER '.'
 </programlisting>
 <para>Replacement character for non-letters in pair frequencies.</para>
+</refsect2>
+<refsect2 id="LF:CAPS" role="macro">
+<title>LF</title>
+<indexterm zone="LF:CAPS"><primary>LF</primary></indexterm>
+<programlisting language="C">#define LF ((unsigned char)'\n')
+</programlisting>
+<para>Line feed character (End-of-line on Unix).</para>
+</refsect2>
+<refsect2 id="CR:CAPS" role="macro">
+<title>CR</title>
+<indexterm zone="CR:CAPS"><primary>CR</primary></indexterm>
+<programlisting language="C">#define CR ((unsigned char)'\r')
+</programlisting>
+<para>Carriage return character (End-of-line on Macintosh).</para>
 </refsect2>
 <refsect2 id="ENCA-LANGUAGE-BE:CAPS" role="variable">
 <title>ENCA_LANGUAGE_BE</title>

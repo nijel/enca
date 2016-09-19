@@ -9,9 +9,9 @@
     </sub>
   </chapters>
   <functions>
-    <keyword type="macro" name="ENCA_CS_UNKNOWN" link="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS"/>
     <keyword type="typedef" name="EncaAnalyser" link="libenca-Typedefs-and-Constants.html#EncaAnalyser"/>
     <keyword type="struct" name="EncaEncoding" link="libenca-Typedefs-and-Constants.html#EncaEncoding"/>
+    <keyword type="macro" name="ENCA_CS_UNKNOWN" link="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS"/>
     <keyword type="enum" name="enum EncaSurface" link="libenca-Typedefs-and-Constants.html#EncaSurface"/>
     <keyword type="enum" name="enum EncaCharsetFlags" link="libenca-Typedefs-and-Constants.html#EncaCharsetFlags"/>
     <keyword type="enum" name="enum EncaNameStyle" link="libenca-Typedefs-and-Constants.html#EncaNameStyle"/>

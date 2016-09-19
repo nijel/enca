@@ -12,19 +12,6 @@
 <refpurpose>Enca library typedefs, enums and constants.</refpurpose>
 </refnamediv>
 
-<refsect1 id="libenca-Typedefs-and-Constants.functions" role="functions_proto">
-<title role="functions_proto.title">Functions</title>
-<informaltable pgwide="1" frame="none">
-<tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
-<tbody>
-<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="ENCA-CS-UNKNOWN:CAPS">ENCA_CS_UNKNOWN</link></entry></row>
-
-</tbody>
-</tgroup>
-</informaltable>
-</refsect1>
 <refsect1 id="libenca-Typedefs-and-Constants.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
 <informaltable role="enum_members_table" pgwide="1" frame="none">
@@ -34,6 +21,7 @@
 <tbody>
 <row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="EncaAnalyser">EncaAnalyser</link></entry></row>
 <row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="EncaEncoding">EncaEncoding</link></entry></row>
+<row><entry role="define_keyword">#define</entry><entry role="function_name"><link linkend="ENCA-CS-UNKNOWN:CAPS">ENCA_CS_UNKNOWN</link></entry></row>
 <row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaSurface">EncaSurface</link></entry></row>
 <row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaCharsetFlags">EncaCharsetFlags</link></entry></row>
 <row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="EncaNameStyle">EncaNameStyle</link></entry></row>
@@ -54,16 +42,7 @@
 </refsect1>
 <refsect1 id="libenca-Typedefs-and-Constants.functions_details" role="details">
 <title role="details.title">Functions</title>
-<refsect2 id="ENCA-CS-UNKNOWN:CAPS" role="macro">
-<title>ENCA_CS_UNKNOWN</title>
-<indexterm zone="ENCA-CS-UNKNOWN:CAPS"><primary>ENCA_CS_UNKNOWN</primary></indexterm>
-<programlisting language="C">#define ENCA_CS_UNKNOWN (-1)
-</programlisting>
-<para>Unknown character set id.</para>
-<para>Use <link linkend="enca-charset-is-known"><function>enca_charset_is_known()</function></link> to check for unknown charset instead of direct
-comparsion.</para>
-</refsect2>
-
+<para />
 </refsect1>
 <refsect1 id="libenca-Typedefs-and-Constants.other_details" role="details">
 <title role="details.title">Types and Values</title>
@@ -92,7 +71,7 @@ addition of new charsets) is not considered API change.</para>
  field is a combination of <link linkend="EncaSurface"><type>EncaSurface</type></link> flags.  You may want
 to ignore it completely; you should use <link linkend="enca-set-interpreted-surfaces"><function>enca_set_interpreted_surfaces()</function></link>
 to disable weird surfaces then.</para>
-<refsect3 role="struct_members">
+<refsect3 id="EncaEncoding.members" role="struct_members">
 <title>Members</title>
 <informaltable role="struct_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -103,11 +82,20 @@ to disable weird surfaces then.</para>
 </tbody></tgroup></informaltable>
 </refsect3>
 </refsect2>
+<refsect2 id="ENCA-CS-UNKNOWN:CAPS" role="macro">
+<title>ENCA_CS_UNKNOWN</title>
+<indexterm zone="ENCA-CS-UNKNOWN:CAPS"><primary>ENCA_CS_UNKNOWN</primary></indexterm>
+<programlisting language="C">#define ENCA_CS_UNKNOWN (-1)
+</programlisting>
+<para>Unknown character set id.</para>
+<para>Use <link linkend="enca-charset-is-known"><function>enca_charset_is_known()</function></link> to check for unknown charset instead of direct
+comparsion.</para>
+</refsect2>
 <refsect2 id="EncaSurface" role="enum">
 <title>enum EncaSurface</title>
 <indexterm zone="EncaSurface"><primary>EncaSurface</primary></indexterm>
 <para>Surface flags.</para>
-<refsect3 role="enum_members">
+<refsect3 id="EncaSurface.members" role="enum_members">
 <title>Members</title>
 <informaltable role="enum_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -195,7 +183,7 @@ to disable weird surfaces then.</para>
 <link linkend="ENCA-CHARSET-32BIT:CAPS"><literal>ENCA_CHARSET_32BIT</literal></link> tell how many bits a `fundamental piece' consists of.
 This is different from bits per character; r.g. UTF-8 consists of 8bit
 pieces (bytes), but character can be composed from 1 to 6 of them.</para>
-<refsect3 role="enum_members">
+<refsect3 id="EncaCharsetFlags.members" role="enum_members">
 <title>Members</title>
 <informaltable role="enum_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -255,7 +243,7 @@ fundamental pieces.</para>
 <title>enum EncaNameStyle</title>
 <indexterm zone="EncaNameStyle"><primary>EncaNameStyle</primary></indexterm>
 <para>Charset naming styles and conventions.</para>
-<refsect3 role="enum_members">
+<refsect3 id="EncaNameStyle.members" role="enum_members">
 <title>Members</title>
 <informaltable role="enum_members_table" pgwide="1" frame="none">
 <tgroup cols="3">
@@ -299,7 +287,7 @@ fundamental pieces.</para>
 <title>enum EncaErrno</title>
 <indexterm zone="EncaErrno"><primary>EncaErrno</primary></indexterm>
 <para>Error codes.</para>
-<refsect3 role="enum_members">
+<refsect3 id="EncaErrno.members" role="enum_members">
 <title>Members</title>
 <informaltable role="enum_members_table" pgwide="1" frame="none">
 <tgroup cols="3">

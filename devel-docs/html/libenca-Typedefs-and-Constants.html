@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Typedefs and Constants: Enca Library Reference Manual</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.79.1">
 <link rel="home" href="index.html" title="Enca Library Reference Manual">
 <link rel="up" href="ch01.html" title="Enca Library API">
 <link rel="prev" href="libenca-Analyser.html" title="Analyser">
 <link rel="next" href="libenca-Charsets-and-Surfaces.html" title="Charsets and Surfaces">
-<meta name="generator" content="GTK-Doc V1.24 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -32,21 +32,8 @@
 <td class="gallery_image" valign="top" align="right"></td>
 </tr></table></div>
 <div class="refsect1">
-<a name="libenca-Typedefs-and-Constants.functions"></a><h2>Functions</h2>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="functions_return">
-<col class="functions_name">
-</colgroup>
-<tbody><tr>
-<td class="define_keyword">#define</td>
-<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS" title="ENCA_CS_UNKNOWN">ENCA_CS_UNKNOWN</a></td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect1">
 <a name="libenca-Typedefs-and-Constants.other"></a><h2>Types and Values</h2>
-<div class="informaltable"><table width="100%" border="0">
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="150px" class="name">
 <col class="description">
@@ -59,6 +46,10 @@
 <tr>
 <td class="datatype_keyword"> </td>
 <td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#EncaEncoding" title="EncaEncoding">EncaEncoding</a></td>
+</tr>
+<tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="libenca-Typedefs-and-Constants.html#ENCA-CS-UNKNOWN:CAPS" title="ENCA_CS_UNKNOWN">ENCA_CS_UNKNOWN</a></td>
 </tr>
 <tr>
 <td class="datatype_keyword">enum</td>
@@ -90,14 +81,7 @@
 </div>
 <div class="refsect1">
 <a name="libenca-Typedefs-and-Constants.functions_details"></a><h2>Functions</h2>
-<div class="refsect2">
-<a name="ENCA-CS-UNKNOWN:CAPS"></a><h3>ENCA_CS_UNKNOWN</h3>
-<pre class="programlisting">#define ENCA_CS_UNKNOWN (-1)
-</pre>
-<p>Unknown character set id.</p>
-<p>Use <code class="function">enca_charset_is_known()</code> to check for unknown charset instead of direct
-comparsion.</p>
-</div>
+<p></p>
 </div>
 <div class="refsect1">
 <a name="libenca-Typedefs-and-Constants.other_details"></a><h2>Types and Values</h2>
@@ -126,8 +110,8 @@ addition of new charsets) is not considered API change.</p>
 to ignore it completely; you should use <code class="function">enca_set_interpreted_surfaces()</code>
 to disable weird surfaces then.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.3.8"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="EncaEncoding.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="struct_members_name">
 <col class="struct_members_description">
@@ -139,11 +123,20 @@ to disable weird surfaces then.</p>
 </div>
 <hr>
 <div class="refsect2">
+<a name="ENCA-CS-UNKNOWN:CAPS"></a><h3>ENCA_CS_UNKNOWN</h3>
+<pre class="programlisting">#define ENCA_CS_UNKNOWN (-1)
+</pre>
+<p>Unknown character set id.</p>
+<p>Use <code class="function">enca_charset_is_known()</code> to check for unknown charset instead of direct
+comparsion.</p>
+</div>
+<hr>
+<div class="refsect2">
 <a name="EncaSurface"></a><h3>enum EncaSurface</h3>
 <p>Surface flags.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.4.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="EncaSurface.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -261,8 +254,8 @@ to disable weird surfaces then.</p>
 This is different from bits per character; r.g. UTF-8 consists of 8bit
 pieces (bytes), but character can be composed from 1 to 6 of them.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.5.5"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="EncaCharsetFlags.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -342,8 +335,8 @@ fundamental pieces.</p>
 <a name="EncaNameStyle"></a><h3>enum EncaNameStyle</h3>
 <p>Charset naming styles and conventions.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.6.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="EncaNameStyle.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -401,8 +394,8 @@ fundamental pieces.</p>
 <a name="EncaErrno"></a><h3>enum EncaErrno</h3>
 <p>Error codes.</p>
 <div class="refsect3">
-<a name="id-1.2.3.7.7.4"></a><h4>Members</h4>
-<div class="informaltable"><table width="100%" border="0">
+<a name="EncaErrno.members"></a><h4>Members</h4>
+<div class="informaltable"><table class="informaltable" width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
 <col class="enum_members_description">
@@ -479,6 +472,6 @@ fundamental pieces.</p>
 </div>
 </div>
 <div class="footer">
-<hr>Generated by GTK-Doc V1.24</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>
