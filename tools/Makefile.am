@@ -2,7 +2,8 @@ noinst_PROGRAMS = make_hash
 noinst_HEADERS = encodings.h
 noinst_SCRIPTS = expand_table.pl
 
-make_hash_SOURCES = make_hash.c
+make_hash$(EXEEXT): make_hash.c
+	$(CC_FOR_BUILD) $(CFLAGS_FOR_BUILD) -o $@ $<
 
 BUILT_SOURCES = $(noinst_HEADERS)
 

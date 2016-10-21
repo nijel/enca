@@ -17,25 +17,9 @@
   with this program; if not, write to the Free Software Foundation, Inc.,
   59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 */
-#ifdef HAVE_CONFIG_H
-#  include "config.h"
-#endif /* HAVE_CONFIG_H */
-
 #include <stdlib.h>
 #include <stdio.h>
-
-#ifdef HAVE_STRING_H
-#  include <string.h>
-#else /* HAVE_STRING_H */
-#  ifdef HAVE_STRINGS_H
-#    include <strings.h>
-#  endif /* HAVE_STRINGS_H */
-#endif /* HAVE_STRING_H */
-
-#ifdef HAVE_MEMORY_H
-#  include <memory.h>
-#endif /* HAVE_MEMORY_H */
-
+#include <string.h>
 #include <unistd.h>
 #include <ctype.h>
 
