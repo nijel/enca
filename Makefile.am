@@ -56,6 +56,7 @@ install-data-hook:
 	inst1=`echo enca | sed '$(transform)'`.1; \
 	inst2=`echo enconv | sed '$(transform)'`.1; \
 	$(LN_S) -f $$inst1 $$inst2
+	rm -f $(DESTDIR)$(libdir)/libenca.la
 
 uninstall-hook:
 	inst=`echo enconv | sed '$(transform)'`.1; \
