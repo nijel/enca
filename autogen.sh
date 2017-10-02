@@ -167,7 +167,7 @@ echo processing $dir
   libtoolize --force --copy && \
   aclocal $ACLOCAL_FLAGS && \
   autoheader && \
-  automake --add-missing $am_opt && \
+  automake --add-missing --copy $am_opt && \
   autoconf) || {
     echo "**ERROR**: Re-generating failed.  You are allowed to shoot $PROJECT maintainer."
     echo "(BTW, why are you re-generating everything? Have you read DEVELOP.md?)"
