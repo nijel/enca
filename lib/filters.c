@@ -274,7 +274,7 @@ filter_boxdraw_out(int charset,
   i = 0;
   while (i < size-1) {
     if (buffer[i] == bd->h1 || buffer[i] == bd->h2) {
-      for (n = i+1; buffer[n] == buffer[i] && n < size; n++)
+      for (n = i+1; n < size && buffer[n] == buffer[i]; n++)
         ;
 
       if (n > i+1) {
