@@ -310,6 +310,20 @@ iconv_check(char **fromlist, char **tolist)
   return 1;
 }
 
+static void
+free_enclist (P_EncList enclist)
+{
+  P_EncList p_e = enclist;
+  P_EncList p_e_next;
+
+  while (p_e != NULL) {
+    p_e_next = p_e->next;
+    free(p_e->enc);
+    free(p_e);
+    p_e = p_e_next;
+  }
+}
+
 /* check if conversion from any encoding not defined as NULL in file fname
    to any other defined there is possible, in other words check transitivity
    condition for all defined encodings (we then hope this condition holds
@@ -338,6 +352,7 @@ check_transitivity(char *fname)
       fclose(f);
       free(s);
       free(p_e);
+      free_enclist(enclist);
       return 1;
     }
     if ((sb = strchr(s, '"')) != NULL) {
@@ -346,6 +361,7 @@ check_transitivity(char *fname)
         fclose(f);
         free(s);
         free(p_e);
+        free_enclist(enclist);
         return 1;
       }
 
@@ -369,12 +385,14 @@ check_transitivity(char *fname)
         fprintf(stderr, "iconvap: iconv_open(%s, %s) failed\n",
                 enclist->enc, p_e->enc);
         free(s);
+        free_enclist(enclist);
         return 1;
       }
       if (iconv_check_one(p_e->enc, enclist->enc) != 0) {
         fprintf(stderr, "iconvcap: iconv_open(%s, %s) failed\n",
                 p_e->enc, enclist->enc);
         free(s);
+        free_enclist(enclist);
         return 1;
       }
     }
@@ -383,6 +401,7 @@ check_transitivity(char *fname)
 
   fprintf(stderr, "iconvcap: transitivity OK\n");
   free(s);
+  free_enclist(enclist);
   return 0;
 }
 
