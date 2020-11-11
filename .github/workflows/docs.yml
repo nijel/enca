@@ -13,10 +13,12 @@ jobs:
         run: sudo apt-get install -y gtk-doc-tools
       - name: Configure build
         run: ./configure --enable-gtk-doc
+      - name: Build
+        run: make -j4
       - name: Build docs
-        run: |
-          make -C devel-docs docs > /dev/null
-          find devel-docs/html/ -type f -name '*.html' -print0 | xargs -r -0 sed -i 's@/libenca/@/doc/@'
+        run: make -C devel-docs docs
+      - name: Fixup docs
+        run: find devel-docs/html/ -type f -name '*.html' -print0 | xargs -r -0 sed -i 's@/libenca/@/doc/@'
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.event_name == 'push' && github.event.ref == 'refs/heads/master'
