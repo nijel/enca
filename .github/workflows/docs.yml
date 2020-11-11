@@ -14,7 +14,7 @@ jobs:
       - name: Configure build
         run: ./configure --enable-gtk-doc
       - name: Build
-        run: make -j4
+        run: make
       - name: Build docs
         run: make -C devel-docs docs
       - name: Fixup docs
