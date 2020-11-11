@@ -1,0 +1,10 @@
+# This file is generated in https://github.com/WeblateOrg/meta/
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+    labels:
+      - dependencies
+      - automerge

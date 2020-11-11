@@ -1,0 +1,25 @@
+name: Documentation
+
+on: [push, pull_request]
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update apt
+        run: sudo apt-get update
+      - name: Install apt deps
+        run: sudo apt-get install -y gtk-doc-tools
+      - name: Configure build
+        run: ./configure
+      - name: Build docs
+        run: |
+          make -C devel-docs docs > /dev/null
+          find devel-docs/html/ -type f -name '*.html' -print0 | xargs -r -0 sed -i 's@/libenca/@/doc/@'
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.event_name == 'push' && github.event.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./devel-docs/html/
