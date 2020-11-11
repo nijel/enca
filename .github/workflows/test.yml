@@ -1,9 +1,9 @@
-name: Documentation
+name: Tests
 
 on: [push, pull_request]
 
 jobs:
-  docs:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
