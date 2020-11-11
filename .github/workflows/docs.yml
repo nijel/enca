@@ -12,7 +12,7 @@ jobs:
       - name: Install apt deps
         run: sudo apt-get install -y gtk-doc-tools
       - name: Configure build
-        run: ./configure
+        run: ./configure --enable-gtk-doc
       - name: Build docs
         run: |
           make -C devel-docs docs > /dev/null
