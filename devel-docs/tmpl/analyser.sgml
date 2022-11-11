@@ -36,7 +36,7 @@ main(void)
   buflen = fread(buffer, 1, 4096, stdin);
   analyser = enca_analyser_alloc("cs");
   encoding = enca_analyse(analyser, buffer, buflen);
-  printf("Charset: %%s\n", enca_charset_name(encoding.charset,
+  printf("Charset: %s\n", enca_charset_name(encoding.charset,
                                              ENCA_NAME_STYLE_HUMAN));
   enca_analyser_free(analyser);
 
