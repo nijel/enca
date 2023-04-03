@@ -27,7 +27,7 @@ normalize.pl -- [filter] Does some kind of funny weight normalization, useful
 
 extreme.pl -- Given two count files, it finds characters most suitable for
               hook deciding between these two, i.e. characters with the
-              biggest difference of occurences:
+              biggest difference of occurrences:
               $ ./extreme.pl COUNT1 COUNT2
 
 xlt.c -- [filter] Extremely simple charset converter, to become independent

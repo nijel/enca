@@ -299,7 +299,7 @@ compute_double_utf8_weights(EncaAnalyserState *analyser)
     buf[i] = 0;
 
   /* For all charsets compute UTF-8 prefix byte occurence tables and select
-   * those characters having the highest difference between occurences when
+   * those characters having the highest difference between occurrences when
    * counted as UTF-8 prefix and when counted as a regular character. */
   for (j = 0; j < analyser->ncharsets; j++) {
     const unsigned short int *const w = analyser->lang->weights[j];
