@@ -180,7 +180,7 @@ convert_builtin(File *file,
     assert(enca_charset_is_known(ascii));
   }
 
-  /* surfaces can cause fail iff user specificaly requested some
+  /* surfaces can cause fail iff user specifically requested some
    * or when they are other type than EOLs */
   {
     EncaSurface srf = options.target_enc.surface ^ from_enc.surface;

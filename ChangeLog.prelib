@@ -715,7 +715,7 @@ v0.7.6
     * fixed freeing not allocated request in convert_recode()
     * implemented some more verbosity in converter
     * strstr() alternative moved to common.c
-    * implemented strstrcount() conting occurences of needle
+    * implemented strstrcount() conting occurrences of needle
     * '/' is added after both in_enc and out_enc when creating recode request
       string, partially helps with touchy librecode, but sometimes it fails
       anyway

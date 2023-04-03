@@ -29,7 +29,7 @@ MAYBE SOMEDAY:
 
 * Detect all-caps texts OK.
   After several experiments it seems we have to
-  - use pair occurences, at least, with specificaly computed
+  - use pair occurrences, at least, with specifically computed
     difference-maximising weights
   - guess in two steps
   - first with uncapitalization and pair weights, and check whether the
