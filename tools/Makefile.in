@@ -672,8 +672,8 @@ all: encodings.h
 encodings.sed: $(top_builddir)/iconvenc.h
 	sed -e 's/^#define \([A-Z0-9_]*\) \(.*\)/@\1@ \2/' -e 's/"//g' -e 's/NULL$$//' -e 's/ /\//' -e 's/^\(.*\)$$/s\/\1\//' $(top_builddir)/iconvenc.h >encodings.sed
 
-encodings.h: encodings.sed $(srcdir)/encodings.dat make_hash
-	sed -f encodings.sed $(srcdir)/encodings.dat | ./make_hash >encodings.h
+encodings.h: encodings.sed $(srcdir)/encodings.dat make_hash$(EXEEXT)
+	sed -f encodings.sed $(srcdir)/encodings.dat | ./make_hash$(EXEEXT) >encodings.h
 
 @MAINTAINER_MODE_TRUE@tables: $(TABLES) $(TABLES_INCR)
 
