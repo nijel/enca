@@ -2,8 +2,8 @@ dnl configure.in by David Necas (Yeti) <yeti@physics.muni.cz>
 dnl This file is in public domain.
 dnl Process this file with autoconf to produce a configure script.
 dnl Shake before use.
-AC_INIT(Enca, 1.20-dev, [https://github.com/nijel/enca/issues])
-AC_PREREQ(2.52)
+AC_INIT([Enca],[1.20-dev],[https://github.com/nijel/enca/issues])
+AC_PREREQ([2.69])
 AC_CONFIG_SRCDIR(src/enca.c)
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_FILES( \
@@ -36,10 +36,10 @@ dnl Checks for programs.
 AC_PROG_AWK
 AC_PROG_CC
 AX_PROG_CC_FOR_BUILD
-AC_GNU_SOURCE
-AC_AIX
-AC_ISC_POSIX
-AC_PROG_LIBTOOL
+AC_USE_SYSTEM_EXTENSIONS
+AC_USE_SYSTEM_EXTENSIONS
+AC_SEARCH_LIBS([strerror],[cposix])
+LT_INIT
 AC_PROG_CC
 AM_PROG_CC_C_O
 AC_PROG_INSTALL
