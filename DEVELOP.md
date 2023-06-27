@@ -90,6 +90,6 @@ The git repository is located at GitHub:
 
     https://github.com/nijel/enca
 
-There is also continuous integration on Travis:
+There is also continuous integration on GitHub:
 
-    https://travis-ci.org/nijel/enca
+    https://github.com/nijel/enca/actions
