@@ -1,5 +1,5 @@
 #============================================================================
-# Enca v1.20 (2023-06-27)  guess and convert encoding of text files
+# Enca v1.20-dev (2016-09-05)  guess and convert encoding of text files
 # Copyright (C) 2000-2003 David Necas (Yeti) <yeti@physics.muni.cz>
 # Copyright (C) 2009-2016 Michal Cihar <michal@cihar.com>
 #============================================================================
@@ -11,7 +11,7 @@ Legend: + new feature
         * change of behaviour (including disappearing of a feature)
         - bugfix
 
-enca-1.20 2023-06-27
+enca-1.20-dev
   - fix crosscompilation issues
 
 enca-1.19 2016-09-05
