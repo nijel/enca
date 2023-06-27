@@ -2,7 +2,7 @@
 # Purpose: check whether enca correctly prints license, help, version.
 . $srcdir/setup.sh
 $ENCA --version >$TESTNAME.actual || DIE=1
-version=`grep '^AC_INIT' $top_srcdir/configure.ac | sed -e 's/AC_INIT(Enca, \([0-9.]*\).*/\1/' -e 's/\./\\./'`
+version=`grep '^AC_INIT' $top_srcdir/configure.ac | sed -e 's/AC_INIT(\[Enca\], \[[0-9.]*\).*/\1/' -e 's/\./\\./'`
 grep '^enca '$version $TESTNAME.actual >/dev/null || DIE=1
 $ENCA --license >$TESTNAME.actual || DIE=1
 diff $top_srcdir/COPYING $TESTNAME.actual || DIE=1
