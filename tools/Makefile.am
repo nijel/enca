@@ -1,4 +1,4 @@
-noinst_PROGRAMS = make_hash
+noinst_PROGRAMS = make_hash$(EXEEXT)
 noinst_HEADERS = encodings.h
 noinst_SCRIPTS = expand_table.pl
 
@@ -30,8 +30,8 @@ all: encodings.h
 encodings.sed: $(top_builddir)/iconvenc.h
 	sed -e 's/^#define \([A-Z0-9_]*\) \(.*\)/@\1@ \2/' -e 's/"//g' -e 's/NULL$$//' -e 's/ /\//' -e 's/^\(.*\)$$/s\/\1\//' $(top_builddir)/iconvenc.h >encodings.sed
 
-encodings.h: encodings.sed $(srcdir)/encodings.dat make_hash
-	sed -f encodings.sed $(srcdir)/encodings.dat | ./make_hash >encodings.h
+encodings.h: encodings.sed $(srcdir)/encodings.dat make_hash$(EXEEXT)
+	sed -f encodings.sed $(srcdir)/encodings.dat | ./make_hash$(EXEEXT) >encodings.h
 
 # Normally there's no need to regenerate tables, they are copy-and-pasted
 # into the C source manually, but the rules are here.  Run `make tables'
