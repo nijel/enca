@@ -213,9 +213,8 @@ int         check_external_converter (void);
 #endif /* ENABLE_EXTERNAL */
 
 char*       detect_lang            (const char *lang);
-#ifdef HAVE_NL_LANGINFO
+
 const char* get_lang_codeset       (void);
-#endif /* HAVE_NL_LANGINFO */
 
 #endif /* not COMMON_H */
 /* vim: ts=2

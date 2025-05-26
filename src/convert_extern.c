@@ -64,7 +64,7 @@ convert_external(File *file,
 
   pid_t pid;
   int status;
-  File *tempfile = NULL;
+  File *volatile tempfile = NULL;
   char *from_name, *target_name;
 
   if (*extern_converter == '\0') {
