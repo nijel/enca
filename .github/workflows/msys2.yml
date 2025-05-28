@@ -1,0 +1,26 @@
+name: MSYS2
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  msys2-ucrt64:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: UCRT64
+          update: true
+          install: git mingw-w64-ucrt-x86_64-gcc mingw-w64-ucrt-x86_64-libiconv mingw-w64-ucrt-x86_64-recode make
+      - name: Configure build
+        run: ./configure --disable-shared
+      - name: Build
+        run: make -j$(nproc)
+      - name: Install
+        run: make install DESTDIR=/tmp/inst
+      - name: Test
+        run: make test
+      - name: Test log
+        run: cat test/test-suite.log
