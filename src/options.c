@@ -556,7 +556,7 @@ prepend_env(int argc,
   }
   enca_free(encaenv);
 
-  for (i = 1; i < argc; i++)
+  for (i = 1; i < (size_t)argc; i++)
     (*newargv)[i + nitems] = argv[i];
 
   return 0;

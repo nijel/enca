@@ -22,6 +22,8 @@
 
 #include "../lib/internal.h"
 
+#define UNUSED(x) (void)(x)
+
 /* define or correctly redefine EXIT_* values */
 #if !(defined EXIT_SUCCESS) || (EXIT_SUCCESS != 0) || (EXIT_FAILURE == 0)
 #  define EXIT_SUCCESS 0
