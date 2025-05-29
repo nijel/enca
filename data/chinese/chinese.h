@@ -5,7 +5,7 @@
 
 struct zh_weight
 {
-  unsigned char name[2];
+  unsigned char name[3];
   double freq;
 };
 

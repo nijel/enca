@@ -82,6 +82,7 @@ detect_lang(const char *lang)
   return result;
 
 #else /* HAVE_SETLOCALE */
+  UNUSED(locname);
   cvt = locale_alias_convert(lang);
   result = strip_locale_name(cvt);
   enca_free(cvt);
@@ -118,6 +119,8 @@ detect_target_charset(const char *locname)
   }
   if (options.verbosity_level > 2)
     fprintf(stderr, "Detected locale native charset: %s\n", s);
+#else
+  UNUSED(locname);
 #endif /* HAVE_NL_LANGINFO */
 
   return s;
