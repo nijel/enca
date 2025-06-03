@@ -14,3 +14,6 @@ enca_istext
 enca_isupper
 enca_isxdigit
 EncaEncoding(charset, surface)
+EncaLanguageHookData1CS(list)
+EncaLanguageInfo(weights, significant, letters, pairs)
+EncaSurface(ENCA_SURFACE_HZ)

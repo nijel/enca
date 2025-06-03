@@ -16,58 +16,39 @@
 
 <refsect1 id="libenca-Analyser.description" role="desc">
 <title role="desc.title">Description</title>
-<para>
-Basically you want to allocate an analyser with <link linkend="enca-analyser-alloc"><function>enca_analyser_alloc()</function></link> for some
+<para>Basically you want to allocate an analyser with <link linkend="enca-analyser-alloc"><function>enca_analyser_alloc()</function></link> for some
 language, use <link linkend="enca-analyse"><function>enca_analyse()</function></link> (or <link linkend="enca-analyse-const"><function>enca_analyse_const()</function></link>) on a buffer to find its
 encoding, and interpret the results with something like <link linkend="enca-charset-name"><function>enca_charset_name()</function></link>.
 The analyser then can be used for another buffer. Once you no longer need
 it, call <link linkend="enca-analyser-free"><function>enca_analyser_free()</function></link> to release it.
-</para>
-<para>
-A single working example is better than a hundred pages of reference manual.
-</para>
-<example>
-<title>A minimal Enca library application &ndash; Czech encoding
-detector.</title>
-<programlisting>
-#include &lt;stdio.h&gt;
-#include &lt;enca.h&gt;
-int
-main(void)
+A single working example is better than a hundred pages of reference manual.</para>
+<para>A minimal Enca library application &ndash; Czech encoding detector.</para>
+<informalexample><programlisting role="example"><![CDATA[
+#include <stdio.h>
+#include <enca.h>
+int main(void)
 {
-  EncaAnalyser analyser;
-  EncaEncoding encoding;
-  unsigned char buffer[4096];
-  size_t buflen;
-  buflen = fread(buffer, 1, 4096, stdin);
-  analyser = enca_analyser_alloc("cs");
-  encoding = enca_analyse(analyser, buffer, buflen);
-  printf("Charset: %%s\n", enca_charset_name(encoding.charset,
+EncaAnalyser analyser;
+EncaEncoding encoding;
+unsigned char buffer[4096];
+size_t buflen;
+
+buflen = fread(buffer, 1, 4096, stdin);
+analyser = enca_analyser_alloc("cs");
+encoding = enca_analyse(analyser, buffer, buflen);
+printf("Charset: %s\n", enca_charset_name(encoding.charset,
                                              ENCA_NAME_STYLE_HUMAN));
-  enca_analyser_free(analyser);
-  return 0;
+enca_analyser_free(analyser);
+
+return 0;
 }
-</programlisting>
-</example>
-<para>
-The analyser has plenty of options, but generally you don't need to fiddle
-with them, except <link linkend="enca-set-termination-strictness"><function>enca_set_termination_strictness()</function></link>.
-</para>
-<para>
-All names prefixed with <function>ENCA_</function>,
-<function>Enca</function>, <function>_Enca</function>,
-or <function>enca_</function> should be treated as reserved and not used for
-application function/variable/type/macro names.
-</para>
+]]></programlisting></informalexample>
+<para></para>
 
 </refsect1>
 <refsect1 id="libenca-Analyser.functions_details" role="details">
 <title role="details.title">Functions</title>
 <para />
-</refsect1>
-<refsect1 id="libenca-Analyser.other_details" role="details">
-<title role="details.title">Types and Values</title>
-
 </refsect1>
 
 </refentry>

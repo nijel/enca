@@ -14,10 +14,10 @@
 
 <refsect1 id="libenca-Typedefs-and-Constants.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
-<informaltable role="enum_members_table" pgwide="1" frame="none">
+<informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="name" colwidth="150px"/>
-<colspec colname="description"/>
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
 <tbody>
 <row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="EncaAnalyser">EncaAnalyser</link></entry></row>
 <row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="EncaEncoding">EncaEncoding</link></entry></row>
@@ -36,8 +36,6 @@
 
 <refsect1 id="libenca-Typedefs-and-Constants.description" role="desc">
 <title role="desc.title">Description</title>
-<para>
-</para>
 
 </refsect1>
 <refsect1 id="libenca-Typedefs-and-Constants.functions_details" role="details">
@@ -51,8 +49,6 @@
 <indexterm zone="EncaAnalyser"><primary>EncaAnalyser</primary></indexterm>
 <programlisting language="C">typedef struct _EncaAnalyserState *EncaAnalyser;
 </programlisting>
-<para>
-</para>
 </refsect2>
 <refsect2 id="EncaEncoding" role="struct">
 <title>EncaEncoding</title>

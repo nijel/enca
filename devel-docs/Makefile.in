@@ -346,7 +346,7 @@ EXTRA_DIST = \
 	$(DOC_OVERRIDES)
 
 DOC_STAMPS = scan-build.stamp tmpl-build.stamp sgml-build.stamp html-build.stamp \
-	   $(srcdir)/tmpl.stamp $(srcdir)/sgml.stamp $(srcdir)/html.stamp
+	   $(srcdir)/sgml.stamp $(srcdir)/html.stamp
 
 SCANOBJ_FILES = \
 	$(DOC_MODULE).args 	\
@@ -575,19 +575,19 @@ uninstall-am: uninstall-local
 @ENABLE_GTK_DOC_TRUE@$(DOC_MODULE)-decl.txt $(SCANOBJ_FILES): scan-build.stamp
 @ENABLE_GTK_DOC_TRUE@	@true
 
-#### templates ####
-
-@ENABLE_GTK_DOC_TRUE@tmpl-build.stamp: $(DOC_MODULE)-decl.txt $(SCANOBJ_FILES) $(DOC_MODULE)-sections.txt $(DOC_OVERRIDES)
-@ENABLE_GTK_DOC_TRUE@	@echo '*** Rebuilding template files ***'
-@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-mktmpl --module=$(DOC_MODULE)
-@ENABLE_GTK_DOC_TRUE@	touch tmpl-build.stamp
-
-@ENABLE_GTK_DOC_TRUE@tmpl.stamp: tmpl-build.stamp
-@ENABLE_GTK_DOC_TRUE@	@true
+# #### templates ####
+#
+# tmpl-build.stamp: $(DOC_MODULE)-decl.txt $(SCANOBJ_FILES) $(DOC_MODULE)-sections.txt $(DOC_OVERRIDES)
+# 	@echo '*** Rebuilding template files ***'
+# 	cd $(srcdir) && gtkdoc-mktmpl --module=$(DOC_MODULE)
+# 	touch tmpl-build.stamp
+#
+# tmpl.stamp: tmpl-build.stamp
+# 	@true
 
 #### sgml ####
 
-@ENABLE_GTK_DOC_TRUE@sgml-build.stamp: tmpl.stamp $(CFILE_GLOB) $(wildcard $(srcdir)/tmpl/*.sgml)
+@ENABLE_GTK_DOC_TRUE@sgml-build.stamp: $(CFILE_GLOB) $(wildcard $(srcdir)/tmpl/*.sgml)
 @ENABLE_GTK_DOC_TRUE@	@echo '*** Building XML ***'
 @ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && \
 @ENABLE_GTK_DOC_TRUE@	gtkdoc-mkdb --module=$(DOC_MODULE) --source-dir=$(DOC_SOURCE_DIR) --output-format=xml $(MKDB_OPTIONS)
@@ -604,7 +604,7 @@ uninstall-am: uninstall-local
 @ENABLE_GTK_DOC_TRUE@	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
 @ENABLE_GTK_DOC_TRUE@	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
 @ENABLE_GTK_DOC_TRUE@	@echo '-- Fixing Crossreferences' 
-@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-fixxref --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
+@ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-fixxref --module=libenca --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
 @ENABLE_GTK_DOC_TRUE@	touch html-build.stamp
 
 ##############
