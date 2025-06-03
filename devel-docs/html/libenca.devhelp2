@@ -5,7 +5,7 @@
       <sub name="Analyser" link="libenca-Analyser.html"/>
       <sub name="Typedefs and Constants" link="libenca-Typedefs-and-Constants.html"/>
       <sub name="Charsets and Surfaces" link="libenca-Charsets-and-Surfaces.html"/>
-      <sub name="Auxiliary functions" link="libenca-Auxiliary-Functions.html"/>
+      <sub name="Auxiliary Functions" link="libenca-Auxiliary-Functions.html"/>
     </sub>
   </chapters>
   <functions>

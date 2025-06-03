@@ -3,23 +3,21 @@
                "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <refentry id="libenca-Internal-Functions">
 <refmeta>
-<refentrytitle role="top_of_page" id="libenca-Internal-Functions.top_of_page">internal</refentrytitle>
+<refentrytitle role="top_of_page" id="libenca-Internal-Functions.top_of_page">Internal Functions</refentrytitle>
 <manvolnum>3</manvolnum>
 <refmiscinfo>LIBENCA Library</refmiscinfo>
 </refmeta>
 <refnamediv>
-<refname>internal</refname>
-<refpurpose><para>
-internal functions
-</para></refpurpose>
+<refname>Internal Functions</refname>
+<refpurpose></refpurpose>
 </refnamediv>
 
 <refsect1 id="libenca-Internal-Functions.functions" role="functions_proto">
 <title role="functions_proto.title">Functions</title>
 <informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="functions_return" colwidth="150px"/>
-<colspec colname="functions_name"/>
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
 <tbody>
 <row><entry role="function_type"><link linkend="int"><returnvalue>int</returnvalue></link>
 </entry><entry role="function_name"><phrase role="c_punctuation">(</phrase><link linkend="EncaHookFunc">*EncaHookFunc</link><phrase role="c_punctuation">)</phrase>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
@@ -88,10 +86,10 @@ internal functions
 </refsect1>
 <refsect1 id="libenca-Internal-Functions.other" role="other_proto">
 <title role="other_proto.title">Types and Values</title>
-<informaltable role="enum_members_table" pgwide="1" frame="none">
+<informaltable pgwide="1" frame="none">
 <tgroup cols="2">
-<colspec colname="name" colwidth="150px"/>
-<colspec colname="description"/>
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
 <tbody>
 <row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="EncaAnalyserOptions">EncaAnalyserOptions</link></entry></row>
 <row><entry role="datatype_keyword">struct</entry><entry role="function_name"><link linkend="EncaAnalyserState">EncaAnalyserState</link></entry></row>
@@ -127,9 +125,6 @@ internal functions
 
 <refsect1 id="libenca-Internal-Functions.description" role="desc">
 <title role="desc.title">Description</title>
-<para>
-Do not use outside Enca library.
-</para>
 
 </refsect1>
 <refsect1 id="libenca-Internal-Functions.functions_details" role="details">
@@ -1326,8 +1321,7 @@ is set [0x100].</para></entry>
 <entry role="struct_member_annotations"></entry>
 </row>
 <row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.lcuchook">lcuchook</structfield>;</para></entry>
-<entry role="struct_member_description"></entry>
-<entry role="struct_member_annotations"></entry>
+<entry /><entry />
 </row>
 <row role="member"><entry role="struct_member_name"><para><link linkend="EncaHookFunc"><type>EncaHookFunc</type></link>&#160;<structfield id="EncaLanguageInfo.ratinghook">ratinghook</structfield>;</para></entry>
 <entry role="struct_member_description"><para>Helper to calculate ratings for weightingless languages.</para></entry>
