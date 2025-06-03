@@ -10,6 +10,11 @@
 extern "C" {
 #endif /* __cplusplus */
 
+/**
+ * SECTION:enums
+ * @short_description: Enca library typedefs, enums and constants.
+ *
+ */
 /* Enumerated types */
 
 typedef enum { /*< flags >*/
@@ -74,9 +79,48 @@ typedef enum {
 
 #define ENCA_NOT_A_CHAR 0xffff
 
+/**
+ * SECTION:analyser
+ * @short_description: Basic analyser interface.
+ *
+ * Basically you want to allocate an analyser with enca_analyser_alloc() for some
+ * language, use enca_analyse() (or enca_analyse_const()) on a buffer to find its
+ * encoding, and interpret the results with something like enca_charset_name().
+ * The analyser then can be used for another buffer. Once you no longer need
+ * it, call enca_analyser_free() to release it.
+ * A single working example is better than a hundred pages of reference manual.
+ *
+ * A minimal Enca library application &ndash; Czech encoding detector.
+ *
+ *
+ * |[
+ * #include <stdio.h>
+ * #include <enca.h>
+ * int main(void)
+ * {
+ * EncaAnalyser analyser;
+ * EncaEncoding encoding;
+ * unsigned char buffer[4096];
+ * size_t buflen;
+ *
+ * buflen = fread(buffer, 1, 4096, stdin);
+ * analyser = enca_analyser_alloc("cs");
+ * encoding = enca_analyse(analyser, buffer, buflen);
+ * printf("Charset: %s\n", enca_charset_name(encoding.charset,
+                                             ENCA_NAME_STYLE_HUMAN));
+ * enca_analyser_free(analyser);
+
+ * return 0;
+ * }
+ * ]|
+ */
 /* Published (opaque) typedefs  */
 typedef struct _EncaAnalyserState *EncaAnalyser;
-
+/**
+ * SECTION:encodings
+ * @short_description: Functions and macros for getting something sensible from #EncaEncoding.
+ *
+ */
 /* Public (transparent) typedefs */
 typedef struct _EncaEncoding EncaEncoding;
 
@@ -157,7 +201,12 @@ EncaCharsetFlags  enca_charset_properties      (int charset);
 #define enca_charset_is_multibyte(cs) \
   (enca_charset_properties(cs) & ENCA_CHARSET_MULTIBYTE)
 
-/* Auxiliary functions. */
+/**
+ * SECTION:auxiliary
+ * @short_description: Variouis auxiliary functions and informations about libenca.
+ *
+ */
+/* Auxuliary functions. */
 int           enca_charset_has_ucs2_map  (int charset);
 int           enca_charset_ucs2_map      (int charset,
                                           unsigned int *buffer);
