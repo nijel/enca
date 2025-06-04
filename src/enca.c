@@ -24,7 +24,7 @@ static int  process_file        (EncaAnalyser an,
                                  const char *fname);
 static void dwim_libenca_options(EncaAnalyser an,
                                  const File *file);
-static void print_results       (const char *fname,
+static int print_results       (const char *fname,
                                  EncaAnalyser an,
                                  EncaEncoding result,
                                  int gerrno);
@@ -104,6 +104,7 @@ process_file(EncaAnalyser an,
   static int utf8 = ENCA_CS_UNKNOWN;
   static Buffer *buffer = NULL; /* persistent i/o buffer */
   int ot_is_convert = (options.output_type == OTYPE_CONVERT);
+  int res = ERR_OK;
 
   EncaEncoding result; /* the guessed encoding */
   File *file; /* the processed file */
@@ -169,13 +170,12 @@ process_file(EncaAnalyser an,
   }
 
   /* Print results. */
-  print_results(file->name, an, result, enca_errno(an));
+  res = print_results(file->name, an, result, enca_errno(an));
   if (result.charset == utf8)
     double_utf8_chk(an, buffer->data, buffer->pos);
 
   file_free(file);
-
-  return enca_charset_is_known(result.charset) ? EXIT_SUCCESS : EXIT_FAILURE;
+  return (res == ERR_OK) && enca_charset_is_known(result.charset) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
 /*
@@ -210,13 +210,14 @@ dwim_libenca_options(EncaAnalyser an, const File *file)
 /**
  * Prints results.
  **/
-static void
+static int
 print_results(const char *fname,
               EncaAnalyser an,
               EncaEncoding result,
               int gerrno)
 {
   char *s;
+  int res = ERR_OK;
   EncaSurface surf = result.surface
                      & ~enca_charset_natural_surface(result.charset);
 
@@ -258,22 +259,28 @@ print_results(const char *fname,
     case OTYPE_CS2CS:
     if (enca_charset_name(result.charset, ENCA_NAME_STYLE_CSTOCS) != NULL)
       puts(enca_charset_name(result.charset, ENCA_NAME_STYLE_CSTOCS));
-    else
+    else {
       puts(enca_charset_name(ENCA_CS_UNKNOWN, ENCA_NAME_STYLE_CSTOCS));
+      res = ERR_CANNOT;
+    }
     break;
 
     case OTYPE_ICONV:
     if (enca_charset_name(result.charset, ENCA_NAME_STYLE_ICONV) != NULL)
       puts(enca_charset_name(result.charset, ENCA_NAME_STYLE_ICONV));
-    else
+    else {
       puts(enca_charset_name(ENCA_CS_UNKNOWN, ENCA_NAME_STYLE_ICONV));
+      res = ERR_CANNOT;
+    }
     break;
 
     case OTYPE_MIME:
     if (enca_charset_name(result.charset, ENCA_NAME_STYLE_MIME) != NULL)
       puts(enca_charset_name(result.charset, ENCA_NAME_STYLE_MIME));
-    else
+    else {
       puts(enca_charset_name(ENCA_CS_UNKNOWN, ENCA_NAME_STYLE_MIME));
+      res = ERR_CANNOT;
+    }
     break;
 
     default:
@@ -283,7 +290,9 @@ print_results(const char *fname,
 
   if (gerrno && options.output_type == OTYPE_DETAILS) {
     printf("  Failure reason: %s.\n", enca_strerror(an, gerrno));
+    res = ERR_CANNOT;
   }
+  return res;
 }
 
 /**
