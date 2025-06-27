@@ -469,6 +469,8 @@ distclean-generic:
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+@ENABLE_GTK_DOC_FALSE@install-data-local:
+@ENABLE_GTK_DOC_FALSE@uninstall-local:
 clean: clean-am
 
 clean-am: clean-generic clean-libtool clean-local mostlyclean-am
@@ -603,7 +605,7 @@ uninstall-am: uninstall-local
 @ENABLE_GTK_DOC_TRUE@	test -d $(srcdir)/html || mkdir $(srcdir)/html
 @ENABLE_GTK_DOC_TRUE@	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
 @ENABLE_GTK_DOC_TRUE@	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
-@ENABLE_GTK_DOC_TRUE@	@echo '-- Fixing Crossreferences' 
+@ENABLE_GTK_DOC_TRUE@	@echo '-- Fixing Crossreferences'
 @ENABLE_GTK_DOC_TRUE@	cd $(srcdir) && gtkdoc-fixxref --module=libenca --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
 @ENABLE_GTK_DOC_TRUE@	touch html-build.stamp
 
@@ -615,37 +617,35 @@ clean-local:
 maintainer-clean-local: clean
 	cd $(srcdir) && rm -rf xml html $(DOC_MODULE)-decl-list.txt $(DOC_MODULE)-decl.txt
 
-install-data-local:
-	$(mkinstalldirs) $(DESTDIR)$(TARGET_DIR)
-	(installfiles=`echo $(srcdir)/html/*.html`; \
-	if test "$$installfiles" = '$(srcdir)/html/*.html'; \
-	then echo '-- Nothing to install' ; \
-	else \
-	  for i in $$installfiles; do \
-	    echo '-- Installing '$$i ; \
-	    $(INSTALL_DATA) $$i $(DESTDIR)$(TARGET_DIR); \
-	  done; \
-	  echo '-- Installing $(srcdir)/html/index.sgml' ; \
-	  $(INSTALL_DATA) $(srcdir)/html/index.sgml $(DESTDIR)$(TARGET_DIR); \
-	  echo '-- Installing $(srcdir)/html/$(DOC_MODULE).devhelp2' ; \
-	  $(INSTALL_DATA) $(srcdir)/html/$(DOC_MODULE).devhelp2 $(DESTDIR)$(TARGET_DIR); \
-	fi)
-
-uninstall-local:
-	(installfiles=`cd $(srcdir)/html >/dev/null && echo *.html`; \
-	if test "$$installfiles" = '*.html'; \
-	then echo '-- Nothing to uninstall' ; \
-	else \
-	  for i in $$installfiles; do \
-	    echo '-- Removing '$$i ; \
-	    rm -f $(DESTDIR)$(TARGET_DIR)/$$i; \
-	  done; \
-	  echo '-- Removing index.sgml' ; \
-	  rm -f $(DESTDIR)$(TARGET_DIR)/index.sgml; \
-	  echo '-- Removing $(DOC_MODULE).devhelp2' ; \
-	  rm -f $(DESTDIR)$(TARGET_DIR)/$(DOC_MODULE).devhelp2; \
-	fi)
-
+@ENABLE_GTK_DOC_TRUE@install-data-local:
+@ENABLE_GTK_DOC_TRUE@	$(mkinstalldirs) $(DESTDIR)$(TARGET_DIR)
+@ENABLE_GTK_DOC_TRUE@	(installfiles=`echo $(srcdir)/html/*.*`; \
+@ENABLE_GTK_DOC_TRUE@	if test "$$installfiles" = '$(srcdir)/html/*.*'; \
+@ENABLE_GTK_DOC_TRUE@	then echo '-- Nothing to install' ; \
+@ENABLE_GTK_DOC_TRUE@	else \
+@ENABLE_GTK_DOC_TRUE@	  for i in $$installfiles; do \
+@ENABLE_GTK_DOC_TRUE@	    echo '-- Installing '$$i ; \
+@ENABLE_GTK_DOC_TRUE@	    $(INSTALL_DATA) $$i $(DESTDIR)$(TARGET_DIR); \
+@ENABLE_GTK_DOC_TRUE@	  done; \
+@ENABLE_GTK_DOC_TRUE@	  echo '-- Installing $(srcdir)/html/index.sgml' ; \
+@ENABLE_GTK_DOC_TRUE@	  $(INSTALL_DATA) $(srcdir)/html/index.sgml $(DESTDIR)$(TARGET_DIR); \
+@ENABLE_GTK_DOC_TRUE@	  echo '-- Installing $(srcdir)/html/$(DOC_MODULE).devhelp2' ; \
+@ENABLE_GTK_DOC_TRUE@	  $(INSTALL_DATA) $(srcdir)/html/$(DOC_MODULE).devhelp2 $(DESTDIR)$(TARGET_DIR); \
+@ENABLE_GTK_DOC_TRUE@	fi)
+@ENABLE_GTK_DOC_TRUE@uninstall-local:
+@ENABLE_GTK_DOC_TRUE@	(installfiles=`cd $(srcdir)/html >/dev/null && echo *.*`; \
+@ENABLE_GTK_DOC_TRUE@	if test "$$installfiles" = '*.*'; \
+@ENABLE_GTK_DOC_TRUE@	then echo '-- Nothing to uninstall' ; \
+@ENABLE_GTK_DOC_TRUE@	else \
+@ENABLE_GTK_DOC_TRUE@	  for i in $$installfiles; do \
+@ENABLE_GTK_DOC_TRUE@	    echo '-- Removing '$$i ; \
+@ENABLE_GTK_DOC_TRUE@	    rm -f $(DESTDIR)$(TARGET_DIR)/$$i; \
+@ENABLE_GTK_DOC_TRUE@	  done; \
+@ENABLE_GTK_DOC_TRUE@	  echo '-- Removing index.sgml' ; \
+@ENABLE_GTK_DOC_TRUE@	  rm -f $(DESTDIR)$(TARGET_DIR)/index.sgml; \
+@ENABLE_GTK_DOC_TRUE@	  echo '-- Removing $(DOC_MODULE).devhelp2' ; \
+@ENABLE_GTK_DOC_TRUE@	  rm -f $(DESTDIR)$(TARGET_DIR)/$(DOC_MODULE).devhelp2; \
+@ENABLE_GTK_DOC_TRUE@	fi)
 #
 # Require gtk-doc when making dist
 #
