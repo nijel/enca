@@ -132,7 +132,7 @@ html-build.stamp: sgml.stamp $(DOC_MAIN_SGML_FILE) $(content_files)
 	test -d $(srcdir)/html || mkdir $(srcdir)/html
 	cd $(srcdir)/html && gtkdoc-mkhtml $(DOC_MODULE) ../$(DOC_MAIN_SGML_FILE)
 	test "x$(HTML_IMAGES)" = "x" || ( cd $(srcdir) && cp $(HTML_IMAGES) html )
-	@echo '-- Fixing Crossreferences' 
+	@echo '-- Fixing Crossreferences'
 	cd $(srcdir) && gtkdoc-fixxref --module=libenca --module-dir=html --html-dir=$(HTML_DIR) $(FIXXREF_OPTIONS)
 	touch html-build.stamp
 endif
@@ -145,10 +145,11 @@ clean-local:
 maintainer-clean-local: clean
 	cd $(srcdir) && rm -rf xml html $(DOC_MODULE)-decl-list.txt $(DOC_MODULE)-decl.txt
 
+if ENABLE_GTK_DOC
 install-data-local:
 	$(mkinstalldirs) $(DESTDIR)$(TARGET_DIR)
-	(installfiles=`echo $(srcdir)/html/*.html`; \
-	if test "$$installfiles" = '$(srcdir)/html/*.html'; \
+	(installfiles=`echo $(srcdir)/html/*.*`; \
+	if test "$$installfiles" = '$(srcdir)/html/*.*'; \
 	then echo '-- Nothing to install' ; \
 	else \
 	  for i in $$installfiles; do \
@@ -160,10 +161,9 @@ install-data-local:
 	  echo '-- Installing $(srcdir)/html/$(DOC_MODULE).devhelp2' ; \
 	  $(INSTALL_DATA) $(srcdir)/html/$(DOC_MODULE).devhelp2 $(DESTDIR)$(TARGET_DIR); \
 	fi)
-
 uninstall-local:
-	(installfiles=`cd $(srcdir)/html >/dev/null && echo *.html`; \
-	if test "$$installfiles" = '*.html'; \
+	(installfiles=`cd $(srcdir)/html >/dev/null && echo *.*`; \
+	if test "$$installfiles" = '*.*'; \
 	then echo '-- Nothing to uninstall' ; \
 	else \
 	  for i in $$installfiles; do \
@@ -175,7 +175,7 @@ uninstall-local:
 	  echo '-- Removing $(DOC_MODULE).devhelp2' ; \
 	  rm -f $(DESTDIR)$(TARGET_DIR)/$(DOC_MODULE).devhelp2; \
 	fi)
-
+endif
 #
 # Require gtk-doc when making dist
 #
