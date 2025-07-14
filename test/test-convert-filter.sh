@@ -24,6 +24,10 @@ for l in $TEST_LANGUAGES; do
     # The test itself.
     DIE_THIS=0
     $ENCA -L $l -x $tgt <$l-big.$src >$THISTEST.tmp || DIE_THIS=1
+    if [[ -v MSYSTEM ]]; then
+      dos2unix $THISTEST.tmp
+      dos2unix $l-big.$tgt
+    fi
     diff $THISTEST.tmp $l-big.$tgt >/dev/null || DIE_THIS=1
     if test "$DIE_THIS" = "1"; then
       echo "Conversion $l: $src -> $tgt failed."
