@@ -28,8 +28,8 @@ if test "$WANT_LIBRECODE" = 1; then
   LDFLAGS="$LDFLAGS $yeti_librecode_LDFLAGS"
   AC_CACHE_CHECK([for recode_new_outer in librecode],
     yeti_cv_lib_recode_new_outer,
-    AC_TRY_LINK([char* program_name = "";],
-      [recode_new_outer(0);],
+    AC_CHECK_LIB([recode],
+      [recode_new_outer],
       yeti_cv_lib_recode_new_outer=yes,
       yeti_cv_lib_recode_new_outer=no))
   librecode_ok="$yeti_cv_lib_recode_new_outer";
