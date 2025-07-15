@@ -10,9 +10,14 @@ for l in $ALL_TEST_LANGUAGES; do
   export ENCAOPT
   $ENCA $srcdir/$l-s.* | sed -e "s#^$srcdir/##" >>$TESTNAME.actual || DIE=1
 done
-# Test invalid option string
-ENCAOPT=";"
-export ENCAOPT
-$ENCA -L none $srcdir/cs-s.utf8 || DIE=1
+# Skipping the test due to missing wordexp on MSYS2
+if [[ -v MSYSTEM ]]; then
+  $ENCA -L none $srcdir/cs-s.utf8 || DIE=1
+else
+  # Test invalid option string
+  ENCAOPT=";"
+  export ENCAOPT
+  $ENCA -L none $srcdir/cs-s.utf8 || DIE=1
+fi
 . $srcdir/finish.sh
 rm -f $TESTNAME.expected 2>/dev/null

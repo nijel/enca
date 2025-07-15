@@ -1,6 +1,9 @@
 if test -n "$E77"; then
   exit 77
 fi
+if [[ -v MSYSTEM ]]; then
+  dos2unix $TESTNAME.actual
+fi
 if test -f $TESTNAME.expected; then
   diff $TESTNAME.expected $TESTNAME.actual || DIE=1
 else
