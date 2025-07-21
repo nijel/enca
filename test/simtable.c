@@ -16,7 +16,8 @@ prl(const EncaLanguageInfo *l, const char *hooks)
   int a;
   size_t i, j;
 
-  if (myargc > 1) {
+  if (myargc > 1)
+  {
     a = 1;
     while (a < myargc && strcmp(myargv[a], l->name))
       a++;
@@ -26,9 +27,11 @@ prl(const EncaLanguageInfo *l, const char *hooks)
 
   printf("\n==\x1b[1m%s\x1b[m==\n", l->name);
   m = enca_get_charset_similarity_matrix(l);
-  for (i = 0; i < l->ncharsets; i++) {
-    for (j = 0; j < l->ncharsets; j++) {
-      double q = 1000.0*m[i*l->ncharsets + j];
+  for (i = 0; i < l->ncharsets; i++)
+  {
+    for (j = 0; j < l->ncharsets; j++)
+    {
+      double q = 1000.0 * m[i * l->ncharsets + j];
 
       if (i == j)
         printf("\x1b[36m");
@@ -49,8 +52,7 @@ prl(const EncaLanguageInfo *l, const char *hooks)
   free(m);
 }
 
-int
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
   myargc = argc;
   myargv = argv;
@@ -59,6 +61,7 @@ main(int argc, char *argv[])
   prl(&ENCA_LANGUAGE_BG, "1251mac");
   prl(&ENCA_LANGUAGE_CS, "isowin 852kam");
   prl(&ENCA_LANGUAGE_ET, "");
+  prl(&ENCA_LANGUAGE_FI, "");
   prl(&ENCA_LANGUAGE_HR, "isowin");
   prl(&ENCA_LANGUAGE_HU, "isocork isowin[XXX]");
   prl(&ENCA_LANGUAGE_LT, "winbalt lat4balt iso13win[XXX]");

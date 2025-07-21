@@ -15,38 +15,39 @@
 
 /* str- an mem- function, theoretically they are all in string.h */
 #ifdef HAVE_STRING_H
-#  include <string.h>
+#include <string.h>
 #else /* HAVE_STRING_H */
-#  ifdef HAVE_STRINGS_H
-#    include <strings.h>
-#  endif /* HAVE_STRINGS_H */
+#ifdef HAVE_STRINGS_H
+#include <strings.h>
+#endif /* HAVE_STRINGS_H */
 #endif /* HAVE_STRING_H */
 
 #ifdef HAVE_MEMORY_H
-#  include <memory.h>
+#include <memory.h>
 #endif /* HAVE_MEMORY_H */
 
 #ifdef DEBUG
-#  include <stdio.h>
+#include <stdio.h>
 #endif /* DEBUG */
 
 /* Flags for character type table.
  * 0-10 are standard ones, 11-13 Enca-specific. */
-enum {
-  ENCA_CTYPE_ALNUM  = 1 << 0,
-  ENCA_CTYPE_ALPHA  = 1 << 1,
-  ENCA_CTYPE_CNTRL  = 1 << 2,
-  ENCA_CTYPE_DIGIT  = 1 << 3,
-  ENCA_CTYPE_GRAPH  = 1 << 4,
-  ENCA_CTYPE_LOWER  = 1 << 5,
-  ENCA_CTYPE_PRINT  = 1 << 6,
-  ENCA_CTYPE_PUNCT  = 1 << 7,
-  ENCA_CTYPE_SPACE  = 1 << 8,
-  ENCA_CTYPE_UPPER  = 1 << 9,
+enum
+{
+  ENCA_CTYPE_ALNUM = 1 << 0,
+  ENCA_CTYPE_ALPHA = 1 << 1,
+  ENCA_CTYPE_CNTRL = 1 << 2,
+  ENCA_CTYPE_DIGIT = 1 << 3,
+  ENCA_CTYPE_GRAPH = 1 << 4,
+  ENCA_CTYPE_LOWER = 1 << 5,
+  ENCA_CTYPE_PRINT = 1 << 6,
+  ENCA_CTYPE_PUNCT = 1 << 7,
+  ENCA_CTYPE_SPACE = 1 << 8,
+  ENCA_CTYPE_UPPER = 1 << 9,
   ENCA_CTYPE_XDIGIT = 1 << 10,
-  ENCA_CTYPE_NAME   = 1 << 11,
+  ENCA_CTYPE_NAME = 1 << 11,
   ENCA_CTYPE_BINARY = 1 << 12,
-  ENCA_CTYPE_TEXT   = 1 << 13
+  ENCA_CTYPE_TEXT = 1 << 13
 };
 
 /* Forward delcarations of structured Enca types */
@@ -74,7 +75,8 @@ typedef struct _EncaUTFCheckData EncaUTFCheckData;
  *
  * All the #int fields are indices in #ALIAS_LIST[].
  **/
-struct _EncaCharsetInfo {
+struct _EncaCharsetInfo
+{
   int enca;
   int rfc1345;
   int cstocs;
@@ -96,7 +98,7 @@ struct _EncaCharsetInfo {
  * Returns: Nonzero if charset ratigns have been actually modified, zero
  * otherwise.
  **/
-typedef int (* EncaHookFunc)(EncaAnalyserState *analyser);
+typedef int (*EncaHookFunc)(EncaAnalyserState *analyser);
 
 /**
  * EncaGuessFunc:
@@ -106,7 +108,7 @@ typedef int (* EncaHookFunc)(EncaAnalyserState *analyser);
  *
  * Returns: Nonzero if analyser->result has been set, zero otherwise.
  **/
-typedef int (* EncaGuessFunc)(EncaAnalyserState *analyser);
+typedef int (*EncaGuessFunc)(EncaAnalyserState *analyser);
 
 /**
  * EncaLanguageInfo:
@@ -126,7 +128,8 @@ typedef int (* EncaGuessFunc)(EncaAnalyserState *analyser);
  *
  * Language specific data.
  **/
-struct _EncaLanguageInfo {
+struct _EncaLanguageInfo
+{
   const char *name;
   const char *humanname;
   size_t ncharsets;
@@ -157,7 +160,8 @@ struct _EncaLanguageInfo {
  *
  * Analyser options, a part of analyser state.
  **/
-struct _EncaAnalyserOptions {
+struct _EncaAnalyserOptions
+{
   int const_buffer;
   size_t min_chars;
   double threshold;
@@ -210,7 +214,8 @@ struct _EncaAnalyserOptions {
  *
  * Passed as an opaque object (`this') to analyser calls.
  **/
-struct _EncaAnalyserState {
+struct _EncaAnalyserState
+{
   /* Language data. */
   const EncaLanguageInfo *lang;
   size_t ncharsets;
@@ -251,7 +256,8 @@ struct _EncaAnalyserState {
  *
  * Cointainer for data needed by enca_language_hook_ncs().
  **/
-struct _EncaLanguageHookData1CS {
+struct _EncaLanguageHookData1CS
+{
   const char *name;
   size_t size;
   const unsigned char *list;
@@ -267,7 +273,8 @@ struct _EncaLanguageHookData1CS {
  *
  * Cointainer for data needed by enca_language_hook_eol().
  **/
-struct _EncaLanguageHookDataEOL {
+struct _EncaLanguageHookDataEOL
+{
   const char *name;
   EncaSurface eol;
   size_t cs;
@@ -285,7 +292,8 @@ struct _EncaLanguageHookDataEOL {
  *
  * Data needed by double-UTF-8 check, per language charset.
  **/
-struct _EncaUTFCheckData {
+struct _EncaUTFCheckData
+{
   double rating;
   size_t size;
   int result;
@@ -331,20 +339,20 @@ struct _EncaUTFCheckData {
  **/
 #define enca_ctype_test(c, t) ((enca_ctype_data[(unsigned char)c] & t) != 0)
 
-#define enca_isalnum(c)  enca_ctype_test((c), ENCA_CTYPE_ALNUM)
-#define enca_isalpha(c)  enca_ctype_test((c), ENCA_CTYPE_ALPHA)
-#define enca_iscntrl(c)  enca_ctype_test((c), ENCA_CTYPE_CNTRL)
-#define enca_isdigit(c)  enca_ctype_test((c), ENCA_CTYPE_DIGIT)
-#define enca_isgraph(c)  enca_ctype_test((c), ENCA_CTYPE_GRAPH)
-#define enca_islower(c)  enca_ctype_test((c), ENCA_CTYPE_LOWER)
-#define enca_isprint(c)  enca_ctype_test((c), ENCA_CTYPE_PRINT)
-#define enca_ispunct(c)  enca_ctype_test((c), ENCA_CTYPE_PUNCT)
-#define enca_isspace(c)  enca_ctype_test((c), ENCA_CTYPE_SPACE)
-#define enca_isupper(c)  enca_ctype_test((c), ENCA_CTYPE_UPPER)
+#define enca_isalnum(c) enca_ctype_test((c), ENCA_CTYPE_ALNUM)
+#define enca_isalpha(c) enca_ctype_test((c), ENCA_CTYPE_ALPHA)
+#define enca_iscntrl(c) enca_ctype_test((c), ENCA_CTYPE_CNTRL)
+#define enca_isdigit(c) enca_ctype_test((c), ENCA_CTYPE_DIGIT)
+#define enca_isgraph(c) enca_ctype_test((c), ENCA_CTYPE_GRAPH)
+#define enca_islower(c) enca_ctype_test((c), ENCA_CTYPE_LOWER)
+#define enca_isprint(c) enca_ctype_test((c), ENCA_CTYPE_PRINT)
+#define enca_ispunct(c) enca_ctype_test((c), ENCA_CTYPE_PUNCT)
+#define enca_isspace(c) enca_ctype_test((c), ENCA_CTYPE_SPACE)
+#define enca_isupper(c) enca_ctype_test((c), ENCA_CTYPE_UPPER)
 #define enca_isxdigit(c) enca_ctype_test((c), ENCA_CTYPE_XDIGIT)
-#define enca_isname(c)   enca_ctype_test((c), ENCA_CTYPE_NAME)
+#define enca_isname(c) enca_ctype_test((c), ENCA_CTYPE_NAME)
 #define enca_isbinary(c) enca_ctype_test((c), ENCA_CTYPE_BINARY)
-#define enca_istext(c)   enca_ctype_test((c), ENCA_CTYPE_TEXT)
+#define enca_istext(c) enca_ctype_test((c), ENCA_CTYPE_TEXT)
 
 /**
  * ELEMENTS:
@@ -354,11 +362,11 @@ struct _EncaUTFCheckData {
  *
  * Returns: the number of elements.
  **/
-#define ELEMENTS(array) (sizeof(array)/sizeof((array)[0]))
+#define ELEMENTS(array) (sizeof(array) / sizeof((array)[0]))
 
-void*  enca_malloc  (size_t size);
-void*  enca_realloc (void *ptr,
-                     size_t size);
+void *enca_malloc(size_t size);
+void *enca_realloc(void *ptr,
+                   size_t size);
 
 /**
  * enca_free:
@@ -370,7 +378,11 @@ void*  enca_realloc (void *ptr,
  * @ptr MUST be l-value.
  **/
 #define enca_free(ptr) \
-  { if (ptr) free(ptr); ptr=NULL; }
+  {                    \
+    if (ptr)           \
+      free(ptr);       \
+    ptr = NULL;        \
+  }
 
 /**
  * NEW:
@@ -381,7 +393,7 @@ void*  enca_realloc (void *ptr,
  *
  * Returns: Pointer to the newly allocated memory.
  **/
-#define NEW(type,n) ((type*)enca_malloc((n)*sizeof(type)))
+#define NEW(type, n) ((type *)enca_malloc((n) * sizeof(type)))
 
 /**
  * RENEW:
@@ -394,7 +406,7 @@ void*  enca_realloc (void *ptr,
  * Returns: Pointer to the reallocated memory (or pointer safe to call free()
  * on when @n is zero).
  **/
-#define RENEW(ptr,type,n) ((type*)enca_realloc((ptr),(n)*sizeof(type)))
+#define RENEW(ptr, type, n) ((type *)enca_realloc((ptr), (n) * sizeof(type)))
 
 /**
  * MAKE_HOOK_LINE:
@@ -403,23 +415,23 @@ void*  enca_realloc (void *ptr,
  * Ugly code `beautifier' macro for language hooks.
  **/
 #define MAKE_HOOK_LINE(name) \
-  { #name, ELEMENTS(list_##name), list_##name, (size_t)-1 }
+  {#name, ELEMENTS(list_##name), list_##name, (size_t)-1}
 
 /* Always use our, since we rely on enca_strdup(NULL) -> NULL */
-char* enca_strdup(const char *s);
+char *enca_strdup(const char *s);
 
 #ifndef HAVE_STRSTR
-const char* enca_strstr(const char *haystack,
-                        const char* needle);
-#else/* not HAVE_STRSTR */
-# define enca_strstr strstr
+const char *enca_strstr(const char *haystack,
+                        const char *needle);
+#else /* not HAVE_STRSTR */
+#define enca_strstr strstr
 #endif /* not HAVE_STRSTR */
 
 #ifndef HAVE_STPCPY
-char* enca_stpcpy(char *dest,
+char *enca_stpcpy(char *dest,
                   const char *src);
 #else /* not HAVE_STPCPY */
-# define enca_stpcpy stpcpy
+#define enca_stpcpy stpcpy
 #endif /* not HAVE_STPCPY */
 
 /**
@@ -431,58 +443,59 @@ char* enca_stpcpy(char *dest,
 #define enca_csname(cs) enca_charset_name((cs), ENCA_NAME_STYLE_ENCA)
 
 /* common.c */
-char* enca_strconcat (const char *str,
-                      ...);
-char* enca_strappend (char *str,
-                      ...);
+char *enca_strconcat(const char *str,
+                     ...);
+char *enca_strappend(char *str,
+                     ...);
 
 /* encnames.c */
-int         enca_name_to_charset  (const char *csname);
-EncaSurface enca_name_to_surface  (const char *sname);
+int enca_name_to_charset(const char *csname);
+EncaSurface enca_name_to_surface(const char *sname);
 
 /* enca.c */
-int         enca_language_init    (EncaAnalyserState *analyser,
-                                   const char *langname);
-void        enca_language_destroy (EncaAnalyserState *analyser);
-double*     enca_get_charset_similarity_matrix(const EncaLanguageInfo *lang);
+int enca_language_init(EncaAnalyserState *analyser,
+                       const char *langname);
+void enca_language_destroy(EncaAnalyserState *analyser);
+double *enca_get_charset_similarity_matrix(const EncaLanguageInfo *lang);
 
 /* unicodemap.c */
-int         enca_charsets_subset_identical (int charset1,
-                                            int charset2,
-                                            const size_t *counts);
+int enca_charsets_subset_identical(int charset1,
+                                   int charset2,
+                                   const size_t *counts);
 
 /* filters.c */
-size_t      enca_filter_boxdraw    (EncaAnalyserState *analyser,
-                                    unsigned char fill_char);
-int         enca_language_hook_ncs (EncaAnalyserState *analyser,
-                                    size_t ncs,
-                                    EncaLanguageHookData1CS *hookdata);
-int         enca_language_hook_eol (EncaAnalyserState *analyser,
-                                    size_t ncs,
-                                    EncaLanguageHookDataEOL *hookdata);
+size_t enca_filter_boxdraw(EncaAnalyserState *analyser,
+                           unsigned char fill_char);
+int enca_language_hook_ncs(EncaAnalyserState *analyser,
+                           size_t ncs,
+                           EncaLanguageHookData1CS *hookdata);
+int enca_language_hook_eol(EncaAnalyserState *analyser,
+                           size_t ncs,
+                           EncaLanguageHookDataEOL *hookdata);
 
 /* guess.c */
-void        enca_guess_init    (EncaAnalyserState *analyser);
-void        enca_guess_destroy (EncaAnalyserState *analyser);
-EncaSurface enca_eol_surface   (const unsigned char *buffer,
-                                size_t size,
-                                const size_t *counts);
-void        enca_find_max_sec  (EncaAnalyserState *analyser);
+void enca_guess_init(EncaAnalyserState *analyser);
+void enca_guess_destroy(EncaAnalyserState *analyser);
+EncaSurface enca_eol_surface(const unsigned char *buffer,
+                             size_t size,
+                             const size_t *counts);
+void enca_find_max_sec(EncaAnalyserState *analyser);
 
 /* utf8_double.c */
-void        enca_double_utf8_init    (EncaAnalyserState *analyser);
-void        enca_double_utf8_destroy (EncaAnalyserState *analyser);
+void enca_double_utf8_init(EncaAnalyserState *analyser);
+void enca_double_utf8_destroy(EncaAnalyserState *analyser);
 
 /* pair.c */
-void        enca_pair_init    (EncaAnalyserState *analyser);
-void        enca_pair_destroy (EncaAnalyserState *analyser);
-int         enca_pair_analyse (EncaAnalyserState *analyser);
+void enca_pair_init(EncaAnalyserState *analyser);
+void enca_pair_destroy(EncaAnalyserState *analyser);
+int enca_pair_analyse(EncaAnalyserState *analyser);
 
 /* Languages. */
 extern const EncaLanguageInfo ENCA_LANGUAGE_BE;
 extern const EncaLanguageInfo ENCA_LANGUAGE_BG;
 extern const EncaLanguageInfo ENCA_LANGUAGE_CS;
 extern const EncaLanguageInfo ENCA_LANGUAGE_ET;
+extern const EncaLanguageInfo ENCA_LANGUAGE_FI;
 extern const EncaLanguageInfo ENCA_LANGUAGE_HR;
 extern const EncaLanguageInfo ENCA_LANGUAGE_HU;
 extern const EncaLanguageInfo ENCA_LANGUAGE_LT;
