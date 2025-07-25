@@ -24,6 +24,10 @@
 #include "internal.h"
 #include "data/finnish/finnish.h"
 
+/* Local prototypes. */
+static int hook(EncaAnalyserState *analyser);
+static int hook_iso4cp1257(EncaAnalyserState *analyser);
+
 /**
  * ENCA_LANGUAGE_FI:
  *
@@ -41,11 +45,50 @@ const EncaLanguageInfo ENCA_LANGUAGE_FI = {
     CHARSET_LETTERS,
     CHARSET_PAIRS,
     WEIGHT_SUM,
-    NULL,
+    &hook,
     NULL,
     NULL,
     NULL,
 };
+
+/**
+ * hook:
+ * @analyser: Analyser state whose charset ratings are to be modified.
+ *
+ * Launches language specific hooks for language "fi".
+ *
+ * Returns: Nonzero if charset ratigns have been actually modified, zero
+ * otherwise.
+ **/
+static int
+hook(EncaAnalyserState *analyser)
+{
+  return hook_iso4cp1257(analyser);
+}
+
+/**
+ * hook_iso4cp1257:
+ * @analyser: Analyser state whose charset ratings are to be modified.
+ *
+ * Decides between iso8859-4 and cp1257 charsets for language "fi".
+ *
+ * Returns: Nonzero if charset ratigns have been actually modified, zero
+ * otherwise.
+ **/
+static int
+hook_iso4cp1257(EncaAnalyserState *analyser)
+{
+  static const unsigned char list_iso88594[] = {
+      0xb9, 0xbe, 0xa9, 0xae, 0xa8};
+  static const unsigned char list_cp1257[] = {
+      0xf0, 0xfe, 0xd0, 0xde, 0xb8};
+  static EncaLanguageHookData1CS hookdata[] = {
+      MAKE_HOOK_LINE(iso88594),
+      MAKE_HOOK_LINE(cp1257),
+  };
+
+  return enca_language_hook_ncs(analyser, ELEMENTS(hookdata), hookdata);
+}
 
 /* vim: ts=2
  */
