@@ -17,7 +17,7 @@
   59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
 */
 #ifdef HAVE_CONFIG_H
-#include "config.h"
+#  include "config.h"
 #endif /* HAVE_CONFIG_H */
 
 #include "enca.h"
@@ -30,46 +30,46 @@
  * tested
  **/
 static const EncaLanguageInfo ENCA_LANGUAGE___ = {
-    "__",   /* name */
-    "none", /* human name */
-    0,      /* number of charsets */
-    NULL,   /* their names */
-    NULL,   /* character weights */
-    NULL,   /* significancy data */
-    NULL,   /* letter data */
-    NULL,   /* pair data */
-    0,      /* sum of weights */
-    NULL,   /* hook function */
-    NULL,   /* eolhook function */
-    NULL,   /* lcuchook function */
-    NULL,   /* ratinghook function */
+  "__", /* name */
+  "none", /* human name */
+  0,    /* number of charsets */
+  NULL, /* their names */
+  NULL, /* character weights */
+  NULL, /* significancy data */
+  NULL, /* letter data */
+  NULL, /* pair data */
+  0,    /* sum of weights */
+  NULL, /* hook function */
+  NULL, /* eolhook function */
+  NULL, /* lcuchook function */
+  NULL, /* ratinghook function */
 };
 
 /* All languages. */
 static const EncaLanguageInfo *const LANGUAGE_LIST[] = {
-    &ENCA_LANGUAGE_BE, /* Belarusian. */
-    &ENCA_LANGUAGE_BG, /* Bulgarian. */
-    &ENCA_LANGUAGE_CS, /* Czech. */
-    &ENCA_LANGUAGE_ET, /* Estonian. */
-    &ENCA_LANGUAGE_FI, /* Finnish. */
-    &ENCA_LANGUAGE_HR, /* Croatian. */
-    &ENCA_LANGUAGE_HU, /* Hungarian. */
-    &ENCA_LANGUAGE_LT, /* Latvian. */
-    &ENCA_LANGUAGE_LV, /* Lithuanian. */
-    &ENCA_LANGUAGE_PL, /* Polish. */
-    &ENCA_LANGUAGE_RU, /* Russian. */
-    &ENCA_LANGUAGE_SK, /* Slovak. */
-    &ENCA_LANGUAGE_SL, /* Slovene. */
-    &ENCA_LANGUAGE_UK, /* Ukrainian. */
-    &ENCA_LANGUAGE_ZH, /* Chinese. */
-    &ENCA_LANGUAGE___, /* None. */
+  &ENCA_LANGUAGE_BE, /* Belarusian. */
+  &ENCA_LANGUAGE_BG, /* Bulgarian. */
+  &ENCA_LANGUAGE_CS, /* Czech. */
+  &ENCA_LANGUAGE_ET, /* Estonian. */
+  &ENCA_LANGUAGE_FI, /* Finnish. */
+  &ENCA_LANGUAGE_HR, /* Croatian. */
+  &ENCA_LANGUAGE_HU, /* Hungarian. */
+  &ENCA_LANGUAGE_LT, /* Latvian. */
+  &ENCA_LANGUAGE_LV, /* Lithuanian. */
+  &ENCA_LANGUAGE_PL, /* Polish. */
+  &ENCA_LANGUAGE_RU, /* Russian. */
+  &ENCA_LANGUAGE_SK, /* Slovak. */
+  &ENCA_LANGUAGE_SL, /* Slovene. */
+  &ENCA_LANGUAGE_UK, /* Ukrainian. */
+  &ENCA_LANGUAGE_ZH, /* Chinese. */
+  &ENCA_LANGUAGE___, /* None. */
 };
 
 #define NLANGUAGES (ELEMENTS(LANGUAGE_LIST))
 
 /* Local prototypes. */
-static int *language_charsets_ids(const EncaLanguageInfo *lang);
-static const EncaLanguageInfo *find_language(const char *langname);
+static int* language_charsets_ids(const EncaLanguageInfo *lang);
+static const EncaLanguageInfo* find_language(const char *langname);
 
 /**
  * enca_language_init:
@@ -83,8 +83,9 @@ static const EncaLanguageInfo *find_language(const char *langname);
  *
  * Returns: Nonzero on success, zero otherwise.
  **/
-int enca_language_init(EncaAnalyserState *analyser,
-                       const char *langname)
+int
+enca_language_init(EncaAnalyserState *analyser,
+                   const char *langname)
 {
   const EncaLanguageInfo *lang;
 
@@ -116,7 +117,8 @@ int enca_language_init(EncaAnalyserState *analyser,
  *
  * Destroys the language part of analyser state @analyser.
  **/
-void enca_language_destroy(EncaAnalyserState *analyser)
+void
+enca_language_destroy(EncaAnalyserState *analyser)
 {
   enca_free(analyser->charsets);
   enca_free(analyser->lcbits);
@@ -139,13 +141,13 @@ void enca_language_destroy(EncaAnalyserState *analyser)
  *
  * Returns: The list of languages, storing their number into *@n.
  **/
-const char **
+const char**
 enca_get_languages(size_t *n)
 {
   const char **languages;
   size_t i;
 
-  languages = NEW(const char *, NLANGUAGES);
+  languages = NEW(const char*, NLANGUAGES);
   for (i = 0; i < NLANGUAGES; i++)
     languages[i] = LANGUAGE_LIST[i]->name;
 
@@ -163,7 +165,7 @@ enca_get_languages(size_t *n)
  *
  * Returns: The language name.
  **/
-const char *
+const char*
 enca_analyser_language(EncaAnalyser analyser)
 {
   assert(analyser != NULL);
@@ -181,7 +183,7 @@ enca_analyser_language(EncaAnalyser analyser)
  *
  * Returns: The English language name.
  **/
-const char *
+const char*
 enca_language_english_name(const char *lang)
 {
   const EncaLanguageInfo *linfo;
@@ -206,16 +208,16 @@ enca_language_english_name(const char *lang)
  *          contains no charsets or @langname is invalid, #NULL is returned
  *          and zero stored into *@n.
  **/
-int *enca_get_language_charsets(const char *langname,
-                                size_t *n)
+int*
+enca_get_language_charsets(const char *langname,
+                           size_t *n)
 {
   const EncaLanguageInfo *lang;
 
   assert(langname != NULL);
 
   lang = find_language(langname);
-  if (lang == NULL)
-  {
+  if (lang == NULL) {
     *n = 0;
     return NULL;
   }
@@ -235,7 +237,7 @@ int *enca_get_language_charsets(const char *langname,
  *
  * Returns: The charsets id table; #NULL when @lang has no charsets.
  **/
-static int *
+static int*
 language_charsets_ids(const EncaLanguageInfo *lang)
 {
   int *charsets;
@@ -247,8 +249,7 @@ language_charsets_ids(const EncaLanguageInfo *lang)
     return NULL;
 
   charsets = NEW(int, lang->ncharsets);
-  for (i = 0; i < lang->ncharsets; i++)
-  {
+  for (i = 0; i < lang->ncharsets; i++) {
     charsets[i] = enca_name_to_charset(lang->csnames[i]);
     assert(charsets[i] != ENCA_CS_UNKNOWN);
   }
@@ -264,7 +265,7 @@ language_charsets_ids(const EncaLanguageInfo *lang)
  *
  * Returns: Pointer to its language information data; #NULL if not found.
  **/
-static const EncaLanguageInfo *
+static const EncaLanguageInfo*
 find_language(const char *langname)
 {
   const EncaLanguageInfo *lang = NULL;
@@ -273,10 +274,8 @@ find_language(const char *langname)
   if (langname == NULL)
     return NULL;
 
-  for (i = 0; i < NLANGUAGES; i++)
-  {
-    if (strcmp(langname, LANGUAGE_LIST[i]->name) == 0)
-    {
+  for (i = 0; i < NLANGUAGES; i++) {
+    if (strcmp(langname, LANGUAGE_LIST[i]->name) == 0) {
       lang = LANGUAGE_LIST[i];
       break;
     }
@@ -305,7 +304,7 @@ find_language(const char *langname)
  * Returns: The matrix, its size is determined by @lang->ncharsets; #NULL
  *          for language with no charsets.
  **/
-double *
+double*
 enca_get_charset_similarity_matrix(const EncaLanguageInfo *lang)
 {
   const size_t n = lang->ncharsets;
@@ -321,32 +320,27 @@ enca_get_charset_similarity_matrix(const EncaLanguageInfo *lang)
     return NULL;
 
   /* Below diagonal. */
-  smat = NEW(double, n *n);
-  for (i = 0; i < n; i++)
-  {
-    for (j = 0; j <= i; j++)
-    {
-      smat[i * n + j] = 0.0;
+  smat = NEW(double, n*n);
+  for (i = 0; i < n; i++) {
+    for (j = 0; j <= i; j++) {
+      smat[i*n + j] = 0.0;
       for (c = 0; c < 0x100; c++)
-        smat[i * n + j] += (double)w[i][c] * (double)w[j][c] / (s[c] + EPSILON);
+        smat[i*n + j] += (double)w[i][c] * (double)w[j][c] / (s[c] + EPSILON);
     }
   }
 
   /* Above diagonal. */
-  for (i = 0; i < n; i++)
-  {
-    for (j = i + 1; j < n; j++)
-      smat[i * n + j] = smat[j * n + i];
+  for (i = 0; i < n; i++) {
+    for (j = i+1; j < n; j++)
+      smat[i*n + j] = smat[j*n + i];
   }
 
   /* Normalize. */
-  for (i = 0; i < n; i++)
-  {
-    double wmax = smat[i * n + i];
+  for (i = 0; i < n; i++) {
+    double wmax = smat[i*n + i];
 
-    for (j = 0; j < n; j++)
-    {
-      smat[i * n + j] /= wmax;
+    for (j = 0; j < n; j++) {
+      smat[i*n + j] /= wmax;
     }
   }
 
