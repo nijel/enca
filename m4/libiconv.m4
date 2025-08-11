@@ -16,6 +16,18 @@ AC_REQUIRE([AC_HEADER_STDC])dnl
 AC_REQUIRE([AC_C_CONST])dnl
 dnl
 
+dnl Add configure option to disable iconv
+AC_ARG_WITH(iconv,
+  [  --with-iconv@<:@=DIR@:>@      look for iconv in DIR/lib and DIR/include @<:@auto@:>@
+  --without-iconv           disable iconv interface],
+  [case "$withval" in
+    yes|auto) WANT_ICONV=1 ;;
+    no)  WANT_ICONV=0 ;;
+    *)   WANT_ICONV=1 ;;
+    esac],
+  [WANT_ICONV=1])
+
+if test "$WANT_ICONV" = 1; then
 dnl Use standard iconv test
 AM_ICONV
 CONVERTER_LIBS="$CONVERTER_LIBS $LIBICONV"
@@ -57,6 +69,11 @@ if test "$libiconv_ok" = yes; then
     echo >iconvenc.h
   fi
 else
+  libiconv_ok=no
+fi
+
+else
+  dnl iconv disabled by user
   libiconv_ok=no
 fi
 

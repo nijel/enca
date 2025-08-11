@@ -47,11 +47,13 @@ Optional features:
   then searched in DIR/include and the library itself in DIR/lib.
 
 * Compilation of UNIX98 iconv interface is controlled by
-  `--with-libiconv=[DIR]`, `--without-libiconv`
+  `--with-iconv[=DIR]`, `--without-iconv`
   configure parameters.  It is compiled in by default when found
-  and considered usable.  Optionally, you can specify a DIR; libiconv
+  and considered usable.  Optionally, you can specify a DIR; iconv
   include files will be then searched in DIR/include and the library
-  itself in DIR/lib.
+  itself in DIR/lib.  Additionally, `--with-libiconv-prefix[=DIR]` and
+  `--without-libiconv-prefix` can be used to control the search path
+  for external libiconv library.
 
 * Compilation of interface to external converter programs is controlled by
   `--enable-external`, `--disable-external`
